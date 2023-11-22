@@ -19,8 +19,8 @@ public class Layout {
     public static float photo2Height = 200,             // 5
                         photo2Width = 270;
 
-    public static float rect34Height = 1200,            // 9 i 10
-                        rect34Width = 0;
+    public static float rect34Height = 640,            // 9 i 10
+                        rect34Width = 400;
 
     public static float menuHeight = 740,               // TOTS - 1
                         menuWidth = 360;
@@ -28,8 +28,8 @@ public class Layout {
     public static float botonsTuCuentaHeight = 70,
                         botonsTuCuentaWidth = 550;
 
-    public static float botonAñadirHeight = 0,            // 12
-                        botonAñadirWidth = 0,
-                        botonVolverHeight = 0,            // 11
-                        botonVolverWidth = 0;
+    public static float botonAñadirHeight = 40,            // 12
+                        botonAñadirWidth = 350,
+                        botonVolverHeight = 55,            // 11
+                        botonVolverWidth = 200;
 }

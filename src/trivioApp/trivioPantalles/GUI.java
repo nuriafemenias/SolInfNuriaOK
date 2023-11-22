@@ -67,23 +67,37 @@ public class GUI {
     }
 
     public void dibuixaPantallaCanciones(PApplet p5){
-
+        p5.background(255);
+        dibuixaFullMenu(p5);
+        dibuixaRect34(p5);
     }
 
     public void dibuixaPantallaCalentamiento(PApplet p5){
-
+        p5.background(255);
+        dibuixaFullMenu(p5);
+        dibuixaRect2(p5);
+        dibuixaBotonsCanciones(p5);
     }
 
     public void dibuixaPantallaCoreografia(PApplet p5){
-
+        p5.background(255);
+        dibuixaFullMenu(p5);
+        dibuixaRect2(p5);
+        dibuixaBotonsCanciones(p5);
     }
 
     public void dibuixaPantallaSubListas(PApplet p5){
-
+        p5.background(255);
+        dibuixaFullMenu(p5);
+        dibuixaRect2(p5);
+        dibuixaBotonsCanciones(p5);
     }
 
     public void dibuixaPantallaSubListasCanciones(PApplet p5){
-
+        p5.background(255);
+        dibuixaFullMenu(p5);
+        dibuixaRect2(p5);
+        dibuixaBotonsCanciones(p5);
     }
 
 
@@ -133,14 +147,14 @@ public class GUI {
 
     public void dibuixaRect34(PApplet p5){                     // 9 i 10
         p5.fill(215);
-        p5.rect(margeH, margeV, photo1Width, photo1Height);
-        p5.rect(margeH, margeV, photo1Width, photo1Height);
+        p5.rect(390, margeV, rect34Width, rect34Height, 30);
+        p5.rect(390+rect34Width+50, margeV, rect34Width, rect34Height, 30);
     }
 
     public void dibuixaBotonsCanciones(PApplet p5){           // 11 i 12
         p5.fill(215);
-        //DIBUIXAR DOS BOTONS: 11, 12
-        //EELIPSE, ELLIPSE
+        p5.rect(-10+menuWidth+margeH, margeV+60+rect2Height+25, botonVolverWidth, botonVolverHeight, 30);
+        p5.rect(-10+menuWidth+margeH+500, margeV+60+rect2Height+40, botonAñadirWidth, botonAñadirHeight, 30);
     }
 
     public void dibuixaFullMenu(PApplet p5){
