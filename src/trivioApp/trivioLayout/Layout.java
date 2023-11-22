@@ -25,8 +25,8 @@ public class Layout {
     public static float menuHeight = 740,               // TOTS - 1
                         menuWidth = 360;
 
-    public static float botonsTuCuentaHeight = 20,
-                        botonsTuCuentaWidth = 450;
+    public static float botonsTuCuentaHeight = 70,
+                        botonsTuCuentaWidth = 550;
 
     public static float botonAñadirHeight = 0,            // 12
                         botonAñadirWidth = 0,

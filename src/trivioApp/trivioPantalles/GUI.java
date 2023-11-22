@@ -32,23 +32,38 @@ public class GUI {
     }
 
     public void dibuixaPantallaTusCanciones(PApplet p5){
-
+        p5.background(255);
+        dibuixaFullMenu(p5);
+        dibuixaRect2(p5);
+        dibuixaBotonsTuCuenta(p5);
     }
 
     public void dibuixaPantallaAgregarCancion(PApplet p5){
-
+        p5.background(255);
+        dibuixaFullMenu(p5);
+        dibuixaRect2(p5);
+        dibuixaBotonsTuCuenta(p5);
     }
 
     public void dibuixaPantallaTusListas(PApplet p5){
-
+        p5.background(255);
+        dibuixaFullMenu(p5);
+        dibuixaRect2(p5);
+        dibuixaBotonsTuCuenta(p5);
     }
 
     public void dibuixaPantallaCancionesTusListas(PApplet p5){
-
+        p5.background(255);
+        dibuixaFullMenu(p5);
+        dibuixaRect2(p5);
+        dibuixaBotonsTuCuenta(p5);
     }
 
     public void dibuixaPantallaAgregarLista(PApplet p5){
-
+        p5.background(255);
+        dibuixaFullMenu(p5);
+        dibuixaRect2(p5);
+        dibuixaBotonsTuCuenta(p5);
     }
 
     public void dibuixaPantallaCanciones(PApplet p5){
@@ -113,7 +128,7 @@ public class GUI {
 
     public void dibuixaBotonsTuCuenta(PApplet p5){             // 8
         p5.fill(230);
-        p5.rect(-10+menuWidth+margeH+200, margeV+60+rect2Height+20, botonsTuCuentaWidth, botonsTuCuentaHeight, 30);
+        p5.rect(-10+menuWidth+margeH+150, margeV+60+rect2Height+30, botonsTuCuentaWidth, botonsTuCuentaHeight, 30);
     }
 
     public void dibuixaRect34(PApplet p5){                     // 9 i 10
