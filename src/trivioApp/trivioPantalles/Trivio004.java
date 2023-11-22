@@ -113,6 +113,5 @@ public class Trivio004 extends PApplet {
         else if(key=='w'|| key=='W'){
             gui.pantallaActual = GUI.PANTALLA.subListasCanciones;
         }
-        ////////////////////7
     }
 }

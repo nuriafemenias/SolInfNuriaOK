@@ -25,7 +25,10 @@ public class GUI {
     }
 
     public void dibuixaPantallaFavoritos(PApplet p5){
+        p5.background(255);
         dibuixaFullMenu(p5);
+        dibuixaRect2(p5);
+        dibuixaBotonsTuCuenta(p5);
     }
 
     public void dibuixaPantallaTusCanciones(PApplet p5){
@@ -78,38 +81,39 @@ public class GUI {
 
     public void dibuixaRect1(PApplet p5){                      // 2
         p5.fill(200);
-        p5.rect(margeH+photo1Width+40, margeV+usuariRadi+40, rect1Width, rect1Height, 30);
+        p5.rect(margeH+photo1Width+margeH, margeV+usuariRadi+margeV, rect1Width, rect1Height, 30);
     }
 
     public void dibuixaUsuari(PApplet p5){                    // 3
         p5.fill(200);
         p5.ellipseMode(p5.CENTER);
-        p5.ellipse(margeH+photo1Width+40+(rect1Width/2), margeV+(usuariRadi/2), usuariRadi, usuariRadi);
+        p5.ellipse(margeH+photo1Width+margeH+(rect1Width/2), margeV+(usuariRadi/2), usuariRadi, usuariRadi);
     }
 
     public void dibuixaUsuariMenu(PApplet p5){                // 4
-        p5.fill(215);
-        p5.rect(margeH, margeV, usuariRadi, usuariRadi);
+        p5.fill(190);
+        p5.ellipse(margeH+(photo2Width/2), margeV+((usuariRadi+10)/2), usuariRadi+10, usuariRadi+10);
     }
 
     public void dibuixaPhoto2(PApplet p5){                    // 5
-        p5.fill(215);
-        p5.rect(margeH, margeV, photo2Width, photo2Height);
+        p5.fill(190);
+        p5.rect(margeH, menuHeight-photo2Height-margeV-10, photo2Width, photo2Height);
     }
 
     public void dibuixaMenu(PApplet p5){                      // 6
-        p5.fill(215);
-        p5.rect(margeH, margeV, photo1Width, photo1Height);
+        p5.fill(230);
+        p5.strokeWeight(2); p5.stroke(0);
+        p5.rect(-10, -10, menuWidth, menuHeight);
     }
 
     public void dibuixaRect2(PApplet p5){                      // 7
-        p5.fill(215);
-        p5.rect(margeH, margeV, photo1Width, photo1Height);
+        p5.fill(230);
+        p5.rect(-10+menuWidth+margeH, margeV+60, rect2Width, rect2Height, 30);
     }
 
     public void dibuixaBotonsTuCuenta(PApplet p5){             // 8
-        p5.fill(215);
-        p5.rect(margeH, margeV, photo1Width, photo1Height);
+        p5.fill(230);
+        p5.rect(-10+menuWidth+margeH+200, margeV+60+rect2Height+20, botonsTuCuentaWidth, botonsTuCuentaHeight, 30);
     }
 
     public void dibuixaRect34(PApplet p5){                     // 9 i 10
@@ -125,11 +129,10 @@ public class GUI {
     }
 
     public void dibuixaFullMenu(PApplet p5){
-        p5.fill(220);
-        dibuixaMenu(p5);
-        p5.fill(200);
-        dibuixaPhoto2(p5);
-        p5.fill(20);
-        dibuixaUsuariMenu(p5);
+        p5.pushStyle();
+            dibuixaMenu(p5);
+        p5.popStyle();
+            dibuixaPhoto2(p5);
+            dibuixaUsuariMenu(p5);
     }
 }
