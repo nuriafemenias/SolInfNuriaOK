@@ -7,9 +7,9 @@ import static balletApp.balletLayout.Layout.*;
 public class GUI {
 
     public enum PANTALLA {registro, Favoritos, TusCanciones, agregarCanción,
-        TusListas, cancionesTusListas, agregarLista,
-        Canciones, Calentamiento, Coreografia, subListas,
-        subListasCanciones};
+                          TusListas, cancionesTusListas, agregarLista,
+                          Canciones, Calentamiento, Coreografia, subListas,
+                          subListasCanciones};
 
     public PANTALLA pantallaActual;
 
@@ -159,9 +159,9 @@ public class GUI {
 
     public void dibuixaFullMenu(PApplet p5){
         p5.pushStyle();
-        dibuixaMenu(p5);
+            dibuixaMenu(p5);
         p5.popStyle();
-        dibuixaPhoto2(p5);
-        dibuixaUsuariMenu(p5);
+            dibuixaPhoto2(p5);
+            dibuixaUsuariMenu(p5);
     }
 }

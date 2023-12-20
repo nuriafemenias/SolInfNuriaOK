@@ -1,22 +1,37 @@
-package balletApp.balletPantalles;
+package balletApp.balletBotons;
 
+//import gui.Button; ?????????????????????????????
 import processing.core.PApplet;
-
 import static balletApp.balletLayout.Layout.*;
 
 public class GUI {
 
+    // Enumerat de les Pantalles de l'App
     public enum PANTALLA {registro, Favoritos, TusCanciones, agregarCanción,
         TusListas, cancionesTusListas, agregarLista,
         Canciones, Calentamiento, Coreografia, subListas,
         subListasCanciones};
 
+    // Pantalla Actual
     public PANTALLA pantallaActual;
 
-    public GUI(){
+    // Components de la GUI
+    Button b1, b2;
+
+    // Constructor
+    public GUI(PApplet p5){
         pantallaActual = PANTALLA.registro;
+
+        // Inicialització dels botons
+        b1 = new Button(p5, "Hola", 30, 50 , 70, 100);
+        b2 = new Button(p5, "Adeu", 400, 700, 200, 300);
     }
 
+
+
+
+
+    // PANTALLES
     public void dibuixaPantallaRegistro(PApplet p5){
         p5.background(255);
         dibuixaPhoto1(p5);
@@ -164,4 +179,5 @@ public class GUI {
         dibuixaPhoto2(p5);
         dibuixaUsuariMenu(p5);
     }
+
 }
