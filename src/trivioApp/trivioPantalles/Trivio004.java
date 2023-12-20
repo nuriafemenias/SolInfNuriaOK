@@ -3,7 +3,7 @@ package trivioApp.trivioPantalles;
 import processing.core.PApplet;
 
 public class Trivio004 extends PApplet {
-
+////
     GUI gui;
 
     public static void main(String[] args) {
