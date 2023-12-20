@@ -2,11 +2,11 @@ package balletApp.oldstaff.balletFonts;
 
 import processing.core.PApplet;
 
-public class ballet002 extends PApplet{
+public class Trivio002 extends PApplet{
     Fonts fontsApp;
 
     public static void main(String[] args){
-        PApplet.main("balletApp.oldstaff.balletFonts.ballet002", args);
+        PApplet.main("trivioApp.trivioFonts.Trivio002", args);
     }
 
     public void settings(){

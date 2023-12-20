@@ -2,12 +2,12 @@ package balletApp.oldstaff.balletPantalles;
 
 import processing.core.PApplet;
 
-public class ballet004 extends PApplet {
-
+public class Trivio004 extends PApplet {
+////
     GUI gui;
 
     public static void main(String[] args) {
-        PApplet.main("balletApp.oldstaff.balletPantalles.ballet004", args);
+        PApplet.main("trivioApp.trivioPantalles.Trivio004", args);
     }
 
     public void settings() {

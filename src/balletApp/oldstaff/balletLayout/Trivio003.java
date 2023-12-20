@@ -2,15 +2,10 @@ package balletApp.oldstaff.balletLayout;
 
 import processing.core.PApplet;
 
-import static balletApp.oldstaff.balletPantalles.GUI.*;
-import static balletApp.oldstaff.balletPantalles.Trivio004.*;
-
-import static balletApp.oldstaff.balletLayout.Layout.*;
-
-public class ballet003 extends PApplet {
+public class Trivio003 extends PApplet {
 
     public static void main(String[] args) {
-        PApplet.main("balletApp.oldstaff.balletLayout.ballet003", args);
+        PApplet.main("trivioApp.trivioLayout.Trivio003", args);
     }
 
     public void settings() {
@@ -26,9 +21,9 @@ public class ballet003 extends PApplet {
 
     public void draw() {
         //switch(trivioApp.trivioPantalles.GUI.pantallaActual){
-        //case registro:   gui.dibuixaPantallaInicial(this);
-        //  break;
-        //  }
+            //case registro:   gui.dibuixaPantallaInicial(this);
+              //  break;
+      //  }
     }
 
     public void keyPressed(){

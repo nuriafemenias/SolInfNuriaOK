@@ -1,18 +1,9 @@
 
-//     this.colors[0] = p5.color(0x802326);
-                //     this.colors[1] = p5.color(0x8D3901);
-                //     this.colors[2] = p5.color(0xF7A1A4);
-                //    this.colors[3] = p5.color(0xFBBCA9);
-                //    this.colors[4] = p5.color(0xFDC9AB);
-                //   this.colors[5] = p5.color(0xFFD6AD);
-                //this.colors[6] = p5.color(0xFFE1C2);
-        //this.colors[7] = p5.color(0xFFECD6);
+package balletApp.balletOK;
 
-        package balletApp.oldstaff.balletColors;
+import processing.core.PApplet;
 
-        import processing.core.PApplet;
-
-        public class Colors {
+public class Colors {
 
             int[] colors;
 

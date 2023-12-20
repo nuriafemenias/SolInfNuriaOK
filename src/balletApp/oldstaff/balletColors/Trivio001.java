@@ -4,7 +4,7 @@ import processing.core.PApplet;
 
 import static balletApp.oldstaff.balletColors.Mides.midaCercle;
 
-public class ballet001 extends PApplet {
+public class Trivio001 extends PApplet {
 
     // Colors de l'App
     Colors appColors;
@@ -13,7 +13,7 @@ public class ballet001 extends PApplet {
     Cercle c1, c2, c3;
 
     public static void main(String[] args) {
-        PApplet.main("balletApp.oldstaff.balletColors.ballet001", args);
+        PApplet.main("trivioApp.trivioColors.Trivio001", args);
     }
 
     public void settings(){

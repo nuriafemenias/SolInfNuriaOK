@@ -1,11 +1,13 @@
-package balletApp.oldstaff.balletPantalles;
+package balletApp.balletOK;
 
+import balletApp.balletOK.gui.Button;
+import balletApp.balletOK.gui.MusicPlayer;
+import balletApp.balletOK.gui.TextField;
 import processing.core.PApplet;
 
 import static balletApp.oldstaff.balletLayout.Layout.*;
 
 public class GUI {
-
     public enum PANTALLA {registro, Favoritos, TusCanciones, agregarCanción,
         TusListas, cancionesTusListas, agregarLista,
         Canciones, Calentamiento, Coreografia, subListas,
@@ -13,8 +15,35 @@ public class GUI {
 
     public PANTALLA pantallaActual;
 
-    public GUI(){
+    Colors colores;
+    Fonts fonts;
+
+    // Declaració dels components de la GUI
+    Button b1;
+    // Music Player
+    MusicPlayer mp;
+
+    TextField tf1;
+
+
+    public GUI(PApplet p5){
+
+        colores = new Colors(p5);
+        fonts = new Fonts(p5);
         pantallaActual = PANTALLA.registro;
+
+        // Inicialització de components (botons)
+        b1 = new Button(p5, "RED", 40, 400, 250, 100);
+        b1.setColors(colores.getFirstColor(), colores.getSecondColor(), colores.getThirdColor(), colores.getColorAt(3));
+        b1.setFont(fonts.getFirstFont());
+
+        // Creació del Music Player
+        mp = new MusicPlayer(p5,120, p5.height/3);
+        mp.setSound(p5, "saxo.wav");
+
+        tf1 = new TextField(p5, 200, 200, 400, 40);
+        tf1.setColors(colores.getFirstColor(), colores.getSecondColor(), colores.getThirdColor(), colores.getColorAt(3));
+        tf1.setFont(fonts.getFirstFont());
     }
 
     public void dibuixaPantallaRegistro(PApplet p5){
@@ -22,6 +51,8 @@ public class GUI {
         dibuixaPhoto1(p5);
         dibuixaUsuari(p5);
         dibuixaRect1(p5);
+        b1.display(p5);
+        tf1.display(p5);
     }
 
     public void dibuixaPantallaFavoritos(PApplet p5){
@@ -77,6 +108,8 @@ public class GUI {
         dibuixaFullMenu(p5);
         dibuixaRect2(p5);
         dibuixaBotonsCanciones(p5);
+        // Dibuixa el MusicPlayer
+        mp.display(p5);
     }
 
     public void dibuixaPantallaCoreografia(PApplet p5){
