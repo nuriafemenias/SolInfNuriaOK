@@ -32,18 +32,20 @@ public class GUI {
         fonts = new Fonts(p5);
         pantallaActual = PANTALLA.registro;
 
-        // Inicialització de components (botons)
-        b1 = new Button(p5, "RED", 40, 400, 250, 100);
+    // Creació de components (inicialització)
+        // Creació dels Botons
+        b1 = new Button(p5, "RED", 430, 200, 810, 40);
         b1.setColors(colores.getFirstColor(), colores.getSecondColor(), colores.getThirdColor(), colores.getColorAt(3));
-        b1.setFont(fonts.getFirstFont());
+        b1.setFont(fonts.getThirdFont());
 
         // Creació del Music Player
         mp = new MusicPlayer(p5,120, p5.height/3);
         mp.setSound(p5, "saxo.wav");
 
-        tf1 = new TextField(p5, 200, 200, 400, 40);
+        // Creació del Text Field
+        tf1 = new TextField(p5, 430, 200, 810, 40);
         tf1.setColors(colores.getFirstColor(), colores.getSecondColor(), colores.getThirdColor(), colores.getColorAt(3));
-        tf1.setFont(fonts.getFirstFont());
+        tf1.setFont(fonts.getThirdFont());
     }
 
     public void dibuixaPantallaRegistro(PApplet p5){
@@ -51,7 +53,7 @@ public class GUI {
         dibuixaPhoto1(p5);
         dibuixaUsuari(p5);
         dibuixaRect1(p5);
-        b1.display(p5);
+        //b1.display(p5);
         tf1.display(p5);
     }
 

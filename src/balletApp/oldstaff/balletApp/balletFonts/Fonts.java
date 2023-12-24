@@ -1,9 +1,9 @@
-package balletApp.balletOK;
+package balletApp.oldstaff.balletApp.balletFonts;
 
 import processing.core.PApplet;
 import processing.core.PFont;
 
-import static balletApp.balletOK.Mides.*;
+import static balletApp.oldstaff.balletApp.balletFonts.Mides.*;
 
 public class Fonts {
     PFont[] fonts;
@@ -24,24 +24,24 @@ public class Fonts {
         return this.fonts.length;
     }
 
-    PFont getFirstFont(){
+    public PFont getFirstFont(){
         return  this.fonts[0];
     }
 
-    PFont getSecondFont(){
+    public PFont getSecondFont(){
         return  this.fonts[1];
     }
 
-    PFont getThirdFont(){
+    public PFont getThirdFont(){
         return  this.fonts[2];
     }
 
-    PFont getFontAt(int i){
+    public PFont getFontAt(int i){
         return this.fonts[i];
     }
 
 
-    void displayFonts(PApplet p5, float x, float y, float h){
+    public void displayFonts(PApplet p5, float x, float y, float h){
         p5.pushStyle();
         for(int i=0; i<getNumFonts(); i++){
             p5.fill(0); p5.stroke(0); p5.strokeWeight(3);

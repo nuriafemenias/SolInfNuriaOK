@@ -5,7 +5,7 @@ import processing.core.PApplet;
 public class Trivio003 extends PApplet {
 
     public static void main(String[] args) {
-        PApplet.main("trivioApp.trivioLayout.Trivio003", args);
+        PApplet.main("balletApp.oldstaff.balletApp.balletLayout.Trivio003", args);
     }
 
     public void settings() {
