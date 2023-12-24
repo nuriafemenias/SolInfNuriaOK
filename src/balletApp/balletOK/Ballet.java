@@ -27,51 +27,51 @@ public class Ballet extends PApplet {
         // Dibuixa la pantalla corresponent
             switch (gui.pantallaActual) {
                 case registro:
-                    gui.dibuixaPantallaRegistro(this);
+                    gui.dibujaPantallaRegistro(this);
                     break;
 
                 case Favoritos:
-                    gui.dibuixaPantallaFavoritos(this);
+                    gui.dibujaPantallaFavoritos(this);
                     break;
 
                 case TusCanciones:
-                    gui.dibuixaPantallaTusCanciones(this);
+                    gui.dibujaPantallaTusCanciones(this);
                     break;
 
                 case agregarCanción:
-                    gui.dibuixaPantallaAgregarCancion(this);
+                    gui.dibujaPantallaAgregarCancion(this);
                     break;
 
                 case TusListas:
-                    gui.dibuixaPantallaTusListas(this);
+                    gui.dibujaPantallaTusListas(this);
                     break;
 
                 case cancionesTusListas:
-                    gui.dibuixaPantallaCancionesTusListas(this);
+                    gui.dibujaPantallaCancionesTusListas(this);
                     break;
 
                 case agregarLista:
-                    gui.dibuixaPantallaAgregarLista(this);
+                    gui.dibujaPantallaAgregarLista(this);
                     break;
 
                 case Canciones:
-                    gui.dibuixaPantallaCanciones(this);
+                    gui.dibujaPantallaCanciones(this);
                     break;
 
                 case Calentamiento:
-                    gui.dibuixaPantallaCalentamiento(this);
+                    gui.dibujaPantallaCalentamiento(this);
                     break;
 
                 case Coreografia:
-                    gui.dibuixaPantallaCoreografia(this);
+                    gui.dibujaPantallaCoreografia(this);
                     break;
 
                 case subListas:
-                    gui.dibuixaPantallaSubListas(this);
+                    gui.dibujaPantallaSubListas(this);
                     break;
 
                 case subListasCanciones:
-                    gui.dibuixaPantallaSubListasCanciones(this);
+                    gui.dibujaPantallaSubListasCanciones(this);
                     break;
             }
 
@@ -116,6 +116,10 @@ public class Ballet extends PApplet {
             }
 
             gui.tf1.keyPressed(key, keyCode);
+            gui.tf2.keyPressed(key, keyCode);
+            gui.tf3.keyPressed(key, keyCode);
+            gui.tf4.keyPressed(key, keyCode);
+            gui.tf5.keyPressed(key, keyCode);
         }
 
         public void mousePressed() {
@@ -125,6 +129,10 @@ public class Ballet extends PApplet {
                     println("HAS FET CLIC SOBRE EL BOTÓ B1");
                 }
                 gui.tf1.isPressed(this);
+                gui.tf2.isPressed(this);
+                gui.tf3.isPressed(this);
+                gui.tf4.isPressed(this);
+                gui.tf5.isPressed(this);
             }
 
             if(gui.pantallaActual==GUI.PANTALLA.Calentamiento){
