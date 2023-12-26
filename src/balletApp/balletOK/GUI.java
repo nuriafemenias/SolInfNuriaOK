@@ -2,8 +2,10 @@ package balletApp.balletOK;
 
 import balletApp.balletOK.gui.Button;
 import balletApp.balletOK.gui.MusicPlayer;
+import balletApp.balletOK.gui.RoundButton;
 import balletApp.balletOK.gui.TextField;
 import processing.core.PApplet;
+import processing.core.PImage;
 
 import static balletApp.balletOK.Mides.*;
 
@@ -20,9 +22,9 @@ public class GUI {
 
     // Declaració dels components de la GUI
     Button b1,b2, b3, b4;
-    // Music Player
+    RoundButton rb1, rb2, rb3;
+    PImage icono1, icono2, icono3;
     MusicPlayer mp;
-
     TextField tf1, tf2, tf3, tf4, tf5;
 
 
@@ -48,7 +50,20 @@ public class GUI {
         b4 = new Button(p5, "Canciones", 50, margeV+usuariRadi+10+80+30+70, 250, 70);
         b4.setColors(colores.getColorAt(0), 0, colores.getColorAt(2), colores.getColorAt(3));
         //b1.setFont(fonts.getSecondFont());
+
+
+//ICONOS --> https://www.flaticon.es/
+
+        // Creació del RoundButton
             //botonsTuCuenta
+                    this.setMedia(p5);  // Carrega les imatges
+                    // Inicialització de components (botons)
+        rb1 = new RoundButton(p5, icono1, 540+35, margeV+60+rect2Height+30+35, 35);
+        rb1.setColors(colores.getColorAt(0), 0, colores.getColorAt(2), colores.getColorAt(3));
+        rb2 = new RoundButton(p5, icono2, (540+35+540+550-35)/2, margeV+60+rect2Height+30+35, 35);
+        rb2.setColors(colores.getColorAt(0), 0, colores.getColorAt(2), colores.getColorAt(3));
+        rb3 = new RoundButton(p5, icono3, 540+550-35, margeV+60+rect2Height+30+35, 35);
+        rb3.setColors(colores.getColorAt(0), 0, colores.getColorAt(2), colores.getColorAt(3));
 
 
 
@@ -75,6 +90,20 @@ public class GUI {
         tf5 = new TextField(p5, 440, 220+4*40+4*20, 550, 40);
         tf5.setColors(colores.getColorAt(5), 0, 0, colores.getColorAt(2));
         tf5.setFont(fonts.getThirdFont());
+    }
+
+    // Carrega els elements multimedia que utilitzen els components del GUI
+    public void setMedia(PApplet p5){
+        //p5.scale(0.5f, 0.5f); ??????????????????????????????????? Fer imatge més petita ?????????????????????????????????????
+        icono1 = p5.loadImage("Favoritos.png"); // https://www.flaticon.es/icono-gratis/estrella_1828970?related_id=1828884&origin=search ; https://www.flaticon.es/icono-gratis/amor_5007082?related_id=5011077&origin=search
+        icono2 = p5.loadImage("TusCanciones.png"); // https://www.flaticon.es/icono-gratis/musica_4498848?related_id=4498154&origin=search ; https://www.flaticon.es/icono-gratis/lista-de-reproduccion_2585136
+        icono3 = p5.loadImage("TusListas.png"); // https://www.flaticon.es/icono-gratis/cancion_6499489 ; https://www.flaticon.es/icono-gratis/letras-de-canciones_10476137?related_id=10476143&origin=search ; https://www.flaticon.es/icono-gratis/lista-de-verificacion_10396949
+    }
+
+    public void dibujaBotonsTuCuentaRB(PApplet p5){
+        rb1.display(p5);
+        rb2.display(p5);
+        rb3.display(p5);
     }
 
     public void dibujaPantallaRegistro(PApplet p5){
@@ -112,6 +141,7 @@ public class GUI {
         dibujaRect2(p5);
         dibujaBotonsTuCuenta(p5);
         // Botones y otros
+        dibujaBotonsTuCuentaRB(p5);
     }
 
     public void dibujaPantallaTusCanciones(PApplet p5){
@@ -121,6 +151,7 @@ public class GUI {
         dibujaRect2(p5);
         dibujaBotonsTuCuenta(p5);
         // Botones y otros
+        dibujaBotonsTuCuentaRB(p5);
     }
 
     public void dibujaPantallaAgregarCancion(PApplet p5){
@@ -130,6 +161,7 @@ public class GUI {
         dibujaRect2(p5);
         dibujaBotonsTuCuenta(p5);
         // Botones y otros
+        dibujaBotonsTuCuentaRB(p5);
     }
 
     public void dibujaPantallaTusListas(PApplet p5){
@@ -139,6 +171,7 @@ public class GUI {
         dibujaRect2(p5);
         dibujaBotonsTuCuenta(p5);
         // Botones y otros
+        dibujaBotonsTuCuentaRB(p5);
     }
 
     public void dibujaPantallaCancionesTusListas(PApplet p5){
@@ -148,6 +181,7 @@ public class GUI {
         dibujaRect2(p5);
         dibujaBotonsTuCuenta(p5);
         // Botones y otros
+        dibujaBotonsTuCuentaRB(p5);
     }
 
     public void dibujaPantallaAgregarLista(PApplet p5){
@@ -157,6 +191,7 @@ public class GUI {
         dibujaRect2(p5);
         dibujaBotonsTuCuenta(p5);
         // Botones y otros
+        dibujaBotonsTuCuentaRB(p5);
     }
 
     public void dibujaPantallaCanciones(PApplet p5){

@@ -139,6 +139,16 @@ public class Ballet extends PApplet {
                 // Comprova si pitjam sobre els botons del MusicPlayer
                 gui.mp.checkButtons(this);
             }
+
+            if (gui.rb1.mouseOverButton(this)){
+                println("HAS FET CLIC SOBRE EL BOTÓ RB1");
+            }
+            if (gui.rb2.mouseOverButton(this)){
+                println("HAS FET CLIC SOBRE EL BOTÓ RB2");
+            }
+            if (gui.rb3.mouseOverButton(this)){
+                println("HAS FET CLIC SOBRE EL BOTÓ RB3");
+            }
         }
 
         public void mouseDragged() {
