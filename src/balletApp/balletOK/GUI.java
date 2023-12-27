@@ -4,10 +4,12 @@ import balletApp.balletOK.gui.Button;
 import balletApp.balletOK.gui.MusicPlayer;
 import balletApp.balletOK.gui.RoundButton;
 import balletApp.balletOK.gui.TextField;
-import processing.core.PApplet;
+import balletApp.balletOK.gui.Table;
+import balletApp.balletOK.gui.PagedTable;
 import processing.core.PImage;
-
 import static balletApp.balletOK.Mides.*;
+import processing.core.PApplet;
+
 
 public class GUI {
     public enum PANTALLA {registro, Favoritos, TusCanciones, agregarCanción,
@@ -26,6 +28,50 @@ public class GUI {
     PImage icono1, icono2, icono3;
     MusicPlayer mp;
     TextField tf1, tf2, tf3, tf4, tf5;
+
+    // Propietats de "PagedTable" (taules)
+    // Elements de la Interfície Gràfica (Table)
+    // Botons
+    Button b11, b22;
+
+    // Dimensions dels botons
+    float buttonW = 60, buttonH = 60;
+
+    // Taula Paginada
+    PagedTable t;
+
+    // Dimensions de la taula
+    float tableW = rect2Width, tableH = rect2Height;
+
+    // Número de files (capçalera inclosa) i columnes de la taula
+    int files = 7, columnes = 5;
+
+    // Títols de les columnes
+    String[] headers = {"Id", "Nom", "Llinatges", "Edat", "Sexe"};
+
+    // Amplades de les columnes
+    float[] colWidths = {10, 20, 40, 10, 20};
+
+    // Dades de la taula
+    String[][] info = {
+            {"1", "Pere", "Soler Miralles", "33", "Home"},
+            {"2", "Maria", "Garcia Lopez", "25", "Dona"},
+            {"3", "Joan", "Melis Cabrer", "47", "Home"},
+            {"4", "Bel", "Riera Mates", "52", "Dona"},
+            {"5", "Jose", "Perez Galdós", "37", "Home"},
+            {"6", "Pere", "Soler Miralles", "33", "Home"},
+            {"7", "Maria", "Garcia Lopez", "25", "Dona"},
+            {"8", "Joan", "Melis Cabrer", "47", "Home"},
+            {"9", "Bel", "Riera Mates", "52", "Dona"},
+            {"10", "Jose", "Perez Galdós", "37", "Home"},
+            {"11", "Pere", "Soler Miralles", "33", "Home"},
+            {"12", "Maria", "Garcia Lopez", "25", "Dona"},
+            {"13", "Joan", "Melis Cabrer", "47", "Home"},
+            {"14", "Bel", "Riera Mates", "52", "Dona"},
+            {"15", "Jose", "Perez Galdós", "37", "Home"},
+            {"16", "Pepe", "Viyuela Lopez", "42", "Home"},
+    };
+
 
 
     public GUI(PApplet p5){
@@ -90,7 +136,29 @@ public class GUI {
         tf5 = new TextField(p5, 440, 220+4*40+4*20, 550, 40);
         tf5.setColors(colores.getColorAt(5), 0, 0, colores.getColorAt(2));
         tf5.setFont(fonts.getThirdFont());
+
+
+        // Creació de les Taules paginades
+        // Creació de la taula 1
+        t = new PagedTable(files, columnes);
+        t.setHeaders(headers);
+        t.setData(info);
+        t.setColumnWidths(colWidths);
+        // Creació dels botons 1
+        b11 = new Button(p5, "NEXT", 25 + tableW/2 + buttonW/1.5f, tableH + 80, buttonW, buttonH);
+        b11.setColors(colores.getColorAt(5), 0, colores.getColorAt(2), colores.getColorAt(2));
+        b22 = new Button(p5, "PREV", 25 + tableW/2 - buttonW/1.5f, tableH + 80, buttonW, buttonH);
+        b22.setColors(colores.getColorAt(5), 0, colores.getColorAt(2), colores.getColorAt(2));
+
+
     }
+
+
+
+
+
+
+
 
     // Carrega els elements multimedia que utilitzen els components del GUI
     public void setMedia(PApplet p5){
@@ -125,7 +193,7 @@ public class GUI {
     public void dibujaFullMenu(PApplet p5){
         // Pantalla
         p5.pushStyle();
-        dibujaMenu(p5);
+            dibujaMenu(p5);
         p5.popStyle();
         dibujaPhoto2(p5);
         dibujaUsuariMenu(p5);
@@ -142,7 +210,15 @@ public class GUI {
         dibujaBotonsTuCuenta(p5);
         // Botones y otros
         dibujaBotonsTuCuentaRB(p5);
+        p5.pushStyle();
+            // Dibuixa la Table
+            t.display(p5, 50, 50, tableW, tableH);
+            // Dibuixa els botons
+            b11.display(p5);
+            b22.display(p5);
+        p5.popStyle();
     }
+
 
     public void dibujaPantallaTusCanciones(PApplet p5){
         // Pantalla
