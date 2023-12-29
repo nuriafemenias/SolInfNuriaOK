@@ -4,7 +4,6 @@ import balletApp.balletOK.gui.Button;
 import balletApp.balletOK.gui.MusicPlayer;
 import balletApp.balletOK.gui.RoundButton;
 import balletApp.balletOK.gui.TextField;
-import balletApp.balletOK.gui.Table;
 import balletApp.balletOK.gui.PagedTable;
 import processing.core.PImage;
 import static balletApp.balletOK.Mides.*;
@@ -23,54 +22,54 @@ public class GUI {
     Fonts fonts;
 
     // Declaració dels components de la GUI
-    Button b1,b2, b3, b4;
-    RoundButton rb1, rb2, rb3;
-    PImage icono1, icono2, icono3;
+    Button b1,b2, b3, b4, b5, b6;
+    RoundButton rb1, rb11, rb2, rb3, rb4;
+    PImage icono1, icono2, icono3, icono4;
     MusicPlayer mp;
     TextField tf1, tf2, tf3, tf4, tf5;
 
     // Propietats de "PagedTable" (taules)
     // Elements de la Interfície Gràfica (Table)
     // Botons
-    Button b11, b22;
+        public Button b11, b22;
 
-    // Dimensions dels botons
-    float buttonW = 60, buttonH = 60;
+        // Dimensions dels botons
+        float buttonW = 60, buttonH = 30;
 
-    // Taula Paginada
-    PagedTable t;
+        // Taula Paginada
+        public PagedTable t1;
 
-    // Dimensions de la taula
-    float tableW = rect2Width, tableH = rect2Height;
+        // Dimensions de la taula
+        float tableW = rect2Width, tableH = rect2Height-60;
 
-    // Número de files (capçalera inclosa) i columnes de la taula
-    int files = 7, columnes = 5;
+        // Número de files (capçalera inclosa) i columnes de la taula
+        int files = 7, columnes = 3;
 
-    // Títols de les columnes
-    String[] headers = {"Id", "Nom", "Llinatges", "Edat", "Sexe"};
+        // Títols de les columnes
+        String[] headers = {"Categoría", "Subcategoría", "Título"};
 
-    // Amplades de les columnes
-    float[] colWidths = {10, 20, 40, 10, 20};
+        // Amplades de les columnes
+        float[] colWidths = {20, 30, 50};
 
-    // Dades de la taula
-    String[][] info = {
-            {"1", "Pere", "Soler Miralles", "33", "Home"},
-            {"2", "Maria", "Garcia Lopez", "25", "Dona"},
-            {"3", "Joan", "Melis Cabrer", "47", "Home"},
-            {"4", "Bel", "Riera Mates", "52", "Dona"},
-            {"5", "Jose", "Perez Galdós", "37", "Home"},
-            {"6", "Pere", "Soler Miralles", "33", "Home"},
-            {"7", "Maria", "Garcia Lopez", "25", "Dona"},
-            {"8", "Joan", "Melis Cabrer", "47", "Home"},
-            {"9", "Bel", "Riera Mates", "52", "Dona"},
-            {"10", "Jose", "Perez Galdós", "37", "Home"},
-            {"11", "Pere", "Soler Miralles", "33", "Home"},
-            {"12", "Maria", "Garcia Lopez", "25", "Dona"},
-            {"13", "Joan", "Melis Cabrer", "47", "Home"},
-            {"14", "Bel", "Riera Mates", "52", "Dona"},
-            {"15", "Jose", "Perez Galdós", "37", "Home"},
-            {"16", "Pepe", "Viyuela Lopez", "42", "Home"},
-    };
+        // Dades de la taula
+        String[][] info = {
+                {"1", "Pere", "Soler Miralles"},
+                {"2", "Maria", "Garcia Lopez"},
+                {"3", "Joan", "Melis Cabrer"},
+                {"4", "Bel", "Riera Mates"},
+                {"5", "Jose", "Perez Galdós"},
+                {"6", "Pere", "Soler Miralles"},
+                {"7", "Maria", "Garcia Lopez"},
+                {"8", "Joan", "Melis Cabrer"},
+                {"9", "Bel", "Riera Mates"},
+                {"10", "Jose", "Perez Galdós"},
+                {"11", "Pere", "Soler Miralles"},
+                {"12", "Maria", "Garcia Lopez",},
+                {"13", "Joan", "Melis Cabrer"},
+                {"14", "Bel", "Riera Mates"},
+                {"15", "Jose", "Perez Galdós"},
+                {"16", "Pepe", "Viyuela Lopez"},
+        };
 
 
 
@@ -95,7 +94,10 @@ public class GUI {
         //b3.setFont(fonts.getSecondFont());
         b4 = new Button(p5, "Canciones", 50, margeV+usuariRadi+10+80+30+70, 250, 70);
         b4.setColors(colores.getColorAt(0), 0, colores.getColorAt(2), colores.getColorAt(3));
-        //b1.setFont(fonts.getSecondFont());
+        //b4.setFont(fonts.getSecondFont());
+            //dibuijaPantallaRegistro
+        b5 = new Button(p5, "Agregar canción", 390+(rect2Width-300), 100+rect2Height-40, 300, 40);
+        b6 = new Button(p5, "Agregar lista", 390+(rect2Width-300), 100+rect2Height-40, 300, 40);
 
 
 //ICONOS --> https://www.flaticon.es/
@@ -104,12 +106,14 @@ public class GUI {
             //botonsTuCuenta
                     this.setMedia(p5);  // Carrega les imatges
                     // Inicialització de components (botons)
-        rb1 = new RoundButton(p5, icono1, 540+35, margeV+60+rect2Height+30+35, 35);
-        rb1.setColors(colores.getColorAt(0), 0, colores.getColorAt(2), colores.getColorAt(3));
-        rb2 = new RoundButton(p5, icono2, (540+35+540+550-35)/2, margeV+60+rect2Height+30+35, 35);
+        rb1 = new RoundButton(p5, icono1, margeH+(photo2Width/2), margeV+((usuariRadi)/2+15), usuariRadi-55);
+        rb11 = new RoundButton(p5, icono1, margeH+photo1Width+margeH+(rect1Width/2), margeV+(usuariRadi/2)+10, usuariRadi-55);
+        rb2 = new RoundButton(p5, icono2, 540+35, margeV+60+rect2Height+30+35, 35);
         rb2.setColors(colores.getColorAt(0), 0, colores.getColorAt(2), colores.getColorAt(3));
-        rb3 = new RoundButton(p5, icono3, 540+550-35, margeV+60+rect2Height+30+35, 35);
+        rb3 = new RoundButton(p5, icono3, (540+35+540+550-35)/2, margeV+60+rect2Height+30+35, 35);
         rb3.setColors(colores.getColorAt(0), 0, colores.getColorAt(2), colores.getColorAt(3));
+        rb4 = new RoundButton(p5, icono4, 540+550-35, margeV+60+rect2Height+30+35, 35);
+        rb4.setColors(colores.getColorAt(0), 0, colores.getColorAt(2), colores.getColorAt(3));
 
 
 
@@ -140,17 +144,15 @@ public class GUI {
 
         // Creació de les Taules paginades
         // Creació de la taula 1
-        t = new PagedTable(files, columnes);
-        t.setHeaders(headers);
-        t.setData(info);
-        t.setColumnWidths(colWidths);
+        t1 = new PagedTable(files, columnes);
+        t1.setHeaders(headers);
+        t1.setData(info);
+        t1.setColumnWidths(colWidths);
         // Creació dels botons 1
-        b11 = new Button(p5, "NEXT", 25 + tableW/2 + buttonW/1.5f, tableH + 80, buttonW, buttonH);
+        b11 = new Button(p5, ">", 390 + tableW/2 + 10 + buttonW - buttonW/2, tableH + 130, buttonW, buttonH);
         b11.setColors(colores.getColorAt(5), 0, colores.getColorAt(2), colores.getColorAt(2));
-        b22 = new Button(p5, "PREV", 25 + tableW/2 - buttonW/1.5f, tableH + 80, buttonW, buttonH);
+        b22 = new Button(p5, "<", 390 + tableW/2 - 10 - buttonW - buttonW/2, tableH + 130, buttonW, buttonH);
         b22.setColors(colores.getColorAt(5), 0, colores.getColorAt(2), colores.getColorAt(2));
-
-
     }
 
 
@@ -163,22 +165,24 @@ public class GUI {
     // Carrega els elements multimedia que utilitzen els components del GUI
     public void setMedia(PApplet p5){
         //p5.scale(0.5f, 0.5f); ??????????????????????????????????? Fer imatge més petita ?????????????????????????????????????
-        icono1 = p5.loadImage("Favoritos.png"); // https://www.flaticon.es/icono-gratis/estrella_1828970?related_id=1828884&origin=search ; https://www.flaticon.es/icono-gratis/amor_5007082?related_id=5011077&origin=search
-        icono2 = p5.loadImage("TusCanciones.png"); // https://www.flaticon.es/icono-gratis/musica_4498848?related_id=4498154&origin=search ; https://www.flaticon.es/icono-gratis/lista-de-reproduccion_2585136
-        icono3 = p5.loadImage("TusListas.png"); // https://www.flaticon.es/icono-gratis/cancion_6499489 ; https://www.flaticon.es/icono-gratis/letras-de-canciones_10476137?related_id=10476143&origin=search ; https://www.flaticon.es/icono-gratis/lista-de-verificacion_10396949
+        icono1 = p5.loadImage("usuario.png");
+        icono2 = p5.loadImage("Favoritos.png"); // https://www.flaticon.es/icono-gratis/estrella_1828970?related_id=1828884&origin=search ; https://www.flaticon.es/icono-gratis/amor_5007082?related_id=5011077&origin=search
+        icono3 = p5.loadImage("TusCanciones.png"); // https://www.flaticon.es/icono-gratis/musica_4498848?related_id=4498154&origin=search ; https://www.flaticon.es/icono-gratis/lista-de-reproduccion_2585136
+        icono4 = p5.loadImage("TusListas.png"); // https://www.flaticon.es/icono-gratis/cancion_6499489 ; https://www.flaticon.es/icono-gratis/letras-de-canciones_10476137?related_id=10476143&origin=search ; https://www.flaticon.es/icono-gratis/lista-de-verificacion_10396949
     }
 
     public void dibujaBotonsTuCuentaRB(PApplet p5){
-        rb1.display(p5);
         rb2.display(p5);
         rb3.display(p5);
+        rb4.display(p5);
     }
 
     public void dibujaPantallaRegistro(PApplet p5){
         // Pantalla
         p5.background(255);
         dibujaPhoto1(p5);
-        dibujaUsuari(p5);
+        //dibujaUsuari(p5);
+        rb11.display(p5);
         dibujaRect1(p5);
         // Botones y otros
         b1.display(p5);
@@ -196,7 +200,8 @@ public class GUI {
             dibujaMenu(p5);
         p5.popStyle();
         dibujaPhoto2(p5);
-        dibujaUsuariMenu(p5);
+        //dibujaUsuariMenu(p5);
+        rb1.display(p5);
         // Botones y otros
         b3.display(p5);
         b4.display(p5);
@@ -212,7 +217,7 @@ public class GUI {
         dibujaBotonsTuCuentaRB(p5);
         p5.pushStyle();
             // Dibuixa la Table
-            t.display(p5, 50, 50, tableW, tableH);
+            t1.display(p5, 390, 100, tableW, tableH);
             // Dibuixa els botons
             b11.display(p5);
             b22.display(p5);
@@ -228,6 +233,7 @@ public class GUI {
         dibujaBotonsTuCuenta(p5);
         // Botones y otros
         dibujaBotonsTuCuentaRB(p5);
+        b5.display(p5);
     }
 
     public void dibujaPantallaAgregarCancion(PApplet p5){
@@ -248,6 +254,7 @@ public class GUI {
         dibujaBotonsTuCuenta(p5);
         // Botones y otros
         dibujaBotonsTuCuentaRB(p5);
+        b6.display(p5);
     }
 
     public void dibujaPantallaCancionesTusListas(PApplet p5){
@@ -258,6 +265,7 @@ public class GUI {
         dibujaBotonsTuCuenta(p5);
         // Botones y otros
         dibujaBotonsTuCuentaRB(p5);
+        b5.display(p5);
     }
 
     public void dibujaPantallaAgregarLista(PApplet p5){
@@ -330,16 +338,17 @@ public class GUI {
         p5.rect(margeH+photo1Width+margeH, margeV+usuariRadi+margeV, rect1Width, rect1Height, 30);
     }
 
-    public void dibujaUsuari(PApplet p5){                    // 3
+    /*public void dibujaUsuari(PApplet p5){                    // 3
         p5.fill(200);
         p5.ellipseMode(p5.CENTER);
         p5.ellipse(margeH+photo1Width+margeH+(rect1Width/2), margeV+(usuariRadi/2), usuariRadi, usuariRadi);
     }
 
-    public void dibujaUsuariMenu(PApplet p5){                // 4
+     public void dibujaUsuariMenu(PApplet p5){                // 4
         p5.fill(190);
         p5.ellipse(margeH+(photo2Width/2), margeV+((usuariRadi+10)/2), usuariRadi+10, usuariRadi+10);
     }
+    */
 
     public void dibujaPhoto2(PApplet p5){                    // 5
         p5.fill(190);

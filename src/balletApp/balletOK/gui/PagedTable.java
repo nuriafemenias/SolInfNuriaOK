@@ -1,5 +1,8 @@
 package balletApp.balletOK.gui;
 
+import balletApp.balletOK.gui.Button;
+import balletApp.balletOK.gui.PagedTable;
+import balletApp.balletOK.gui.Table;
 import processing.core.PApplet;
 
 public class PagedTable {
@@ -101,12 +104,12 @@ public class PagedTable {
             }
         }
 
-        // Informació de la Pàgina
+        /*// Informació de la Pàgina
         p5.fill(0);
         p5.text("Pag: "+(this.numPage+1)+" / "+(this.numTotalPages+1), x, y + h + 50);
 
         p5.popStyle();
+        */
     }
-
 
 }

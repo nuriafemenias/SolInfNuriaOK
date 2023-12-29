@@ -115,6 +115,14 @@ public class Ballet extends PApplet {
                 gui.pantallaActual = GUI.PANTALLA.subListasCanciones;
             }
 
+            /*if (gui.pantallaActual == GUI.PANTALLA.registro) {
+                if (keyCode == LEFT) {
+                    t1.prevPage();
+                } else if (keyCode == RIGHT) {
+                    t1.nextPage();
+                }
+            }*/
+
             gui.tf1.keyPressed(key, keyCode);
             gui.tf2.keyPressed(key, keyCode);
             gui.tf3.keyPressed(key, keyCode);
@@ -124,7 +132,7 @@ public class Ballet extends PApplet {
 
         public void mousePressed() {
 
-            if(gui.pantallaActual==GUI.PANTALLA.registro) {
+            if (gui.pantallaActual == GUI.PANTALLA.registro) {
                 if (gui.b1.mouseOverButton(this)) {
                     println("HAS FET CLIC SOBRE EL BOTÓ B1");
                 }
@@ -135,21 +143,30 @@ public class Ballet extends PApplet {
                 gui.tf5.isPressed(this);
             }
 
-            if(gui.pantallaActual==GUI.PANTALLA.Calentamiento){
+            if (gui.pantallaActual == GUI.PANTALLA.Calentamiento) {
                 // Comprova si pitjam sobre els botons del MusicPlayer
                 gui.mp.checkButtons(this);
             }
 
-            if (gui.rb1.mouseOverButton(this)){
+            if (gui.rb2.mouseOverButton(this)) {
                 println("HAS FET CLIC SOBRE EL BOTÓ RB1");
             }
-            if (gui.rb2.mouseOverButton(this)){
+            if (gui.rb3.mouseOverButton(this)) {
                 println("HAS FET CLIC SOBRE EL BOTÓ RB2");
             }
-            if (gui.rb3.mouseOverButton(this)){
+            if (gui.rb4.mouseOverButton(this)) {
                 println("HAS FET CLIC SOBRE EL BOTÓ RB3");
             }
-        }
+
+
+           /* if (gui.pantallaActual == GUI.PANTALLA.Favoritos) {
+                    if (b11.mouseOverButton(this) && b11.isEnabled()) {
+                    t1.nextPage();
+                } else if (b22.mouseOverButton(this) && b22.isEnabled()) {
+                    t1.prevPage();
+                }
+        }*/
+    }
 
         public void mouseDragged() {
             println("MOUSE DRAGGED");
