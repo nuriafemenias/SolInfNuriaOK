@@ -22,11 +22,11 @@ public class GUI {
     Fonts fonts;
 
     // Declaració dels components de la GUI
-    Button b1,b2, b3, b4, b5, b6;
+    Button b1,b2, b3, b4, b5, b6, b7, b8;
     RoundButton rb1, rb11, rb2, rb3, rb4;
     PImage icono1, icono2, icono3, icono4;
     MusicPlayer mp;
-    TextField tf1, tf2, tf3, tf4, tf5;
+    TextField tf1, tf2, tf3, tf4, tf5, tf6, tf7, tf8, tf9;
 
     // Propietats de "PagedTable" (taules)
     // Elements de la Interfície Gràfica (Table)
@@ -98,6 +98,13 @@ public class GUI {
             //dibuijaPantallaRegistro
         b5 = new Button(p5, "Agregar canción", 390+(rect2Width-300), 100+rect2Height-40, 300, 40);
         b6 = new Button(p5, "Agregar lista", 390+(rect2Width-300), 100+rect2Height-40, 300, 40);
+        b7 = new Button(p5, "Calentamiento", 390, margeV, rect34Width, rect34Height);
+        b7.setColors(colores.getColorAt(0), 0, colores.getColorAt(2), colores.getColorAt(3));
+        b7.setFont(fonts.getFirstFont());
+        b8 = new Button(p5, "Coreografía", 390+rect34Width+50, margeV, rect34Width, rect34Height);
+        b8.setColors(colores.getColorAt(0), 0, colores.getColorAt(2), colores.getColorAt(3));
+        b8.setFont(fonts.getFirstFont());
+
 
 
 //ICONOS --> https://www.flaticon.es/
@@ -140,6 +147,20 @@ public class GUI {
         tf5 = new TextField(p5, 440, 220+4*40+4*20, 550, 40);
         tf5.setColors(colores.getColorAt(5), 0, 0, colores.getColorAt(2));
         tf5.setFont(fonts.getThirdFont());
+            // dibuijaPantallaAgregarCancion
+        tf6 = new TextField(p5, 390, 100, 850, 30);
+        tf6.setColors(colores.getColorAt(5), 0, 0, colores.getColorAt(2));
+        tf6.setFont(fonts.getThirdFont());
+        tf7 = new TextField(p5, 390, 100+30+20, 850, 30);
+        tf7.setColors(colores.getColorAt(5), 0, 0, colores.getColorAt(2));
+        tf7.setFont(fonts.getThirdFont());
+            // dibuijaPantallaAgregarLista
+        tf8 = new TextField(p5, 390, 100, 850, 30);
+        tf8.setColors(colores.getColorAt(5), 0, 0, colores.getColorAt(2));
+        tf8.setFont(fonts.getThirdFont());
+        tf9 = new TextField(p5, 390, 100+30+20, 850, 30);
+        tf9.setColors(colores.getColorAt(5), 0, 0, colores.getColorAt(2));
+        tf9.setFont(fonts.getThirdFont());
 
 
         // Creació de les Taules paginades
@@ -244,6 +265,8 @@ public class GUI {
         dibujaBotonsTuCuenta(p5);
         // Botones y otros
         dibujaBotonsTuCuentaRB(p5);
+        tf6.display(p5);
+        tf7.display(p5);
     }
 
     public void dibujaPantallaTusListas(PApplet p5){
@@ -276,6 +299,8 @@ public class GUI {
         dibujaBotonsTuCuenta(p5);
         // Botones y otros
         dibujaBotonsTuCuentaRB(p5);
+        tf8.display(p5);
+        tf9.display(p5);
     }
 
     public void dibujaPantallaCanciones(PApplet p5){
@@ -284,6 +309,8 @@ public class GUI {
         dibujaFullMenu(p5);
         dibujaRect34(p5);
         // Botones y otros
+        b7.display(p5);
+        b8.display(p5);
     }
 
     public void dibujaPantallaCalentamiento(PApplet p5){

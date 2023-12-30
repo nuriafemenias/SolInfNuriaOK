@@ -1,6 +1,9 @@
 package balletApp.balletOK;
 
 import processing.core.PApplet;
+import balletApp.balletOK.gui.Button;
+import balletApp.balletOK.gui.Table;
+import balletApp.balletOK.gui.PagedTable;
 
 public class Ballet extends PApplet {
 
@@ -115,19 +118,23 @@ public class Ballet extends PApplet {
                 gui.pantallaActual = GUI.PANTALLA.subListasCanciones;
             }
 
-            /*if (gui.pantallaActual == GUI.PANTALLA.registro) {
+            if (gui.pantallaActual == GUI.PANTALLA.registro) {
                 if (keyCode == LEFT) {
-                    t1.prevPage();
+                    gui.t1.prevPage();
                 } else if (keyCode == RIGHT) {
-                    t1.nextPage();
+                    gui.t1.nextPage();
                 }
-            }*/
+            }
 
             gui.tf1.keyPressed(key, keyCode);
             gui.tf2.keyPressed(key, keyCode);
             gui.tf3.keyPressed(key, keyCode);
             gui.tf4.keyPressed(key, keyCode);
             gui.tf5.keyPressed(key, keyCode);
+            gui.tf6.keyPressed(key, keyCode);
+            gui.tf7.keyPressed(key, keyCode);
+            gui.tf8.keyPressed(key, keyCode);
+            gui.tf9.keyPressed(key, keyCode);
         }
 
         public void mousePressed() {
@@ -141,6 +148,16 @@ public class Ballet extends PApplet {
                 gui.tf3.isPressed(this);
                 gui.tf4.isPressed(this);
                 gui.tf5.isPressed(this);
+            }
+
+            if (gui.pantallaActual == GUI.PANTALLA.agregarCanción) {
+                gui.tf6.isPressed(this);
+                gui.tf7.isPressed(this);
+            }
+
+            if (gui.pantallaActual == GUI.PANTALLA.agregarLista) {
+                gui.tf6.isPressed(this);
+                gui.tf7.isPressed(this);
             }
 
             if (gui.pantallaActual == GUI.PANTALLA.Calentamiento) {
@@ -159,13 +176,13 @@ public class Ballet extends PApplet {
             }
 
 
-           /* if (gui.pantallaActual == GUI.PANTALLA.Favoritos) {
-                    if (b11.mouseOverButton(this) && b11.isEnabled()) {
-                    t1.nextPage();
-                } else if (b22.mouseOverButton(this) && b22.isEnabled()) {
-                    t1.prevPage();
+            if (gui.pantallaActual == GUI.PANTALLA.Favoritos) {
+                    if (gui.b11.mouseOverButton(this) && gui.b11.isEnabled()) {
+                        gui.t1.nextPage();
+                } else if (gui.b22.mouseOverButton(this) && gui.b22.isEnabled()) {
+                        gui.t1.prevPage();
                 }
-        }*/
+        }
     }
 
         public void mouseDragged() {

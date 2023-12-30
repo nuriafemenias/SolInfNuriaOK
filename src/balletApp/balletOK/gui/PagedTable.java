@@ -1,8 +1,5 @@
 package balletApp.balletOK.gui;
 
-import balletApp.balletOK.gui.Button;
-import balletApp.balletOK.gui.PagedTable;
-import balletApp.balletOK.gui.Table;
 import processing.core.PApplet;
 
 public class PagedTable {
