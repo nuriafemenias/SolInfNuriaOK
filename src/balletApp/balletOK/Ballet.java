@@ -1,9 +1,6 @@
 package balletApp.balletOK;
 
 import processing.core.PApplet;
-import balletApp.balletOK.gui.Button;
-import balletApp.balletOK.gui.Table;
-import balletApp.balletOK.gui.PagedTable;
 
 public class Ballet extends PApplet {
 
@@ -183,7 +180,52 @@ public class Ballet extends PApplet {
                         gui.t1.prevPage();
                 }
         }
+
+        //Select
+            // Si pitjam sobre el select 1
+            if(gui.s1.mouseOverSelect(this) && gui.s1.isEnabled()){
+                if(!gui.s1.isCollapsed()){
+                    gui.s1.update(this);      // Actualitzar valor
+                    updateColor();    // Fer acció amb valor
+                }
+                gui.s1.toggle();        // Plegar o desplegar
+            }
+
+            // Comprova si pitjam amb el mouse sobre el SwitchButton
+            if(gui.sb1.mouseOverButton(this)){
+                gui.sb1.toggle();
+                if(gui.sb1.isEnabled()){
+                    gui.bgColor = color(255);
+                }
+                else {
+                    gui.bgColor = color(0);
+                }
+            }
+            if(gui.sb2.mouseOverButton(this)){
+                gui.sb2.toggle();
+                if(gui.sb2.isEnabled()){
+                    gui.bgColor = color(255);
+                }
+                else {
+                    gui.bgColor = color(0);
+                }
+            }
+
     }
+
+    // Modifica el color segons Select 1
+    void updateColor(){
+        if(gui.s1.getSelectedValue().equals("RED")){
+            gui.bgColor = color(255, 0, 0);
+        }
+        else if(gui.s1.getSelectedValue().equals("GREEN")){
+            gui.bgColor = color(0, 255, 0);
+        }
+        else if(gui.s1.getSelectedValue().equals("BLUE")){
+            gui.bgColor = color(0, 0, 255);
+        }
+    }
+
 
         public void mouseDragged() {
             println("MOUSE DRAGGED");

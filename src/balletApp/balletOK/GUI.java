@@ -5,8 +5,10 @@ import balletApp.balletOK.gui.MusicPlayer;
 import balletApp.balletOK.gui.RoundButton;
 import balletApp.balletOK.gui.TextField;
 import balletApp.balletOK.gui.PagedTable;
-import processing.core.PImage;
+import balletApp.balletOK.gui.Select;
+import balletApp.balletOK.gui.SwitchButton;
 import static balletApp.balletOK.Mides.*;
+import processing.core.PImage;
 import processing.core.PApplet;
 
 
@@ -70,6 +72,36 @@ public class GUI {
                 {"15", "Jose", "Perez Galdós"},
                 {"16", "Pepe", "Viyuela Lopez"},
         };
+
+
+    // Propietats del Select
+    Select s1;
+        // Valors dels Selects
+        String[] selectValues = {"Calentamiento", "Coreografía"};
+    /*  String[] selectValues2 = {"Barra", "Centro", "Diagonal"};
+             BARRA: String[] selectValues3 = {"", "", ""};
+             CENTRO: String[] selectValues3 = {"", "", ""};
+             DIAGONAL: String[] selectValues3 = {"", "", ""};
+
+        o String[] selectValues2 = {"Ballets", "Variaciones", "Otras"};
+             BALLETS: String[] selectValues3 = {"Cascanueces", "Don Quijote", "Giselle", "El Lago de los Cisnes", "La bella durmiente", "Romeo y Julieta", "Corsario", "Carmen"};
+             VARIACIONES: String[] selectValues3 = {"Mujeres", "Hombres"};
+    */
+
+        // Dimensions dels botons
+        float selectW = 350, selectH = 30;
+
+        // Color de fons de l'App
+        int bgColor = 255;
+
+        // Valor numèric
+        int n = 0;
+
+
+    // Propietats de SwitchButton
+    SwitchButton sb1, sb2;
+
+
 
 
 
@@ -174,6 +206,15 @@ public class GUI {
         b11.setColors(colores.getColorAt(5), 0, colores.getColorAt(2), colores.getColorAt(2));
         b22 = new Button(p5, "<", 390 + tableW/2 - 10 - buttonW - buttonW/2, tableH + 130, buttonW, buttonH);
         b22.setColors(colores.getColorAt(5), 0, colores.getColorAt(2), colores.getColorAt(2));
+
+
+        // Creació dels Select
+        s1 = new Select(selectValues, 390, 100+2*30+20+30, selectW, selectH);
+
+
+        // Creació dels Switch Button
+        sb1 = new SwitchButton(p5, 390, 210+selectH+60, 350, 50);
+        sb2 = new SwitchButton(p5, 390, 210+selectH+60+30+50, 350, 50);
     }
 
 
@@ -267,6 +308,9 @@ public class GUI {
         dibujaBotonsTuCuentaRB(p5);
         tf6.display(p5);
         tf7.display(p5);
+        s1.display(p5);
+        sb1.display(p5);
+        sb2.display(p5);
     }
 
     public void dibujaPantallaTusListas(PApplet p5){
