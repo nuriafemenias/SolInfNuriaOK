@@ -24,7 +24,7 @@ public class GUI {
     Fonts fonts;
 
     // Declaració dels components de la GUI
-    Button b1,b2, b3, b4, b5, b6, b7, b8, b9, b10, b11, b12, b13;
+    Button b1,b2, b3, b4, b5, b6, b7, b8, b9, b10, b11, b12, b13, b14, b15, b16, b17, b18, b19, b20;
     RoundButton rb1, rb11, rb2, rb3, rb4;
     PImage icono1, icono2, icono3, icono4;
     MusicPlayer mp;
@@ -136,28 +136,45 @@ public class GUI {
         b8 = new Button(p5, "Coreografía", 390+rect34Width+50, margeV, rect34Width, rect34Height);
         b8.setColors(colores.getColorAt(0), 0, colores.getColorAt(2), colores.getColorAt(3));
         b8.setFont(fonts.getFirstFont());
+
         // BOTON VOLVER
-        // Pantalla agregarCanción
-        b9 = new Button(p5, "Coreografía", 390+rect34Width+50, margeV, rect34Width, rect34Height);
-        b9.setColors(colores.getColorAt(0), 0, colores.getColorAt(2), colores.getColorAt(3));
-        b9.setFont(fonts.getFirstFont());
-        // Pantalla cancionesTusListas
-        b10 = new Button(p5, "Coreografía", 390+rect34Width+50, margeV, rect34Width, rect34Height);
-        b10.setColors(colores.getColorAt(0), 0, colores.getColorAt(2), colores.getColorAt(3));
-        b10.setFont(fonts.getFirstFont());
-        // Pantalla agregarLista
-        b11 = new Button(p5, "Coreografía", 390+rect34Width+50, margeV, rect34Width, rect34Height);
-        b11.setColors(colores.getColorAt(0), 0, colores.getColorAt(2), colores.getColorAt(3));
-        b11.setFont(fonts.getFirstFont());
-        // Pantalla Calentamiento
-        b12 = new Button(p5, "Coreografía", 390+rect34Width+50, margeV, rect34Width, rect34Height);
-        b12.setColors(colores.getColorAt(0), 0, colores.getColorAt(2), colores.getColorAt(3));
-        b12.setFont(fonts.getFirstFont());
-        // Pantalla Coreografía
-        b13 = new Button(p5, "Coreografía", 390+rect34Width+50, margeV, rect34Width, rect34Height);
-        b13.setColors(colores.getColorAt(0), 0, colores.getColorAt(2), colores.getColorAt(3));
-        b13.setFont(fonts.getFirstFont());
-        //.....................................................................................................................
+            // Pantalla agregarCanción
+            b9 = new Button(p5, "Volver", 390, 600-botonVolverHeight, botonVolverWidth, botonVolverHeight);
+            b9.setColors(colores.getColorAt(7), 0, colores.getColorAt(5), colores.getColorAt(0));
+            // Pantalla cancionesTusListas
+            b10 = new Button(p5, "Volver", 390, 600-botonVolverHeight, botonVolverWidth, botonVolverHeight);
+            b10.setColors(colores.getColorAt(7), 0, colores.getColorAt(5), colores.getColorAt(0));
+            // Pantalla agregarLista
+            b11 = new Button(p5, "Volver", 390, 600-botonVolverHeight, botonVolverWidth, botonVolverHeight);
+            b11.setColors(colores.getColorAt(7), 0, colores.getColorAt(5), colores.getColorAt(0));
+            // Pantalla Calentamiento y Coreografia (para volver a la pantalla "Canciones")
+            b12 = new Button(p5, "Volver", -10+menuWidth+margeH, margeV+60+rect2Height+25, botonVolverWidth, botonVolverHeight);
+            b12.setColors(colores.getColorAt(7), 0, colores.getColorAt(5), colores.getColorAt(0));
+            // En todas las pantallas donde hay listas del Calentamiento (Barra, centro y diagonal) (para volver a la pantalla "Calentamiento")
+            b13 = new Button(p5, "Volver", -10+menuWidth+margeH, margeV+60+rect2Height+25, botonVolverWidth, botonVolverHeight);
+            b13.setColors(colores.getColorAt(7), 0, colores.getColorAt(5), colores.getColorAt(0));
+            // En todas las pantallas donde hay listas de Coreografía (Variaciones, ballets y otras) (para volver a la pantalla "Coreografía")
+            b14 = new Button(p5, "Volver", -10+menuWidth+margeH, margeV+60+rect2Height+25, botonVolverWidth, botonVolverHeight);
+            b14.setColors(colores.getColorAt(7), 0, colores.getColorAt(5), colores.getColorAt(0));
+            // Pantalla lista de canciones de Barra (para volver a la pantalla Barra)
+            b15 = new Button(p5, "Volver", -10+menuWidth+margeH, margeV+60+rect2Height+25, botonVolverWidth, botonVolverHeight);
+            b15.setColors(colores.getColorAt(7), 0, colores.getColorAt(5), colores.getColorAt(0));
+            // Pantalla lista de canciones de Centro (para volver a la pantalla Centro)
+            b16 = new Button(p5, "Volver", -10+menuWidth+margeH, margeV+60+rect2Height+25, botonVolverWidth, botonVolverHeight);
+            b16.setColors(colores.getColorAt(7), 0, colores.getColorAt(5), colores.getColorAt(0));
+            // Pantalla lista de canciones de Diagonal (para volver a la pantalla Diagonal)
+            b17 = new Button(p5, "Volver", -10+menuWidth+margeH, margeV+60+rect2Height+25, botonVolverWidth, botonVolverHeight);
+            b17.setColors(colores.getColorAt(7), 0, colores.getColorAt(5), colores.getColorAt(0));
+            // Pantalla lista de canciones de Ballets (para volver a la pantalla Ballets)
+            b18 = new Button(p5, "Volver", -10+menuWidth+margeH, margeV+60+rect2Height+25, botonVolverWidth, botonVolverHeight);
+            b18.setColors(colores.getColorAt(7), 0, colores.getColorAt(5), colores.getColorAt(0));
+            // Pantalla lista de canciones de Variaciones (para volver a la pantalla Variaciones)
+            b19 = new Button(p5, "Volver", -10+menuWidth+margeH, margeV+60+rect2Height+25, botonVolverWidth, botonVolverHeight);
+            b19.setColors(colores.getColorAt(7), 0, colores.getColorAt(5), colores.getColorAt(0));
+            // Pantalla lista de canciones de Otras (para volver a la pantalla Otras)
+            b20 = new Button(p5, "Volver", -10+menuWidth+margeH, margeV+60+rect2Height+25, botonVolverWidth, botonVolverHeight);
+            b20.setColors(colores.getColorAt(7), 0, colores.getColorAt(5), colores.getColorAt(0));
+
 
 
 
@@ -400,25 +417,27 @@ public class GUI {
         dibujaRect2(p5);
         dibujaBotonsCanciones(p5);
         // Botones y otros
+        b12.display(p5);
+    }
+
+    public void dibujaPantallaListas(PApplet p5){
+        // Pantalla
+        p5.background(255);
+        dibujaFullMenu(p5);
+        dibujaRect2(p5);
+        dibujaBotonsCanciones(p5);
+        // Botones y otros
         b13.display(p5);
     }
 
-    public void dibujaPantallaSubListas(PApplet p5){
+    public void dibujaPantallaListasCanciones(PApplet p5){
         // Pantalla
         p5.background(255);
         dibujaFullMenu(p5);
         dibujaRect2(p5);
         dibujaBotonsCanciones(p5);
         // Botones y otros
-    }
-
-    public void dibujaPantallaSubListasCanciones(PApplet p5){
-        // Pantalla
-        p5.background(255);
-        dibujaFullMenu(p5);
-        dibujaRect2(p5);
-        dibujaBotonsCanciones(p5);
-        // Botones y otros
+        b15.display(p5);
     }
 
 
@@ -477,7 +496,7 @@ public class GUI {
 
     public void dibujaBotonsCanciones(PApplet p5){           // 11 i 12
         p5.fill(215);
-        p5.rect(-10+menuWidth+margeH, margeV+60+rect2Height+25, botonVolverWidth, botonVolverHeight, 30);
+        //p5.rect(-10+menuWidth+margeH, margeV+60+rect2Height+25, botonVolverWidth, botonVolverHeight, 30);
         p5.rect(-10+menuWidth+margeH+500, margeV+60+rect2Height+40, botonAñadirWidth, botonAñadirHeight, 30);
     }
 }

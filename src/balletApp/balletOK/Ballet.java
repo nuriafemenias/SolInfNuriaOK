@@ -67,11 +67,11 @@ public class Ballet extends PApplet {
                     break;
 
                 case subListas:
-                    gui.dibujaPantallaSubListas(this);
+                    gui.dibujaPantallaListas(this);
                     break;
 
                 case subListasCanciones:
-                    gui.dibujaPantallaSubListasCanciones(this);
+                    gui.dibujaPantallaListasCanciones(this);
                     break;
             }
 
