@@ -24,7 +24,7 @@ public class GUI {
     Fonts fonts;
 
     // Declaració dels components de la GUI
-    Button b1,b2, b3, b4, b5, b6, b7, b8;
+    Button b1,b2, b3, b4, b5, b6, b7, b8, b9, b10, b11, b12, b13;
     RoundButton rb1, rb11, rb2, rb3, rb4;
     PImage icono1, icono2, icono3, icono4;
     MusicPlayer mp;
@@ -33,7 +33,7 @@ public class GUI {
     // Propietats de "PagedTable" (taules)
     // Elements de la Interfície Gràfica (Table)
     // Botons
-        public Button b11, b22;
+        public Button t1b1, t1b2;
 
         // Dimensions dels botons
         float buttonW = 60, buttonH = 30;
@@ -136,6 +136,28 @@ public class GUI {
         b8 = new Button(p5, "Coreografía", 390+rect34Width+50, margeV, rect34Width, rect34Height);
         b8.setColors(colores.getColorAt(0), 0, colores.getColorAt(2), colores.getColorAt(3));
         b8.setFont(fonts.getFirstFont());
+        // BOTON VOLVER
+        // Pantalla agregarCanción
+        b9 = new Button(p5, "Coreografía", 390+rect34Width+50, margeV, rect34Width, rect34Height);
+        b9.setColors(colores.getColorAt(0), 0, colores.getColorAt(2), colores.getColorAt(3));
+        b9.setFont(fonts.getFirstFont());
+        // Pantalla cancionesTusListas
+        b10 = new Button(p5, "Coreografía", 390+rect34Width+50, margeV, rect34Width, rect34Height);
+        b10.setColors(colores.getColorAt(0), 0, colores.getColorAt(2), colores.getColorAt(3));
+        b10.setFont(fonts.getFirstFont());
+        // Pantalla agregarLista
+        b11 = new Button(p5, "Coreografía", 390+rect34Width+50, margeV, rect34Width, rect34Height);
+        b11.setColors(colores.getColorAt(0), 0, colores.getColorAt(2), colores.getColorAt(3));
+        b11.setFont(fonts.getFirstFont());
+        // Pantalla Calentamiento
+        b12 = new Button(p5, "Coreografía", 390+rect34Width+50, margeV, rect34Width, rect34Height);
+        b12.setColors(colores.getColorAt(0), 0, colores.getColorAt(2), colores.getColorAt(3));
+        b12.setFont(fonts.getFirstFont());
+        // Pantalla Coreografía
+        b13 = new Button(p5, "Coreografía", 390+rect34Width+50, margeV, rect34Width, rect34Height);
+        b13.setColors(colores.getColorAt(0), 0, colores.getColorAt(2), colores.getColorAt(3));
+        b13.setFont(fonts.getFirstFont());
+        //.....................................................................................................................
 
 
 
@@ -202,10 +224,10 @@ public class GUI {
         t1.setData(info);
         t1.setColumnWidths(colWidths);
         // Creació dels botons 1
-        b11 = new Button(p5, ">", 390 + tableW/2 + 10 + buttonW - buttonW/2, tableH + 130, buttonW, buttonH);
-        b11.setColors(colores.getColorAt(5), 0, colores.getColorAt(2), colores.getColorAt(2));
-        b22 = new Button(p5, "<", 390 + tableW/2 - 10 - buttonW - buttonW/2, tableH + 130, buttonW, buttonH);
-        b22.setColors(colores.getColorAt(5), 0, colores.getColorAt(2), colores.getColorAt(2));
+        t1b1 = new Button(p5, ">", 390 + tableW/2 + 10 + buttonW - buttonW/2, tableH + 130, buttonW, buttonH);
+        t1b1.setColors(colores.getColorAt(5), 0, colores.getColorAt(2), colores.getColorAt(2));
+        t1b2 = new Button(p5, "<", 390 + tableW/2 - 10 - buttonW - buttonW/2, tableH + 130, buttonW, buttonH);
+        t1b2.setColors(colores.getColorAt(5), 0, colores.getColorAt(2), colores.getColorAt(2));
 
 
         // Creació dels Select
@@ -281,8 +303,8 @@ public class GUI {
             // Dibuixa la Table
             t1.display(p5, 390, 100, tableW, tableH);
             // Dibuixa els botons
-            b11.display(p5);
-            b22.display(p5);
+            t1b1.display(p5);
+            t1b2.display(p5);
         p5.popStyle();
     }
 
@@ -311,6 +333,7 @@ public class GUI {
         s1.display(p5);
         sb1.display(p5);
         sb2.display(p5);
+        b9.display(p5);
     }
 
     public void dibujaPantallaTusListas(PApplet p5){
@@ -333,6 +356,7 @@ public class GUI {
         // Botones y otros
         dibujaBotonsTuCuentaRB(p5);
         b5.display(p5);
+        b10.display(p5);
     }
 
     public void dibujaPantallaAgregarLista(PApplet p5){
@@ -345,6 +369,7 @@ public class GUI {
         dibujaBotonsTuCuentaRB(p5);
         tf8.display(p5);
         tf9.display(p5);
+        b11.display(p5);
     }
 
     public void dibujaPantallaCanciones(PApplet p5){
@@ -365,6 +390,7 @@ public class GUI {
         dibujaBotonsCanciones(p5);
         mp.display(p5);
         // Botones y otros
+        b12.display(p5);
     }
 
     public void dibujaPantallaCoreografia(PApplet p5){
@@ -374,6 +400,7 @@ public class GUI {
         dibujaRect2(p5);
         dibujaBotonsCanciones(p5);
         // Botones y otros
+        b13.display(p5);
     }
 
     public void dibujaPantallaSubListas(PApplet p5){

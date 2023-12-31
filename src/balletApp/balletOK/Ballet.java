@@ -174,9 +174,9 @@ public class Ballet extends PApplet {
 
 
             if (gui.pantallaActual == GUI.PANTALLA.Favoritos) {
-                    if (gui.b11.mouseOverButton(this) && gui.b11.isEnabled()) {
+                    if (gui.t1b1.mouseOverButton(this) && gui.t1b1.isEnabled()) {
                         gui.t1.nextPage();
-                } else if (gui.b22.mouseOverButton(this) && gui.b22.isEnabled()) {
+                } else if (gui.t1b2.mouseOverButton(this) && gui.t1b2.isEnabled()) {
                         gui.t1.prevPage();
                 }
         }
