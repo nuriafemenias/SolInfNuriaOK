@@ -210,8 +210,13 @@ public class Ballet extends PApplet {
                     gui.bgColor = color(0);
                 }
             }
+            // Si pitjam sobre el checboxes
+            if(gui.cb1.onMouseOver(this)){
+                gui.cb1.toggle();
+            }
 
     }
+
 
     // Modifica el color segons Select 1
     void updateColor(){

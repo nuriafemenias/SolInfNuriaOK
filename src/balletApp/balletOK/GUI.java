@@ -6,8 +6,11 @@ import balletApp.balletOK.gui.RoundButton;
 import balletApp.balletOK.gui.TextField;
 import balletApp.balletOK.gui.PagedTable;
 import balletApp.balletOK.gui.Select;
+import balletApp.balletOK.gui.CheckBox;
 import balletApp.balletOK.gui.SwitchButton;
 import static balletApp.balletOK.Mides.*;
+
+import processing.core.PConstants;
 import processing.core.PImage;
 import processing.core.PApplet;
 
@@ -24,7 +27,8 @@ public class GUI {
     Fonts fonts;
 
     // Declaració dels components de la GUI
-    Button b1,b2, b3, b4, b5, b6, b7, b8, b9, b10, b11, b12, b13, b14, b15, b16, b17, b18, b19, b20;
+    Button  b1, b2, b3, b4, b5, b6, b7, b8, b9, b10, b11, b12, b13, b14, b15, b16, b17, b18, b19, b20,
+            b21, b22, b23, b24, b25, b26, b27, b28;
     RoundButton rb1, rb11, rb2, rb3, rb4;
     PImage icono1, icono2, icono3, icono4;
     MusicPlayer mp;
@@ -101,6 +105,9 @@ public class GUI {
     // Propietats de SwitchButton
     SwitchButton sb1, sb2;
 
+    // Propietats de CheckBox
+    CheckBox cb1;
+
 
 
 
@@ -174,7 +181,33 @@ public class GUI {
             // Pantalla lista de canciones de Otras (para volver a la pantalla Otras)
             b20 = new Button(p5, "Volver", -10+menuWidth+margeH, margeV+60+rect2Height+25, botonVolverWidth, botonVolverHeight);
             b20.setColors(colores.getColorAt(7), 0, colores.getColorAt(5), colores.getColorAt(0));
-
+        //dibujaPantallaCalentamiento
+        b21 = new Button(p5, "Barra", 390, 100, botonesListasWidth, botonesListasHeight);
+        b21.setColors(colores.getColorAt(3), 0, colores.getColorAt(2), colores.getColorAt(3));
+        //b21.setFont(fonts.getFirstFont());
+        b22 = new Button(p5, "Centro", 390, 100+botonesListasHeight+40, botonesListasWidth, botonesListasHeight);
+        b22.setColors(colores.getColorAt(3), 0, colores.getColorAt(2), colores.getColorAt(3));
+        //b22.setFont(fonts.getFirstFont());
+        b23 = new Button(p5, "Diagonal", 390, 100+2*botonesListasHeight+2*40, botonesListasWidth, botonesListasHeight);
+        b23.setColors(colores.getColorAt(3), 0, colores.getColorAt(2), colores.getColorAt(3));
+        //b23.setFont(fonts.getFirstFont());
+        //dibujaPantallaCoreografía
+        b24 = new Button(p5, "Ballets", 390, 100, botonesListasWidth, botonesListasHeight);
+        b24.setColors(colores.getColorAt(3), 0, colores.getColorAt(2), colores.getColorAt(3));
+        //b24.setFont(fonts.getFirstFont());
+        b25 = new Button(p5, "Variaciones", 390, 100+botonesListasHeight+40, botonesListasWidth, botonesListasHeight);
+        b25.setColors(colores.getColorAt(3), 0, colores.getColorAt(2), colores.getColorAt(3));
+        //b25.setFont(fonts.getFirstFont());
+        b26 = new Button(p5, "Otras", 390, 100+2*botonesListasHeight+2*40, botonesListasWidth, botonesListasHeight);
+        b26.setColors(colores.getColorAt(3), 0, colores.getColorAt(2), colores.getColorAt(3));
+        //b26.setFont(fonts.getFirstFont());
+        // Agregar Lista o Canción
+        b27 = new Button(p5, "Agregar Lista", -10+menuWidth+margeH+500, margeV+60+rect2Height+40, botonAñadirWidth, botonAñadirHeight);
+        b27.setColors(190, 0, 100, 190);
+        //b27.setFont(fonts.getFirstFont());
+        b28 = new Button(p5, "Agragar Canción", -10+menuWidth+margeH+500, margeV+60+rect2Height+40, botonAñadirWidth, botonAñadirHeight);
+        b28.setColors(190, 0, 100, 190);
+        //b28.setFont(fonts.getFirstFont());
 
 
 
@@ -254,9 +287,10 @@ public class GUI {
         // Creació dels Switch Button
         sb1 = new SwitchButton(p5, 390, 210+selectH+60, 350, 50);
         sb2 = new SwitchButton(p5, 390, 210+selectH+60+30+50, 350, 50);
+
+        // Creació dels CheckBox
+        cb1 = new CheckBox(p5, 440+550+30, 220+3*40+3*20,35);
     }
-
-
 
 
 
@@ -293,6 +327,7 @@ public class GUI {
         tf3.display(p5);
         tf4.display(p5);
         tf5.display(p5);
+        cb1.display(p5);
     }
 
     public void dibujaFullMenu(PApplet p5){
@@ -405,9 +440,14 @@ public class GUI {
         dibujaFullMenu(p5);
         dibujaRect2(p5);
         dibujaBotonsCanciones(p5);
-        mp.display(p5);
+        //mp.display(p5);
         // Botones y otros
         b12.display(p5);
+        p5.textAlign(p5.LEFT); //??????????????????????????????????????????????????????????????????????????????????????
+        b21.display(p5);
+        b22.display(p5);
+        b23.display(p5);
+        b27.display(p5);
     }
 
     public void dibujaPantallaCoreografia(PApplet p5){
@@ -418,6 +458,10 @@ public class GUI {
         dibujaBotonsCanciones(p5);
         // Botones y otros
         b12.display(p5);
+        b24.display(p5);
+        b25.display(p5);
+        b26.display(p5);
+        b27.display(p5);
     }
 
     public void dibujaPantallaListas(PApplet p5){
@@ -428,6 +472,7 @@ public class GUI {
         dibujaBotonsCanciones(p5);
         // Botones y otros
         b13.display(p5);
+        b27.display(p5);
     }
 
     public void dibujaPantallaListasCanciones(PApplet p5){
@@ -438,6 +483,7 @@ public class GUI {
         dibujaBotonsCanciones(p5);
         // Botones y otros
         b15.display(p5);
+        b28.display(p5);
     }
 
 
@@ -497,6 +543,6 @@ public class GUI {
     public void dibujaBotonsCanciones(PApplet p5){           // 11 i 12
         p5.fill(215);
         //p5.rect(-10+menuWidth+margeH, margeV+60+rect2Height+25, botonVolverWidth, botonVolverHeight, 30);
-        p5.rect(-10+menuWidth+margeH+500, margeV+60+rect2Height+40, botonAñadirWidth, botonAñadirHeight, 30);
+        //p5.rect(-10+menuWidth+margeH+500, margeV+60+rect2Height+40, botonAñadirWidth, botonAñadirHeight, 30);
     }
 }

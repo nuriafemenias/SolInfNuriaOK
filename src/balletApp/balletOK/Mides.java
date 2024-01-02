@@ -41,4 +41,11 @@ public class Mides {
             botonVolverHeight = 55,                       // 11
             botonVolverWidth = 200;
 
+
+
+    // Pantalles Calentamiento, Coreografía...... (botonesListas)
+
+    public static float botonesListasHeight = 140,
+            botonesListasWidth = 850;
+
 }
