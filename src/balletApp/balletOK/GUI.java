@@ -58,12 +58,14 @@ public class GUI {
                 mp471, mp472, mp473, mp474, mp475, mp476, mp477, mp478, mp479, mp4710, mp4711, mp4712, mp4713, mp4714, mp4715, mp4716,
                 /*48Carmen*/
                 mp481, mp482, mp483, mp484, mp485, mp486, mp487, mp488, mp489, mp4810, mp4811, mp4812, mp4813, mp4814, mp4815, mp4816,
+                /*49Paquita*/
+                mp491, mp492, mp493, mp494, mp495, mp496, mp497, mp498, mp499, mp4910, mp4911, mp4912, mp4913, mp4914, mp4915, mp4916,
             /*5OTRAS*/
             mp51, mp52, mp53, mp54, mp55, mp56, mp57,
             /*6VARIACIONES*/
                 /*61Mujer*/
-                mp611, mp612, mp613, mp614, mp615, mp616, mp617, mp618, mp619, mp6110, mp6111, mp6112, mp6113,
-                mp6114, mp6115, mp6116, mp6117, mp6118, mp6119, mp6120, mp6121, mp6122, mp6123, mp6124, mp6125,
+                mp611, mp612, mp613, mp614, mp615, mp616, mp617, mp618, mp619, mp6110,
+                mp6111, mp6112, mp6113, mp6114, mp6115, mp6116, mp6117, mp6118,
                 /*62Hombre*/
                 mp621, mp622, mp623, mp624, mp625, mp626, mp627, mp628;
 
@@ -569,8 +571,8 @@ public class GUI {
         // Botones y otros
         b15.display(p5);
         b28.display(p5);
-        mp111.display(p5);
-        mp112.display(p5);
+        //mp111.display(p5);
+        //mp112.display(p5);
     }
     public void dibujaPantallaPlieBarra(PApplet p5){
         // Pantalla
