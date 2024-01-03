@@ -14,10 +14,10 @@ public class Fonts {
 
     void setFonts(PApplet p5){
         this.fonts = new PFont[4];
-        this.fonts[0] = p5.createFont("data/Adorage.otf", midaTitol);
-        this.fonts[1] = p5.createFont("data/Ramisland.otf", midaSubtitol);
-        this.fonts[2] = p5.createFont("data/VerilySerifMono.otf", midaParagraf);
-        this.fonts[3] = p5.createFont("data/Bailenson.ttf", midaParagraf2);
+        this.fonts[0] = p5.createFont("C:\\Users\\usuario\\OneDrive\\Escritorio\\SolInfNuria\\SolInfNuria2324\\data\\Fonts\\Adorage.otf", midaTitol);
+        this.fonts[1] = p5.createFont("C:\\Users\\usuario\\OneDrive\\Escritorio\\SolInfNuria\\SolInfNuria2324\\data\\Fonts\\Ramisland.otf", midaSubtitol);
+        this.fonts[2] = p5.createFont("C:\\Users\\usuario\\OneDrive\\Escritorio\\SolInfNuria\\SolInfNuria2324\\data\\Fonts\\VerilySerifMono.otf", midaParagraf);
+        this.fonts[3] = p5.createFont("C:\\Users\\usuario\\OneDrive\\Escritorio\\SolInfNuria\\SolInfNuria2324\\data\\Fonts\\Bailenson.ttf", midaParagraf2);
     }
 
     int getNumFonts(){

@@ -10,7 +10,6 @@ import balletApp.balletOK.gui.CheckBox;
 import balletApp.balletOK.gui.SwitchButton;
 import static balletApp.balletOK.Mides.*;
 
-import processing.core.PConstants;
 import processing.core.PImage;
 import processing.core.PApplet;
 
@@ -31,57 +30,57 @@ public class GUI {
             b21, b22, b23, b24, b25, b26, b27, b28;
     RoundButton rb1, rb11, rb2, rb3, rb4;
     PImage icono1, icono2, icono3, icono4;
-    MusicPlayer mp;
+    MusicPlayer mp1, mp2;
     TextField tf1, tf2, tf3, tf4, tf5, tf6, tf7, tf8, tf9;
 
     // Propietats de "PagedTable" (taules)
     // Elements de la Interfície Gràfica (Table)
     // Botons
-        public Button t1b1, t1b2;
+    public Button t1b1, t1b2;
 
-        // Dimensions dels botons
-        float buttonW = 60, buttonH = 30;
+    // Dimensions dels botons
+    float buttonW = 60, buttonH = 30;
 
-        // Taula Paginada
-        public PagedTable t1;
+    // Taula Paginada
+    public PagedTable t1;
 
-        // Dimensions de la taula
-        float tableW = rect2Width, tableH = rect2Height-60;
+    // Dimensions de la taula
+    float tableW = rect2Width, tableH = rect2Height-60;
 
-        // Número de files (capçalera inclosa) i columnes de la taula
-        int files = 7, columnes = 3;
+    // Número de files (capçalera inclosa) i columnes de la taula
+    int files = 7, columnes = 3;
 
-        // Títols de les columnes
-        String[] headers = {"Categoría", "Subcategoría", "Título"};
+    // Títols de les columnes
+    String[] headers = {"Categoría", "Subcategoría", "Título"};
 
-        // Amplades de les columnes
-        float[] colWidths = {20, 30, 50};
+    // Amplades de les columnes
+    float[] colWidths = {20, 30, 50};
 
-        // Dades de la taula
-        String[][] info = {
-                {"1", "Pere", "Soler Miralles"},
-                {"2", "Maria", "Garcia Lopez"},
-                {"3", "Joan", "Melis Cabrer"},
-                {"4", "Bel", "Riera Mates"},
-                {"5", "Jose", "Perez Galdós"},
-                {"6", "Pere", "Soler Miralles"},
-                {"7", "Maria", "Garcia Lopez"},
-                {"8", "Joan", "Melis Cabrer"},
-                {"9", "Bel", "Riera Mates"},
-                {"10", "Jose", "Perez Galdós"},
-                {"11", "Pere", "Soler Miralles"},
-                {"12", "Maria", "Garcia Lopez",},
-                {"13", "Joan", "Melis Cabrer"},
-                {"14", "Bel", "Riera Mates"},
-                {"15", "Jose", "Perez Galdós"},
-                {"16", "Pepe", "Viyuela Lopez"},
-        };
+    // Dades de la taula
+    String[][] info = {
+            {"1", "Pere", "Soler Miralles"},
+            {"2", "Maria", "Garcia Lopez"},
+            {"3", "Joan", "Melis Cabrer"},
+            {"4", "Bel", "Riera Mates"},
+            {"5", "Jose", "Perez Galdós"},
+            {"6", "Pere", "Soler Miralles"},
+            {"7", "Maria", "Garcia Lopez"},
+            {"8", "Joan", "Melis Cabrer"},
+            {"9", "Bel", "Riera Mates"},
+            {"10", "Jose", "Perez Galdós"},
+            {"11", "Pere", "Soler Miralles"},
+            {"12", "Maria", "Garcia Lopez",},
+            {"13", "Joan", "Melis Cabrer"},
+            {"14", "Bel", "Riera Mates"},
+            {"15", "Jose", "Perez Galdós"},
+            {"16", "Pepe", "Viyuela Lopez"},
+    };
 
 
     // Propietats del Select
     Select s1;
-        // Valors dels Selects
-        String[] selectValues = {"Calentamiento", "Coreografía"};
+    // Valors dels Selects
+    String[] selectValues = {"Calentamiento", "Coreografía"};
     /*  String[] selectValues2 = {"Barra", "Centro", "Diagonal"};
              BARRA: String[] selectValues3 = {"", "", ""};
              CENTRO: String[] selectValues3 = {"", "", ""};
@@ -92,14 +91,14 @@ public class GUI {
              VARIACIONES: String[] selectValues3 = {"Mujeres", "Hombres"};
     */
 
-        // Dimensions dels botons
-        float selectW = 350, selectH = 30;
+    // Dimensions dels botons
+    float selectW = 350, selectH = 30;
 
-        // Color de fons de l'App
-        int bgColor = 255;
+    // Color de fons de l'App
+    int bgColor = 255;
 
-        // Valor numèric
-        int n = 0;
+    // Valor numèric
+    int n = 0;
 
 
     // Propietats de SwitchButton
@@ -118,23 +117,23 @@ public class GUI {
         fonts = new Fonts(p5);
         pantallaActual = PANTALLA.registro;
 
-    // Creació de components (inicialització)
+        // Creació de components (inicialització)
         // Creació dels Botons
-            //dibuijaPantallaRegistro
+        //dibuijaPantallaRegistro
         b1 = new Button(p5, "Entra", 440+550+20, 220+5*40+5*20+80, 200, 50);
         b1.setColors(colores.getColorAt(0), 0, colores.getColorAt(2), colores.getColorAt(3));
         //b1.setFont(fonts.getSecondFont());
         b2 = new Button(p5, "¿Está ya registrado?", 440+10, 220+5*40+5*20+80, 540, 50);
         b2.setColors(colores.getColorAt(0), 0, colores.getColorAt(2), colores.getColorAt(3));
         //b2.setFont(fonts.getSecondFont());
-            //dibujaMenu
+        //dibujaMenu
         b3 = new Button(p5, "Tu cuenta", 50, margeV+usuariRadi+10+75, 250, 70);
         b3.setColors(colores.getColorAt(0), 0, colores.getColorAt(2), colores.getColorAt(3));
         //b3.setFont(fonts.getSecondFont());
         b4 = new Button(p5, "Canciones", 50, margeV+usuariRadi+10+80+30+70, 250, 70);
         b4.setColors(colores.getColorAt(0), 0, colores.getColorAt(2), colores.getColorAt(3));
         //b4.setFont(fonts.getSecondFont());
-            //dibuijaPantallaRegistro
+        //dibuijaPantallaRegistro
         b5 = new Button(p5, "Agregar canción", 390+(rect2Width-300), 100+rect2Height-40, 300, 40);
         b6 = new Button(p5, "Agregar lista", 390+(rect2Width-300), 100+rect2Height-40, 300, 40);
         b7 = new Button(p5, "Calentamiento", 390, margeV, rect34Width, rect34Height);
@@ -143,7 +142,6 @@ public class GUI {
         b8 = new Button(p5, "Coreografía", 390+rect34Width+50, margeV, rect34Width, rect34Height);
         b8.setColors(colores.getColorAt(0), 0, colores.getColorAt(2), colores.getColorAt(3));
         b8.setFont(fonts.getFirstFont());
-
         // BOTON VOLVER
             // Pantalla agregarCanción
             b9 = new Button(p5, "Volver", 390, 600-botonVolverHeight, botonVolverWidth, botonVolverHeight);
@@ -214,9 +212,9 @@ public class GUI {
 //ICONOS --> https://www.flaticon.es/
 
         // Creació del RoundButton
-            //botonsTuCuenta
-                    this.setMedia(p5);  // Carrega les imatges
-                    // Inicialització de components (botons)
+        //botonsTuCuenta
+        this.setMedia(p5);  // Carrega les imatges
+        // Inicialització de components (botons)
         rb1 = new RoundButton(p5, icono1, margeH+(photo2Width/2), margeV+((usuariRadi)/2+15), usuariRadi-55);
         rb11 = new RoundButton(p5, icono1, margeH+photo1Width+margeH+(rect1Width/2), margeV+(usuariRadi/2)+10, usuariRadi-55);
         rb2 = new RoundButton(p5, icono2, 540+35, margeV+60+rect2Height+30+35, 35);
@@ -229,13 +227,15 @@ public class GUI {
 
 
         // Creació del Music Player
-        mp = new MusicPlayer(p5,120, p5.height/3);
-        mp.setSound(p5, "saxo.wav");
+        mp1 = new MusicPlayer(p5,120, p5.height/3);
+        mp1.setSound(p5, "C:\\Users\\usuario\\OneDrive\\Escritorio\\SolInfNuria\\SolInfNuria2324\\data\\MusicPlayer\\Calentamiento\\Barra\\1WarmUp\\1.mp3");
+        mp2 = new MusicPlayer(p5,520, p5.height/1.5f);
+        mp2.setSound(p5, "C:\\Users\\usuario\\OneDrive\\Escritorio\\SolInfNuria\\SolInfNuria2324\\data\\MusicPlayer\\Calentamiento\\Barra\\1WarmUp\\2.mp3");
 
 
 
         // Creació del Text Field
-            // dibuijaPantallaRegistro
+        // dibuijaPantallaRegistro
         tf1 = new TextField(p5, 440, 220, 790, 40);
         tf1.setColors(colores.getColorAt(5), 0, 0, colores.getColorAt(2));
         tf1.setFont(fonts.getThirdFont());
@@ -251,14 +251,14 @@ public class GUI {
         tf5 = new TextField(p5, 440, 220+4*40+4*20, 550, 40);
         tf5.setColors(colores.getColorAt(5), 0, 0, colores.getColorAt(2));
         tf5.setFont(fonts.getThirdFont());
-            // dibuijaPantallaAgregarCancion
+        // dibuijaPantallaAgregarCancion
         tf6 = new TextField(p5, 390, 100, 850, 30);
         tf6.setColors(colores.getColorAt(5), 0, 0, colores.getColorAt(2));
         tf6.setFont(fonts.getThirdFont());
         tf7 = new TextField(p5, 390, 100+30+20, 850, 30);
         tf7.setColors(colores.getColorAt(5), 0, 0, colores.getColorAt(2));
         tf7.setFont(fonts.getThirdFont());
-            // dibuijaPantallaAgregarLista
+        // dibuijaPantallaAgregarLista
         tf8 = new TextField(p5, 390, 100, 850, 30);
         tf8.setColors(colores.getColorAt(5), 0, 0, colores.getColorAt(2));
         tf8.setFont(fonts.getThirdFont());
@@ -300,10 +300,10 @@ public class GUI {
     // Carrega els elements multimedia que utilitzen els components del GUI
     public void setMedia(PApplet p5){
         //p5.scale(0.5f, 0.5f); ??????????????????????????????????? Fer imatge més petita ?????????????????????????????????????
-        icono1 = p5.loadImage("usuario.png");
-        icono2 = p5.loadImage("Favoritos.png"); // https://www.flaticon.es/icono-gratis/estrella_1828970?related_id=1828884&origin=search ; https://www.flaticon.es/icono-gratis/amor_5007082?related_id=5011077&origin=search
-        icono3 = p5.loadImage("TusCanciones.png"); // https://www.flaticon.es/icono-gratis/musica_4498848?related_id=4498154&origin=search ; https://www.flaticon.es/icono-gratis/lista-de-reproduccion_2585136
-        icono4 = p5.loadImage("TusListas.png"); // https://www.flaticon.es/icono-gratis/cancion_6499489 ; https://www.flaticon.es/icono-gratis/letras-de-canciones_10476137?related_id=10476143&origin=search ; https://www.flaticon.es/icono-gratis/lista-de-verificacion_10396949
+        icono1 = p5.loadImage("C:\\Users\\usuario\\OneDrive\\Escritorio\\SolInfNuria\\SolInfNuria2324\\data\\RoundButton\\usuario.png");
+        icono2 = p5.loadImage("C:\\Users\\usuario\\OneDrive\\Escritorio\\SolInfNuria\\SolInfNuria2324\\data\\RoundButton\\Favoritos.png"); // https://www.flaticon.es/icono-gratis/estrella_1828970?related_id=1828884&origin=search ; https://www.flaticon.es/icono-gratis/amor_5007082?related_id=5011077&origin=search
+        icono3 = p5.loadImage("C:\\Users\\usuario\\OneDrive\\Escritorio\\SolInfNuria\\SolInfNuria2324\\data\\RoundButton\\TusCanciones.png"); // https://www.flaticon.es/icono-gratis/musica_4498848?related_id=4498154&origin=search ; https://www.flaticon.es/icono-gratis/lista-de-reproduccion_2585136
+        icono4 = p5.loadImage("C:\\Users\\usuario\\OneDrive\\Escritorio\\SolInfNuria\\SolInfNuria2324\\data\\RoundButton\\TusListas.png"); // https://www.flaticon.es/icono-gratis/cancion_6499489 ; https://www.flaticon.es/icono-gratis/letras-de-canciones_10476137?related_id=10476143&origin=search ; https://www.flaticon.es/icono-gratis/lista-de-verificacion_10396949
     }
 
     public void dibujaBotonsTuCuentaRB(PApplet p5){
@@ -333,7 +333,7 @@ public class GUI {
     public void dibujaFullMenu(PApplet p5){
         // Pantalla
         p5.pushStyle();
-            dibujaMenu(p5);
+        dibujaMenu(p5);
         p5.popStyle();
         dibujaPhoto2(p5);
         //dibujaUsuariMenu(p5);
@@ -352,11 +352,11 @@ public class GUI {
         // Botones y otros
         dibujaBotonsTuCuentaRB(p5);
         p5.pushStyle();
-            // Dibuixa la Table
-            t1.display(p5, 390, 100, tableW, tableH);
-            // Dibuixa els botons
-            t1b1.display(p5);
-            t1b2.display(p5);
+        // Dibuixa la Table
+        t1.display(p5, 390, 100, tableW, tableH);
+        // Dibuixa els botons
+        t1b1.display(p5);
+        t1b2.display(p5);
         p5.popStyle();
     }
 
@@ -440,7 +440,6 @@ public class GUI {
         dibujaFullMenu(p5);
         dibujaRect2(p5);
         dibujaBotonsCanciones(p5);
-        //mp.display(p5);
         // Botones y otros
         b12.display(p5);
         p5.textAlign(p5.LEFT); //??????????????????????????????????????????????????????????????????????????????????????
@@ -448,6 +447,8 @@ public class GUI {
         b22.display(p5);
         b23.display(p5);
         b27.display(p5);
+        mp1.display(p5);
+        mp2.display(p5);
     }
 
     public void dibujaPantallaCoreografia(PApplet p5){
