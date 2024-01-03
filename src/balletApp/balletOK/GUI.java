@@ -15,10 +15,12 @@ import processing.core.PApplet;
 
 
 public class GUI {
-    public enum PANTALLA {registro, Favoritos, TusCanciones, agregarCanción,
-        TusListas, cancionesTusListas, agregarLista,
-        Canciones, Calentamiento, Coreografia, subListas,
-        subListasCanciones};
+    public enum PANTALLA {registro, Favoritos, TusCanciones, agregarCanción, TusListas, cancionesTusListas, agregarLista, Canciones, Calentamiento, Coreografia,
+        Barra, Centro, Diagonal, Ballets, Otras, Variaciones, WarmUpBarra, PlieBarra, SlowTenduBarra, Tendu4_4Barra, Tendu3_4Barra, JeteBarra, FastJeteBarra, RoundDeJambeATerreBarra, FonduBarra,
+        BattementFrappeBarra, AdagioBarra, RoundDeJambeEnlAirBarra, GrandBattementBarra, ReleveBarra, StrechBarra, PortDeBrasCentro, TenduCentro, AdagioCentro,
+        FonduCentro, GrandBattementCentro, PirouetteCentro, LittleJumpsCentro, Allegro1Centro, Allegro2Centro, Allegro3Centro, Allegro4Centro, CodaCentro, ReverenceCentro,
+        JumpsDiagonal, BigJumpsDiagonal, TourEnlAirDiagonal, PiquesDiagonal, TurnsDiagonal, SissoneDiagonal, ManegeDiagonal
+    };
 
     public PANTALLA pantallaActual;
 
@@ -30,7 +32,41 @@ public class GUI {
             b21, b22, b23, b24, b25, b26, b27, b28;
     RoundButton rb1, rb11, rb2, rb3, rb4;
     PImage icono1, icono2, icono3, icono4;
-    MusicPlayer mp1, mp2;
+    MusicPlayer
+            /*1BARRA*/
+            mp111, mp112, mp121, mp122, mp131, mp132, mp141, mp142, mp151, mp152, mp161, mp162, mp171, mp172, mp181, mp182,
+            mp191, mp192, mp1101, mp1102, mp1111, mp1112, mp1121, mp1122, mp1131, mp1132, mp1141, mp1142, mp1151, mp1152,
+            /*2CENTRO*/
+            mp211, mp212, mp221, mp222, mp231, mp232, mp241, mp242, mp251, mp252, mp261, mp262, mp271, mp272,
+            mp281, mp282, mp291, mp292, mp2101, mp2102, mp2111, mp2112, mp2121, mp2122, mp2131, mp2132,
+            /*3DIAGONAL*/
+            mp311, mp312, mp321, mp322, mp331, mp332, mp341, mp342, mp351, mp352, mp361, mp362, mp371, mp372,
+            /*4BALLETS*/
+                /*41Cascanueces*/
+                mp411, mp412, mp413, mp414, mp415, mp416, mp417, mp418, mp419, mp4110, mp4111, mp4112, mp4113, mp4114, mp4115, mp4116,
+                /*42Don QUijote*/
+                mp421, mp422, mp423, mp424, mp425, mp426, mp427, mp428, mp429, mp4210, mp4211, mp4212, mp4213, mp4214, mp4215, mp4216,
+                /*43Giselle*/
+                mp431, mp432, mp433, mp434, mp435, mp436, mp437, mp438, mp439, mp4310, mp4311, mp4312, mp4313, mp4314, mp4315, mp4316,
+                /*44El Lago De Los Cisnes*/
+                mp441, mp442, mp443, mp444, mp445, mp446, mp447, mp448, mp449, mp4410, mp4411, mp4412, mp4413, mp4414, mp4415, mp4416,
+                /*45La bella durmiente*/
+                mp451, mp452, mp453, mp454, mp455, mp456, mp457, mp458, mp459, mp4510, mp4511, mp4512, mp4513, mp4514, mp4515, mp4516,
+                /*46Romeo y Julieta*/
+                mp461, mp462, mp463, mp464, mp465, mp466, mp467, mp468, mp469, mp4610, mp4611, mp4612, mp4613, mp4614, mp4615, mp4616,
+                /*47Corsario*/
+                mp471, mp472, mp473, mp474, mp475, mp476, mp477, mp478, mp479, mp4710, mp4711, mp4712, mp4713, mp4714, mp4715, mp4716,
+                /*48Carmen*/
+                mp481, mp482, mp483, mp484, mp485, mp486, mp487, mp488, mp489, mp4810, mp4811, mp4812, mp4813, mp4814, mp4815, mp4816,
+            /*5OTRAS*/
+            mp51, mp52, mp53, mp54, mp55, mp56, mp57,
+            /*6VARIACIONES*/
+                /*61Mujer*/
+                mp611, mp612, mp613, mp614, mp615, mp616, mp617, mp618, mp619, mp6110, mp6111, mp6112, mp6113,
+                mp6114, mp6115, mp6116, mp6117, mp6118, mp6119, mp6120, mp6121, mp6122, mp6123, mp6124, mp6125,
+                /*62Hombre*/
+                mp621, mp622, mp623, mp624, mp625, mp626, mp627, mp628;
+
     TextField tf1, tf2, tf3, tf4, tf5, tf6, tf7, tf8, tf9;
 
     // Propietats de "PagedTable" (taules)
@@ -82,9 +118,9 @@ public class GUI {
     // Valors dels Selects
     String[] selectValues = {"Calentamiento", "Coreografía"};
     /*  String[] selectValues2 = {"Barra", "Centro", "Diagonal"};
-             BARRA: String[] selectValues3 = {"", "", ""};
-             CENTRO: String[] selectValues3 = {"", "", ""};
-             DIAGONAL: String[] selectValues3 = {"", "", ""};
+             BARRA: String[] selectValues3 = {"", "", ""...};
+             CENTRO: String[] selectValues3 = {"", "", ""...};
+             DIAGONAL: String[] selectValues3 = {"", "", ""...};
 
         o String[] selectValues2 = {"Ballets", "Variaciones", "Otras"};
              BALLETS: String[] selectValues3 = {"Cascanueces", "Don Quijote", "Giselle", "El Lago de los Cisnes", "La bella durmiente", "Romeo y Julieta", "Corsario", "Carmen"};
@@ -227,10 +263,10 @@ public class GUI {
 
 
         // Creació del Music Player
-        mp1 = new MusicPlayer(p5,120, p5.height/3);
-        mp1.setSound(p5, "C:\\Users\\usuario\\OneDrive\\Escritorio\\SolInfNuria\\SolInfNuria2324\\data\\MusicPlayer\\Calentamiento\\Barra\\1WarmUp\\1.mp3");
-        mp2 = new MusicPlayer(p5,520, p5.height/1.5f);
-        mp2.setSound(p5, "C:\\Users\\usuario\\OneDrive\\Escritorio\\SolInfNuria\\SolInfNuria2324\\data\\MusicPlayer\\Calentamiento\\Barra\\1WarmUp\\2.mp3");
+        mp111 = new MusicPlayer(p5,120, p5.height/3);
+        mp111.setSound(p5, "C:\\Users\\usuario\\OneDrive\\Escritorio\\SolInfNuria\\SolInfNuria2324\\data\\MusicPlayer\\Calentamiento\\Barra\\1WarmUp\\1.mp3");
+        mp112 = new MusicPlayer(p5,520, p5.height/1.5f);
+        mp112.setSound(p5, "C:\\Users\\usuario\\OneDrive\\Escritorio\\SolInfNuria\\SolInfNuria2324\\data\\MusicPlayer\\Calentamiento\\Barra\\1WarmUp\\2.mp3");
 
 
 
@@ -447,8 +483,6 @@ public class GUI {
         b22.display(p5);
         b23.display(p5);
         b27.display(p5);
-        mp1.display(p5);
-        mp2.display(p5);
     }
 
     public void dibujaPantallaCoreografia(PApplet p5){
@@ -465,7 +499,57 @@ public class GUI {
         b27.display(p5);
     }
 
-    public void dibujaPantallaListas(PApplet p5){
+    public void dibujaPantallaBarra(PApplet p5){
+        // Pantalla
+        p5.background(255);
+        dibujaFullMenu(p5);
+        dibujaRect2(p5);
+        dibujaBotonsCanciones(p5);
+        // Botones y otros
+        b13.display(p5);
+        b27.display(p5);
+    }
+    public void dibujaPantallaCentro(PApplet p5){
+        // Pantalla
+        p5.background(255);
+        dibujaFullMenu(p5);
+        dibujaRect2(p5);
+        dibujaBotonsCanciones(p5);
+        // Botones y otros
+        b13.display(p5);
+        b27.display(p5);
+    }
+    public void dibujaPantallaDiagonal(PApplet p5){
+        // Pantalla
+        p5.background(255);
+        dibujaFullMenu(p5);
+        dibujaRect2(p5);
+        dibujaBotonsCanciones(p5);
+        // Botones y otros
+        b13.display(p5);
+        b27.display(p5);
+    }
+    public void dibujaPantallaBallets(PApplet p5){
+        // Pantalla
+        p5.background(255);
+        dibujaFullMenu(p5);
+        dibujaRect2(p5);
+        dibujaBotonsCanciones(p5);
+        // Botones y otros
+        b13.display(p5);
+        b27.display(p5);
+    }
+    public void dibujaPantallaOtras(PApplet p5){
+        // Pantalla
+        p5.background(255);
+        dibujaFullMenu(p5);
+        dibujaRect2(p5);
+        dibujaBotonsCanciones(p5);
+        // Botones y otros
+        b13.display(p5);
+        b27.display(p5);
+    }
+    public void dibujaPantallaVariaciones(PApplet p5){
         // Pantalla
         p5.background(255);
         dibujaFullMenu(p5);
@@ -476,7 +560,19 @@ public class GUI {
         b27.display(p5);
     }
 
-    public void dibujaPantallaListasCanciones(PApplet p5){
+    public void dibujaPantallaWarmUpBarra(PApplet p5){
+        // Pantalla
+        p5.background(255);
+        dibujaFullMenu(p5);
+        dibujaRect2(p5);
+        dibujaBotonsCanciones(p5);
+        // Botones y otros
+        b15.display(p5);
+        b28.display(p5);
+        mp111.display(p5);
+        mp112.display(p5);
+    }
+    public void dibujaPantallaPlieBarra(PApplet p5){
         // Pantalla
         p5.background(255);
         dibujaFullMenu(p5);
@@ -486,6 +582,339 @@ public class GUI {
         b15.display(p5);
         b28.display(p5);
     }
+    public void dibujaPantallaSlowTenduBarra(PApplet p5){
+        // Pantalla
+        p5.background(255);
+        dibujaFullMenu(p5);
+        dibujaRect2(p5);
+        dibujaBotonsCanciones(p5);
+        // Botones y otros
+        b15.display(p5);
+        b28.display(p5);
+    }
+    public void dibujaPantallaTendu4_4Barra(PApplet p5){
+        // Pantalla
+        p5.background(255);
+        dibujaFullMenu(p5);
+        dibujaRect2(p5);
+        dibujaBotonsCanciones(p5);
+        // Botones y otros
+        b15.display(p5);
+        b28.display(p5);
+    }
+    public void dibujaPantallaTendu3_4Barra(PApplet p5){
+        // Pantalla
+        p5.background(255);
+        dibujaFullMenu(p5);
+        dibujaRect2(p5);
+        dibujaBotonsCanciones(p5);
+        // Botones y otros
+        b15.display(p5);
+        b28.display(p5);
+    }
+    public void dibujaPantallaJeteBarra(PApplet p5){
+        // Pantalla
+        p5.background(255);
+        dibujaFullMenu(p5);
+        dibujaRect2(p5);
+        dibujaBotonsCanciones(p5);
+        // Botones y otros
+        b15.display(p5);
+        b28.display(p5);
+    }
+    public void dibujaPantallaFastJeteBarra(PApplet p5){
+        // Pantalla
+        p5.background(255);
+        dibujaFullMenu(p5);
+        dibujaRect2(p5);
+        dibujaBotonsCanciones(p5);
+        // Botones y otros
+        b15.display(p5);
+        b28.display(p5);
+    }
+    public void dibujaPantallaRoundDeJambeATerreBarra(PApplet p5){
+        // Pantalla
+        p5.background(255);
+        dibujaFullMenu(p5);
+        dibujaRect2(p5);
+        dibujaBotonsCanciones(p5);
+        // Botones y otros
+        b15.display(p5);
+        b28.display(p5);
+    }
+    public void dibujaPantallaFonduBarra(PApplet p5){
+        // Pantalla
+        p5.background(255);
+        dibujaFullMenu(p5);
+        dibujaRect2(p5);
+        dibujaBotonsCanciones(p5);
+        // Botones y otros
+        b15.display(p5);
+        b28.display(p5);
+    }
+    public void dibujaPantallaBattementFrappeBarra(PApplet p5){
+        // Pantalla
+        p5.background(255);
+        dibujaFullMenu(p5);
+        dibujaRect2(p5);
+        dibujaBotonsCanciones(p5);
+        // Botones y otros
+        b15.display(p5);
+        b28.display(p5);
+    }
+    public void dibujaPantallaAdagioBarra(PApplet p5){
+        // Pantalla
+        p5.background(255);
+        dibujaFullMenu(p5);
+        dibujaRect2(p5);
+        dibujaBotonsCanciones(p5);
+        // Botones y otros
+        b15.display(p5);
+        b28.display(p5);
+    }
+    public void dibujaPantallaRoundDeJambeEnlAirBarra(PApplet p5){
+        // Pantalla
+        p5.background(255);
+        dibujaFullMenu(p5);
+        dibujaRect2(p5);
+        dibujaBotonsCanciones(p5);
+        // Botones y otros
+        b15.display(p5);
+        b28.display(p5);
+    }
+    public void dibujaPantallaGrandBattementBarra(PApplet p5){
+        // Pantalla
+        p5.background(255);
+        dibujaFullMenu(p5);
+        dibujaRect2(p5);
+        dibujaBotonsCanciones(p5);
+        // Botones y otros
+        b15.display(p5);
+        b28.display(p5);
+    }
+    public void dibujaPantallaReleveBarra(PApplet p5){
+        // Pantalla
+        p5.background(255);
+        dibujaFullMenu(p5);
+        dibujaRect2(p5);
+        dibujaBotonsCanciones(p5);
+        // Botones y otros
+        b15.display(p5);
+        b28.display(p5);
+    }
+    public void dibujaPantallaStrechBarra(PApplet p5){
+        // Pantalla
+        p5.background(255);
+        dibujaFullMenu(p5);
+        dibujaRect2(p5);
+        dibujaBotonsCanciones(p5);
+        // Botones y otros
+        b15.display(p5);
+        b28.display(p5);
+    }
+    public void dibujaPantallaPortDeBrasCentro(PApplet p5){
+        // Pantalla
+        p5.background(255);
+        dibujaFullMenu(p5);
+        dibujaRect2(p5);
+        dibujaBotonsCanciones(p5);
+        // Botones y otros
+        b15.display(p5);
+        b28.display(p5);
+    }
+    public void dibujaPantallaTenduCentro(PApplet p5){
+        // Pantalla
+        p5.background(255);
+        dibujaFullMenu(p5);
+        dibujaRect2(p5);
+        dibujaBotonsCanciones(p5);
+        // Botones y otros
+        b15.display(p5);
+        b28.display(p5);
+    }
+    public void dibujaPantallaAdagioCentro(PApplet p5){
+        // Pantalla
+        p5.background(255);
+        dibujaFullMenu(p5);
+        dibujaRect2(p5);
+        dibujaBotonsCanciones(p5);
+        // Botones y otros
+        b15.display(p5);
+        b28.display(p5);
+    }
+    public void dibujaPantallaFonduCentro(PApplet p5){
+        // Pantalla
+        p5.background(255);
+        dibujaFullMenu(p5);
+        dibujaRect2(p5);
+        dibujaBotonsCanciones(p5);
+        // Botones y otros
+        b15.display(p5);
+        b28.display(p5);
+    }
+    public void dibujaPantallaGrandBattementCentro(PApplet p5){
+        // Pantalla
+        p5.background(255);
+        dibujaFullMenu(p5);
+        dibujaRect2(p5);
+        dibujaBotonsCanciones(p5);
+        // Botones y otros
+        b15.display(p5);
+        b28.display(p5);
+    }
+    public void dibujaPantallaPirouetteCentro(PApplet p5){
+        // Pantalla
+        p5.background(255);
+        dibujaFullMenu(p5);
+        dibujaRect2(p5);
+        dibujaBotonsCanciones(p5);
+        // Botones y otros
+        b15.display(p5);
+        b28.display(p5);
+    }
+    public void dibujaPantallaLittleJumpsCentro(PApplet p5){
+        // Pantalla
+        p5.background(255);
+        dibujaFullMenu(p5);
+        dibujaRect2(p5);
+        dibujaBotonsCanciones(p5);
+        // Botones y otros
+        b15.display(p5);
+        b28.display(p5);
+    }
+    public void dibujaPantallaAllegro1Centro(PApplet p5){
+        // Pantalla
+        p5.background(255);
+        dibujaFullMenu(p5);
+        dibujaRect2(p5);
+        dibujaBotonsCanciones(p5);
+        // Botones y otros
+        b15.display(p5);
+        b28.display(p5);
+    }
+    public void dibujaPantallaAllegro2Centro(PApplet p5){
+        // Pantalla
+        p5.background(255);
+        dibujaFullMenu(p5);
+        dibujaRect2(p5);
+        dibujaBotonsCanciones(p5);
+        // Botones y otros
+        b15.display(p5);
+        b28.display(p5);
+    }
+    public void dibujaPantallaAllegro3Centro(PApplet p5){
+        // Pantalla
+        p5.background(255);
+        dibujaFullMenu(p5);
+        dibujaRect2(p5);
+        dibujaBotonsCanciones(p5);
+        // Botones y otros
+        b15.display(p5);
+        b28.display(p5);
+    }
+    public void dibujaPantallaAllegro4Centro(PApplet p5){
+        // Pantalla
+        p5.background(255);
+        dibujaFullMenu(p5);
+        dibujaRect2(p5);
+        dibujaBotonsCanciones(p5);
+        // Botones y otros
+        b15.display(p5);
+        b28.display(p5);
+    }
+    public void dibujaPantallaCodaCentro(PApplet p5){
+        // Pantalla
+        p5.background(255);
+        dibujaFullMenu(p5);
+        dibujaRect2(p5);
+        dibujaBotonsCanciones(p5);
+        // Botones y otros
+        b15.display(p5);
+        b28.display(p5);
+    }
+    public void dibujaPantallaReverenceCentro(PApplet p5){
+        // Pantalla
+        p5.background(255);
+        dibujaFullMenu(p5);
+        dibujaRect2(p5);
+        dibujaBotonsCanciones(p5);
+        // Botones y otros
+        b15.display(p5);
+        b28.display(p5);
+    }
+    public void dibujaPantallaJumpsDiagonal(PApplet p5){
+        // Pantalla
+        p5.background(255);
+        dibujaFullMenu(p5);
+        dibujaRect2(p5);
+        dibujaBotonsCanciones(p5);
+        // Botones y otros
+        b15.display(p5);
+        b28.display(p5);
+    }
+    public void dibujaPantallaBigJumpsDiagonal(PApplet p5){
+        // Pantalla
+        p5.background(255);
+        dibujaFullMenu(p5);
+        dibujaRect2(p5);
+        dibujaBotonsCanciones(p5);
+        // Botones y otros
+        b15.display(p5);
+        b28.display(p5);
+    }
+    public void dibujaPantallaTourEnlAirDiagonal(PApplet p5){
+        // Pantalla
+        p5.background(255);
+        dibujaFullMenu(p5);
+        dibujaRect2(p5);
+        dibujaBotonsCanciones(p5);
+        // Botones y otros
+        b15.display(p5);
+        b28.display(p5);
+    }
+    public void dibujaPantallaPiquesDiagonal(PApplet p5){
+        // Pantalla
+        p5.background(255);
+        dibujaFullMenu(p5);
+        dibujaRect2(p5);
+        dibujaBotonsCanciones(p5);
+        // Botones y otros
+        b15.display(p5);
+        b28.display(p5);
+    }
+    public void dibujaPantallaTurnsDiagonal(PApplet p5){
+        // Pantalla
+        p5.background(255);
+        dibujaFullMenu(p5);
+        dibujaRect2(p5);
+        dibujaBotonsCanciones(p5);
+        // Botones y otros
+        b15.display(p5);
+        b28.display(p5);
+    }
+    public void dibujaPantallaSissoneDiagonal(PApplet p5){
+        // Pantalla
+        p5.background(255);
+        dibujaFullMenu(p5);
+        dibujaRect2(p5);
+        dibujaBotonsCanciones(p5);
+        // Botones y otros
+        b15.display(p5);
+        b28.display(p5);
+    }
+    public void dibujaPantallaManegeDiagonal(PApplet p5){
+        // Pantalla
+        p5.background(255);
+        dibujaFullMenu(p5);
+        dibujaRect2(p5);
+        dibujaBotonsCanciones(p5);
+        // Botones y otros
+        b15.display(p5);
+        b28.display(p5);
+    }
+
+
+
 
 
 
