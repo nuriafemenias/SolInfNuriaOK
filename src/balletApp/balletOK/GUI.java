@@ -43,23 +43,23 @@ public class GUI {
             mp311, mp312, mp321, mp322, mp331, mp332, mp341, mp342, mp351, mp352, mp361, mp362, mp371, mp372,
             /*4BALLETS*/
                 /*41Cascanueces*/
-                mp411, mp412, mp413, mp414, mp415, mp416, mp417, mp418, mp419, mp4110, mp4111, mp4112, mp4113, mp4114, mp4115, mp4116,
+                mp411, mp412, mp413, mp414, mp415, mp416, mp417, mp418, mp419, mp4110, mp4111, mp4112, mp4113, mp4114,
                 /*42Don QUijote*/
-                mp421, mp422, mp423, mp424, mp425, mp426, mp427, mp428, mp429, mp4210, mp4211, mp4212, mp4213, mp4214, mp4215, mp4216,
+                mp421, mp422, mp423, mp424, mp425, mp426, mp427, mp428, mp429, mp4210, mp4211, mp4212, mp4213, mp4214,
                 /*43Giselle*/
-                mp431, mp432, mp433, mp434, mp435, mp436, mp437, mp438, mp439, mp4310, mp4311, mp4312, mp4313, mp4314, mp4315, mp4316,
+                mp431, mp432, mp433, mp434, mp435, mp436, mp437, mp438, mp439, mp4310, mp4311, mp4312, mp4313, mp4314,
                 /*44El Lago De Los Cisnes*/
-                mp441, mp442, mp443, mp444, mp445, mp446, mp447, mp448, mp449, mp4410, mp4411, mp4412, mp4413, mp4414, mp4415, mp4416,
+                mp441, mp442, mp443, mp444, mp445, mp446, mp447, mp448, mp449, mp4410, mp4411, mp4412, mp4413, mp4414,
                 /*45La bella durmiente*/
-                mp451, mp452, mp453, mp454, mp455, mp456, mp457, mp458, mp459, mp4510, mp4511, mp4512, mp4513, mp4514, mp4515, mp4516,
+                mp451, mp452, mp453, mp454, mp455, mp456, mp457, mp458, mp459, mp4510, mp4511, mp4512, mp4513, mp4514,
                 /*46Romeo y Julieta*/
-                mp461, mp462, mp463, mp464, mp465, mp466, mp467, mp468, mp469, mp4610, mp4611, mp4612, mp4613, mp4614, mp4615, mp4616,
+                mp461, mp462, mp463, mp464, mp465, mp466, mp467, mp468, mp469, mp4610, mp4611, mp4612, mp4613, mp4614,
                 /*47Corsario*/
-                mp471, mp472, mp473, mp474, mp475, mp476, mp477, mp478, mp479, mp4710, mp4711, mp4712, mp4713, mp4714, mp4715, mp4716,
+                mp471, mp472, mp473, mp474, mp475, mp476, mp477, mp478, mp479, mp4710, mp4711, mp4712, mp4713, mp4714,
                 /*48Carmen*/
-                mp481, mp482, mp483, mp484, mp485, mp486, mp487, mp488, mp489, mp4810, mp4811, mp4812, mp4813, mp4814, mp4815, mp4816,
+                mp481, mp482, mp483, mp484, mp485, mp486, mp487, mp488, mp489, mp4810, mp4811, mp4812, mp4813, mp4814,
                 /*49Paquita*/
-                mp491, mp492, mp493, mp494, mp495, mp496, mp497, mp498, mp499, mp4910, mp4911, mp4912, mp4913, mp4914, mp4915, mp4916,
+                mp491, mp492, mp493, mp494, mp495, mp496, mp497, mp498, mp499, mp4910, mp4911, mp4912, mp4913, mp4914,
             /*5OTRAS*/
             mp51, mp52, mp53, mp54, mp55, mp56, mp57,
             /*6VARIACIONES*/
