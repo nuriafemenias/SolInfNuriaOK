@@ -42,24 +42,26 @@ public class GUI {
             /*3DIAGONAL*/
             mp311, mp312, mp321, mp322, mp331, mp332, mp341, mp342, mp351, mp352, mp361, mp362, mp371, mp372,
             /*4BALLETS*/
-                /*41Cascanueces*/
-                mp411, mp412, mp413, mp414, mp415, mp416, mp417, mp418, mp419, mp4110, mp4111, mp4112, mp4113, mp4114,
-                /*42Don QUijote*/
+                /*41Carmen*/
+                mp411, mp412, mp413, mp414, mp415, mp416, mp417, mp418, mp419, mp4110, mp4111,
+                /*42Don Quixote*/
                 mp421, mp422, mp423, mp424, mp425, mp426, mp427, mp428, mp429, mp4210, mp4211, mp4212, mp4213, mp4214,
                 /*43Giselle*/
                 mp431, mp432, mp433, mp434, mp435, mp436, mp437, mp438, mp439, mp4310, mp4311, mp4312, mp4313, mp4314,
-                /*44El Lago De Los Cisnes*/
+                /*44La Bayadere*/
                 mp441, mp442, mp443, mp444, mp445, mp446, mp447, mp448, mp449, mp4410, mp4411, mp4412, mp4413, mp4414,
-                /*45La bella durmiente*/
+                /*45Le Corsaire*/
                 mp451, mp452, mp453, mp454, mp455, mp456, mp457, mp458, mp459, mp4510, mp4511, mp4512, mp4513, mp4514,
-                /*46Romeo y Julieta*/
+                /*46Nutcracker*/
                 mp461, mp462, mp463, mp464, mp465, mp466, mp467, mp468, mp469, mp4610, mp4611, mp4612, mp4613, mp4614,
-                /*47Corsario*/
+                /*47Paquita*/
                 mp471, mp472, mp473, mp474, mp475, mp476, mp477, mp478, mp479, mp4710, mp4711, mp4712, mp4713, mp4714,
-                /*48Carmen*/
+                /*48Romeo and Juliet*/
                 mp481, mp482, mp483, mp484, mp485, mp486, mp487, mp488, mp489, mp4810, mp4811, mp4812, mp4813, mp4814,
-                /*49Paquita*/
+                /*49Swan Lake*/
                 mp491, mp492, mp493, mp494, mp495, mp496, mp497, mp498, mp499, mp4910, mp4911, mp4912, mp4913, mp4914,
+                /*410The Sleeping Beauty*/
+                mp4101, mp4102, mp4103, mp4104, mp4105, mp4106, mp4107, mp4108, mp4109, mp41010, mp41011, mp41012, mp41013, mp41014,
             /*5OTRAS*/
             mp51, mp52, mp53, mp54, mp55, mp56, mp57,
             /*6VARIACIONES*/
