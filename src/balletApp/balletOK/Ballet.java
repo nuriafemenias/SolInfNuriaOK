@@ -82,152 +82,12 @@ public class Ballet extends PApplet {
                 gui.dibujaPantallaBallets(this);
                 break;
 
-            case Otras:
-                gui.dibujaPantallaOtras(this);
+            case VariacionesListaCanciones:
+                gui.dibujaPantallaVariacionesListaCanciones(this);
                 break;
 
-            case Variaciones:
-                gui.dibujaPantallaVariaciones(this);
-                break;
-
-            case WarmUpBarra:
-                gui.dibujaPantallaWarmUpBarra(this);
-                break;
-
-            case PlieBarra:
-                gui.dibujaPantallaPlieBarra(this);
-                break;
-
-            case SlowTenduBarra:
-                gui.dibujaPantallaSlowTenduBarra(this);
-                break;
-
-            case Tendu4_4Barra:
-                gui.dibujaPantallaTendu4_4Barra(this);
-                break;
-
-            case Tendu3_4Barra:
-                gui.dibujaPantallaTendu3_4Barra(this);
-                break;
-
-            case JeteBarra:
-                gui.dibujaPantallaJeteBarra(this);
-                break;
-
-            case FastJeteBarra:
-                gui.dibujaPantallaFastJeteBarra(this);
-                break;
-
-            case RoundDeJambeATerreBarra:
-                gui.dibujaPantallaRoundDeJambeATerreBarra(this);
-                break;
-
-            case FonduBarra:
-                gui.dibujaPantallaFonduBarra(this);
-                break;
-
-            case BattementFrappeBarra:
-                gui.dibujaPantallaBattementFrappeBarra(this);
-                break;
-
-            case AdagioBarra:
-                gui.dibujaPantallaAdagioBarra(this);
-                break;
-
-            case RoundDeJambeEnlAirBarra:
-                gui.dibujaPantallaRoundDeJambeEnlAirBarra(this);
-                break;
-
-            case GrandBattementBarra:
-                gui.dibujaPantallaGrandBattementBarra(this);
-                break;
-
-            case ReleveBarra:
-                gui.dibujaPantallaReleveBarra(this);
-                break;
-
-            case StrechBarra:
-                gui.dibujaPantallaStrechBarra(this);
-                break;
-
-            case PortDeBrasCentro:
-                gui.dibujaPantallaPortDeBrasCentro(this);
-                break;
-
-            case TenduCentro:
-                gui.dibujaPantallaTenduCentro(this);
-                break;
-
-            case AdagioCentro:
-                gui.dibujaPantallaAdagioCentro(this);
-                break;
-
-            case FonduCentro:
-                gui.dibujaPantallaFonduCentro(this);
-                break;
-
-            case GrandBattementCentro:
-                gui.dibujaPantallaGrandBattementCentro(this);
-                break;
-
-            case PirouetteCentro:
-                gui.dibujaPantallaPirouetteCentro(this);
-                break;
-
-            case LittleJumpsCentro:
-                gui.dibujaPantallaLittleJumpsCentro(this);
-                break;
-
-            case Allegro1Centro:
-                gui.dibujaPantallaAllegro1Centro(this);
-                break;
-
-            case Allegro2Centro:
-                gui.dibujaPantallaAllegro2Centro(this);
-                break;
-
-            case Allegro3Centro:
-                gui.dibujaPantallaAllegro3Centro(this);
-                break;
-
-            case Allegro4Centro:
-                gui.dibujaPantallaAllegro4Centro(this);
-                break;
-
-            case CodaCentro:
-                gui.dibujaPantallaCodaCentro(this);
-                break;
-
-            case ReverenceCentro:
-                gui.dibujaPantallaReverenceCentro(this);
-                break;
-
-            case JumpsDiagonal:
-                gui.dibujaPantallaJumpsDiagonal(this);
-                break;
-
-            case BigJumpsDiagonal:
-                gui.dibujaPantallaBigJumpsDiagonal(this);
-                break;
-
-            case TourEnlAirDiagonal:
-                gui.dibujaPantallaTourEnlAirDiagonal(this);
-                break;
-
-            case PiquesDiagonal:
-                gui.dibujaPantallaPiquesDiagonal(this);
-                break;
-
-            case TurnsDiagonal:
-                gui.dibujaPantallaTurnsDiagonal(this);
-                break;
-
-            case SissoneDiagonal:
-                gui.dibujaPantallaSissoneDiagonal(this);
-                break;
-
-            case ManegeDiagonal:
-                gui.dibujaPantallaManegeDiagonal(this);
+            case ListaCanciones:
+                gui.dibujaPantallaListaCanciones(this);
                 break;
         }
 
@@ -267,7 +127,6 @@ public class Ballet extends PApplet {
         else if(key=='9'){
             gui.pantallaActual = GUI.PANTALLA.Coreografia;
         }
-
         else if(key=='q'){
             gui.pantallaActual = GUI.PANTALLA.Barra;
         }
@@ -281,115 +140,10 @@ public class Ballet extends PApplet {
             gui.pantallaActual = GUI.PANTALLA.Ballets;
         }
         else if(key=='t'){
-            gui.pantallaActual = GUI.PANTALLA.Otras;
+            gui.pantallaActual = GUI.PANTALLA.VariacionesListaCanciones;
         }
         else if(key=='y'){
-            gui.pantallaActual = GUI.PANTALLA.Variaciones;
-        }
-        else if(key=='u'){
-            gui.pantallaActual = GUI.PANTALLA.WarmUpBarra;
-        }
-        else if(key=='i'){
-            gui.pantallaActual = GUI.PANTALLA.PlieBarra;
-        }
-        else if(key=='o'){
-            gui.pantallaActual = GUI.PANTALLA.SlowTenduBarra;
-        }
-        else if(key=='p'){
-            gui.pantallaActual = GUI.PANTALLA.Tendu4_4Barra;
-        }
-        else if(key=='a'){
-            gui.pantallaActual = GUI.PANTALLA.Tendu3_4Barra;
-        }
-        else if(key=='s'){
-            gui.pantallaActual = GUI.PANTALLA.JeteBarra;
-        }
-        else if(key=='d'){
-            gui.pantallaActual = GUI.PANTALLA.FastJeteBarra;
-        }
-        else if(key=='f'){
-            gui.pantallaActual = GUI.PANTALLA.RoundDeJambeATerreBarra;
-        }
-        else if(key=='g'){
-            gui.pantallaActual = GUI.PANTALLA.FonduBarra;
-        }
-        else if(key=='h'){
-            gui.pantallaActual = GUI.PANTALLA.BattementFrappeBarra;
-        }
-        else if(key=='j'){
-            gui.pantallaActual = GUI.PANTALLA.AdagioBarra;
-        }
-        else if(key=='k'){
-            gui.pantallaActual = GUI.PANTALLA.RoundDeJambeEnlAirBarra;
-        }
-        else if(key=='l'){
-            gui.pantallaActual = GUI.PANTALLA.GrandBattementBarra;
-        }
-        else if(key=='ñ'){
-            gui.pantallaActual = GUI.PANTALLA.ReleveBarra;
-        }
-        else if(key=='z'){
-            gui.pantallaActual = GUI.PANTALLA.StrechBarra;
-        }
-        else if(key=='x'){
-            gui.pantallaActual = GUI.PANTALLA.PortDeBrasCentro;
-        }
-        else if(key=='c'){
-            gui.pantallaActual = GUI.PANTALLA.TenduCentro;
-        }
-        else if(key=='v'){
-            gui.pantallaActual = GUI.PANTALLA.AdagioCentro;
-        }
-        else if(key=='b'){
-            gui.pantallaActual = GUI.PANTALLA.FonduCentro;
-        }
-        else if(key=='n'){
-            gui.pantallaActual = GUI.PANTALLA.GrandBattementCentro;
-        }
-        else if(key=='m'){
-            gui.pantallaActual = GUI.PANTALLA.PirouetteCentro;
-        }
-        else if(key=='Q'){
-            gui.pantallaActual = GUI.PANTALLA.LittleJumpsCentro;
-        }
-        else if(key=='W'){
-            gui.pantallaActual = GUI.PANTALLA.Allegro1Centro;
-        }
-        else if(key=='E'){
-            gui.pantallaActual = GUI.PANTALLA.Allegro2Centro;
-        }
-        else if(key=='R'){
-            gui.pantallaActual = GUI.PANTALLA.Allegro3Centro;
-        }
-        else if(key=='T'){
-            gui.pantallaActual = GUI.PANTALLA.Allegro4Centro;
-        }
-        else if(key=='Y'){
-            gui.pantallaActual = GUI.PANTALLA.CodaCentro;
-        }
-        else if(key=='U'){
-            gui.pantallaActual = GUI.PANTALLA.ReverenceCentro;
-        }
-        else if(key=='I'){
-            gui.pantallaActual = GUI.PANTALLA.JumpsDiagonal;
-        }
-        else if(key=='O'){
-            gui.pantallaActual = GUI.PANTALLA.BigJumpsDiagonal;
-        }
-        else if(key=='P'){
-            gui.pantallaActual = GUI.PANTALLA.TourEnlAirDiagonal;
-        }
-        else if(key=='A'){
-            gui.pantallaActual = GUI.PANTALLA.PiquesDiagonal;
-        }
-        else if(key=='S'){
-            gui.pantallaActual = GUI.PANTALLA.TurnsDiagonal;
-        }
-        else if(key=='D'){
-            gui.pantallaActual = GUI.PANTALLA.SissoneDiagonal;
-        }
-        else if(key=='F'){
-            gui.pantallaActual = GUI.PANTALLA.ManegeDiagonal;
+            gui.pantallaActual = GUI.PANTALLA.ListaCanciones;
         }
 
 
@@ -411,6 +165,19 @@ public class Ballet extends PApplet {
         gui.tf7.keyPressed(key, keyCode);
         gui.tf8.keyPressed(key, keyCode);
         gui.tf9.keyPressed(key, keyCode);
+
+        if (gui.pantallaActual == GUI.PANTALLA.agregarCanción) {
+            // Anar un mes enrere
+            if (keyCode == LEFT) {
+                gui.c.prevMonth();
+                println("PREV MONTH");
+            }
+            // Anar un mes endavant
+            else if (keyCode == RIGHT) {
+                gui.c.nextMonth();
+                println("PREV MONTH");
+            }
+        }
     }
 
     public void mousePressed() {
@@ -495,6 +262,10 @@ public class Ballet extends PApplet {
             gui.cb1.toggle();
         }
 
+        if (gui.pantallaActual == GUI.PANTALLA.agregarCanción) {
+            // Comprovar si clicam sobre botons del Calendari
+            gui.c.checkButtons(this);
+        }
     }
 
 

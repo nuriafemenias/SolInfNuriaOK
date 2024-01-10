@@ -1,13 +1,7 @@
 package balletApp.balletOK;
 
-import balletApp.balletOK.gui.Button;
-import balletApp.balletOK.gui.MusicPlayer;
-import balletApp.balletOK.gui.RoundButton;
-import balletApp.balletOK.gui.TextField;
-import balletApp.balletOK.gui.PagedTable;
-import balletApp.balletOK.gui.Select;
-import balletApp.balletOK.gui.CheckBox;
-import balletApp.balletOK.gui.SwitchButton;
+import balletApp.balletOK.gui.*;
+
 import static balletApp.balletOK.Mides.*;
 
 import processing.core.PImage;
@@ -15,11 +9,9 @@ import processing.core.PApplet;
 
 
 public class GUI {
-    public enum PANTALLA {registro, Favoritos, TusCanciones, agregarCanción, TusListas, cancionesTusListas, agregarLista, Canciones, Calentamiento, Coreografia,
-        Barra, Centro, Diagonal, Ballets, Otras, Variaciones, WarmUpBarra, PlieBarra, SlowTenduBarra, Tendu4_4Barra, Tendu3_4Barra, JeteBarra, FastJeteBarra, RoundDeJambeATerreBarra, FonduBarra,
-        BattementFrappeBarra, AdagioBarra, RoundDeJambeEnlAirBarra, GrandBattementBarra, ReleveBarra, StrechBarra, PortDeBrasCentro, TenduCentro, AdagioCentro,
-        FonduCentro, GrandBattementCentro, PirouetteCentro, LittleJumpsCentro, Allegro1Centro, Allegro2Centro, Allegro3Centro, Allegro4Centro, CodaCentro, ReverenceCentro,
-        JumpsDiagonal, BigJumpsDiagonal, TourEnlAirDiagonal, PiquesDiagonal, TurnsDiagonal, SissoneDiagonal, ManegeDiagonal
+    public enum PANTALLA {registro, Favoritos, TusCanciones, agregarCanción, TusListas,
+        cancionesTusListas, agregarLista, Canciones, Calentamiento, Coreografia,
+        Barra, Centro, Diagonal, Ballets, VariacionesListaCanciones, ListaCanciones
     };
 
     public PANTALLA pantallaActual;
@@ -118,7 +110,7 @@ public class GUI {
 
 
     // Propietats del Select
-    Select s1;
+    Select s1, s2, s3;
     // Valors dels Selects
     String[] selectValues = {"Calentamiento", "Coreografía"};
     /*  String[] selectValues2 = {"Barra", "Centro", "Diagonal"};
@@ -146,6 +138,9 @@ public class GUI {
 
     // Propietats de CheckBox
     CheckBox cb1;
+
+    // Calendari
+    Calendari c;
 
 
 
@@ -243,7 +238,7 @@ public class GUI {
         b27 = new Button(p5, "Agregar Lista", -10+menuWidth+margeH+500, margeV+60+rect2Height+40, botonAñadirWidth, botonAñadirHeight);
         b27.setColors(190, 0, 100, 190);
         //b27.setFont(fonts.getFirstFont());
-        b28 = new Button(p5, "Agragar Canción", -10+menuWidth+margeH+500, margeV+60+rect2Height+40, botonAñadirWidth, botonAñadirHeight);
+        b28 = new Button(p5, "Agregar Canción", -10+menuWidth+margeH+500, margeV+60+rect2Height+40, botonAñadirWidth, botonAñadirHeight);
         b28.setColors(190, 0, 100, 190);
         //b28.setFont(fonts.getFirstFont());
 
@@ -322,6 +317,8 @@ public class GUI {
 
         // Creació dels Select
         s1 = new Select(selectValues, 390, 100+2*30+20+30, selectW, selectH);
+        //s2 = new Select(selectValues, 390+selectW+, 100+2*30+20+30, selectW, selectH);
+        //s3 = new Select(selectValues, 390, 100+2*30+20+30, selectW, selectH);
 
 
         // Creació dels Switch Button
@@ -330,6 +327,9 @@ public class GUI {
 
         // Creació dels CheckBox
         cb1 = new CheckBox(p5, 440+550+30, 220+3*40+3*20,35);
+
+        //Calendari
+        c = new Calendari(390+350+60,210+(int)selectH+30,380,290);
     }
 
 
@@ -422,10 +422,13 @@ public class GUI {
         dibujaBotonsTuCuentaRB(p5);
         tf6.display(p5);
         tf7.display(p5);
-        s1.display(p5);
         sb1.display(p5);
         sb2.display(p5);
+        s1.display(p5);
+        //s2.display(p5);
+        //s3.display(p5);
         b9.display(p5);
+        c.display(p5);
     }
 
     public void dibujaPantallaTusListas(PApplet p5){
@@ -543,17 +546,8 @@ public class GUI {
         b13.display(p5);
         b27.display(p5);
     }
-    public void dibujaPantallaOtras(PApplet p5){
-        // Pantalla
-        p5.background(255);
-        dibujaFullMenu(p5);
-        dibujaRect2(p5);
-        dibujaBotonsCanciones(p5);
-        // Botones y otros
-        b13.display(p5);
-        b27.display(p5);
-    }
-    public void dibujaPantallaVariaciones(PApplet p5){
+
+    public void dibujaPantallaVariacionesListaCanciones(PApplet p5){
         // Pantalla
         p5.background(255);
         dibujaFullMenu(p5);
@@ -564,360 +558,16 @@ public class GUI {
         b27.display(p5);
     }
 
-    public void dibujaPantallaWarmUpBarra(PApplet p5){
+    public void dibujaPantallaListaCanciones(PApplet p5){
         // Pantalla
         p5.background(255);
         dibujaFullMenu(p5);
         dibujaRect2(p5);
         dibujaBotonsCanciones(p5);
         // Botones y otros
-        b15.display(p5);
-        b28.display(p5);
-        //mp111.display(p5);
-        //mp112.display(p5);
+        b13.display(p5);
+        b27.display(p5);
     }
-    public void dibujaPantallaPlieBarra(PApplet p5){
-        // Pantalla
-        p5.background(255);
-        dibujaFullMenu(p5);
-        dibujaRect2(p5);
-        dibujaBotonsCanciones(p5);
-        // Botones y otros
-        b15.display(p5);
-        b28.display(p5);
-    }
-    public void dibujaPantallaSlowTenduBarra(PApplet p5){
-        // Pantalla
-        p5.background(255);
-        dibujaFullMenu(p5);
-        dibujaRect2(p5);
-        dibujaBotonsCanciones(p5);
-        // Botones y otros
-        b15.display(p5);
-        b28.display(p5);
-    }
-    public void dibujaPantallaTendu4_4Barra(PApplet p5){
-        // Pantalla
-        p5.background(255);
-        dibujaFullMenu(p5);
-        dibujaRect2(p5);
-        dibujaBotonsCanciones(p5);
-        // Botones y otros
-        b15.display(p5);
-        b28.display(p5);
-    }
-    public void dibujaPantallaTendu3_4Barra(PApplet p5){
-        // Pantalla
-        p5.background(255);
-        dibujaFullMenu(p5);
-        dibujaRect2(p5);
-        dibujaBotonsCanciones(p5);
-        // Botones y otros
-        b15.display(p5);
-        b28.display(p5);
-    }
-    public void dibujaPantallaJeteBarra(PApplet p5){
-        // Pantalla
-        p5.background(255);
-        dibujaFullMenu(p5);
-        dibujaRect2(p5);
-        dibujaBotonsCanciones(p5);
-        // Botones y otros
-        b15.display(p5);
-        b28.display(p5);
-    }
-    public void dibujaPantallaFastJeteBarra(PApplet p5){
-        // Pantalla
-        p5.background(255);
-        dibujaFullMenu(p5);
-        dibujaRect2(p5);
-        dibujaBotonsCanciones(p5);
-        // Botones y otros
-        b15.display(p5);
-        b28.display(p5);
-    }
-    public void dibujaPantallaRoundDeJambeATerreBarra(PApplet p5){
-        // Pantalla
-        p5.background(255);
-        dibujaFullMenu(p5);
-        dibujaRect2(p5);
-        dibujaBotonsCanciones(p5);
-        // Botones y otros
-        b15.display(p5);
-        b28.display(p5);
-    }
-    public void dibujaPantallaFonduBarra(PApplet p5){
-        // Pantalla
-        p5.background(255);
-        dibujaFullMenu(p5);
-        dibujaRect2(p5);
-        dibujaBotonsCanciones(p5);
-        // Botones y otros
-        b15.display(p5);
-        b28.display(p5);
-    }
-    public void dibujaPantallaBattementFrappeBarra(PApplet p5){
-        // Pantalla
-        p5.background(255);
-        dibujaFullMenu(p5);
-        dibujaRect2(p5);
-        dibujaBotonsCanciones(p5);
-        // Botones y otros
-        b15.display(p5);
-        b28.display(p5);
-    }
-    public void dibujaPantallaAdagioBarra(PApplet p5){
-        // Pantalla
-        p5.background(255);
-        dibujaFullMenu(p5);
-        dibujaRect2(p5);
-        dibujaBotonsCanciones(p5);
-        // Botones y otros
-        b15.display(p5);
-        b28.display(p5);
-    }
-    public void dibujaPantallaRoundDeJambeEnlAirBarra(PApplet p5){
-        // Pantalla
-        p5.background(255);
-        dibujaFullMenu(p5);
-        dibujaRect2(p5);
-        dibujaBotonsCanciones(p5);
-        // Botones y otros
-        b15.display(p5);
-        b28.display(p5);
-    }
-    public void dibujaPantallaGrandBattementBarra(PApplet p5){
-        // Pantalla
-        p5.background(255);
-        dibujaFullMenu(p5);
-        dibujaRect2(p5);
-        dibujaBotonsCanciones(p5);
-        // Botones y otros
-        b15.display(p5);
-        b28.display(p5);
-    }
-    public void dibujaPantallaReleveBarra(PApplet p5){
-        // Pantalla
-        p5.background(255);
-        dibujaFullMenu(p5);
-        dibujaRect2(p5);
-        dibujaBotonsCanciones(p5);
-        // Botones y otros
-        b15.display(p5);
-        b28.display(p5);
-    }
-    public void dibujaPantallaStrechBarra(PApplet p5){
-        // Pantalla
-        p5.background(255);
-        dibujaFullMenu(p5);
-        dibujaRect2(p5);
-        dibujaBotonsCanciones(p5);
-        // Botones y otros
-        b15.display(p5);
-        b28.display(p5);
-    }
-    public void dibujaPantallaPortDeBrasCentro(PApplet p5){
-        // Pantalla
-        p5.background(255);
-        dibujaFullMenu(p5);
-        dibujaRect2(p5);
-        dibujaBotonsCanciones(p5);
-        // Botones y otros
-        b15.display(p5);
-        b28.display(p5);
-    }
-    public void dibujaPantallaTenduCentro(PApplet p5){
-        // Pantalla
-        p5.background(255);
-        dibujaFullMenu(p5);
-        dibujaRect2(p5);
-        dibujaBotonsCanciones(p5);
-        // Botones y otros
-        b15.display(p5);
-        b28.display(p5);
-    }
-    public void dibujaPantallaAdagioCentro(PApplet p5){
-        // Pantalla
-        p5.background(255);
-        dibujaFullMenu(p5);
-        dibujaRect2(p5);
-        dibujaBotonsCanciones(p5);
-        // Botones y otros
-        b15.display(p5);
-        b28.display(p5);
-    }
-    public void dibujaPantallaFonduCentro(PApplet p5){
-        // Pantalla
-        p5.background(255);
-        dibujaFullMenu(p5);
-        dibujaRect2(p5);
-        dibujaBotonsCanciones(p5);
-        // Botones y otros
-        b15.display(p5);
-        b28.display(p5);
-    }
-    public void dibujaPantallaGrandBattementCentro(PApplet p5){
-        // Pantalla
-        p5.background(255);
-        dibujaFullMenu(p5);
-        dibujaRect2(p5);
-        dibujaBotonsCanciones(p5);
-        // Botones y otros
-        b15.display(p5);
-        b28.display(p5);
-    }
-    public void dibujaPantallaPirouetteCentro(PApplet p5){
-        // Pantalla
-        p5.background(255);
-        dibujaFullMenu(p5);
-        dibujaRect2(p5);
-        dibujaBotonsCanciones(p5);
-        // Botones y otros
-        b15.display(p5);
-        b28.display(p5);
-    }
-    public void dibujaPantallaLittleJumpsCentro(PApplet p5){
-        // Pantalla
-        p5.background(255);
-        dibujaFullMenu(p5);
-        dibujaRect2(p5);
-        dibujaBotonsCanciones(p5);
-        // Botones y otros
-        b15.display(p5);
-        b28.display(p5);
-    }
-    public void dibujaPantallaAllegro1Centro(PApplet p5){
-        // Pantalla
-        p5.background(255);
-        dibujaFullMenu(p5);
-        dibujaRect2(p5);
-        dibujaBotonsCanciones(p5);
-        // Botones y otros
-        b15.display(p5);
-        b28.display(p5);
-    }
-    public void dibujaPantallaAllegro2Centro(PApplet p5){
-        // Pantalla
-        p5.background(255);
-        dibujaFullMenu(p5);
-        dibujaRect2(p5);
-        dibujaBotonsCanciones(p5);
-        // Botones y otros
-        b15.display(p5);
-        b28.display(p5);
-    }
-    public void dibujaPantallaAllegro3Centro(PApplet p5){
-        // Pantalla
-        p5.background(255);
-        dibujaFullMenu(p5);
-        dibujaRect2(p5);
-        dibujaBotonsCanciones(p5);
-        // Botones y otros
-        b15.display(p5);
-        b28.display(p5);
-    }
-    public void dibujaPantallaAllegro4Centro(PApplet p5){
-        // Pantalla
-        p5.background(255);
-        dibujaFullMenu(p5);
-        dibujaRect2(p5);
-        dibujaBotonsCanciones(p5);
-        // Botones y otros
-        b15.display(p5);
-        b28.display(p5);
-    }
-    public void dibujaPantallaCodaCentro(PApplet p5){
-        // Pantalla
-        p5.background(255);
-        dibujaFullMenu(p5);
-        dibujaRect2(p5);
-        dibujaBotonsCanciones(p5);
-        // Botones y otros
-        b15.display(p5);
-        b28.display(p5);
-    }
-    public void dibujaPantallaReverenceCentro(PApplet p5){
-        // Pantalla
-        p5.background(255);
-        dibujaFullMenu(p5);
-        dibujaRect2(p5);
-        dibujaBotonsCanciones(p5);
-        // Botones y otros
-        b15.display(p5);
-        b28.display(p5);
-    }
-    public void dibujaPantallaJumpsDiagonal(PApplet p5){
-        // Pantalla
-        p5.background(255);
-        dibujaFullMenu(p5);
-        dibujaRect2(p5);
-        dibujaBotonsCanciones(p5);
-        // Botones y otros
-        b15.display(p5);
-        b28.display(p5);
-    }
-    public void dibujaPantallaBigJumpsDiagonal(PApplet p5){
-        // Pantalla
-        p5.background(255);
-        dibujaFullMenu(p5);
-        dibujaRect2(p5);
-        dibujaBotonsCanciones(p5);
-        // Botones y otros
-        b15.display(p5);
-        b28.display(p5);
-    }
-    public void dibujaPantallaTourEnlAirDiagonal(PApplet p5){
-        // Pantalla
-        p5.background(255);
-        dibujaFullMenu(p5);
-        dibujaRect2(p5);
-        dibujaBotonsCanciones(p5);
-        // Botones y otros
-        b15.display(p5);
-        b28.display(p5);
-    }
-    public void dibujaPantallaPiquesDiagonal(PApplet p5){
-        // Pantalla
-        p5.background(255);
-        dibujaFullMenu(p5);
-        dibujaRect2(p5);
-        dibujaBotonsCanciones(p5);
-        // Botones y otros
-        b15.display(p5);
-        b28.display(p5);
-    }
-    public void dibujaPantallaTurnsDiagonal(PApplet p5){
-        // Pantalla
-        p5.background(255);
-        dibujaFullMenu(p5);
-        dibujaRect2(p5);
-        dibujaBotonsCanciones(p5);
-        // Botones y otros
-        b15.display(p5);
-        b28.display(p5);
-    }
-    public void dibujaPantallaSissoneDiagonal(PApplet p5){
-        // Pantalla
-        p5.background(255);
-        dibujaFullMenu(p5);
-        dibujaRect2(p5);
-        dibujaBotonsCanciones(p5);
-        // Botones y otros
-        b15.display(p5);
-        b28.display(p5);
-    }
-    public void dibujaPantallaManegeDiagonal(PApplet p5){
-        // Pantalla
-        p5.background(255);
-        dibujaFullMenu(p5);
-        dibujaRect2(p5);
-        dibujaBotonsCanciones(p5);
-        // Botones y otros
-        b15.display(p5);
-        b28.display(p5);
-    }
-
-
 
 
 
