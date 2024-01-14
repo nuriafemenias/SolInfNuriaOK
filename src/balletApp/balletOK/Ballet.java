@@ -266,6 +266,12 @@ public class Ballet extends PApplet {
             // Comprovar si clicam sobre botons del Calendari
             gui.c.checkButtons(this);
         }
+
+        // Paged songs
+        if (gui.pantallaActual == GUI.PANTALLA.agregarCanción) {
+            gui.ps.checkButtons(this);
+            gui.cs = gui.ps.checkCardClick(this);
+        }
     }
 
 

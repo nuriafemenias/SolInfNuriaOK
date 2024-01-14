@@ -142,6 +142,35 @@ public class GUI {
     // Calendari
     Calendari c;
 
+    // Paged songs
+    // Cançons Paginades
+        PagedSongs ps;
+
+        // Cançó Seleccionada
+        SongCard cs = null;
+
+        // Dimensions de les cards
+        float cardsW = 800, cardsH = 600;
+
+        // Número de cançons per pàgina
+        int numCardsPage = 8;
+
+        // Dades de la taula
+        String[][] inf = {
+                {"1", "Títol Cançó 1", "POP", "true"},
+                {"2", "Títol Cançó 2", "ROCK", "false"},
+                {"3", "Títol Cançó 3", "CLASSIC", "true"},
+                {"4", "Títol Cançó 4", "POP", "true"},
+                {"5", "Títol Cançó 5", "POP", "false"},
+                {"6", "Títol Cançó 6", "ROCK", "true"},
+                {"7", "Títol Cançó 7", "DANCE", "true"},
+                {"8", "Títol Cançó 8", "CLASSIC", "true"},
+                {"9", "Títol Cançó 9", "POP", "false"},
+                {"10", "Títol Cançó 10", "ROCK", "true"},
+        };
+
+        // Icones dels botons
+        PImage imgFave, imgNoFave, imgPlay;
 
 
 
@@ -158,9 +187,10 @@ public class GUI {
         b1 = new Button(p5, "Entra", 440+550+20, 220+5*40+5*20+80, 200, 50);
         b1.setColors(colores.getColorAt(0), 0, colores.getColorAt(2), colores.getColorAt(3));
         //b1.setFont(fonts.getSecondFont());
-        b2 = new Button(p5, "¿Está ya registrado?", 440+10, 220+5*40+5*20+80, 540, 50);
+        /*b2 = new Button(p5, "¿Está ya registrado?", 440+10, 220+5*40+5*20+80, 540, 50);
         b2.setColors(colores.getColorAt(0), 0, colores.getColorAt(2), colores.getColorAt(3));
         //b2.setFont(fonts.getSecondFont());
+        */
         //dibujaMenu
         b3 = new Button(p5, "Tu cuenta", 50, margeV+usuariRadi+10+75, 250, 70);
         b3.setColors(colores.getColorAt(0), 0, colores.getColorAt(2), colores.getColorAt(3));
@@ -271,19 +301,20 @@ public class GUI {
 
         // Creació del Text Field
         // dibuijaPantallaRegistro
-        tf1 = new TextField(p5, 440, 220, 790, 40);
+        tf1 = new TextField(p5, 440, 250, 790, 30);
         tf1.setColors(colores.getColorAt(5), 0, 0, colores.getColorAt(2));
+        //tf1.setColors(150, 0, 0, 240);
         tf1.setFont(fonts.getThirdFont());
-        tf2 = new TextField(p5, 440, 220+40+20, 790, 40);
+        tf2 = new TextField(p5, 440, 250+40+20+10, 790, 30);
         tf2.setColors(colores.getColorAt(5), 0, 0, colores.getColorAt(2));
         tf2.setFont(fonts.getThirdFont());
-        tf3 = new TextField(p5, 440, 220+2*40+2*20, 790, 40);
+        tf3 = new TextField(p5, 440, 250+2*40+2*20+20, 790, 30);
         tf3.setColors(colores.getColorAt(5), 0, 0, colores.getColorAt(2));
         tf3.setFont(fonts.getThirdFont());
-        tf4 = new TextField(p5, 440, 220+3*40+3*20, 550, 40);
+        tf4 = new TextField(p5, 440, 250+3*40+3*20+30, 530, 30);
         tf4.setColors(colores.getColorAt(5), 0, 0, colores.getColorAt(2));
         tf4.setFont(fonts.getThirdFont());
-        tf5 = new TextField(p5, 440, 220+4*40+4*20, 550, 40);
+        tf5 = new TextField(p5, 440, 250+4*40+4*20+40, 530, 30);
         tf5.setColors(colores.getColorAt(5), 0, 0, colores.getColorAt(2));
         tf5.setFont(fonts.getThirdFont());
         // dibuijaPantallaAgregarCancion
@@ -306,7 +337,7 @@ public class GUI {
         // Creació de la taula 1
         t1 = new PagedTable(files, columnes);
         t1.setHeaders(headers);
-        t1.setData(info);
+        t1.setData(inf);
         t1.setColumnWidths(colWidths);
         // Creació dels botons 1
         t1b1 = new Button(p5, ">", 390 + tableW/2 + 10 + buttonW - buttonW/2, tableH + 130, buttonW, buttonH);
@@ -326,10 +357,22 @@ public class GUI {
         sb2 = new SwitchButton(p5, 390, 210+selectH+60+30+50, 350, 50);
 
         // Creació dels CheckBox
-        cb1 = new CheckBox(p5, 440+550+30, 220+3*40+3*20,35);
+        cb1 = new CheckBox(p5, 440+530+30-5, 250+3*40+3*20+30-5,35);
 
         //Calendari
         c = new Calendari(390+350+60,210+(int)selectH+30,380,290);
+
+        // Paged songs
+            // Carregar de les imatges (icones);
+            imgFave = p5.loadImage("imgFave.png");
+            imgNoFave = p5.loadImage("imgNoFave.png");
+            imgPlay = p5.loadImage("imgPlay.png");
+
+            // Creació de la taula
+            ps = new PagedSongs(p5, numCardsPage, 50, 50, cardsW, cardsH);
+            ps.setData(inf);
+            ps.setCards(p5, imgFave, imgNoFave, imgPlay);
+
     }
 
 
@@ -361,12 +404,24 @@ public class GUI {
         dibujaRect1(p5);
         // Botones y otros
         b1.display(p5);
-        b2.display(p5);
+        // b2.display(p5);
+            p5.fill(0); p5.textSize(20);
+            p5.text("Nombre y Apellidos", 440, 240);
         tf1.display(p5);
+            p5.fill(0); p5.textSize(20);
+            p5.text("Nombre de usuario", 440, 240+40+20+10);
         tf2.display(p5);
+            p5.fill(0); p5.textSize(20);
+            p5.text("Correo electrónico", 440, 240+(2*40)+(2*20)+(10*2));
         tf3.display(p5);
+            p5.fill(0); p5.textSize(20);
+            p5.text("Contraseña", 440, 240+3*40+3*20+10*3);
         tf4.display(p5);
+            p5.fill(0); p5.textSize(20);
+            p5.text("Confirmar contraseña", 440, 240+4*40+4*20+10*4);
         tf5.display(p5);
+            p5.fill(0); p5.textSize(20);
+            p5.text("Visualizar contraseña", 440+530+30+(35+10)-5, 250+3*40+3*20+30-5+25);
         cb1.display(p5);
     }
 
@@ -515,6 +570,16 @@ public class GUI {
         // Botones y otros
         b13.display(p5);
         b27.display(p5);
+                // Dibuixa les Cards paginades
+                ps.display(p5);
+               /* // Indica el Resultat seleccionat
+                if(cs!=null){
+                    p5.fill(0); p5.textSize(18);
+                    p5.text("PLAY:", 900, 300);
+                    p5.text(cs.getTitle(), 900, 350);
+                    p5.text(cs.getCategory(), 900, 380);
+                  }
+                */
     }
     public void dibujaPantallaCentro(PApplet p5){
         // Pantalla
