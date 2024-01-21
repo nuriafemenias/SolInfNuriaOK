@@ -145,16 +145,18 @@ public class GUI {
 
     // Paged songs
     // Cançons Paginades
-        PagedSongs ps1;
+        PagedSongs ps1, ps2;
 
         // Cançó Seleccionada
         SongCard cs = null;
 
         // Dimensions de les cards
-        float cardsW = 800, cardsH = 600;
+        float cardsW = 850, cardsH = rect2Height-60-50;
+        float cardsW2 = 850, cardsH2 = rect2Height-botonVolverHeight-20-40-50;
 
         // Número de cançons per pàgina
-        int numCardsPage = 8;
+        int numCardsPage = 7;
+        int numCardsPage2 = 6;
 
         // Dades de la taula
         String[][] inf = {
@@ -335,7 +337,7 @@ public class GUI {
         // Creació de la taula 1
         t1 = new PagedTable(files, columnes);
         t1.setHeaders(headers);
-        t1.setData(inf);
+        t1.setData(info);
         t1.setColumnWidths(colWidths);
         // Creació dels botons 1
         t1b1 = new Button(p5, ">", 390 + tableW/2 + 10 + buttonW - buttonW/2, tableH + 130, buttonW, buttonH);
@@ -374,6 +376,9 @@ public class GUI {
             ps1 = new PagedSongs(p5, numCardsPage, -10+menuWidth+margeH, margeV+60, cardsW, cardsH);
             ps1.setData(inf);
             ps1.setCards(p5, imgFave, imgNoFave, imgPlay);
+            ps2 = new PagedSongs(p5, numCardsPage2, -10+menuWidth+margeH, margeV+60, cardsW2, cardsH2);
+            ps2.setData(inf);
+            ps2.setCards(p5, imgFave, imgNoFave, imgPlay);
     }
 
 
@@ -532,11 +537,16 @@ public class GUI {
         dibujaBotonsTuCuentaRB(p5);
         b5.display(p5);
         b10.display(p5);
-        // Dibuixa la Table
-        t1.display(p5, 390, 100, tableW, tableH-50);
-        // Dibuixa els botons
-        t2b1.display(p5);
-        t2b2.display(p5);
+        // Dibuixa les Cards paginades
+        ps2.display(p5);
+               /* // Indica el Resultat seleccionat
+                if(cs!=null){
+                    p5.fill(0); p5.textSize(18);
+                    p5.text("PLAY:", 900, 300);
+                    p5.text(cs.getTitle(), 900, 350);
+                    p5.text(cs.getCategory(), 900, 380);
+                  }
+                */
     }
 
     public void dibujaPantallaAgregarLista(PApplet p5){
