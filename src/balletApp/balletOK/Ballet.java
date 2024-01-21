@@ -162,7 +162,6 @@ public class Ballet extends PApplet {
         gui.tf4.keyPressed(key, keyCode);
         gui.tf5.keyPressed(key, keyCode);
         gui.tf6.keyPressed(key, keyCode);
-        gui.tf7.keyPressed(key, keyCode);
         gui.tf8.keyPressed(key, keyCode);
         gui.tf9.keyPressed(key, keyCode);
 
@@ -195,12 +194,10 @@ public class Ballet extends PApplet {
 
         if (gui.pantallaActual == GUI.PANTALLA.agregarCanción) {
             gui.tf6.isPressed(this);
-            gui.tf7.isPressed(this);
         }
 
         if (gui.pantallaActual == GUI.PANTALLA.agregarLista) {
             gui.tf6.isPressed(this);
-            gui.tf7.isPressed(this);
         }
 
         if (gui.pantallaActual == GUI.PANTALLA.Calentamiento) {
@@ -237,6 +234,20 @@ public class Ballet extends PApplet {
             }
             gui.s1.toggle();        // Plegar o desplegar
         }
+        if(gui.s2.mouseOverSelect(this) && gui.s2.isEnabled()){
+            if(!gui.s2.isCollapsed()){
+                gui.s2.update(this);      // Actualitzar valor
+                updateColor();    // Fer acció amb valor
+            }
+            gui.s2.toggle();        // Plegar o desplegar
+        }
+        if(gui.s3.mouseOverSelect(this) && gui.s3.isEnabled()){
+            if(!gui.s3.isCollapsed()){
+                gui.s3.update(this);      // Actualitzar valor
+                updateColor();    // Fer acció amb valor
+            }
+            gui.s3.toggle();        // Plegar o desplegar
+        }
 
         // Comprova si pitjam amb el mouse sobre el SwitchButton
         if(gui.sb1.mouseOverButton(this)){
@@ -257,6 +268,16 @@ public class Ballet extends PApplet {
                 gui.bgColor = color(0);
             }
         }
+        if(gui.sb3.mouseOverButton(this)){
+            gui.sb3.toggle();
+            if(gui.sb3.isEnabled()){
+                gui.bgColor = color(255);
+            }
+            else {
+                gui.bgColor = color(0);
+            }
+        }
+
         // Si pitjam sobre el checboxes
         if(gui.cb1.onMouseOver(this)){
             gui.cb1.toggle();
@@ -269,8 +290,8 @@ public class Ballet extends PApplet {
 
         // Paged songs
         if (gui.pantallaActual == GUI.PANTALLA.agregarCanción) {
-            gui.ps.checkButtons(this);
-            gui.cs = gui.ps.checkCardClick(this);
+            gui.ps1.checkButtons(this);
+            gui.cs = gui.ps1.checkCardClick(this);
         }
     }
 

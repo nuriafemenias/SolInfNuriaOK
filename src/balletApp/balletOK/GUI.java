@@ -63,12 +63,12 @@ public class GUI {
                 /*62Hombre*/
                 mp621, mp622, mp623, mp624, mp625, mp626, mp627, mp628;
 
-    TextField tf1, tf2, tf3, tf4, tf5, tf6, tf7, tf8, tf9;
+    TextField tf1, tf2, tf3, tf4, tf5, tf6, tf8, tf9;
 
     // Propietats de "PagedTable" (taules)
     // Elements de la Interfície Gràfica (Table)
     // Botons
-    public Button t1b1, t1b2;
+    public Button t1b1, t1b2, t2b1, t2b2;
 
     // Dimensions dels botons
     float buttonW = 60, buttonH = 30;
@@ -112,7 +112,8 @@ public class GUI {
     // Propietats del Select
     Select s1, s2, s3;
     // Valors dels Selects
-    String[] selectValues = {"Calentamiento", "Coreografía"};
+    String[] selectValues = {"Calentamiento", "Coreografía", "Tus Listas"};
+    //String[] selectValues2 = {"Barra", "Centro", "", "", "Ninguna"}; ????
     /*  String[] selectValues2 = {"Barra", "Centro", "Diagonal"};
              BARRA: String[] selectValues3 = {"", "", ""...};
              CENTRO: String[] selectValues3 = {"", "", ""...};
@@ -124,7 +125,7 @@ public class GUI {
     */
 
     // Dimensions dels botons
-    float selectW = 350, selectH = 30;
+    float selectW = 340, selectH = 30;
 
     // Color de fons de l'App
     int bgColor = 255;
@@ -134,7 +135,7 @@ public class GUI {
 
 
     // Propietats de SwitchButton
-    SwitchButton sb1, sb2;
+    SwitchButton sb1, sb2, sb3;
 
     // Propietats de CheckBox
     CheckBox cb1;
@@ -144,7 +145,7 @@ public class GUI {
 
     // Paged songs
     // Cançons Paginades
-        PagedSongs ps;
+        PagedSongs ps1;
 
         // Cançó Seleccionada
         SongCard cs = null;
@@ -209,7 +210,7 @@ public class GUI {
         b8.setFont(fonts.getFirstFont());
         // BOTON VOLVER
             // Pantalla agregarCanción
-            b9 = new Button(p5, "Volver", 390, 600-botonVolverHeight, botonVolverWidth, botonVolverHeight);
+            b9 = new Button(p5, "Volver", 400, 600-botonVolverHeight, botonVolverWidth, botonVolverHeight);
             b9.setColors(colores.getColorAt(7), 0, colores.getColorAt(5), colores.getColorAt(0));
             // Pantalla cancionesTusListas
             b10 = new Button(p5, "Volver", 390, 600-botonVolverHeight, botonVolverWidth, botonVolverHeight);
@@ -318,12 +319,9 @@ public class GUI {
         tf5.setColors(colores.getColorAt(5), 0, 0, colores.getColorAt(2));
         tf5.setFont(fonts.getThirdFont());
         // dibuijaPantallaAgregarCancion
-        tf6 = new TextField(p5, 390, 100, 850, 30);
+        tf6 = new TextField(p5, 400, 140, 830, 30);
         tf6.setColors(colores.getColorAt(5), 0, 0, colores.getColorAt(2));
         tf6.setFont(fonts.getThirdFont());
-        tf7 = new TextField(p5, 390, 100+30+20, 850, 30);
-        tf7.setColors(colores.getColorAt(5), 0, 0, colores.getColorAt(2));
-        tf7.setFont(fonts.getThirdFont());
         // dibuijaPantallaAgregarLista
         tf8 = new TextField(p5, 390, 100, 850, 30);
         tf8.setColors(colores.getColorAt(5), 0, 0, colores.getColorAt(2));
@@ -344,17 +342,21 @@ public class GUI {
         t1b1.setColors(colores.getColorAt(5), 0, colores.getColorAt(2), colores.getColorAt(2));
         t1b2 = new Button(p5, "<", 390 + tableW/2 - 10 - buttonW - buttonW/2, tableH + 130, buttonW, buttonH);
         t1b2.setColors(colores.getColorAt(5), 0, colores.getColorAt(2), colores.getColorAt(2));
-
+        t2b1 = new Button(p5, ">", 390 + tableW/2 + 10 + buttonW - buttonW/2, tableH + 130-50, buttonW, buttonH);
+        t2b1.setColors(colores.getColorAt(5), 0, colores.getColorAt(2), colores.getColorAt(2));
+        t2b2 = new Button(p5, "<", 390 + tableW/2 - 10 - buttonW - buttonW/2, tableH + 130-50, buttonW, buttonH);
+        t2b2.setColors(colores.getColorAt(5), 0, colores.getColorAt(2), colores.getColorAt(2));
 
         // Creació dels Select
-        s1 = new Select(selectValues, 390, 100+2*30+20+30, selectW, selectH);
-        //s2 = new Select(selectValues, 390+selectW+, 100+2*30+20+30, selectW, selectH);
-        //s3 = new Select(selectValues, 390, 100+2*30+20+30, selectW, selectH);
+        s1 = new Select(selectValues, 400, 100+2*30+20+30+10, selectW, selectH);
+        s2 = new Select(selectValues, 400+selectW+75, 100+2*30+20+30+10, selectW, selectH);
+        s3 = new Select(selectValues, 400+selectW+75, 100+2*30+20+30+10, selectW, selectH);
 
 
         // Creació dels Switch Button
-        sb1 = new SwitchButton(p5, 390, 210+selectH+60, 350, 50);
-        sb2 = new SwitchButton(p5, 390, 210+selectH+60+30+50, 350, 50);
+        sb1 = new SwitchButton(p5, 400, 210+selectH+60+10, 340, 40);
+        sb2 = new SwitchButton(p5, 400, 210+selectH+60+30+50+10+10, 340, 40);
+        sb3 = new SwitchButton(p5, 400, 210+selectH+50, 340, 40);
 
         // Creació dels CheckBox
         cb1 = new CheckBox(p5, 440+530+30-5, 250+3*40+3*20+30-5,35);
@@ -369,10 +371,9 @@ public class GUI {
             imgPlay = p5.loadImage("imgPlay.png");
 
             // Creació de la taula
-            ps = new PagedSongs(p5, numCardsPage, 50, 50, cardsW, cardsH);
-            ps.setData(inf);
-            ps.setCards(p5, imgFave, imgNoFave, imgPlay);
-
+            ps1 = new PagedSongs(p5, numCardsPage, -10+menuWidth+margeH, margeV+60, cardsW, cardsH);
+            ps1.setData(inf);
+            ps1.setCards(p5, imgFave, imgNoFave, imgPlay);
     }
 
 
@@ -442,6 +443,8 @@ public class GUI {
         // Pantalla
         p5.background(255);
         dibujaFullMenu(p5);
+            p5.fill(0); p5.textSize(20);
+            p5.text("Lista de tus Favoritos", 400, 75);
         dibujaRect2(p5);
         dibujaBotonsTuCuenta(p5);
         // Botones y otros
@@ -460,27 +463,45 @@ public class GUI {
         // Pantalla
         p5.background(255);
         dibujaFullMenu(p5);
+            p5.fill(0); p5.textSize(20);
+            p5.text("Lista de Tus Canciones", 400, 75);
         dibujaRect2(p5);
         dibujaBotonsTuCuenta(p5);
         // Botones y otros
         dibujaBotonsTuCuentaRB(p5);
         b5.display(p5);
+        // Dibuixa la Table
+        t1.display(p5, 390, 100, tableW, tableH-50);
+        // Dibuixa els botons
+        t2b1.display(p5);
+        t2b2.display(p5);
     }
 
     public void dibujaPantallaAgregarCancion(PApplet p5){
         // Pantalla
         p5.background(255);
         dibujaFullMenu(p5);
+            p5.fill(0); p5.textSize(20);
+            p5.text("Agregar nueva canción", 400, 75);
         dibujaRect2(p5);
         dibujaBotonsTuCuenta(p5);
         // Botones y otros
         dibujaBotonsTuCuentaRB(p5);
+            p5.fill(0); p5.textSize(20);
+            p5.text("Título de la canción", 400, 130);
         tf6.display(p5);
-        tf7.display(p5);
+            p5.fill(0); p5.textSize(20);
+            p5.text("Deseas agregar la canción en Favoritos?", 400, 210+selectH+60);
         sb1.display(p5);
+            p5.fill(0); p5.textSize(20);
+            p5.text("Deseas agregar la canción en una lista?", 400, 210+selectH+60+30+50+10);
         sb2.display(p5);
+            p5.fill(0); p5.textSize(20);
+            p5.text("Seleccionar categoría", 400, 100+2*30+20+30);
         s1.display(p5);
-        //s2.display(p5);
+            p5.fill(0); p5.textSize(20);
+            p5.text("Seleccionar subcategoría", 400+selectW+75, 100+2*30+20+30);
+        s2.display(p5);
         //s3.display(p5);
         b9.display(p5);
         c.display(p5);
@@ -490,6 +511,8 @@ public class GUI {
         // Pantalla
         p5.background(255);
         dibujaFullMenu(p5);
+            p5.fill(0); p5.textSize(20);
+            p5.text("Tus Listas", 400, 75);
         dibujaRect2(p5);
         dibujaBotonsTuCuenta(p5);
         // Botones y otros
@@ -502,23 +525,40 @@ public class GUI {
         p5.background(255);
         dibujaFullMenu(p5);
         dibujaRect2(p5);
+            p5.fill(0); p5.textSize(20);
+            p5.text("Título de la lista", 400, 75);
         dibujaBotonsTuCuenta(p5);
         // Botones y otros
         dibujaBotonsTuCuentaRB(p5);
         b5.display(p5);
         b10.display(p5);
+        // Dibuixa la Table
+        t1.display(p5, 390, 100, tableW, tableH-50);
+        // Dibuixa els botons
+        t2b1.display(p5);
+        t2b2.display(p5);
     }
 
     public void dibujaPantallaAgregarLista(PApplet p5){
         // Pantalla
         p5.background(255);
         dibujaFullMenu(p5);
+            p5.fill(0); p5.textSize(20);
+            p5.text("Agregar nueva lista", 400, 75);
         dibujaRect2(p5);
         dibujaBotonsTuCuenta(p5);
         // Botones y otros
         dibujaBotonsTuCuentaRB(p5);
-        tf8.display(p5);
-        tf9.display(p5);
+            p5.fill(0); p5.textSize(20);
+            p5.text("Título de la lista", 400, 130);
+        tf6.display(p5);
+            p5.fill(0); p5.textSize(20);
+            p5.text("A qué categoría deseas que pertenezca la lista?", 400, 100+2*30+20+30+10+10);
+            p5.text("Seleccionar categoría", 400+selectW+75, 100+2*30+20+30);
+        s3.display(p5);
+            p5.fill(0); p5.textSize(20);
+            p5.text("Deseas agregar alguna canción a la lista?", 400, 210+selectH+40);
+        sb3.display(p5);
         b11.display(p5);
     }
 
@@ -536,6 +576,8 @@ public class GUI {
         // Pantalla
         p5.background(255);
         dibujaFullMenu(p5);
+            p5.fill(0); p5.textSize(20);
+            p5.text("Calentamiento", 400, 75);
         dibujaRect2(p5);
         dibujaBotonsCanciones(p5);
         // Botones y otros
@@ -551,6 +593,8 @@ public class GUI {
         // Pantalla
         p5.background(255);
         dibujaFullMenu(p5);
+            p5.fill(0); p5.textSize(20);
+            p5.text("Coreografía", 400, 75);
         dibujaRect2(p5);
         dibujaBotonsCanciones(p5);
         // Botones y otros
@@ -565,26 +609,20 @@ public class GUI {
         // Pantalla
         p5.background(255);
         dibujaFullMenu(p5);
+            p5.fill(0); p5.textSize(20);
+            p5.text("Barra", 400, 75);
         dibujaRect2(p5);
         dibujaBotonsCanciones(p5);
         // Botones y otros
         b13.display(p5);
         b27.display(p5);
-                // Dibuixa les Cards paginades
-                ps.display(p5);
-               /* // Indica el Resultat seleccionat
-                if(cs!=null){
-                    p5.fill(0); p5.textSize(18);
-                    p5.text("PLAY:", 900, 300);
-                    p5.text(cs.getTitle(), 900, 350);
-                    p5.text(cs.getCategory(), 900, 380);
-                  }
-                */
     }
     public void dibujaPantallaCentro(PApplet p5){
         // Pantalla
         p5.background(255);
         dibujaFullMenu(p5);
+            p5.fill(0); p5.textSize(20);
+            p5.text("Centro", 400, 75);
         dibujaRect2(p5);
         dibujaBotonsCanciones(p5);
         // Botones y otros
@@ -595,6 +633,8 @@ public class GUI {
         // Pantalla
         p5.background(255);
         dibujaFullMenu(p5);
+            p5.fill(0); p5.textSize(20);
+            p5.text("Diagonal", 400, 75);
         dibujaRect2(p5);
         dibujaBotonsCanciones(p5);
         // Botones y otros
@@ -605,6 +645,8 @@ public class GUI {
         // Pantalla
         p5.background(255);
         dibujaFullMenu(p5);
+            p5.fill(0); p5.textSize(20);
+            p5.text("Ballets", 400, 75);
         dibujaRect2(p5);
         dibujaBotonsCanciones(p5);
         // Botones y otros
@@ -616,6 +658,8 @@ public class GUI {
         // Pantalla
         p5.background(255);
         dibujaFullMenu(p5);
+            p5.fill(0); p5.textSize(20);
+            p5.text("Variaciones", 400, 65);
         dibujaRect2(p5);
         dibujaBotonsCanciones(p5);
         // Botones y otros
@@ -627,11 +671,23 @@ public class GUI {
         // Pantalla
         p5.background(255);
         dibujaFullMenu(p5);
+            p5.fill(0); p5.textSize(20);
+            p5.text("Título de la lista", 400, 75);
         dibujaRect2(p5);
         dibujaBotonsCanciones(p5);
         // Botones y otros
         b13.display(p5);
         b27.display(p5);
+        // Dibuixa les Cards paginades
+        ps1.display(p5);
+               /* // Indica el Resultat seleccionat
+                if(cs!=null){
+                    p5.fill(0); p5.textSize(18);
+                    p5.text("PLAY:", 900, 300);
+                    p5.text(cs.getTitle(), 900, 350);
+                    p5.text(cs.getCategory(), 900, 380);
+                  }
+                */
     }
 
 
