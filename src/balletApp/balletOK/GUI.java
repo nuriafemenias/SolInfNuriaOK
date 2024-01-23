@@ -22,8 +22,8 @@ public class GUI {
     // Declaració dels components de la GUI
     Button  b1, b2, b3, b4, b5, b6, b7, b8, b9, b10, b11, b12, b13, b14, b15, b16, b17, b18, b19, b20,
             b21, b22, b23, b24, b25, b26, b27, b28;
-    RoundButton rb1, rb11, rb2, rb3, rb4;
-    PImage icono1, icono2, icono3, icono4;
+    RoundButton rb1, rb11, rb2, rb3, rb4, rb5, rb6;
+    PImage icono1, icono2, icono3, icono4, icono5, icono6;
     MusicPlayer
             /*1BARRA*/
             mp111, mp112, mp121, mp122, mp131, mp132, mp141, mp142, mp151, mp152, mp161, mp162, mp171, mp172, mp181, mp182,
@@ -153,8 +153,8 @@ public class GUI {
         // Dimensions de les cards
         float cardsW = 850, cardsH = rect2Height-60-50;
         float cardsW2 = 850, cardsH2 = rect2Height-botonVolverHeight-20-40-50;
-        float cardsW3 = 850, cardsH3 = rect2Height-botonVolverHeight-20-40-50;
-        float cardsW4 = 850, cardsH4 = rect2Height-botonVolverHeight-20-40-50;
+        float cardsW3 = 850, cardsH3 = rect2Height-botonVolverHeight-60;
+        float cardsW4 = 850, cardsH4 = rect2Height-botonVolverHeight-10;
 
         // Número de cançons per pàgina
         int numCardsPage = 7;
@@ -248,11 +248,11 @@ public class GUI {
         b5 = new Button(p5, "Agregar canción", 390+(rect2Width-300), 100+rect2Height-40, 300, 40);
         b6 = new Button(p5, "Agregar lista", 390+(rect2Width-300), 100+rect2Height-40, 300, 40);
         b7 = new Button(p5, "Calentamiento", 390, margeV, rect34Width, rect34Height);
-        b7.setColors(colores.getColorAt(0), 0, colores.getColorAt(2), colores.getColorAt(3));
-        b7.setFont(fonts.getFirstFont());
+        b7.setColors(p5.color(177, 71, 84), 0, colores.getColorAt(2), colores.getColorAt(3));
+        b7.setFont(fonts.getSecondFont());
         b8 = new Button(p5, "Coreografía", 390+rect34Width+50, margeV, rect34Width, rect34Height);
-        b8.setColors(colores.getColorAt(0), 0, colores.getColorAt(2), colores.getColorAt(3));
-        b8.setFont(fonts.getFirstFont());
+        b8.setColors(p5.color(177, 71, 84), 0, colores.getColorAt(2), colores.getColorAt(3));
+        b8.setFont(fonts.getSecondFont());
         // BOTON VOLVER
             // Pantalla agregarCanción
             b9 = new Button(p5, "Volver", 400, 600-botonVolverHeight, botonVolverWidth, botonVolverHeight);
@@ -334,7 +334,10 @@ public class GUI {
         rb3.setColors(colores.getColorAt(0), 0, colores.getColorAt(2), colores.getColorAt(3));
         rb4 = new RoundButton(p5, icono4, 540+550-35, margeV+60+rect2Height+30+35, 35);
         rb4.setColors(colores.getColorAt(0), 0, colores.getColorAt(2), colores.getColorAt(3));
-
+        rb5 = new RoundButton(p5, icono5, 540+100-50, 500, 90);
+        rb5.setColors(colores.getColorAt(0), 0, colores.getColorAt(2), colores.getColorAt(3));
+        rb6 = new RoundButton(p5, icono6, 540+550-50, 500, 90);
+        rb6.setColors(colores.getColorAt(0), 0, colores.getColorAt(2), colores.getColorAt(3));
 
 
         // Creació del Music Player
@@ -449,6 +452,8 @@ public class GUI {
         icono2 = p5.loadImage("C:\\Users\\usuario\\OneDrive\\Escritorio\\SolInfNuria\\SolInfNuria2324\\data\\RoundButton\\Favoritos.png"); // https://www.flaticon.es/icono-gratis/estrella_1828970?related_id=1828884&origin=search ; https://www.flaticon.es/icono-gratis/amor_5007082?related_id=5011077&origin=search
         icono3 = p5.loadImage("C:\\Users\\usuario\\OneDrive\\Escritorio\\SolInfNuria\\SolInfNuria2324\\data\\RoundButton\\TusCanciones.png"); // https://www.flaticon.es/icono-gratis/musica_4498848?related_id=4498154&origin=search ; https://www.flaticon.es/icono-gratis/lista-de-reproduccion_2585136
         icono4 = p5.loadImage("C:\\Users\\usuario\\OneDrive\\Escritorio\\SolInfNuria\\SolInfNuria2324\\data\\RoundButton\\TusListas.png"); // https://www.flaticon.es/icono-gratis/cancion_6499489 ; https://www.flaticon.es/icono-gratis/letras-de-canciones_10476137?related_id=10476143&origin=search ; https://www.flaticon.es/icono-gratis/lista-de-verificacion_10396949
+        icono5 = p5.loadImage("C:\\Users\\usuario\\OneDrive\\Escritorio\\SolInfNuria\\SolInfNuria2324\\data\\RoundButton\\CalentamientoFoto.jpg");
+        icono6 = p5.loadImage("C:\\Users\\usuario\\OneDrive\\Escritorio\\SolInfNuria\\SolInfNuria2324\\data\\RoundButton\\CoreografiaFoto.jpg");
     }
 
     public void dibujaBotonsTuCuentaRB(PApplet p5){
@@ -650,6 +655,8 @@ public class GUI {
         // Botones y otros
         b7.display(p5);
         b8.display(p5);
+        rb5.display(p5);
+        rb6.display(p5);
     }
 
     public void dibujaPantallaCalentamiento(PApplet p5){
@@ -696,6 +703,7 @@ public class GUI {
         // Botones y otros
         b13.display(p5);
         b27.display(p5);
+        ps4.display(p5);
     }
     public void dibujaPantallaCentro(PApplet p5){
         // Pantalla

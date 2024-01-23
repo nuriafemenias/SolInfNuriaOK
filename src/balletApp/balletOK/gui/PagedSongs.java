@@ -33,8 +33,8 @@ public class PagedSongs {
         this.h = h;
 
         // Creació dels botons
-        b1 = new Button(p5, ">", 390+310+buttonW+70, 500, buttonW, buttonH);
-        b2 = new Button(p5, "<", 390+310, 500, buttonW, buttonH);
+        b1 = new Button(p5, ">", 390+315+buttonW+70, 500+30+39, buttonW, buttonH);
+        b2 = new Button(p5, "<", 390+315, 500+30+39, buttonW, buttonH);
     }
 
     // Setters
