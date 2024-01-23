@@ -4,9 +4,9 @@ import processing.core.PApplet;
 
 public class PagedLists {
         String[][] resultsData;    // Dades de les Cards
-        SongCard[] songs;              // Cançons
+        SongCard[] songs;          // Cançons
         int numLists;              // Número total de Cançons
-        int numListsPage;        // Número de Cançons en 1 Pàgina
+        int numListsPage;          // Número de Cançons en 1 Pàgina
 
         int numPage;
         int numTotalPages;
