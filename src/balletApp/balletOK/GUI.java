@@ -145,7 +145,7 @@ public class GUI {
 
     // Paged songs
     // Cançons Paginades
-        PagedSongs ps1, ps2;
+        PagedSongs ps1, ps2, ps3, ps4;
 
         // Cançó Seleccionada
         SongCard cs = null;
@@ -153,10 +153,14 @@ public class GUI {
         // Dimensions de les cards
         float cardsW = 850, cardsH = rect2Height-60-50;
         float cardsW2 = 850, cardsH2 = rect2Height-botonVolverHeight-20-40-50;
+        float cardsW3 = 850, cardsH3 = rect2Height-botonVolverHeight-20-40-50;
+        float cardsW4 = 850, cardsH4 = rect2Height-botonVolverHeight-20-40-50;
 
         // Número de cançons per pàgina
         int numCardsPage = 7;
         int numCardsPage2 = 6;
+        int numCardsPage3 = 3;
+        int numCardsPage4 = 3;
 
         // Dades de la taula
         String[][] inf = {
@@ -172,8 +176,47 @@ public class GUI {
                 {"10", "Títol Cançó 10", "ROCK", "true"},
         };
 
+        String[][] inf3 = {
+                {"1", "Título lista 1", "Categoría", "true"},
+                {"2", "Título lista 2", "Categoría", "false"},
+                {"3", "Título lista 3", "Categoría", "true"},
+                {"4", "Título lista 4", "Categoría", "true"},
+                {"5", "Título lista 5", "Categoría", "false"},
+                {"6", "Título lista 6", "Categoría", "true"},
+                {"7", "Título lista 7", "Categoría", "true"},
+        };
+
+        String[][] inf4 = {
+                {"1", "Warm up", "POP", "true"},
+                {"2", "Plie", "ROCK", "false"},
+                {"3", "Slow tendu", "CLASSIC", "true"},
+                {"4", "Tendu 4/4", "POP", "true"},
+                {"5", "Tendu 3/4", "POP", "false"},
+                {"6", "Jete", "ROCK", "true"},
+                {"7", "Fast Jete", "DANCE", "true"},
+                {"8", "Rond de jambe a terre", "CLASSIC", "true"},
+                {"9", "Fondu", "POP", "false"},
+                {"10", "Battement Frappe", "ROCK", "true"},
+                {"11", "Adagio", "ROCK", "true"},
+                {"12", "Round de jambe en l'air", "DANCE", "true"},
+                {"13", "Grand battement", "CLASSIC", "true"},
+                {"14", "Relevé", "POP", "false"},
+                {"15", "Strech", "ROCK", "true"},
+        };
+
         // Icones dels botons
         PImage imgFave, imgNoFave, imgPlay;
+
+    // Elements de la Interfície Gràfica (TextList)
+            TextList tList;   // Llista de textos
+            Button b;         // Botons
+
+            String[][] listValues = {{"0", "Cancion 1"},{"1", "Canción 2"},{"2", "Canción 3"}, {"3", "Canción 4"}};
+            String selectedText;
+
+            // Dimensions del TextList i Botons
+            float tListW = 600, tListH = 40;
+            float buttonWl = 120, buttonHl = 40;
 
 
 
@@ -379,6 +422,19 @@ public class GUI {
             ps2 = new PagedSongs(p5, numCardsPage2, -10+menuWidth+margeH, margeV+60, cardsW2, cardsH2);
             ps2.setData(inf);
             ps2.setCards(p5, imgFave, imgNoFave, imgPlay);
+            ps3 = new PagedSongs(p5, numCardsPage3, -10+menuWidth+margeH, margeV+60, cardsW3, cardsH3);
+            ps3.setData(inf3);
+            ps3.setCards(p5, imgFave, imgNoFave, imgPlay);
+            ps4 = new PagedSongs(p5, numCardsPage4, -10+menuWidth+margeH, margeV+60, cardsW4, cardsH4);
+            ps4.setData(inf4);
+            ps4.setCards(p5, imgFave, imgNoFave, imgPlay);
+
+
+        // Text List
+            // Creació de la Llista de Textos
+            tList = new TextList(p5, listValues, 400, 210+selectH+50+40+30, tListW, tListH);
+            // Creació del Botó
+            b = new Button(p5, "TRIA", 400+tListW+40, 210+selectH+50+40+30, buttonWl, buttonHl);
     }
 
 
@@ -523,6 +579,7 @@ public class GUI {
         // Botones y otros
         dibujaBotonsTuCuentaRB(p5);
         b6.display(p5);
+        ps3.display(p5);
     }
 
     public void dibujaPantallaCancionesTusListas(PApplet p5){
@@ -570,6 +627,19 @@ public class GUI {
             p5.text("Deseas agregar alguna canción a la lista?", 400, 210+selectH+40);
         sb3.display(p5);
         b11.display(p5);
+        // Dibuixa la TextList
+            tList.display(p5);
+            // Dibuixa els botons
+            b.display(p5);
+            // Actualitza el cursor
+            Ballet.updateCursor(p5);
+            // Mostra la informació seleccionada
+            if(selectedText!=null){
+                p5.pushStyle();
+                p5.textAlign(p5.CENTER); p5.fill(0);
+                p5.text(selectedText, p5.width/2, p5.height/2);
+                p5.popStyle();
+            }
     }
 
     public void dibujaPantallaCanciones(PApplet p5){

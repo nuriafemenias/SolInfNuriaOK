@@ -19,7 +19,7 @@ public class PagedSongs {
     public Button b1, b2;
 
     // Dimensions dels botons
-    float buttonW = 60, buttonH = 60;
+    float buttonW = 60, buttonH = 30;
 
     // Constructor
     public PagedSongs(PApplet p5, int ncp, float x, float y, float w, float h) {
@@ -33,8 +33,8 @@ public class PagedSongs {
         this.h = h;
 
         // Creació dels botons
-        b1 = new Button(p5, ">", 100 + w, 80, buttonW, buttonH);
-        b2 = new Button(p5, "<", 100 + w, 100 + buttonH, buttonW, buttonH);
+        b1 = new Button(p5, ">", 390+310+buttonW+70, 500, buttonW, buttonH);
+        b2 = new Button(p5, "<", 390+310, 500, buttonW, buttonH);
     }
 
     // Setters

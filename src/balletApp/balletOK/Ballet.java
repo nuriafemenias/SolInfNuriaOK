@@ -4,7 +4,7 @@ import processing.core.PApplet;
 
 public class Ballet extends PApplet {
 
-    GUI gui;
+    static GUI gui;
 
 
     public static void main(String[] args) {
@@ -177,6 +177,12 @@ public class Ballet extends PApplet {
                 println("PREV MONTH");
             }
         }
+
+        // TextList
+        if(gui.tList.getTextField().mouseOverTextField(this)){
+            gui.tList.getTextField().keyPressed(key, (int)keyCode);
+            gui.tList.update(this);
+        }
     }
 
     public void mousePressed() {
@@ -293,6 +299,15 @@ public class Ballet extends PApplet {
             gui.ps1.checkButtons(this);
             gui.cs = gui.ps1.checkCardClick(this);
         }
+        // TextList
+        // Pitjam sobre el botó de TRIA
+        if(gui.b.mouseOverButton(this) && gui.b.isEnabled()){
+            gui.selectedText = gui.tList.getSelectedValue();
+        }
+
+        // Mirarm si pitjam damunt el textList (camp de text o botó)
+        gui.tList.getTextField().isPressed(this);
+        gui.tList.buttonPressed(this);
     }
 
 
@@ -308,7 +323,13 @@ public class Ballet extends PApplet {
             gui.bgColor = color(0, 0, 255);
         }
     }
-
+    static void updateCursor(PApplet p5) {
+        if (gui.b.mouseOverButton(p5) || gui.tList.mouseOverButtons(p5)) {
+            p5.cursor(HAND);
+        } else {
+            p5.cursor(ARROW);
+        }
+    }
 
     public void mouseDragged() {
         println("MOUSE DRAGGED");
