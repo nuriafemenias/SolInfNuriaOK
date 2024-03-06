@@ -1,15 +1,17 @@
 package balletApp.balletOK;
 
+import balletApp.balletOK.gui.DataBase;
 import processing.core.PApplet;
 
 public class Ballet extends PApplet {
 
+    DataBase db;
     static GUI gui;
-
 
     public static void main(String[] args) {
         PApplet.main("balletApp.balletOK.Ballet", args);
     }
+
 
     public void settings() {
         fullScreen();
@@ -18,8 +20,11 @@ public class Ballet extends PApplet {
 
     public void setup() {
         background(255);
-
         gui = new GUI(this);
+        // Configura els paràmetres de connexió a la BBDD
+        db = new DataBase("admin", "12345", "musica");
+        // Connecta amb la BBDD
+        db.connect();
     }
 
     public void draw() {
