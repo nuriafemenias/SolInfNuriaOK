@@ -144,10 +144,14 @@ public class GUI {
     Calendari c;
 
     // Paged songs
-    // Cançons Paginades
-        PagedSongs ps1, ps2, ps3, ps4;
+        PagedSongs ps1;
+        //,ps2, ps3, ps4;
 
-        // Cançó Seleccionada
+    // Paged lists
+    PagedSongs pl1;
+
+
+    // Cançó Seleccionada
         SongCard cs = null;
 
         // Dimensions de les cards
@@ -163,20 +167,9 @@ public class GUI {
         int numCardsPage4 = 3;
 
         // Dades de la taula
-        String[][] inf = {
-                {"1", "Títol Cançó 1", "POP", "true"},
-                {"2", "Títol Cançó 2", "ROCK", "false"},
-                {"3", "Títol Cançó 3", "CLASSIC", "true"},
-                {"4", "Títol Cançó 4", "POP", "true"},
-                {"5", "Títol Cançó 5", "POP", "false"},
-                {"6", "Títol Cançó 6", "ROCK", "true"},
-                {"7", "Títol Cançó 7", "DANCE", "true"},
-                {"8", "Títol Cançó 8", "CLASSIC", "true"},
-                {"9", "Títol Cançó 9", "POP", "false"},
-                {"10", "Títol Cançó 10", "ROCK", "true"},
-        };
+        String[][] inf;
 
-        String[][] inf3 = {
+        String[][] inf2 = {
                 {"1", "Título lista 1", "Categoría", "true"},
                 {"2", "Título lista 2", "Categoría", "false"},
                 {"3", "Título lista 3", "Categoría", "true"},
@@ -184,24 +177,6 @@ public class GUI {
                 {"5", "Título lista 5", "Categoría", "false"},
                 {"6", "Título lista 6", "Categoría", "true"},
                 {"7", "Título lista 7", "Categoría", "true"},
-        };
-
-        String[][] inf4 = {
-                {"1", "Warm up", "POP", "true"},
-                {"2", "Plie", "ROCK", "false"},
-                {"3", "Slow tendu", "CLASSIC", "true"},
-                {"4", "Tendu 4/4", "POP", "true"},
-                {"5", "Tendu 3/4", "POP", "false"},
-                {"6", "Jete", "ROCK", "true"},
-                {"7", "Fast Jete", "DANCE", "true"},
-                {"8", "Rond de jambe a terre", "CLASSIC", "true"},
-                {"9", "Fondu", "POP", "false"},
-                {"10", "Battement Frappe", "ROCK", "true"},
-                {"11", "Adagio", "ROCK", "true"},
-                {"12", "Round de jambe en l'air", "DANCE", "true"},
-                {"13", "Grand battement", "CLASSIC", "true"},
-                {"14", "Relevé", "POP", "false"},
-                {"15", "Strech", "ROCK", "true"},
         };
 
         // Icones dels botons
@@ -219,9 +194,12 @@ public class GUI {
             float buttonWl = 120, buttonHl = 40;
 
 
+            DataBase db;
 
 
-    public GUI(PApplet p5){
+    public GUI(PApplet p5, DataBase db){
+
+        this.db = db;
 
         colores = new Colors(p5);
         fonts = new Fonts(p5);
@@ -420,9 +398,10 @@ public class GUI {
 
             // Creació de la taula
             ps1 = new PagedSongs(p5, numCardsPage, -10+menuWidth+margeH, margeV+60, cardsW, cardsH);
+            inf = db.getInfoTaulaLlista("nuriafemeniass");
             ps1.setData(inf);
             ps1.setCards(p5, imgFave, imgNoFave, imgPlay);
-            ps2 = new PagedSongs(p5, numCardsPage2, -10+menuWidth+margeH, margeV+60, cardsW2, cardsH2);
+            /*ps2 = new PagedSongs(p5, numCardsPage2, -10+menuWidth+margeH, margeV+60, cardsW2, cardsH2);
             ps2.setData(inf);
             ps2.setCards(p5, imgFave, imgNoFave, imgPlay);
             ps3 = new PagedSongs(p5, numCardsPage3, -10+menuWidth+margeH, margeV+60, cardsW3, cardsH3);
@@ -431,6 +410,13 @@ public class GUI {
             ps4 = new PagedSongs(p5, numCardsPage4, -10+menuWidth+margeH, margeV+60, cardsW4, cardsH4);
             ps4.setData(inf4);
             ps4.setCards(p5, imgFave, imgNoFave, imgPlay);
+             */
+
+        // Creació PagedList
+        /*pl1 = new PagedLists(p5, numCardsPage, -10+menuWidth+margeH, margeV+60, cardsW, cardsH);
+        pl1.setData(inf2);
+        pl1.setCards(p5, imgFave, imgPlay);
+         */
 
 
         // Text List
@@ -584,7 +570,7 @@ public class GUI {
         // Botones y otros
         dibujaBotonsTuCuentaRB(p5);
         b6.display(p5);
-        ps3.display(p5);
+        //ps3.display(p5);
     }
 
     public void dibujaPantallaCancionesTusListas(PApplet p5){
@@ -600,15 +586,15 @@ public class GUI {
         b5.display(p5);
         b10.display(p5);
         // Dibuixa les Cards paginades
-        ps2.display(p5);
-               /* // Indica el Resultat seleccionat
-                if(cs!=null){
-                    p5.fill(0); p5.textSize(18);
-                    p5.text("PLAY:", 900, 300);
-                    p5.text(cs.getTitle(), 900, 350);
-                    p5.text(cs.getCategory(), 900, 380);
-                  }
-                */
+        //ps2.display(p5);
+                       /* // Indica el Resultat seleccionat
+                        if(cs!=null){
+                            p5.fill(0); p5.textSize(18);
+                            p5.text("PLAY:", 900, 300);
+                            p5.text(cs.getTitle(), 900, 350);
+                            p5.text(cs.getCategory(), 900, 380);
+                          }
+                        */
     }
 
     public void dibujaPantallaAgregarLista(PApplet p5){
@@ -676,22 +662,6 @@ public class GUI {
         b27.display(p5);
     }
 
-    public void dibujaPantallaCoreografia(PApplet p5){
-        // Pantalla
-        p5.background(255);
-        dibujaFullMenu(p5);
-            p5.fill(0); p5.textSize(20);
-            p5.text("Coreografía", 400, 75);
-        dibujaRect2(p5);
-        dibujaBotonsCanciones(p5);
-        // Botones y otros
-        b12.display(p5);
-        b24.display(p5);
-        b25.display(p5);
-        b26.display(p5);
-        b27.display(p5);
-    }
-
     public void dibujaPantallaBarra(PApplet p5){
         // Pantalla
         p5.background(255);
@@ -703,43 +673,8 @@ public class GUI {
         // Botones y otros
         b13.display(p5);
         b27.display(p5);
-        ps4.display(p5);
-    }
-    public void dibujaPantallaCentro(PApplet p5){
-        // Pantalla
-        p5.background(255);
-        dibujaFullMenu(p5);
-            p5.fill(0); p5.textSize(20);
-            p5.text("Centro", 400, 75);
-        dibujaRect2(p5);
-        dibujaBotonsCanciones(p5);
-        // Botones y otros
-        b13.display(p5);
-        b27.display(p5);
-    }
-    public void dibujaPantallaDiagonal(PApplet p5){
-        // Pantalla
-        p5.background(255);
-        dibujaFullMenu(p5);
-            p5.fill(0); p5.textSize(20);
-            p5.text("Diagonal", 400, 75);
-        dibujaRect2(p5);
-        dibujaBotonsCanciones(p5);
-        // Botones y otros
-        b13.display(p5);
-        b27.display(p5);
-    }
-    public void dibujaPantallaBallets(PApplet p5){
-        // Pantalla
-        p5.background(255);
-        dibujaFullMenu(p5);
-            p5.fill(0); p5.textSize(20);
-            p5.text("Ballets", 400, 75);
-        dibujaRect2(p5);
-        dibujaBotonsCanciones(p5);
-        // Botones y otros
-        b13.display(p5);
-        b27.display(p5);
+        //ps4.display(p5);
+        pl1.display(p5);
     }
 
     public void dibujaPantallaVariacionesListaCanciones(PApplet p5){

@@ -4,15 +4,12 @@ import processing.core.PApplet;
 import processing.core.PImage;
 
 public class PagedSongs {
-
-    String[][] resultsData;    // Dades de les Cards
-    SongCard[] songs;              // Cançons
-    int numSongs;              // Número total de Cançons
-    int numSongsPage;        // Número de Cançons en 1 Pàgina
-
+    String[][] resultsData;     // Dades de les Cards
+    SongCard[] songs;           // Cançons
+    int numSongs;               // Número total de Cançons
+    int numSongsPage;           // Número de Cançons en 1 Pàgina
     int numPage;
     int numTotalPages;
-
     float x, y, w, h;
 
     // Botons
@@ -38,7 +35,6 @@ public class PagedSongs {
     }
 
     // Setters
-
     public void setData(String[][] d) {
         this.resultsData = d;
         this.numTotalPages = d.length / this.numSongsPage;

@@ -4,20 +4,18 @@ import processing.core.PApplet;
 
 public class PagedLists {
         String[][] resultsData;    // Dades de les Cards
-        SongCard[] songs;          // Cançons
-        int numLists;              // Número total de Cançons
+        ListCard[] lists;          // Llistes
+        int numLists;              // Número total de Llistes
         int numListsPage;          // Número de Cançons en 1 Pàgina
-
         int numPage;
         int numTotalPages;
-
         float x, y, w, h;
 
         // Botons
         public Button b1, b2;
 
         // Dimensions dels botons
-        float buttonW = 60, buttonH = 60;
+        float buttonW = 60, buttonH = 50;
 
         // Constructor
         public PagedLists (PApplet p5, int ncp, float x, float y, float w, float h) {
@@ -36,19 +34,18 @@ public class PagedLists {
         }
 
         // Setters
-
         public void setData(String[][] d) {
             this.resultsData = d;
             this.numTotalPages = d.length / this.numListsPage;
         }
 
         public void setCards(PApplet p5) {
-            songs = new SongCard[this.resultsData.length];
+            lists = new ListCard[this.resultsData.length];
             float hc = h / (float) numListsPage;
             int k=0;
-            for (int i=0; i<songs.length; i++) {
+            for (int i=0; i<lists.length; i++) {
                 float yc = y +(k% numListsPage)*(hc + 10);
-                songs[i] = new SongCard(x, yc, w, hc, 10, resultsData[i]);
+                lists[i] = new ListCard(x, yc, w, hc, 10, resultsData[i]);
                 k++;
             }
         }
@@ -76,9 +73,9 @@ public class PagedLists {
             int lastCardPage  = numListsPage *(numPage+1) - 1;
 
             for (int i = firstCardPage; i <= lastCardPage; i++) {
-                if (i<songs.length) {
+                if (i<lists.length) {
                     boolean mouseOver = (i==numCardOver(p5));
-                    songs[i].display(p5, mouseOver);
+                    lists[i].display(p5, mouseOver);
                 }
             }
 
@@ -100,8 +97,8 @@ public class PagedLists {
             int lastCardPage  = numListsPage *(numPage+1) - 1;
 
             for (int i = firstCardPage; i <= lastCardPage; i++) {
-                if (i<songs.length) {
-                    if (songs[i].mouseOnCard(p5)) {
+                if (i<lists.length) {
+                    if (lists[i].mouseOnCard(p5)) {
                         return i;
                     }
                 }
@@ -110,13 +107,13 @@ public class PagedLists {
         }
 
 
-        public SongCard checkCardClick(PApplet p5) {
+        public ListCard checkCardClick(PApplet p5) {
 
             int firstCardPage = numListsPage *numPage;
             int lastCardPage  = numListsPage *(numPage+1) - 1;
 
-            for (int i = firstCardPage; i <= lastCardPage & i<songs.length; i++) {
-                SongCard sc = songs[i].checkButtons(p5);
+            for (int i = firstCardPage; i <= lastCardPage & i<lists.length; i++) {
+                ListCard sc = lists[i].checkButtons(p5);
                 if (sc!= null) {
                     return sc;
                 }

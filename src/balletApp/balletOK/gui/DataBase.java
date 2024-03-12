@@ -69,16 +69,18 @@ public class DataBase {
     }
 
     // Retorna les dades d'una taula en concret
-    public String[][] getInfoTaulaUnitat(){
-        int numFiles = getNumRowsTaula("unitat");
-        int numCols  = 2;
+    public String[][] getInfoTaulaLlista(String nomUsuario){
+        int numFiles = getNumRowsTaula("lista");
+        int numCols  = 4;
         String[][] info = new String[numFiles][numCols];
         try {
-            ResultSet rs = query.executeQuery( "SELECT * FROM unitat");
+            ResultSet rs = query.executeQuery( "SELECT DISTINCT l.numCanciones AS NUM, l.título AS TITULO, c.nombre AS CATEGORIA FROM lista l, usuario u, categoría c WHERE l.Usuario = '"+nomUsuario+"' AND l.Categoría = c.idCategoría ORDER BY TITULO ASC");
             int nr = 0;
             while (rs.next()) {
-                info[nr][0] = String.valueOf(rs.getInt("numero"));
-                info[nr][1] = rs.getString("nom");
+                info[nr][0] = String.valueOf(rs.getString("NUM"));
+                info[nr][1] = rs.getString("TITULO");
+                info[nr][2] = rs.getString("CATEGORIA");
+                info[nr][3] = "true";
                 nr++;
             }
             return info;

@@ -20,11 +20,13 @@ public class Ballet extends PApplet {
 
     public void setup() {
         background(255);
-        gui = new GUI(this);
+
         // Configura els paràmetres de connexió a la BBDD
         db = new DataBase("admin", "12345", "musica");
         // Connecta amb la BBDD
         db.connect();
+
+        gui = new GUI(this, db);
     }
 
     public void draw() {
@@ -67,24 +69,8 @@ public class Ballet extends PApplet {
                 gui.dibujaPantallaCalentamiento(this);
                 break;
 
-            case Coreografia:
-                gui.dibujaPantallaCoreografia(this);
-                break;
-
             case Barra:
                 gui.dibujaPantallaBarra(this);
-                break;
-
-            case Centro:
-                gui.dibujaPantallaCentro(this);
-                break;
-
-            case Diagonal:
-                gui.dibujaPantallaDiagonal(this);
-                break;
-
-            case Ballets:
-                gui.dibujaPantallaBallets(this);
                 break;
 
             case VariacionesListaCanciones:
@@ -130,24 +116,12 @@ public class Ballet extends PApplet {
             gui.pantallaActual = GUI.PANTALLA.Calentamiento;
         }
         else if(key=='9'){
-            gui.pantallaActual = GUI.PANTALLA.Coreografia;
-        }
-        else if(key=='q'){
             gui.pantallaActual = GUI.PANTALLA.Barra;
         }
-        else if(key=='w'){
-            gui.pantallaActual = GUI.PANTALLA.Centro;
-        }
-        else if(key=='e'){
-            gui.pantallaActual = GUI.PANTALLA.Diagonal;
-        }
-        else if(key=='r'){
-            gui.pantallaActual = GUI.PANTALLA.Ballets;
-        }
-        else if(key=='t'){
+        else if(key=='q'){
             gui.pantallaActual = GUI.PANTALLA.VariacionesListaCanciones;
         }
-        else if(key=='y'){
+        else if(key=='w'){
             gui.pantallaActual = GUI.PANTALLA.ListaCanciones;
         }
 
