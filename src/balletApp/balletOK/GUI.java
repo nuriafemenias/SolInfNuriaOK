@@ -9,9 +9,8 @@ import processing.core.PApplet;
 
 
 public class GUI {
-    public enum PANTALLA {registro, Favoritos, TusCanciones, agregarCanción, TusListas,
-        cancionesTusListas, agregarLista, Canciones, Calentamiento, Coreografia,
-        Barra, Centro, Diagonal, Ballets, VariacionesListaCanciones, ListaCanciones
+    public enum PANTALLA {registro, Favoritos, TusCanciones, agregarCanción, TusListas, cancionesTusListas,
+                          agregarLista, Canciones, Calentamiento, Barra, VariacionesListaCanciones, ListaCanciones
     };
 
     public PANTALLA pantallaActual;
@@ -83,7 +82,7 @@ public class GUI {
     int files = 7, columnes = 3;
 
     // Títols de les columnes
-    String[] headers = {"Categoría", "Subcategoría", "Título"};
+    String[] headers = {"Categoría", "Subcategoría","Título"};
 
     // Amplades de les columnes
     float[] colWidths = {20, 30, 50};
@@ -144,11 +143,9 @@ public class GUI {
     Calendari c;
 
     // Paged songs
-        PagedSongs ps1;
-        //,ps2, ps3, ps4;
-
+    PagedSongs ps1;
     // Paged lists
-    PagedSongs pl1;
+    PagedLists pl1;
 
 
     // Cançó Seleccionada
@@ -156,27 +153,22 @@ public class GUI {
 
         // Dimensions de les cards
         float cardsW = 850, cardsH = rect2Height-60-50;
-        float cardsW2 = 850, cardsH2 = rect2Height-botonVolverHeight-20-40-50;
-        float cardsW3 = 850, cardsH3 = rect2Height-botonVolverHeight-60;
-        float cardsW4 = 850, cardsH4 = rect2Height-botonVolverHeight-10;
+        float cardsW2 = 850, cardsH2 = rect2Height-60-50;
 
         // Número de cançons per pàgina
         int numCardsPage = 7;
-        int numCardsPage2 = 6;
-        int numCardsPage3 = 3;
-        int numCardsPage4 = 3;
+        int numCardsPage2 = 4;
 
         // Dades de la taula
         String[][] inf;
-
         String[][] inf2 = {
-                {"1", "Título lista 1", "Categoría", "true"},
-                {"2", "Título lista 2", "Categoría", "false"},
-                {"3", "Título lista 3", "Categoría", "true"},
-                {"4", "Título lista 4", "Categoría", "true"},
-                {"5", "Título lista 5", "Categoría", "false"},
-                {"6", "Título lista 6", "Categoría", "true"},
-                {"7", "Título lista 7", "Categoría", "true"},
+                {"1", "Título lista 1", "Categoría"},
+                {"2", "Título lista 2", "Categoría"},
+                {"3", "Título lista 3", "Categoría"},
+                {"4", "Título lista 4", "Categoría"},
+                {"5", "Título lista 5", "Categoría"},
+                {"6", "Título lista 6", "Categoría"},
+                {"7", "Título lista 7", "Categoría"},
         };
 
         // Icones dels botons
@@ -185,7 +177,6 @@ public class GUI {
     // Elements de la Interfície Gràfica (TextList)
             TextList tList;   // Llista de textos
             Button b;         // Botons
-
             String[][] listValues = {{"0", "Cancion 1"},{"1", "Canción 2"},{"2", "Canción 3"}, {"3", "Canción 4"}};
             String selectedText;
 
@@ -401,22 +392,13 @@ public class GUI {
             inf = db.getInfoTaulaLlista("nuriafemeniass");
             ps1.setData(inf);
             ps1.setCards(p5, imgFave, imgNoFave, imgPlay);
-            /*ps2 = new PagedSongs(p5, numCardsPage2, -10+menuWidth+margeH, margeV+60, cardsW2, cardsH2);
-            ps2.setData(inf);
-            ps2.setCards(p5, imgFave, imgNoFave, imgPlay);
-            ps3 = new PagedSongs(p5, numCardsPage3, -10+menuWidth+margeH, margeV+60, cardsW3, cardsH3);
-            ps3.setData(inf3);
-            ps3.setCards(p5, imgFave, imgNoFave, imgPlay);
-            ps4 = new PagedSongs(p5, numCardsPage4, -10+menuWidth+margeH, margeV+60, cardsW4, cardsH4);
-            ps4.setData(inf4);
-            ps4.setCards(p5, imgFave, imgNoFave, imgPlay);
-             */
 
-        // Creació PagedList
-        /*pl1 = new PagedLists(p5, numCardsPage, -10+menuWidth+margeH, margeV+60, cardsW, cardsH);
+
+        // Paged List
+        pl1 = new PagedLists(p5, numCardsPage2, -10+menuWidth+margeH, margeV+60, cardsW, cardsH);
         pl1.setData(inf2);
-        pl1.setCards(p5, imgFave, imgPlay);
-         */
+        pl1.setCards(p5);
+
 
 
         // Text List
@@ -655,7 +637,6 @@ public class GUI {
         dibujaBotonsCanciones(p5);
         // Botones y otros
         b12.display(p5);
-        p5.textAlign(p5.LEFT); //??????????????????????????????????????????????????????????????????????????????????????
         b21.display(p5);
         b22.display(p5);
         b23.display(p5);
@@ -673,7 +654,7 @@ public class GUI {
         // Botones y otros
         b13.display(p5);
         b27.display(p5);
-        //ps4.display(p5);
+        //ps1.display(p5);
         pl1.display(p5);
     }
 

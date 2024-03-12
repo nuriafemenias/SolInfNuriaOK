@@ -12,9 +12,6 @@ public class ListCard {
 
     float x, y, w, h, b;
 
-    FaveButton bFavorite;
-    RoundButton bPlay;
-
     // Constructor
 
     public ListCard(float x, float y, float w, float h, float b, String[] data) {
@@ -25,12 +22,11 @@ public class ListCard {
         this.x = x; this.y = y; this.w = w; this.h = h; this.b = b;
     }
 
-    public void setButtons(PApplet p5, PImage imgFave, PImage imgNoFave, PImage imgPlay){
+    public void setButtons(PApplet p5){
         float xB1 = x + w - 250;
         float xB2 = x + w - 150;
         float yB = this.y + this.h/2;
         float rB = 30;
-        this.bPlay = new RoundButton(p5, imgPlay, xB2, yB, rB);
     }
 
     // Getters
@@ -45,7 +41,6 @@ public class ListCard {
 
 
     // Dibuixa la Card
-
     public void display(PApplet p5, boolean mouseOver) {
 
         p5.pushStyle();
@@ -73,10 +68,6 @@ public class ListCard {
         p5.textAlign(p5.RIGHT);
         p5.textSize(14);
         p5.text(category, x + w - 10, y + 25);
-
-        //this.bFavorite.display(p5);
-        this.bPlay.display(p5);
-
         p5.popStyle();
     }
 
@@ -87,14 +78,6 @@ public class ListCard {
 
 
     public ListCard checkButtons(PApplet p5){
-
-        this.bFavorite.checkMouseClick(p5);
-
-        if(this.bPlay.mouseOverButton(p5)){
-            return this;
-        }
-
         return null;
     }
-
-    }
+}
