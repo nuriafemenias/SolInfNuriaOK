@@ -71,16 +71,39 @@ public class DataBase {
     // Retorna les dades d'una taula en concret
     public String[][] getInfoTaulaLlista(String nomUsuario){
         int numFiles = getNumRowsTaula("lista");
-        int numCols  = 4;
+        int numCols  = 3;
         String[][] info = new String[numFiles][numCols];
         try {
-            ResultSet rs = query.executeQuery( "SELECT DISTINCT l.numCanciones AS NUM, l.título AS TITULO, c.nombre AS CATEGORIA FROM lista l, usuario u, categoría c WHERE l.Usuario = '"+nomUsuario+"' AND l.Categoría = c.idCategoría ORDER BY TITULO ASC");
+            ResultSet rs = query.executeQuery( "SELECT DISTINCT l.numCanciones AS NUM, l.título AS TITULO, c.nombre AS CATEGORIA FROM lista l, usuario u, categoría c WHERE l.Usuario = '"+nomUsuario+"' AND l.Categoría = c.idCategoría ORDER BY l.orden ASC");
             int nr = 0;
             while (rs.next()) {
                 info[nr][0] = String.valueOf(rs.getString("NUM"));
                 info[nr][1] = rs.getString("TITULO");
                 info[nr][2] = rs.getString("CATEGORIA");
-                info[nr][3] = "true";
+                nr++;
+            }
+            return info;
+        }
+        catch(Exception e) {
+            System.out.println(e);
+            return null;
+        }
+    }
+
+    public String[][] getInfoTaulaCanciones(String nomUsuario){
+        int numFiles = getNumRowsTaula("canción");
+        int numCols  = 4;
+        String[][] info = new String[numFiles][numCols];
+        try {
+            ResultSet rs = query.executeQuery( "SELECT c.título AS TITULO, c.Lista_título AS LISTA, c.favorito AS FAVORITO\n" +
+                                                   "FROM canción c\n" +
+                                                   "ORDER BY TITULO ASC");
+            int nr = 0;
+            while (rs.next()) {
+                info[nr][0] = String.valueOf(nr+1);
+                info[nr][1] = rs.getString("TITULO");
+                info[nr][2] = rs.getString("LISTA");
+                info[nr][3] = rs.getString("FAVORITO");
                 nr++;
             }
             return info;

@@ -274,10 +274,21 @@ public class Ballet extends PApplet {
         }
 
         // Paged songs
+        if (gui.pantallaActual == GUI.PANTALLA.ListaCanciones) {
+            gui.ps1.checkButtons(this);
+            gui.cs = gui.ps1.checkCardClick(this);
+        }
+        // Paged songs
         if (gui.pantallaActual == GUI.PANTALLA.agregarCanción) {
             gui.ps1.checkButtons(this);
             gui.cs = gui.ps1.checkCardClick(this);
         }
+        // Paged lista
+        if (gui.pantallaActual == GUI.PANTALLA.Barra) {
+            gui.pl1.checkButtons(this);
+            //gui.cs = gui.pl1.checkCardClick(this);
+        }
+
         // TextList
         // Pitjam sobre el botó de TRIA
         if(gui.b.mouseOverButton(this) && gui.b.isEnabled()){
@@ -287,6 +298,7 @@ public class Ballet extends PApplet {
         // Mirarm si pitjam damunt el textList (camp de text o botó)
         gui.tList.getTextField().isPressed(this);
         gui.tList.buttonPressed(this);
+
     }
 
 

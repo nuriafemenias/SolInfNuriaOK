@@ -161,15 +161,7 @@ public class GUI {
 
         // Dades de la taula
         String[][] inf;
-        String[][] inf2 = {
-                {"1", "Título lista 1", "Categoría"},
-                {"2", "Título lista 2", "Categoría"},
-                {"3", "Título lista 3", "Categoría"},
-                {"4", "Título lista 4", "Categoría"},
-                {"5", "Título lista 5", "Categoría"},
-                {"6", "Título lista 6", "Categoría"},
-                {"7", "Título lista 7", "Categoría"},
-        };
+        String[][] inf2;
 
         // Icones dels botons
         PImage imgFave, imgNoFave, imgPlay;
@@ -389,13 +381,14 @@ public class GUI {
 
             // Creació de la taula
             ps1 = new PagedSongs(p5, numCardsPage, -10+menuWidth+margeH, margeV+60, cardsW, cardsH);
-            inf = db.getInfoTaulaLlista("nuriafemeniass");
+            inf = db.getInfoTaulaCanciones("nuriafemeniass");
             ps1.setData(inf);
             ps1.setCards(p5, imgFave, imgNoFave, imgPlay);
 
 
         // Paged List
         pl1 = new PagedLists(p5, numCardsPage2, -10+menuWidth+margeH, margeV+60, cardsW, cardsH);
+        inf2 = db.getInfoTaulaLlista("nuriafemeniass");
         pl1.setData(inf2);
         pl1.setCards(p5);
 
@@ -535,10 +528,10 @@ public class GUI {
         s1.display(p5);
             p5.fill(0); p5.textSize(20);
             p5.text("Seleccionar subcategoría", 400+selectW+75, 100+2*30+20+30);
-        s2.display(p5);
         //s3.display(p5);
         b9.display(p5);
         c.display(p5);
+        s2.display(p5);
     }
 
     public void dibujaPantallaTusListas(PApplet p5){

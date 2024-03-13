@@ -22,7 +22,7 @@ public class SongCard {
         this.id = data[0];
         this.title = data[1];
         this.category = data[2];
-        this.favorite = Boolean.parseBoolean(data[3]);
+        this.favorite = data[3].equals("S")? true : false;
 
         this.x = x; this.y = y; this.w = w; this.h = h; this.b = b;
     }
