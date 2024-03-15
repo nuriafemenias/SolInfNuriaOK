@@ -7,6 +7,7 @@ import java.sql.Statement;
 
 public class DataBase {
 
+    //public static boolean insertInfoTaulaLista; //////////////////////////////////
     // Variable de connexió a la BBDD
     Connection c;
 
@@ -146,15 +147,27 @@ public class DataBase {
         }
     }
 
+    public String getClaveFromTabla(String nombreTable, String nombreClave, String nombreColumna, String valorColumna){
+        try {
+            String q = "SELECT "+nombreClave+" AS clave FROM "+nombreTable+" WHERE "+nombreColumna+"='"+valorColumna+"'";
+            ResultSet rs = query.executeQuery( q);
+            rs.next();
+            return rs.getString("clave");
+        }
+        catch(Exception e) {
+            System.out.println(e);
+            return null;
+        }
+    }
+
 
     // INSERTS
 
-    // Inserta les dades a la taula Unitat
+    // Inserta les dades a la taula Llista
 
-    void insertInfoTaulaUnitat(String num, String nom){
+    public void insertInfoTaulaLista(String titulo, String subtitulo, String categoria){
         try {
-            String sNom = nom.replace("\'", "\\'");
-            String q = "INSERT INTO unitat (numero, nom) VALUES ('" + num + "','" + sNom + "')";
+            String q = "INSERT INTO lista (título, subtítulo, numCanciones, Usuario, Categoría, orden) VALUES ('" + titulo + "', '" + subtitulo + "', '0', 'nuriafemeniass', '" + categoria + "', '36')";
             System.out.println(q);
             query.execute(q);
         }
@@ -182,9 +195,9 @@ public class DataBase {
     // DELETES
 
     // Esborra la fila de la taula Unitat amb el número concret
-    void deleteInfoTaulaUnitat(String id){
+    void deleteInfoTaulaLista(String titulo){
         try {
-            String q = "DELETE FROM unitat WHERE numero='"+id+"'";
+            String q = "DELETE FROM lista WHERE `lista`.`título` = '"+titulo+"'"; //borrar una llista
             System.out.println(q);
             query.execute(q);
         }

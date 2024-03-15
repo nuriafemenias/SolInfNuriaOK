@@ -141,6 +141,7 @@ public class Ballet extends PApplet {
         gui.tf4.keyPressed(key, keyCode);
         gui.tf5.keyPressed(key, keyCode);
         gui.tf6.keyPressed(key, keyCode);
+        gui.tf66.keyPressed(key, keyCode);
         gui.tf8.keyPressed(key, keyCode);
         gui.tf9.keyPressed(key, keyCode);
 
@@ -166,6 +167,17 @@ public class Ballet extends PApplet {
 
     public void mousePressed() {
 
+        if (gui.pantallaActual == GUI.PANTALLA.agregarLista) {
+            if(gui.b29.mouseOverButton(this)) {
+                String titulo = gui.tf6.text;
+                String subtitulo = gui.tf66.text;
+                String categoria = gui.s3.getSelectedValue();
+                String numCateg = db.getClaveFromTabla("categoría", "idCategoría","nombre", categoria);
+                db.insertInfoTaulaLista(titulo, subtitulo, numCateg);
+            }
+        }
+
+
         if (gui.pantallaActual == GUI.PANTALLA.registro) {
             if (gui.b1.mouseOverButton(this)) {
                 println("HAS FET CLIC SOBRE EL BOTÓ B1");
@@ -179,10 +191,12 @@ public class Ballet extends PApplet {
 
         if (gui.pantallaActual == GUI.PANTALLA.agregarCanción) {
             gui.tf6.isPressed(this);
+            gui.tf66.isPressed(this);
         }
 
         if (gui.pantallaActual == GUI.PANTALLA.agregarLista) {
             gui.tf6.isPressed(this);
+            gui.tf66.isPressed(this);
         }
 
         if (gui.pantallaActual == GUI.PANTALLA.Calentamiento) {
@@ -229,7 +243,7 @@ public class Ballet extends PApplet {
         if(gui.s3.mouseOverSelect(this) && gui.s3.isEnabled()){
             if(!gui.s3.isCollapsed()){
                 gui.s3.update(this);      // Actualitzar valor
-                updateColor();    // Fer acció amb valor
+                updateColor();                // Fer acció amb valor
             }
             gui.s3.toggle();        // Plegar o desplegar
         }

@@ -20,7 +20,7 @@ public class GUI {
 
     // Declaració dels components de la GUI
     Button  b1, b2, b3, b4, b5, b6, b7, b8, b9, b10, b11, b12, b13, b14, b15, b16, b17, b18, b19, b20,
-            b21, b22, b23, b24, b25, b26, b27, b28;
+            b21, b22, b23, b24, b25, b26, b27, b28, b29;
     RoundButton rb1, rb11, rb2, rb3, rb4, rb5, rb6;
     PImage icono1, icono2, icono3, icono4, icono5, icono6;
     MusicPlayer
@@ -62,7 +62,7 @@ public class GUI {
                 /*62Hombre*/
                 mp621, mp622, mp623, mp624, mp625, mp626, mp627, mp628;
 
-    TextField tf1, tf2, tf3, tf4, tf5, tf6, tf8, tf9;
+    TextField tf1, tf2, tf3, tf4, tf5, tf6, tf66, tf8, tf9;
 
     // Propietats de "PagedTable" (taules)
     // Elements de la Interfície Gràfica (Table)
@@ -89,6 +89,25 @@ public class GUI {
 
     // Dades de la taula
     String[][] info = {
+            {"1", "Pere", "Soler Miralles"},
+            {"2", "Maria", "Garcia Lopez"},
+            {"3", "Joan", "Melis Cabrer"},
+            {"4", "Bel", "Riera Mates"},
+            {"5", "Jose", "Perez Galdós"},
+            {"6", "Pere", "Soler Miralles"},
+            {"7", "Maria", "Garcia Lopez"},
+            {"8", "Joan", "Melis Cabrer"},
+            {"9", "Bel", "Riera Mates"},
+            {"10", "Jose", "Perez Galdós"},
+            {"11", "Pere", "Soler Miralles"},
+            {"12", "Maria", "Garcia Lopez",},
+            {"13", "Joan", "Melis Cabrer"},
+            {"14", "Bel", "Riera Mates"},
+            {"15", "Jose", "Perez Galdós"},
+            {"16", "Pepe", "Viyuela Lopez"},
+    };
+
+    String[][] inf3 = {
             {"1", "Pere", "Soler Miralles"},
             {"2", "Maria", "Garcia Lopez"},
             {"3", "Joan", "Melis Cabrer"},
@@ -146,6 +165,8 @@ public class GUI {
     PagedSongs ps1;
     // Paged lists
     PagedLists pl1;
+    // Paged tus listas
+    PagedLists ptl1;
 
 
     // Cançó Seleccionada
@@ -279,6 +300,10 @@ public class GUI {
         b28.setColors(190, 0, 100, 190);
         //b28.setFont(fonts.getFirstFont());
 
+        b29 = new Button(p5, "Guardar", -10 + menuWidth + margeH + 500, 600-botonAñadirHeight, botonAñadirWidth, botonAñadirHeight);
+        b29.setColors(190, 0, 100, 190);
+        //b29.setFont(fonts.getFirstFont());
+
 
 
 //ICONOS --> https://www.flaticon.es/
@@ -331,6 +356,9 @@ public class GUI {
         tf6 = new TextField(p5, 400, 140, 830, 30);
         tf6.setColors(colores.getColorAt(5), 0, 0, colores.getColorAt(2));
         tf6.setFont(fonts.getThirdFont());
+        tf66 = new TextField(p5, 400, 140+70, 830, 30);
+        tf66.setColors(colores.getColorAt(5), 0, 0, colores.getColorAt(2));
+        tf66.setFont(fonts.getThirdFont());
         // dibuijaPantallaAgregarLista
         tf8 = new TextField(p5, 390, 100, 850, 30);
         tf8.setColors(colores.getColorAt(5), 0, 0, colores.getColorAt(2));
@@ -359,13 +387,13 @@ public class GUI {
         // Creació dels Select
         s1 = new Select(selectValues, 400, 100+2*30+20+30+10, selectW, selectH);
         s2 = new Select(selectValues, 400+selectW+75, 100+2*30+20+30+10, selectW, selectH);
-        s3 = new Select(selectValues, 400+selectW+75, 100+2*30+20+30+10, selectW, selectH);
+        s3 = new Select(selectValues, 400+selectW+75, 100+2*30+20+30+10+70, selectW, selectH);
 
 
         // Creació dels Switch Button
         sb1 = new SwitchButton(p5, 400, 210+selectH+60+10, 340, 40);
         sb2 = new SwitchButton(p5, 400, 210+selectH+60+30+50+10+10, 340, 40);
-        sb3 = new SwitchButton(p5, 400, 210+selectH+50, 340, 40);
+        sb3 = new SwitchButton(p5, 400, 210+selectH+50+70, 340, 40);
 
         // Creació dels CheckBox
         cb1 = new CheckBox(p5, 440+530+30-5, 250+3*40+3*20+30-5,35);
@@ -393,12 +421,19 @@ public class GUI {
         pl1.setCards(p5);
 
 
+        // Paged List
+        ptl1 = new PagedLists(p5, numCardsPage2, -10+menuWidth+margeH, margeV+60, cardsW, cardsH);
+        //inf3 = db.getInfoTaulaLlista("nuriafemeniass");
+        ptl1.setData(inf3);
+        ptl1.setCards(p5);
+
+
 
         // Text List
             // Creació de la Llista de Textos
-            tList = new TextList(p5, listValues, 400, 210+selectH+50+40+30, tListW, tListH);
+            tList = new TextList(p5, listValues, 400, 210+selectH+50+40+30+70, tListW, tListH);
             // Creació del Botó
-            b = new Button(p5, "TRIA", 400+tListW+40, 210+selectH+50+40+30, buttonWl, buttonHl);
+            b = new Button(p5, "TRIA", 400+tListW+40, 210+selectH+50+40+30+70, buttonWl, buttonHl);
     }
 
 
@@ -546,6 +581,7 @@ public class GUI {
         dibujaBotonsTuCuentaRB(p5);
         b6.display(p5);
         //ps3.display(p5);
+        ptl1.display(p5);
     }
 
     public void dibujaPantallaCancionesTusListas(PApplet p5){
@@ -586,11 +622,10 @@ public class GUI {
             p5.text("Título de la lista", 400, 130);
         tf6.display(p5);
             p5.fill(0); p5.textSize(20);
-            p5.text("A qué categoría deseas que pertenezca la lista?", 400, 100+2*30+20+30+10+10);
-            p5.text("Seleccionar categoría", 400+selectW+75, 100+2*30+20+30);
-        s3.display(p5);
+            p5.text("Subtítulo de la lista", 400, 130+70);
+        tf66.display(p5);
             p5.fill(0); p5.textSize(20);
-            p5.text("Deseas agregar alguna canción a la lista?", 400, 210+selectH+40);
+            p5.text("Deseas agregar alguna canción a la lista?", 400, 210+selectH+40+70);
         sb3.display(p5);
         b11.display(p5);
         // Dibuixa la TextList
@@ -606,6 +641,11 @@ public class GUI {
                 p5.text(selectedText, p5.width/2, p5.height/2);
                 p5.popStyle();
             }
+            b29.display(p5);
+        p5.fill(0); p5.textSize(20);
+        p5.text("A qué categoría deseas que pertenezca la lista?", 400, 100+2*30+20+30+10+10+70);
+        p5.text("Seleccionar categoría", 400+selectW+75, 100+2*30+20+30+70);
+        s3.display(p5);
     }
 
     public void dibujaPantallaCanciones(PApplet p5){
