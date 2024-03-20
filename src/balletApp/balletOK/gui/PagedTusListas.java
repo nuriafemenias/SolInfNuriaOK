@@ -1,6 +1,7 @@
 package balletApp.balletOK.gui;
 
 import processing.core.PApplet;
+import processing.core.PImage;
 
 public class PagedTusListas {
     String[][] resultsData;    // Dades de les Cards
@@ -39,13 +40,14 @@ public class PagedTusListas {
         this.numTotalPages = d.length / this.numListsPage;
     }
 
-    public void setCards(PApplet p5) {
+    public void setCards(PApplet p5, PImage img1) {
         lists = new TusListasCard[this.resultsData.length];
         float hc = h / (float) numListsPage;
         int k=0;
         for (int i=0; i<lists.length; i++) {
             float yc = y +(k% numListsPage)*(hc + 10);
             lists[i] = new TusListasCard(x, yc, w, hc, 10, resultsData[i]);
+            lists[i].setButtons(p5, img1);
             k++;
         }
     }
@@ -107,13 +109,13 @@ public class PagedTusListas {
     }
 
 
-    public ListCard checkCardClick(PApplet p5) {
+    public TusListasCard checkCardClick(PApplet p5) {
 
         int firstCardPage = numListsPage *numPage;
         int lastCardPage  = numListsPage *(numPage+1) - 1;
 
         for (int i = firstCardPage; i <= lastCardPage & i<lists.length; i++) {
-            ListCard sc = lists[i].checkButtons(p5);
+            TusListasCard sc = lists[i].checkButtons(p5);
             if (sc!= null) {
                 return sc;
             }

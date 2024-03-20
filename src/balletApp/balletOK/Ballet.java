@@ -1,6 +1,7 @@
 package balletApp.balletOK;
 
 import balletApp.balletOK.gui.DataBase;
+import balletApp.balletOK.gui.ListCard;
 import processing.core.PApplet;
 
 public class Ballet extends PApplet {
@@ -177,7 +178,6 @@ public class Ballet extends PApplet {
             }
         }
 
-
         if (gui.pantallaActual == GUI.PANTALLA.registro) {
             if (gui.b1.mouseOverButton(this)) {
                 println("HAS FET CLIC SOBRE EL BOTÓ B1");
@@ -302,6 +302,27 @@ public class Ballet extends PApplet {
             gui.pl1.checkButtons(this);
             //gui.cs = gui.pl1.checkCardClick(this);
         }
+        // Paged tus listas
+        if (gui.pantallaActual == GUI.PANTALLA.TusListas) {
+            ListCard cardSeleccionada = gui.ptl1.checkCardClick(this);
+            if(cardSeleccionada!=null && cardSeleccionada.b){
+
+            }
+            //gui.cs = gui.ptl1.checkCardClick(this);
+            /*if (gui.bAceptar.mouseOverButton(this) //&& gui.b.isEnabled()){
+
+            }
+
+            if(gui.b29.mouseOverButton(this)) {
+                String titulo = gui.tf6.text;
+                String categoria = gui.s3.getSelectedValue();
+                String numCateg = db.getClaveFromTabla("categoría", "idCategoría","nombre", categoria);
+                db.deleteInfoTaulaLista(titulo);
+        }
+
+        */
+
+        }
 
         // TextList
         // Pitjam sobre el botó de TRIA
@@ -312,6 +333,7 @@ public class Ballet extends PApplet {
         // Mirarm si pitjam damunt el textList (camp de text o botó)
         gui.tList.getTextField().isPressed(this);
         gui.tList.buttonPressed(this);
+
 
     }
 

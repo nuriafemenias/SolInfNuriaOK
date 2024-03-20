@@ -12,7 +12,7 @@ public class TusListasCard {
 
     float x, y, w, h, b;
 
-    RoundButton papelera;
+    public RoundButton bPapelera;
     PImage iconoP;
 
 
@@ -22,16 +22,28 @@ public class TusListasCard {
         this.id = data[0];
         this.title = data[1];
         this.category = data[2];
+        //this.bPapelera = data[3].;
 
         this.x = x; this.y = y; this.w = w; this.h = h; this.b = b;
     }
 
-    public void setButtons(PApplet p5){
-        float xB = x + w - 250;
+    public void setButtons(PApplet p5, PImage iconoP){
+        float xB = x + w - 30;
+        float yB = this.y + 70;
+        float rB = 20;
+        this.bPapelera = new RoundButton(p5, iconoP, xB, yB, rB);
+    }
+
+    /*public void setButtons(PApplet p5, PImage imgFave, PImage imgNoFave, PImage imgPlay){
+        float xB1 = x + w - 250;
+        float xB2 = x + w - 150;
         float yB = this.y + this.h/2;
         float rB = 30;
-        //this.bPapelera = new RoundButton (p5, iconoP,x + w - 20, y + 25, 20);
-    }
+        this.bFavorite = new FaveButton(imgFave, imgNoFave, xB1, yB, rB, this.favorite);
+        this.bPlay = new RoundButton(p5, imgPlay, xB2, yB, rB);
+        }
+     */
+
 
 
     // Getters
@@ -76,10 +88,7 @@ public class TusListasCard {
         p5.popStyle();
 
         //Papelera
-        iconoP = p5.loadImage("papelera.png");
-        papelera = new RoundButton (p5, iconoP,x + w - 20, y + 25, 20);
-
-
+        this.bPapelera.display(p5);
     }
 
     public boolean mouseOnCard(PApplet p5){
@@ -88,7 +97,7 @@ public class TusListasCard {
     }
 
 
-    public ListCard checkButtons(PApplet p5){
+    public TusListasCard checkButtons(PApplet p5){
         return null;
     }
 }

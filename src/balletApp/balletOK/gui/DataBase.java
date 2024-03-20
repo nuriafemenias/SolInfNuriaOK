@@ -7,7 +7,9 @@ import java.sql.Statement;
 
 public class DataBase {
 
-    //public static boolean insertInfoTaulaLista; //////////////////////////////////
+
+    // VARIABLES
+
     // Variable de connexió a la BBDD
     Connection c;
 
@@ -20,12 +22,18 @@ public class DataBase {
     // Estat de la connexió
     boolean connectat = false;
 
+
+
+    // SETTER
     public DataBase(String user, String password, String databaseName){
         this.user = user;
         this.password = password;
         this.databaseName = databaseName;
     }
 
+
+
+    // CONECTAR AMB DB
     public void connect(){
         try {
             Class.forName("com.mysql.jdbc.Driver");
@@ -39,6 +47,10 @@ public class DataBase {
         }
     }
 
+
+
+    // GETTERS
+
     // Retorna el número de files d'una taula
     public int getNumRowsTaula(String nomTaula){
         try {
@@ -46,6 +58,18 @@ public class DataBase {
             rs.next();
             int numRows = rs.getInt("n");
             return numRows;
+        }
+        catch(Exception e) {
+            System.out.println(e);
+            return 0;
+        }
+    }
+
+    public int getNumRowsQuery(String q){
+        try {
+            ResultSet rs = query.executeQuery( q);
+            rs.next();
+            return rs.getInt("n");
         }
         catch(Exception e) {
             System.out.println(e);
@@ -115,6 +139,31 @@ public class DataBase {
         }
     }
 
+    public String [][] getInfoTaulaTusListas(String nomUsuario){
+        String qn ="SELECT COUNT(*) As n FROM lista l, usuario u, categoría c WHERE l.Usuario = u.nombre AND l.Usuario = '"+nomUsuario+"' AND l.Categoría = c.idCategoría AND l.Categoría = '3'";
+        int numFiles = getNumRowsQuery(qn);
+        int numCols  = 3;
+        String[][] info = new String[numFiles][numCols];
+        try {
+            // SELECT l.título, l.Categoría, l.subtítulo FROM lista l, usuario u, categoría c WHERE l.Usuario = u.nombre AND l.Categoría=c.idCategoría AND c.idCategoría=3
+            String q ="SELECT l.numCanciones AS NUM, l.título AS TITULO, c.nombre AS CATEGORIA FROM lista l, usuario u, categoría c WHERE l.Usuario = u.nombre AND l.Usuario = '"+nomUsuario+"' AND l.Categoría = c.idCategoría AND l.Categoría = '3' ORDER BY l.orden ASC";
+            ResultSet rs = query.executeQuery(q);
+            int nr = 0;
+            while (rs.next()) {
+                info[nr][0] = String.valueOf(rs.getString("NUM"));
+                info[nr][1] = rs.getString("TITULO");
+                info[nr][2] = rs.getString("CATEGORIA");
+                nr++;
+            }
+            return info;
+        }
+        catch(Exception e) {
+            System.out.println(e);
+            return null;
+        }
+    }
+
+
     // Retorna les dades de la columna NOM de la taula UNITAT
     public String[] getColumnaNomTaulaUnitat(){
         int numFiles = getNumRowsTaula("unitat");
@@ -161,6 +210,7 @@ public class DataBase {
     }
 
 
+
     // INSERTS
 
     // Inserta les dades a la taula Llista
@@ -177,13 +227,14 @@ public class DataBase {
     }
 
 
-    // UPDATES
 
-    // Actualitza les dades a la taula Unitat
+    // DELETES
 
-    void updateInfoTaulaUnitat(String id, String num, String nom){
+    // Esborra la fila de la taula Unitat amb el número concret
+    public void deleteInfoTaulaLista(String titulo){
         try {
-            String q = "UPDATE unitat SET numero='"+num+"', nom='"+nom+"' WHERE numero='"+id+"'";
+            // DELETE FROM lista WHERE `lista`.`título` = 'hh'
+            String q = "DELETE FROM lista WHERE `lista`.`título` = '"+titulo+"'"; //borrar una llista
             System.out.println(q);
             query.execute(q);
         }
@@ -192,12 +243,15 @@ public class DataBase {
         }
     }
 
-    // DELETES
 
-    // Esborra la fila de la taula Unitat amb el número concret
-    void deleteInfoTaulaLista(String titulo){
+
+    // UPDATES
+
+    // Actualitza les dades a la taula Unitat
+
+    void updateInfoTaulaUnitat(String id, String num, String nom){
         try {
-            String q = "DELETE FROM lista WHERE `lista`.`título` = '"+titulo+"'"; //borrar una llista
+            String q = "UPDATE unitat SET numero='"+num+"', nom='"+nom+"' WHERE numero='"+id+"'";
             System.out.println(q);
             query.execute(q);
         }

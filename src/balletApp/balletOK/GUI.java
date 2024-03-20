@@ -2,6 +2,7 @@ package balletApp.balletOK;
 
 import balletApp.balletOK.gui.*;
 
+import static balletApp.balletOK.Ballet.gui;
 import static balletApp.balletOK.Mides.*;
 
 import processing.core.PImage;
@@ -107,24 +108,7 @@ public class GUI {
             {"16", "Pepe", "Viyuela Lopez"},
     };
 
-    String[][] inf3 = {
-            {"1", "Pere", "Soler Miralles"},
-            {"2", "Maria", "Garcia Lopez"},
-            {"3", "Joan", "Melis Cabrer"},
-            {"4", "Bel", "Riera Mates"},
-            {"5", "Jose", "Perez Galdós"},
-            {"6", "Pere", "Soler Miralles"},
-            {"7", "Maria", "Garcia Lopez"},
-            {"8", "Joan", "Melis Cabrer"},
-            {"9", "Bel", "Riera Mates"},
-            {"10", "Jose", "Perez Galdós"},
-            {"11", "Pere", "Soler Miralles"},
-            {"12", "Maria", "Garcia Lopez",},
-            {"13", "Joan", "Melis Cabrer"},
-            {"14", "Bel", "Riera Mates"},
-            {"15", "Jose", "Perez Galdós"},
-            {"16", "Pepe", "Viyuela Lopez"},
-    };
+    String[][] inf3;
 
 
     // Propietats del Select
@@ -166,7 +150,7 @@ public class GUI {
     // Paged lists
     PagedLists pl1;
     // Paged tus listas
-    PagedLists ptl1;
+    PagedTusListas ptl1;
 
 
     // Cançó Seleccionada
@@ -185,7 +169,7 @@ public class GUI {
         String[][] inf2;
 
         // Icones dels botons
-        PImage imgFave, imgNoFave, imgPlay;
+        PImage imgFave, imgNoFave, imgPlay, iconoP;
 
     // Elements de la Interfície Gràfica (TextList)
             TextList tList;   // Llista de textos
@@ -197,8 +181,16 @@ public class GUI {
             float tListW = 600, tListH = 40;
             float buttonWl = 120, buttonHl = 40;
 
-
+            // Data base
             DataBase db;
+
+            // Confirm
+            Confirm confirml;
+                // Dimensions del Confirm
+                float compW = 600, compH = 340;
+                // Textos del Confirm
+                String title = "Confirma:";
+                String message = "Seguro que quieres borrar esta lista?";
 
 
     public GUI(PApplet p5, DataBase db){
@@ -407,7 +399,10 @@ public class GUI {
             imgNoFave = p5.loadImage("imgNoFave.png");
             imgPlay = p5.loadImage("imgPlay.png");
 
-            // Creació de la taula
+        iconoP = p5.loadImage("papelera.png");
+
+
+        // Creació de la taula
             ps1 = new PagedSongs(p5, numCardsPage, -10+menuWidth+margeH, margeV+60, cardsW, cardsH);
             inf = db.getInfoTaulaCanciones("nuriafemeniass");
             ps1.setData(inf);
@@ -421,11 +416,19 @@ public class GUI {
         pl1.setCards(p5);
 
 
-        // Paged List
-        ptl1 = new PagedLists(p5, numCardsPage2, -10+menuWidth+margeH, margeV+60, cardsW, cardsH);
-        //inf3 = db.getInfoTaulaLlista("nuriafemeniass");
+        // Paged tus Listas
+        ptl1 = new PagedTusListas(p5, numCardsPage2, -10+menuWidth+margeH, margeV+60, cardsW, cardsH);
+        inf3 = db.getInfoTaulaTusListas("nuriafemeniass");
+
+        System.out.println("\nCONTINGUT INF3: ");
+        for(int i=0; i<inf3.length; i++){
+            for(int j=0; j<inf3[i].length; j++){
+                System.out.print(inf3[i][j] + "\t");
+            }
+            System.out.println();
+        }
         ptl1.setData(inf3);
-        ptl1.setCards(p5);
+        ptl1.setCards(p5, iconoP);
 
 
 
@@ -434,6 +437,12 @@ public class GUI {
             tList = new TextList(p5, listValues, 400, 210+selectH+50+40+30+70, tListW, tListH);
             // Creació del Botó
             b = new Button(p5, "TRIA", 400+tListW+40, 210+selectH+50+40+30+70, buttonWl, buttonHl);
+
+
+        // Confirm
+        confirml = new Confirm(p5, title, message, 390, 190, compW, compH);       // ¿com posar x i y a la meitat de la pantalla??
+
+
     }
 
 
@@ -569,9 +578,9 @@ public class GUI {
         s2.display(p5);
     }
 
-    public void dibujaPantallaTusListas(PApplet p5){
-        // Pantalla
-        p5.background(255);
+    public void dibujaPantallaTusListas(PApplet p5){    //______________________________________________________________________
+        // Pantalla                                     //_________________________________________________________________________
+        p5.background(255);                         //________________________________________________________________________
         dibujaFullMenu(p5);
             p5.fill(0); p5.textSize(20);
             p5.text("Tus Listas", 400, 75);
@@ -580,8 +589,9 @@ public class GUI {
         // Botones y otros
         dibujaBotonsTuCuentaRB(p5);
         b6.display(p5);
-        //ps3.display(p5);
         ptl1.display(p5);
+            confirml.display(p5);
+
     }
 
     public void dibujaPantallaCancionesTusListas(PApplet p5){
@@ -597,7 +607,6 @@ public class GUI {
         b5.display(p5);
         b10.display(p5);
         // Dibuixa les Cards paginades
-        //ps2.display(p5);
                        /* // Indica el Resultat seleccionat
                         if(cs!=null){
                             p5.fill(0); p5.textSize(18);
@@ -687,7 +696,6 @@ public class GUI {
         // Botones y otros
         b13.display(p5);
         b27.display(p5);
-        //ps1.display(p5);
         pl1.display(p5);
     }
 

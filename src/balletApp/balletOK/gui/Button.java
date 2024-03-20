@@ -29,6 +29,7 @@ public class Button {
         this.strokeColor = p5.color(0);
     }
 
+
     // Setters
 
     public void setEnabled(boolean b){
@@ -82,6 +83,12 @@ public class Button {
         return (p5.mouseX >= this.x) && (p5.mouseX <= this.x + this.w) &&
                 (p5.mouseY >= this.y) && (p5.mouseY <= this.y + this.h);
     }
+
+
+    public boolean isPressed(PApplet p5){
+        return p5.mousePressed;
+    }
+
 
     // Indica si cal posar el cursor a HAND
     public boolean updateHandCursor(PApplet p5){
