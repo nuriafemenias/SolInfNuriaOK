@@ -590,8 +590,8 @@ public class GUI {
         dibujaBotonsTuCuentaRB(p5);
         b6.display(p5);
         ptl1.display(p5);
-            confirml.display(p5);
-
+        //confirml.setVisible(false);
+        confirml.display(p5);
     }
 
     public void dibujaPantallaCancionesTusListas(PApplet p5){

@@ -115,9 +115,8 @@ public class PagedTusListas {
         int lastCardPage  = numListsPage *(numPage+1) - 1;
 
         for (int i = firstCardPage; i <= lastCardPage & i<lists.length; i++) {
-            TusListasCard sc = lists[i].checkButtons(p5);
-            if (sc!= null) {
-                return sc;
+            if (lists[i].mouseOnCard(p5)) {
+                return lists[i];
             }
         }
         return null;

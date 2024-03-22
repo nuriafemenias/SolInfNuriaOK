@@ -76,7 +76,12 @@ public class ListCard {
     }
 
 
-    public ListCard checkButtons(PApplet p5){
+    public ListCard checkButtons(PApplet p5) {
+
+        if (this.mouseOnCard(p5)) {
+            return this;
+        }
+
         return null;
     }
 }

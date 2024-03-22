@@ -80,4 +80,11 @@ import processing.core.PImage;
                 p5.popStyle();
             }
         }
+
+        public boolean mouseOnAceptarButton(PApplet p5){
+            return this.bAceptar.mouseOverButton(p5);
+        }
+        public boolean mouseOnCancelarButton(PApplet p5){
+            return this.bCancelar.mouseOverButton(p5);
+        }
 }

@@ -1,7 +1,7 @@
 package balletApp.balletOK;
 
 import balletApp.balletOK.gui.DataBase;
-import balletApp.balletOK.gui.ListCard;
+import balletApp.balletOK.gui.TusListasCard;
 import processing.core.PApplet;
 
 public class Ballet extends PApplet {
@@ -297,6 +297,7 @@ public class Ballet extends PApplet {
             gui.ps1.checkButtons(this);
             gui.cs = gui.ps1.checkCardClick(this);
         }
+
         // Paged lista
         if (gui.pantallaActual == GUI.PANTALLA.Barra) {
             gui.pl1.checkButtons(this);
@@ -304,8 +305,16 @@ public class Ballet extends PApplet {
         }
         // Paged tus listas
         if (gui.pantallaActual == GUI.PANTALLA.TusListas) {
-            ListCard cardSeleccionada = gui.ptl1.checkCardClick(this);
-            if(cardSeleccionada!=null && cardSeleccionada.b){
+            TusListasCard cardSeleccionada = gui.ptl1.checkCardClick(this);
+            boolean botonSeleccionat =  gui.confirml.mouseOnCancelarButton(this);
+            if (gui.confirml.bAceptar.mouseOverButton(this)){
+                gui.confirml.setVisible(false);
+            }
+            if (gui.confirml.bCancelar.mouseOverButton(this)){
+                gui.confirml.setVisible(false);
+            }
+            if(cardSeleccionada!=null && cardSeleccionada.mouseOnPapeleraButton(this)){
+               gui.confirml.setVisible(true);
 
             }
             //gui.cs = gui.ptl1.checkCardClick(this);

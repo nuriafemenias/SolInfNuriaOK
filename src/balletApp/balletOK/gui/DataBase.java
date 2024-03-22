@@ -120,9 +120,7 @@ public class DataBase {
         int numCols  = 4;
         String[][] info = new String[numFiles][numCols];
         try {
-            ResultSet rs = query.executeQuery( "SELECT c.título AS TITULO, c.Lista_título AS LISTA, c.favorito AS FAVORITO\n" +
-                                                   "FROM canción c\n" +
-                                                   "ORDER BY TITULO ASC");
+            ResultSet rs = query.executeQuery( "SELECT c.título AS TITULO, c.Lista_título AS LISTA, c.favorito AS FAVORITO FROM canción c ORDER BY TITULO ASC");
             int nr = 0;
             while (rs.next()) {
                 info[nr][0] = String.valueOf(nr+1);
@@ -145,7 +143,6 @@ public class DataBase {
         int numCols  = 3;
         String[][] info = new String[numFiles][numCols];
         try {
-            // SELECT l.título, l.Categoría, l.subtítulo FROM lista l, usuario u, categoría c WHERE l.Usuario = u.nombre AND l.Categoría=c.idCategoría AND c.idCategoría=3
             String q ="SELECT l.numCanciones AS NUM, l.título AS TITULO, c.nombre AS CATEGORIA FROM lista l, usuario u, categoría c WHERE l.Usuario = u.nombre AND l.Usuario = '"+nomUsuario+"' AND l.Categoría = c.idCategoría AND l.Categoría = '3' ORDER BY l.orden ASC";
             ResultSet rs = query.executeQuery(q);
             int nr = 0;

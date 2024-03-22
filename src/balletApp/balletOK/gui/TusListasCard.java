@@ -96,8 +96,7 @@ public class TusListasCard {
                 p5.mouseY > y && p5.mouseY < y + h);
     }
 
-
-    public TusListasCard checkButtons(PApplet p5){
-        return null;
+    public boolean mouseOnPapeleraButton(PApplet p5){
+        return this.bPapelera.mouseOverButton(p5);
     }
 }
