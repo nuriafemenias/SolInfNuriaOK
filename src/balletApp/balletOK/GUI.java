@@ -441,6 +441,7 @@ public class GUI {
 
         // Confirm
         confirml = new Confirm(p5, title, message, 390, 190, compW, compH);       // ¿com posar x i y a la meitat de la pantalla??
+        confirml.setVisible(false);
 
 
     }

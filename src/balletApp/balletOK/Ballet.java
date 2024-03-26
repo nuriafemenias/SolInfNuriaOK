@@ -306,16 +306,30 @@ public class Ballet extends PApplet {
         // Paged tus listas
         if (gui.pantallaActual == GUI.PANTALLA.TusListas) {
             TusListasCard cardSeleccionada = gui.ptl1.checkCardClick(this);
-            boolean botonSeleccionat =  gui.confirml.mouseOnCancelarButton(this);
-            if (gui.confirml.bAceptar.mouseOverButton(this)){
+            //boolean botonSeleccionat =  gui.confirml.mouseOnCancelarButton(this);
+
+/*
+            if(cardSeleccionada!=null && cardSeleccionada.mouseOnPapeleraButton(this)){
+                String titulo = gui.ptl1.checkCardClick(this).getTitle();
+                db.deleteInfoTaulaLista(titulo);
                 gui.confirml.setVisible(false);
             }
+            */
+
+            if(gui.confirml.bAceptar.mouseOverButton(this)){
+                String titulo = cardSeleccionada.getTitle();
+                db.deleteInfoTaulaLista(titulo);
+                gui.confirml.setVisible(false);
+            }
+
+
+
+
             if (gui.confirml.bCancelar.mouseOverButton(this)){
                 gui.confirml.setVisible(false);
             }
             if(cardSeleccionada!=null && cardSeleccionada.mouseOnPapeleraButton(this)){
                gui.confirml.setVisible(true);
-
             }
             //gui.cs = gui.ptl1.checkCardClick(this);
             /*if (gui.bAceptar.mouseOverButton(this) //&& gui.b.isEnabled()){
