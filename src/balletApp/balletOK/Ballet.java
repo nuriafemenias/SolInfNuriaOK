@@ -81,6 +81,10 @@ public class Ballet extends PApplet {
             case ListaCanciones:
                 gui.dibujaPantallaListaCanciones(this);
                 break;
+
+            case Reproductor:
+                gui.dibujaPantallaReproductor(this);
+                break;
         }
 
     }
@@ -125,6 +129,10 @@ public class Ballet extends PApplet {
         else if(key=='w'){
             gui.pantallaActual = GUI.PANTALLA.ListaCanciones;
         }
+        else if(key=='e'){
+            gui.pantallaActual = GUI.PANTALLA.Reproductor;
+        }
+
 
 
 
@@ -305,30 +313,18 @@ public class Ballet extends PApplet {
         }
         // Paged tus listas
         if (gui.pantallaActual == GUI.PANTALLA.TusListas) {
-            TusListasCard cardSeleccionada = gui.ptl1.checkCardClick(this);
+
             //boolean botonSeleccionat =  gui.confirml.mouseOnCancelarButton(this);
 
-/*
-            if(cardSeleccionada!=null && cardSeleccionada.mouseOnPapeleraButton(this)){
-                String titulo = gui.ptl1.checkCardClick(this).getTitle();
+            if(gui.confirml.isVisible()  && gui.confirml.bAceptar.mouseOverButton(this)){
+                String titulo = gui.cardSeleccionada.getTitle();
                 db.deleteInfoTaulaLista(titulo);
                 gui.confirml.setVisible(false);
             }
-            */
-
-            if(gui.confirml.bAceptar.mouseOverButton(this)){
-                String titulo = cardSeleccionada.getTitle();
-                db.deleteInfoTaulaLista(titulo);
+            else if (gui.confirml.bCancelar.mouseOverButton(this)){
                 gui.confirml.setVisible(false);
             }
-
-
-
-
-            if (gui.confirml.bCancelar.mouseOverButton(this)){
-                gui.confirml.setVisible(false);
-            }
-            if(cardSeleccionada!=null && cardSeleccionada.mouseOnPapeleraButton(this)){
+            else if(gui.cardSeleccionada!=null && gui.cardSeleccionada.mouseOnPapeleraButton(this)){
                gui.confirml.setVisible(true);
             }
             //gui.cs = gui.ptl1.checkCardClick(this);
@@ -344,6 +340,9 @@ public class Ballet extends PApplet {
         }
 
         */
+
+            gui.cardSeleccionada = gui.ptl1.checkCardClick(this);
+
 
         }
 

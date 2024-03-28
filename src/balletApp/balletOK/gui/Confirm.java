@@ -51,6 +51,12 @@ import processing.core.PImage;
             }
         }
 
+        // Getter
+
+        public boolean isVisible(){
+            return  this.visible;
+        }
+
         // Dibuixa el Confirm
 
         public void display(PApplet p5){

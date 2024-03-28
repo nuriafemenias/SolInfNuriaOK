@@ -32,6 +32,7 @@ public class MusicPlayer {
         so = new SoundFile(p5, s);
     }
 
+
     // Dibuixa el reproductor
     public void display(PApplet p5){
 

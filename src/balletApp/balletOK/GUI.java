@@ -11,7 +11,7 @@ import processing.core.PApplet;
 
 public class GUI {
     public enum PANTALLA {registro, Favoritos, TusCanciones, agregarCanción, TusListas, cancionesTusListas,
-                          agregarLista, Canciones, Calentamiento, Barra, VariacionesListaCanciones, ListaCanciones
+                          agregarLista, Canciones, Calentamiento, Barra, VariacionesListaCanciones, ListaCanciones, Reproductor
     };
 
     public PANTALLA pantallaActual;
@@ -26,7 +26,7 @@ public class GUI {
     PImage icono1, icono2, icono3, icono4, icono5, icono6;
     MusicPlayer
             /*1BARRA*/
-            mp111, mp112, mp121, mp122, mp131, mp132, mp141, mp142, mp151, mp152, mp161, mp162, mp171, mp172, mp181, mp182,
+            mp, mp111, mp112, mp121, mp122, mp131, mp132, mp141, mp142, mp151, mp152, mp161, mp162, mp171, mp172, mp181, mp182,
             mp191, mp192, mp1101, mp1102, mp1111, mp1112, mp1121, mp1122, mp1131, mp1132, mp1141, mp1142, mp1151, mp1152,
             /*2CENTRO*/
             mp211, mp212, mp221, mp222, mp231, mp232, mp241, mp242, mp251, mp252, mp261, mp262, mp271, mp272,
@@ -151,6 +151,8 @@ public class GUI {
     PagedLists pl1;
     // Paged tus listas
     PagedTusListas ptl1;
+
+    TusListasCard cardSeleccionada;
 
 
     // Cançó Seleccionada
@@ -323,6 +325,12 @@ public class GUI {
         mp111.setSound(p5, "C:\\Users\\usuario\\OneDrive\\Escritorio\\SolInfNuria\\SolInfNuria2324\\data\\MusicPlayer\\Calentamiento\\Barra\\1WarmUp\\1.mp3");
         mp112 = new MusicPlayer(p5,520, p5.height/1.5f);
         mp112.setSound(p5, "C:\\Users\\usuario\\OneDrive\\Escritorio\\SolInfNuria\\SolInfNuria2324\\data\\MusicPlayer\\Calentamiento\\Barra\\1WarmUp\\2.mp3");
+
+        // Creació del Music Player
+        mp = new MusicPlayer(p5,30, 30);
+        String Warmup1 = "C:\\Users\\usuario\\OneDrive\\Escritorio\\SolInfNuria\\SolInfNuria2324\\data\\MusicPlayer\\Calentamiento\\1Barra\\1WarmUp\\1.mp3";
+        mp.setSound(p5, Warmup1);
+
 
 
 
@@ -735,6 +743,12 @@ public class GUI {
                   }
                 */
     }
+
+    public void dibujaPantallaReproductor(PApplet p5){
+        // Pantalla
+        mp.display(p5);
+    }
+
 
 
 
