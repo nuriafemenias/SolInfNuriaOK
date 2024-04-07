@@ -132,40 +132,6 @@ public class Ballet extends PApplet {
 
     public void mousePressed() {
 
-        if(gui.b1.mouseOverButton(this)){
-            gui.pantallaActual = GUI.PANTALLA.Canciones;
-        } else if(gui.b3.mouseOverButton(this)){
-            gui.pantallaActual = GUI.PANTALLA.Favoritos;
-        } else if(gui.rb2.mouseOverButton(this)){
-            gui.pantallaActual = GUI.PANTALLA.Favoritos;
-        } else if(gui.rb3.mouseOverButton(this)){
-            gui.pantallaActual = GUI.PANTALLA.TusCanciones;
-        } else if(gui.rb4.mouseOverButton(this)){
-            gui.pantallaActual = GUI.PANTALLA.TusListas;
-        }else if(gui.b4.mouseOverButton(this)){
-            gui.pantallaActual = GUI.PANTALLA.Canciones;
-        }else if(gui.b5.mouseOverButton(this)){
-            gui.pantallaActual = GUI.PANTALLA.agregarCanción;
-        }else if(gui.b6.mouseOverButton(this)){
-            gui.pantallaActual = GUI.PANTALLA.agregarLista;
-        }else if(gui.b7.mouseOverButton(this)){
-            gui.pantallaActual = GUI.PANTALLA.Calentamiento;
-        }else if(gui.b21.mouseOverButton(this)){
-            gui.pantallaActual = GUI.PANTALLA.ListaCanciones;
-        }else if(gui.b22.mouseOverButton(this)){
-            gui.pantallaActual = GUI.PANTALLA.ListaCanciones;
-        }else if(gui.b23.mouseOverButton(this)){
-            gui.pantallaActual = GUI.PANTALLA.ListaCanciones;
-        }else if(gui.b24.mouseOverButton(this)){
-            gui.pantallaActual = GUI.PANTALLA.ListaCanciones;
-        }else if(gui.b25.mouseOverButton(this)){
-            gui.pantallaActual = GUI.PANTALLA.ListaCanciones;
-        }else if(gui.b26.mouseOverButton(this)){
-            gui.pantallaActual = GUI.PANTALLA.ListaCanciones;
-        }else if(gui.rb1.mouseOverButton(this)){
-            gui.pantallaActual = GUI.PANTALLA.registro;
-        }
-
         if (gui.pantallaActual == GUI.PANTALLA.agregarLista) {
             if(gui.b29.mouseOverButton(this)) {
                 String titulo = gui.tf6.text;
@@ -174,11 +140,54 @@ public class Ballet extends PApplet {
                 String numCateg = db.getClaveFromTabla("categoría", "idCategoría","nombre", categoria);
                 db.insertInfoTaulaLista(titulo, subtitulo, numCateg);
             }
+
+        }
+
+        if (gui.pantallaActual == GUI.PANTALLA.Favoritos || gui.pantallaActual == GUI.PANTALLA.TusCanciones || gui.pantallaActual == GUI.PANTALLA.agregarCanción || gui.pantallaActual == GUI.PANTALLA.TusListas || gui.pantallaActual == GUI.PANTALLA.cancionesTusListas || gui.pantallaActual == GUI.PANTALLA.agregarLista) {
+            if(gui.rb3.mouseOverButton(this)){
+                gui.pantallaActual = GUI.PANTALLA.TusCanciones;
+            }else if(gui.rb4.mouseOverButton(this)){
+                gui.pantallaActual = GUI.PANTALLA.TusListas;
+            }
+        }
+        if (gui.pantallaActual == GUI.PANTALLA.cancionesTusListas || gui.pantallaActual == GUI.PANTALLA.TusCanciones) {
+            if(gui.b5.mouseOverButton(this)){
+                gui.pantallaActual = GUI.PANTALLA.agregarCanción;
+            }
+        }
+
+        if (gui.pantallaActual == GUI.PANTALLA.Canciones) {
+            if(gui.b8.mouseOverButton(this)){
+                gui.pantallaActual = GUI.PANTALLA.Reproductor;
+            }
+        }
+
+
+        if (gui.pantallaActual != GUI.PANTALLA.Reproductor && gui.pantallaActual != GUI.PANTALLA.registro) {
+            if(gui.b3.mouseOverButton(this)){
+                gui.pantallaActual = GUI.PANTALLA.Favoritos;
+            }else if(gui.rb2.mouseOverButton(this)){
+                gui.pantallaActual = GUI.PANTALLA.Favoritos;
+            }else if(gui.rb3.mouseOverButton(this)){
+                gui.pantallaActual = GUI.PANTALLA.TusCanciones;
+            }else if(gui.rb4.mouseOverButton(this)){
+                gui.pantallaActual = GUI.PANTALLA.TusListas;
+            }else if(gui.b4.mouseOverButton(this)){
+                gui.pantallaActual = GUI.PANTALLA.Canciones;
+            }else if(gui.rb1.mouseOverButton(this)){
+                gui.pantallaActual = GUI.PANTALLA.registro;
+            }
+        }
+
+        if (gui.pantallaActual == GUI.PANTALLA.Barra || gui.pantallaActual == GUI.PANTALLA.ListaCanciones) {
+            if(gui.b27.mouseOverButton(this)){
+                gui.pantallaActual = GUI.PANTALLA.agregarLista;
+            }
         }
 
         if (gui.pantallaActual == GUI.PANTALLA.registro) {
-            if (gui.b1.mouseOverButton(this)) {
-                println("HAS FET CLIC SOBRE EL BOTÓ B1");
+            if(gui.b1.mouseOverButton(this)){
+                gui.pantallaActual = GUI.PANTALLA.Canciones;
             }
             gui.tf1.isPressed(this);
             gui.tf2.isPressed(this);
@@ -197,12 +206,17 @@ public class Ballet extends PApplet {
             gui.tf66.isPressed(this);
         }
 
-        /*if (gui.pantallaActual == GUI.PANTALLA.Calentamiento) {
+        if (gui.pantallaActual == GUI.PANTALLA.Calentamiento) {
             // Comprova si pitjam sobre els botons del MusicPlayer
-            gui.mp111.checkButtons(this);
-            gui.mp112.checkButtons(this);
+            if(gui.b21.mouseOverButton(this)){
+                gui.pantallaActual = GUI.PANTALLA.TusListas;
+            }else if(gui.b22.mouseOverButton(this)){
+                gui.pantallaActual = GUI.PANTALLA.TusListas;
+            }else if(gui.b23.mouseOverButton(this)){
+                gui.pantallaActual = GUI.PANTALLA.TusListas;
+            }
         }
-         */
+
 
         if (gui.rb2.mouseOverButton(this)) {
             println("HAS FET CLIC SOBRE EL BOTÓ RB1");
@@ -333,8 +347,16 @@ public class Ballet extends PApplet {
         */
 
             gui.cardSeleccionada = gui.ptl1.checkCardClick(this);
+            if(gui.b6.mouseOverButton(this)){
+                gui.pantallaActual = GUI.PANTALLA.agregarLista;
+            }
 
 
+        }
+        if (gui.pantallaActual == GUI.PANTALLA.Canciones) {
+            if(gui.b7.mouseOverButton(this)){
+                gui.pantallaActual = GUI.PANTALLA.Calentamiento;
+            }
         }
 
         // TextList
