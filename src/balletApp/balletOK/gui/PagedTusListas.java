@@ -16,7 +16,7 @@ public class PagedTusListas {
     public Button b1, b2;
 
     // Dimensions dels botons
-    float buttonW = 60, buttonH = 50;
+    float buttonW = 60, buttonH = 30;
 
     // Constructor
     public PagedTusListas (PApplet p5, int ncp, float x, float y, float w, float h) {
@@ -30,8 +30,8 @@ public class PagedTusListas {
         this.h = h;
 
         // Creació dels botons
-        b1 = new Button(p5, ">", 100 + w, 80, buttonW, buttonH);
-        b2 = new Button(p5, "<", 100 + w, 100 + buttonH, buttonW, buttonH);
+        b1 = new Button(p5, ">", 390 + 850/2 + 10 + buttonW - buttonW/2, 500+buttonH/2+20, buttonW, buttonH);
+        b2 = new Button(p5, "<", 390 + 850/2 - 10 - buttonW - buttonW/2, 500+buttonH/2+20, buttonW, buttonH);
     }
 
     // Setters

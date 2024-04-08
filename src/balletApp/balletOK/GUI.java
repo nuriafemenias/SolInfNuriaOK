@@ -2,7 +2,6 @@ package balletApp.balletOK;
 
 import balletApp.balletOK.gui.*;
 
-import static balletApp.balletOK.Ballet.gui;
 import static balletApp.balletOK.Mides.*;
 
 import processing.core.PImage;
@@ -20,10 +19,9 @@ public class GUI {
     Fonts fonts;
 
     // Declaració dels components de la GUI
-    Button  b1, b2, b3, b4, b5, b6, b7, b8, b9, b10, b11, b12, b13, b14, b15, b16, b17, b18, b19, b20,
-            b21, b22, b23, b24, b25, b26, b27, b28, b29;
+    Button  b1, b2, b3, b4, b5, b6, b7, b8, b9, b10, b11, b12, b13, b21, b22, b23, b24, b25, b26, b27, b28, b29;
     RoundButton rb1, rb11, rb2, rb3, rb4, rb5, rb6, rbb;
-    PImage icono1, icono2, icono3, icono4, icono5, icono6, icono7;
+    PImage icono1, icono2, icono3, icono4, icono5, icono6, icono7, icono8, icono9;
     MusicPlayer
             /*1BARRA*/
             mp, mp111, mp112, mp121, mp122, mp131, mp132, mp141, mp142, mp151, mp152, mp161, mp162, mp171, mp172, mp181, mp182,
@@ -205,15 +203,9 @@ public class GUI {
 
         // Creació de components (inicialització)
         // Creació dels Botons
-        //dibuijaPantallaRegistro
         b1 = new Button(p5, "Entra", 440+550+20, 220+5*40+5*20+80, 200, 50);
-        b1.setColors(colores.getColorAt(0), 0, colores.getColorAt(2), colores.getColorAt(3));
+        b1.setColors(colores.getColorAt(5), 0, colores.getColorAt(2), colores.getColorAt(3));
         //b1.setFont(fonts.getSecondFont());
-        /*b2 = new Button(p5, "¿Está ya registrado?", 440+10, 220+5*40+5*20+80, 540, 50);
-        b2.setColors(colores.getColorAt(0), 0, colores.getColorAt(2), colores.getColorAt(3));
-        //b2.setFont(fonts.getSecondFont());
-        */
-        //dibujaMenu
         b3 = new Button(p5, "Tu cuenta", 50, margeV+usuariRadi+10+75, 250, 70);
         b3.setColors(colores.getColorAt(0), 0, colores.getColorAt(2), colores.getColorAt(3));
         //b3.setFont(fonts.getSecondFont());
@@ -229,44 +221,10 @@ public class GUI {
         b8 = new Button(p5, "Coreografía", 390+rect34Width+50, margeV, rect34Width, rect34Height);
         b8.setColors(p5.color(177, 71, 84), 0, colores.getColorAt(2), colores.getColorAt(3));
         b8.setFont(fonts.getSecondFont());
-        // BOTON VOLVER
-            // Pantalla agregarCanción
-            b9 = new Button(p5, "Volver", 400, 600-botonVolverHeight, botonVolverWidth, botonVolverHeight);
-            b9.setColors(colores.getColorAt(4), 0, colores.getColorAt(3), colores.getColorAt(2));
-            // Pantalla cancionesTusListas
-            b10 = new Button(p5, "Volver", 390, 600-botonVolverHeight, botonVolverWidth, botonVolverHeight);
-            b10.setColors(colores.getColorAt(4), 0, colores.getColorAt(3), colores.getColorAt(0));
-            // Pantalla agregarLista
-            b11 = new Button(p5, "Volver", 390, 600-botonVolverHeight, botonVolverWidth, botonVolverHeight);
-            b11.setColors(colores.getColorAt(4), 0, colores.getColorAt(3), colores.getColorAt(0));
-            // Pantalla Calentamiento y Coreografia (para volver a la pantalla "Canciones")
-            b12 = new Button(p5, "Volver", -10+menuWidth+margeH, margeV+60+rect2Height+25, botonVolverWidth, botonVolverHeight);
-            b12.setColors(colores.getColorAt(4), 0, colores.getColorAt(3), colores.getColorAt(0));
-            // En todas las pantallas donde hay listas del Calentamiento (Barra, centro y diagonal) (para volver a la pantalla "Calentamiento")
-            b13 = new Button(p5, "Volver", -10+menuWidth+margeH, margeV+60+rect2Height+25, botonVolverWidth, botonVolverHeight);
-            b13.setColors(colores.getColorAt(4), 0, colores.getColorAt(3), colores.getColorAt(0));
-            // En todas las pantallas donde hay listas de Coreografía (Variaciones, ballets y otras) (para volver a la pantalla "Coreografía")
-            b14 = new Button(p5, "Volver", -10+menuWidth+margeH, margeV+60+rect2Height+25, botonVolverWidth, botonVolverHeight);
-            b14.setColors(colores.getColorAt(4), 0, colores.getColorAt(3), colores.getColorAt(0));
-            // Pantalla lista de canciones de Barra (para volver a la pantalla Barra)
-            b15 = new Button(p5, "Volver", -10+menuWidth+margeH, margeV+60+rect2Height+25, botonVolverWidth, botonVolverHeight);
-            b15.setColors(colores.getColorAt(4), 0, colores.getColorAt(3), colores.getColorAt(0));
-            // Pantalla lista de canciones de Centro (para volver a la pantalla Centro)
-            b16 = new Button(p5, "Volver", -10+menuWidth+margeH, margeV+60+rect2Height+25, botonVolverWidth, botonVolverHeight);
-            b16.setColors(colores.getColorAt(4), 0, colores.getColorAt(3), colores.getColorAt(0));
-            // Pantalla lista de canciones de Diagonal (para volver a la pantalla Diagonal)
-            b17 = new Button(p5, "Volver", -10+menuWidth+margeH, margeV+60+rect2Height+25, botonVolverWidth, botonVolverHeight);
-            b17.setColors(colores.getColorAt(4), 0, colores.getColorAt(3), colores.getColorAt(0));
-            // Pantalla lista de canciones de Ballets (para volver a la pantalla Ballets)
-            b18 = new Button(p5, "Volver", -10+menuWidth+margeH, margeV+60+rect2Height+25, botonVolverWidth, botonVolverHeight);
-            b18.setColors(colores.getColorAt(4), 0, colores.getColorAt(3), colores.getColorAt(0));
-            // Pantalla lista de canciones de Variaciones (para volver a la pantalla Variaciones)
-            b19 = new Button(p5, "Volver", -10+menuWidth+margeH, margeV+60+rect2Height+25, botonVolverWidth, botonVolverHeight);
-            b19.setColors(colores.getColorAt(4), 0, colores.getColorAt(3), colores.getColorAt(0));
-            // Pantalla lista de canciones de Otras (para volver a la pantalla Otras)
-            b20 = new Button(p5, "Volver", -10+menuWidth+margeH, margeV+60+rect2Height+25, botonVolverWidth, botonVolverHeight);
-            b20.setColors(colores.getColorAt(4), 0, colores.getColorAt(3), colores.getColorAt(0));
-        //dibujaPantallaCalentamiento
+        b9 = new Button(p5, "Volver", 400, 600-botonVolverHeight, botonVolverWidth, botonVolverHeight);
+        b9.setColors(colores.getColorAt(4), 0, colores.getColorAt(3), colores.getColorAt(2));
+        b11 = new Button(p5, "Volver", 390, 600-botonVolverHeight, botonVolverWidth, botonVolverHeight);
+        b11.setColors(colores.getColorAt(4), 0, colores.getColorAt(3), colores.getColorAt(0));
         b21 = new Button(p5, "Barra", 390, 100, botonesListasWidth, botonesListasHeight);
         b21.setColors(colores.getColorAt(3), 0, colores.getColorAt(2), colores.getColorAt(3));
         //b21.setFont(fonts.getFirstFont());
@@ -286,26 +244,17 @@ public class GUI {
         b26 = new Button(p5, "Otras", 390, 100+2*botonesListasHeight+2*40, botonesListasWidth, botonesListasHeight);
         b26.setColors(colores.getColorAt(3), 0, colores.getColorAt(2), colores.getColorAt(3));
         //b26.setFont(fonts.getFirstFont());
-        // Agregar Lista o Canción
         b27 = new Button(p5, "Agregar Lista", -10+menuWidth+margeH+500, margeV+60+rect2Height+40, botonAñadirWidth, botonAñadirHeight);
         b27.setColors(190, 0, 100, 190);
         //b27.setFont(fonts.getFirstFont());
         b28 = new Button(p5, "Agregar Canción", -10+menuWidth+margeH+500, margeV+60+rect2Height+40, botonAñadirWidth, botonAñadirHeight);
         b28.setColors(190, 0, 100, 190);
         //b28.setFont(fonts.getFirstFont());
-
         b29 = new Button(p5, "Guardar", -10 + menuWidth + margeH + 500, 600-botonAñadirHeight, botonAñadirWidth, botonAñadirHeight);
         b29.setColors(190, 0, 100, 190);
         //b29.setFont(fonts.getFirstFont());
 
-
-
-//ICONOS --> https://www.flaticon.es/
-
-        // Creació del RoundButton
-        //botonsTuCuenta
-        this.setMedia(p5);  // Carrega les imatges
-        // Inicialització de components (botons)
+        this.setMedia(p5);
         rb1 = new RoundButton(p5, icono1, margeH+(photo2Width/2), margeV+((usuariRadi)/2+15), usuariRadi-55);
         rb11 = new RoundButton(p5, icono1, margeH+photo1Width+margeH+(rect1Width/2), margeV+(usuariRadi/2)+10, usuariRadi-55);
         rb2 = new RoundButton(p5, icono2, 540+35, margeV+60+rect2Height+30+35, 35);
@@ -314,21 +263,14 @@ public class GUI {
         rb3.setColors(colores.getColorAt(0), 0, colores.getColorAt(2), colores.getColorAt(3));
         rb4 = new RoundButton(p5, icono4, 540+550-35, margeV+60+rect2Height+30+35, 35);
         rb4.setColors(colores.getColorAt(0), 0, colores.getColorAt(2), colores.getColorAt(3));
-        rb5 = new RoundButton(p5, icono5, 540+100-50, 500, 90);
-        rb5.setColors(colores.getColorAt(0), 0, colores.getColorAt(2), colores.getColorAt(3));
-        rb6 = new RoundButton(p5, icono6, 540+550-50, 500, 90);
-        rb6.setColors(colores.getColorAt(0), 0, colores.getColorAt(2), colores.getColorAt(3));
         rbb = new RoundButton(p5, icono7, 220, 350, 320);
-        rbb.setColors(colores.getColorAt(0), colores.getColorAt(0), colores.getColorAt(0), colores.getColorAt(0));
+        rbb.setColors(colores.getColorAt(1), colores.getColorAt(1), colores.getColorAt(1), colores.getColorAt(1));
 
-
-        // Creació del Music Player
         mp111 = new MusicPlayer(p5,120, p5.height/3);
         mp111.setSound(p5, "C:\\Users\\usuario\\OneDrive\\Escritorio\\SolInfNuria\\SolInfNuria2324\\data\\MusicPlayer\\Calentamiento\\Barra\\1WarmUp\\1.mp3");
         mp112 = new MusicPlayer(p5,520, p5.height/1.5f);
         mp112.setSound(p5, "C:\\Users\\usuario\\OneDrive\\Escritorio\\SolInfNuria\\SolInfNuria2324\\data\\MusicPlayer\\Calentamiento\\Barra\\1WarmUp\\2.mp3");
 
-        // Creació del Music Player
         mp = new MusicPlayer(p5,300, 300);
         String Warmup1 = "C:\\Users\\usuario\\OneDrive\\Escritorio\\SolInfNuria\\SolInfNuria2324\\data\\MusicPlayer\\Calentamiento\\1Barra\\1WarmUp\\1.mp3";
         mp.setSound(p5, Warmup1);
@@ -336,8 +278,6 @@ public class GUI {
 
 
 
-        // Creació del Text Field
-        // dibuijaPantallaRegistro
         tf1 = new TextField(p5, 440, 250, 790, 30);
         tf1.setColors(colores.getColorAt(2), 0, 0, colores.getColorAt(5));
         //tf1.setColors(150, 0, 0, 240);
@@ -411,22 +351,6 @@ public class GUI {
 
         iconoP = p5.loadImage("papelera.png");
 
-        /*
-        // Creació de la taula
-            ps1 = new PagedSongs(p5, numCardsPage, -10+menuWidth+margeH, margeV+60, cardsW, cardsH);
-            inf = db.getInfoTaulaCanciones("nuriafemeniass");
-            ps1.setData(inf);
-            ps1.setCards(p5, imgFave, imgNoFave, imgPlay);
-
-
-        // Paged List
-        pl1 = new PagedLists(p5, numCardsPage2, -10+menuWidth+margeH, margeV+60, cardsW, cardsH);
-        inf2 = db.getInfoTaulaLlista("nuriafemeniass");
-        pl1.setData(inf2);
-        pl1.setCards(p5);
-
-         */
-
 
         // Paged tus Listas
         ptl1 = new PagedTusListas(p5, numCardsPage2, -10+menuWidth+margeH, margeV+60, cardsW, cardsH);
@@ -441,6 +365,22 @@ public class GUI {
         }
         ptl1.setData(inf3);
         ptl1.setCards(p5, iconoP);
+
+
+        // Creació de la taula
+            ps1 = new PagedSongs(p5, numCardsPage, -10+menuWidth+margeH, margeV+60, cardsW, cardsH);
+            inf = db.getInfoTaulaCanciones("nuriafemeniass");
+            ps1.setData(inf);
+            ps1.setCards(p5, imgFave, imgNoFave, imgPlay);
+
+
+        // Paged List
+        pl1 = new PagedLists(p5, numCardsPage2, -10+menuWidth+margeH, margeV+60, cardsW, cardsH);
+        inf2 = db.getInfoTaulaLlista("nuriafemeniass");
+        pl1.setData(inf2);
+        pl1.setCards(p5);
+
+
 
 
 
@@ -463,18 +403,18 @@ public class GUI {
 
 
 
-    // Carrega els elements multimedia que utilitzen els components del GUI
+    // carrega els elements multimedia que utilitzen els components del GUI
     public void setMedia(PApplet p5){
         //p5.scale(0.5f, 0.5f); ??????????????????????????????????? Fer imatge més petita ?????????????????????????????????????
         icono1 = p5.loadImage("C:\\Users\\usuario\\OneDrive\\Escritorio\\SolInfNuria\\SolInfNuria2324\\data\\RoundButton\\usuario.png");
         icono2 = p5.loadImage("C:\\Users\\usuario\\OneDrive\\Escritorio\\SolInfNuria\\SolInfNuria2324\\data\\RoundButton\\Favoritos.png"); // https://www.flaticon.es/icono-gratis/estrella_1828970?related_id=1828884&origin=search ; https://www.flaticon.es/icono-gratis/amor_5007082?related_id=5011077&origin=search
         icono3 = p5.loadImage("C:\\Users\\usuario\\OneDrive\\Escritorio\\SolInfNuria\\SolInfNuria2324\\data\\RoundButton\\TusCanciones.png"); // https://www.flaticon.es/icono-gratis/musica_4498848?related_id=4498154&origin=search ; https://www.flaticon.es/icono-gratis/lista-de-reproduccion_2585136
         icono4 = p5.loadImage("C:\\Users\\usuario\\OneDrive\\Escritorio\\SolInfNuria\\SolInfNuria2324\\data\\RoundButton\\TusListas.png"); // https://www.flaticon.es/icono-gratis/cancion_6499489 ; https://www.flaticon.es/icono-gratis/letras-de-canciones_10476137?related_id=10476143&origin=search ; https://www.flaticon.es/icono-gratis/lista-de-verificacion_10396949
-        icono5 = p5.loadImage("C:\\Users\\usuario\\OneDrive\\Escritorio\\SolInfNuria\\SolInfNuria2324\\data\\RoundButton\\CalentamientoFoto.jpg");
-        icono6 = p5.loadImage("C:\\Users\\usuario\\OneDrive\\Escritorio\\SolInfNuria\\SolInfNuria2324\\data\\RoundButton\\CoreografiaFoto.jpg");
+        icono5 = p5.loadImage("C:\\Users\\usuario\\OneDrive\\Escritorio\\SolInfNuria\\SolInfNuria2324\\data\\calentamiento.png");
+        icono6 = p5.loadImage("C:\\Users\\usuario\\OneDrive\\Escritorio\\SolInfNuria\\SolInfNuria2324\\data\\coreografia.png");
         icono7 = p5.loadImage("C:\\Users\\usuario\\OneDrive\\Escritorio\\SolInfNuria\\SolInfNuria2324\\data\\bailarina.png");
-
-}
+        icono8 = p5.loadImage("C:\\Users\\usuario\\OneDrive\\Escritorio\\SolInfNuria\\SolInfNuria2324\\data\\Logo2.png");
+    }
 
     public void dibujaBotonsTuCuentaRB(PApplet p5){
         rb2.display(p5);
@@ -482,62 +422,50 @@ public class GUI {
         rb4.display(p5);
     }
 
+    public void dibujaFullMenu(PApplet p5){
+        p5.pushStyle();
+            dibujaMenu(p5);
+        p5.popStyle();
+        rb1.display(p5);
+        b3.display(p5);
+        b4.display(p5);
+        p5.image(icono8, 20, 440, 300, 300);
+    }
+
     public void dibujaPantallaRegistro(PApplet p5){
-        // Pantalla
         p5.background(161, 141, 103);
         rbb.display(p5);
-        dibujaRect1(p5);
+        dibujaRectRegistro(p5);
         rb11.display(p5);
-        // Botones y otros
         b1.display(p5);
-        // b2.display(p5);
-            p5.fill(0); p5.textSize(20);
+            p5.fill(31, 27, 31); p5.textSize(20);
             p5.text("Nombre y Apellidos", 440, 240);
         tf1.display(p5);
-            p5.fill(0); p5.textSize(20);
+            p5.fill(31, 27, 31); p5.textSize(20);
             p5.text("Nombre de usuario", 440, 240+40+20+10);
         tf2.display(p5);
-            p5.fill(0); p5.textSize(20);
+            p5.fill(31, 27, 31); p5.textSize(20);
             p5.text("Correo electrónico", 440, 240+(2*40)+(2*20)+(10*2));
         tf3.display(p5);
-            p5.fill(0); p5.textSize(20);
+            p5.fill(31, 27, 31); p5.textSize(20);
             p5.text("Contraseña", 440, 240+3*40+3*20+10*3);
         tf4.display(p5);
-            p5.fill(0); p5.textSize(20);
+            p5.fill(31, 27, 31); p5.textSize(20);
             p5.text("Confirmar contraseña", 440, 240+4*40+4*20+10*4);
         tf5.display(p5);
-            p5.fill(0); p5.textSize(20);
+            p5.fill(31, 27, 31); p5.textSize(20);
             p5.text("Visualizar contraseña", 440+530+30+(35+10)-5, 250+3*40+3*20+30-5+25);
         cb1.display(p5);
     }
 
-    public void dibujaFullMenu(PApplet p5){
-        // Pantalla
-        p5.pushStyle();
-        dibujaMenu(p5);
-        p5.popStyle();
-        dibujaPhoto2(p5);
-        //dibujaUsuariMenu(p5);
-        rb1.display(p5);
-        // Botones y otros
-        b3.display(p5);
-        b4.display(p5);
-    }
-
     public void dibujaPantallaFavoritos(PApplet p5){
-        // Pantalla
         p5.background(231, 224, 218);
         dibujaFullMenu(p5);
-            p5.fill(0); p5.textSize(20);
+            p5.fill(31, 27, 31); p5.textSize(20);
             p5.text("Lista de tus Favoritos", 400, 75);
-        dibujaRect2(p5);
-        dibujaBotonsTuCuenta(p5);
-        // Botones y otros
         dibujaBotonsTuCuentaRB(p5);
         p5.pushStyle();
-        // Dibuixa la Table
         t1.display(p5, 390, 100, tableW, tableH);
-        // Dibuixa els botons
         t1b1.display(p5);
         t1b2.display(p5);
         p5.popStyle();
@@ -545,119 +473,82 @@ public class GUI {
 
 
     public void dibujaPantallaTusCanciones(PApplet p5){
-        // Pantalla
         p5.background(231, 224, 218);
         dibujaFullMenu(p5);
-            p5.fill(0); p5.textSize(20);
+            p5.fill(31, 27, 31); p5.textSize(20);
             p5.text("Lista de Tus Canciones", 400, 75);
-        dibujaRect2(p5);
-        dibujaBotonsTuCuenta(p5);
-        // Botones y otros
         dibujaBotonsTuCuentaRB(p5);
         b5.display(p5);
-        // Dibuixa la Table
         t1.display(p5, 390, 100, tableW, tableH-50);
-        // Dibuixa els botons
         t2b1.display(p5);
         t2b2.display(p5);
     }
 
     public void dibujaPantallaAgregarCancion(PApplet p5){
-        // Pantalla
         p5.background(231, 224, 218);
         dibujaFullMenu(p5);
-            p5.fill(0); p5.textSize(20);
+            p5.fill(31, 27, 31); p5.textSize(20);
             p5.text("Agregar nueva canción", 400, 75);
-        dibujaRect2(p5);
-        dibujaBotonsTuCuenta(p5);
-        // Botones y otros
         dibujaBotonsTuCuentaRB(p5);
-            p5.fill(0); p5.textSize(20);
+            p5.fill(31, 27, 31); p5.textSize(20);
             p5.text("Título de la canción", 400, 130);
         tf6.display(p5);
-            p5.fill(0); p5.textSize(20);
+            p5.fill(31, 27, 31); p5.textSize(20);
             p5.text("Deseas agregar la canción en Favoritos?", 400, 210+selectH+60);
         sb1.display(p5);
-            p5.fill(0); p5.textSize(20);
+            p5.fill(31, 27, 31); p5.textSize(20);
             p5.text("Deseas agregar la canción en una lista?", 400, 210+selectH+60+30+50+10);
         sb2.display(p5);
-            p5.fill(0); p5.textSize(20);
+            p5.fill(31, 27, 31); p5.textSize(20);
             p5.text("Seleccionar categoría", 400, 100+2*30+20+30);
         s1.display(p5);
-            p5.fill(0); p5.textSize(20);
+            p5.fill(31, 27, 31); p5.textSize(20);
             p5.text("Seleccionar subcategoría", 400+selectW+75, 100+2*30+20+30);
-        //s3.display(p5);
         b9.display(p5);
         c.display(p5);
         s2.display(p5);
     }
 
-    public void dibujaPantallaTusListas(PApplet p5){    //______________________________________________________________________
-        // Pantalla                                     //_________________________________________________________________________
-        p5.background(231, 224, 218);                         //________________________________________________________________________
+    public void dibujaPantallaTusListas(PApplet p5){
+        p5.background(231, 224, 218);
         dibujaFullMenu(p5);
-            p5.fill(0); p5.textSize(20);
+            p5.fill(31, 27, 31); p5.textSize(20);
             p5.text("Tus Listas", 400, 75);
-        dibujaRect2(p5);
-        dibujaBotonsTuCuenta(p5);
-        // Botones y otros
         dibujaBotonsTuCuentaRB(p5);
         b6.display(p5);
         ptl1.display(p5);
-        //confirml.setVisible(false);
         confirml.display(p5);
     }
 
     public void dibujaPantallaCancionesTusListas(PApplet p5){
-        // Pantalla
         p5.background(231, 224, 218);
         dibujaFullMenu(p5);
-        dibujaRect2(p5);
-            p5.fill(0); p5.textSize(20);
+            p5.fill(31, 27, 31); p5.textSize(20);
             p5.text("Título de la lista", 400, 75);
-        dibujaBotonsTuCuenta(p5);
-        // Botones y otros
         dibujaBotonsTuCuentaRB(p5);
         b5.display(p5);
         b10.display(p5);
-        // Dibuixa les Cards paginades
-                       /* // Indica el Resultat seleccionat
-                        if(cs!=null){
-                            p5.fill(0); p5.textSize(18);
-                            p5.text("PLAY:", 900, 300);
-                            p5.text(cs.getTitle(), 900, 350);
-                            p5.text(cs.getCategory(), 900, 380);
-                          }
-                        */
     }
 
     public void dibujaPantallaAgregarLista(PApplet p5){
-        // Pantalla
         p5.background(231, 224, 218);
         dibujaFullMenu(p5);
-            p5.fill(0); p5.textSize(20);
+            p5.fill(31, 27, 31); p5.textSize(20);
             p5.text("Agregar nueva lista", 400, 75);
-        dibujaRect2(p5);
-        dibujaBotonsTuCuenta(p5);
-        // Botones y otros
         dibujaBotonsTuCuentaRB(p5);
-            p5.fill(0); p5.textSize(20);
+            p5.fill(31, 27, 31); p5.textSize(20);
             p5.text("Título de la lista", 400, 130);
         tf6.display(p5);
-            p5.fill(0); p5.textSize(20);
+            p5.fill(31, 27, 31); p5.textSize(20);
             p5.text("Subtítulo de la lista", 400, 130+70);
         tf66.display(p5);
-            p5.fill(0); p5.textSize(20);
+            p5.fill(31, 27, 31); p5.textSize(20);
             p5.text("Deseas agregar alguna canción a la lista?", 400, 210+selectH+40+70);
         sb3.display(p5);
         b11.display(p5);
-        // Dibuixa la TextList
             tList.display(p5);
-            // Dibuixa els botons
             b.display(p5);
-            // Actualitza el cursor
             Ballet.updateCursor(p5);
-            // Mostra la informació seleccionada
             if(selectedText!=null){
                 p5.pushStyle();
                 p5.textAlign(p5.CENTER); p5.fill(0);
@@ -665,34 +556,26 @@ public class GUI {
                 p5.popStyle();
             }
             b29.display(p5);
-        p5.fill(0); p5.textSize(20);
+        p5.fill(31, 27, 31); p5.textSize(20);
         p5.text("A qué categoría deseas que pertenezca la lista?", 400, 100+2*30+20+30+10+10+70);
         p5.text("Seleccionar categoría", 400+selectW+75, 100+2*30+20+30+70);
         s3.display(p5);
     }
 
     public void dibujaPantallaCanciones(PApplet p5){
-        // Pantalla
         p5.background(231, 224, 218);
         dibujaFullMenu(p5);
-        dibujaRect34(p5);
-        // Botones y otros
         b7.display(p5);
         b8.display(p5);
-        rb5.display(p5);
-        rb6.display(p5);
+        p5.image(icono5, 540, 430, 110, 220);
+        p5.image(icono6, 990, 450, 150, 190);
     }
 
     public void dibujaPantallaCalentamiento(PApplet p5){
-        // Pantalla
         p5.background(231, 224, 218);
         dibujaFullMenu(p5);
-            p5.fill(0); p5.textSize(20);
+            p5.fill(31, 27, 31); p5.textSize(20);
             p5.text("Calentamiento", 400, 75);
-        dibujaRect2(p5);
-        dibujaBotonsCanciones(p5);
-        // Botones y otros
-        b12.display(p5);
         b21.display(p5);
         b22.display(p5);
         b23.display(p5);
@@ -700,57 +583,35 @@ public class GUI {
     }
 
     public void dibujaPantallaBarra(PApplet p5){
-        // Pantalla
         p5.background(231, 224, 218);
         dibujaFullMenu(p5);
-            p5.fill(0); p5.textSize(20);
+            p5.fill(31, 27, 31); p5.textSize(20);
             p5.text("Barra", 400, 75);
-        dibujaRect2(p5);
-        dibujaBotonsCanciones(p5);
-        // Botones y otros
         b13.display(p5);
         b27.display(p5);
         pl1.display(p5);
     }
 
     public void dibujaPantallaVariacionesListaCanciones(PApplet p5){
-        // Pantalla
         p5.background(231, 224, 218);
         dibujaFullMenu(p5);
-            p5.fill(0); p5.textSize(20);
+            p5.fill(31, 27, 31); p5.textSize(20);
             p5.text("Variaciones", 400, 65);
-        dibujaRect2(p5);
-        dibujaBotonsCanciones(p5);
-        // Botones y otros
         b13.display(p5);
         b27.display(p5);
     }
 
     public void dibujaPantallaListaCanciones(PApplet p5){
-        // Pantalla
         p5.background(231, 224, 218);
         dibujaFullMenu(p5);
-            p5.fill(0); p5.textSize(20);
+            p5.fill(31, 27, 31); p5.textSize(20);
             p5.text("Título de la lista", 400, 75);
-        dibujaRect2(p5);
-        dibujaBotonsCanciones(p5);
-        // Botones y otros
         b13.display(p5);
         b27.display(p5);
-        // Dibuixa les Cards paginades
         ps1.display(p5);
-               /* // Indica el Resultat seleccionat
-                if(cs!=null){
-                    p5.fill(0); p5.textSize(18);
-                    p5.text("PLAY:", 900, 300);
-                    p5.text(cs.getTitle(), 900, 350);
-                    p5.text(cs.getCategory(), 900, 380);
-                  }
-                */
     }
 
     public void dibujaPantallaReproductor(PApplet p5){
-        // Pantalla
         mp.display(p5);
     }
 
@@ -759,60 +620,14 @@ public class GUI {
 
 
 
-    //  DIBUIX ELEMENTS, zones GUI
-    public void dibujaPhoto1(PApplet p5){                      // 1
-        //p5.fill(trivioApp.trivioColors.Colors.colors[3]);
-        p5.fill(230);
-        p5.rect(margeH, margeV, photo1Width, photo1Height);
-    }
-
-    public void dibujaRect1(PApplet p5){                      // 2
+    //  DIBUJA ELEMENTOS, zonas GUI
+    public void dibujaRectRegistro(PApplet p5){
         p5.fill(231, 224, 218);
         p5.rect(margeH+photo1Width+margeH, margeV+usuariRadi+margeV, rect1Width, rect1Height, 30);
     }
-
-    /*public void dibujaUsuari(PApplet p5){                    // 3
-        p5.fill(200);
-        p5.ellipseMode(p5.CENTER);
-        p5.ellipse(margeH+photo1Width+margeH+(rect1Width/2), margeV+(usuariRadi/2), usuariRadi, usuariRadi);
-    }
-
-     public void dibujaUsuariMenu(PApplet p5){                // 4
-        p5.fill(190);
-        p5.ellipse(margeH+(photo2Width/2), margeV+((usuariRadi+10)/2), usuariRadi+10, usuariRadi+10);
-    }
-    */
-
-    public void dibujaPhoto2(PApplet p5){                    // 5
-        p5.fill(190);
-        p5.rect(margeH, menuHeight-photo2Height-margeV-10, photo2Width, photo2Height);
-    }
-
-    public void dibujaMenu(PApplet p5){                      // 6
-        p5.fill(230);
+    public void dibujaMenu(PApplet p5){
+        p5.fill(231, 224, 218);
         p5.strokeWeight(2); p5.stroke(0);
         p5.rect(-10, -10, menuWidth, menuHeight);
-    }
-
-    public void dibujaRect2(PApplet p5){                      // 7
-        p5.fill(230);
-        p5.rect(-10+menuWidth+margeH, margeV+60, rect2Width, rect2Height, 30);
-    }
-
-    public void dibujaBotonsTuCuenta(PApplet p5){             // 8
-        p5.fill(230);
-        p5.rect(-10+menuWidth+margeH+150, margeV+60+rect2Height+30, botonsTuCuentaWidth, botonsTuCuentaHeight, 30);
-    }
-
-    public void dibujaRect34(PApplet p5){                     // 9 i 10
-        p5.fill(215);
-        p5.rect(390, margeV, rect34Width, rect34Height, 30);
-        p5.rect(390+rect34Width+50, margeV, rect34Width, rect34Height, 30);
-    }
-
-    public void dibujaBotonsCanciones(PApplet p5){           // 11 i 12
-        p5.fill(215);
-        //p5.rect(-10+menuWidth+margeH, margeV+60+rect2Height+25, botonVolverWidth, botonVolverHeight, 30);
-        //p5.rect(-10+menuWidth+margeH+500, margeV+60+rect2Height+40, botonAñadirWidth, botonAñadirHeight, 30);
     }
 }

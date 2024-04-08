@@ -18,8 +18,8 @@ public class Colors {
                   this.colors[1] = p5.color(0xFFA18D67);
                   this.colors[2] = p5.color(0xFF987196);
                   this.colors[3] = p5.color(0xFF6D3A73);
-                this.colors[4] = p5.color(0xFF1F1B1F);
-                this.colors[5] = p5.color(0xFFC3ACC2);
+                  this.colors[4] = p5.color(0xFF1F1B1F);
+                  this.colors[5] = p5.color(0xFFC3ACC2);
         }
 
             // Getter del número de colors

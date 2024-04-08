@@ -68,7 +68,6 @@ public class PagedTable {
         p5.fill(200, 100, 100); p5.stroke(0); p5.strokeWeight(3);
         p5.rect(x, y, w, rowHeight);
 
-        // Dibuixa files
         p5.stroke(0);
         for(int r = 1; r <numRows; r++){
             if(r==1){ p5.strokeWeight(3); }
@@ -76,14 +75,12 @@ public class PagedTable {
             p5.line(x, y + r*rowHeight, x + w, y + r*rowHeight);
         }
 
-        // Dibuixa Columnes
         float xCol = x;
         for(int c = 0; c<numCols; c++){
             xCol += w*columnWidths[c]/100.0;
             p5.line(xCol, y, xCol, y + h);
         }
 
-        // Dibuixa textos
         p5.fill(0); p5.textSize(24);
         for(int r = 0; r < numRows; r++){
             xCol = x;
@@ -100,13 +97,6 @@ public class PagedTable {
                 xCol += w*columnWidths[c]/100.0;
             }
         }
-
-        /*// Informació de la Pàgina
-        p5.fill(0);
-        p5.text("Pag: "+(this.numPage+1)+" / "+(this.numTotalPages+1), x, y + h + 50);
-
-        p5.popStyle();
-        */
     }
 
 }
