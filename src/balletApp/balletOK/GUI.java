@@ -314,7 +314,8 @@ public class GUI {
         // Creació de la taula 1
         t1 = new PagedTable(files, columnes);
         t1.setHeaders(headers);
-        t1.setData(info);
+        inf = db.getInfoTaulaFavoritos("nuriafemeniass");
+        t1.setData(inf);
         t1.setColumnWidths(colWidths);
         // Creació dels botons 1
         t1b1 = new Button(p5, ">", 390 + tableW/2 + 10 + buttonW - buttonW/2, tableH + 130, buttonW, buttonH);

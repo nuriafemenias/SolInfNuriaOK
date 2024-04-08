@@ -185,13 +185,6 @@ public class Ballet extends PApplet {
             }
         }
 
-        /*if (gui.pantallaActual == GUI.PANTALLA.Barra) {
-            if(gui.b27.mouseOverButton(this)){
-                gui.pantallaActual = GUI.PANTALLA.ListaCanciones;
-            }
-        }
-
-         */
 
         if (gui.pantallaActual == GUI.PANTALLA.registro) {
             if(gui.b1.mouseOverButton(this)){

@@ -137,6 +137,28 @@ public class DataBase {
         }
     }
 
+    public String[][] getInfoTaulaFavoritos(String nomUsuario){
+        int numFiles = getNumRowsTaula("canción");
+        int numCols  = 4;
+        String[][] info = new String[numFiles][numCols];
+        try {
+            ResultSet rs = query.executeQuery( "SELECT c.título AS TITULO, c.Lista_título AS LISTA, c.orden AS ORDEN FROM canción c ORDER BY ORDEN ASC");
+            int nr = 0;
+            while (rs.next()) {
+                info[nr][0] = String.valueOf(nr+1);
+                info[nr][1] = rs.getString("ORDEN");
+                info[nr][2] = rs.getString("LISTA");
+                info[nr][3] = rs.getString("TITULO");
+                nr++;
+            }
+            return info;
+        }
+        catch(Exception e) {
+            System.out.println(e);
+            return null;
+        }
+    }
+
     public String [][] getInfoTaulaTusListas(String nomUsuario){
         String qn ="SELECT COUNT(*) As n FROM lista l, usuario u, categoría c WHERE l.Usuario = u.nombre AND l.Usuario = '"+nomUsuario+"' AND l.Categoría = c.idCategoría AND l.Categoría = '3'";
         int numFiles = getNumRowsQuery(qn);
