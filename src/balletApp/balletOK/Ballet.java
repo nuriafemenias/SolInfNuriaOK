@@ -138,10 +138,21 @@ public class Ballet extends PApplet {
                 String subtitulo = gui.tf66.text;
                 String categoria = gui.s3.getSelectedValue();
                 String numCateg = db.getClaveFromTabla("categoría", "idCategoría","nombre", categoria);
-                db.insertInfoTaulaLista(titulo, subtitulo, numCateg);
+                db.insertLista(titulo, subtitulo, numCateg);
             }
-
         }
+
+        if (gui.pantallaActual == GUI.PANTALLA.agregarCanción) {
+            if(gui.b29.mouseOverButton(this)) {
+                String titulo = gui.tf6.text;
+                String dia = gui.c.getSelectedDate();
+                String categoria = gui.s1.getSelectedValue();
+                String favoritos = gui.sb1.toString();
+                db.insertCancion(titulo, dia, categoria, favoritos);
+            }
+        }
+
+
 
         if (gui.pantallaActual == GUI.PANTALLA.Favoritos || gui.pantallaActual == GUI.PANTALLA.TusCanciones || gui.pantallaActual == GUI.PANTALLA.agregarCanción || gui.pantallaActual == GUI.PANTALLA.TusListas || gui.pantallaActual == GUI.PANTALLA.cancionesTusListas || gui.pantallaActual == GUI.PANTALLA.agregarLista) {
             if(gui.rb3.mouseOverButton(this)){
@@ -237,13 +248,18 @@ public class Ballet extends PApplet {
                 gui.t1.prevPage();
             }
         }
+        if (gui.pantallaActual == GUI.PANTALLA.TusCanciones) {
+            if (gui.t2b1.mouseOverButton(this) && gui.t2b1.isEnabled()) {
+                gui.t2.nextPage();
+            } else if (gui.t2b2.mouseOverButton(this) && gui.t2b2.isEnabled()) {
+                gui.t2.prevPage();
+            }
+        }
 
-        //Select
-        // Si pitjam sobre el select 1
         if(gui.s1.mouseOverSelect(this) && gui.s1.isEnabled()){
             if(!gui.s1.isCollapsed()){
                 gui.s1.update(this);      // Actualitzar valor
-                updateColor();    // Fer acció amb valor
+                updateColor();                  // Fer acció amb valor
             }
             gui.s1.toggle();        // Plegar o desplegar
         }
@@ -292,9 +308,11 @@ public class Ballet extends PApplet {
         }
 
         // Si pitjam sobre el checboxes
-        if(gui.cb1.onMouseOver(this)){
+        /*if(gui.cb1.onMouseOver(this)){
             gui.cb1.toggle();
         }
+
+         */
 
         if (gui.pantallaActual == GUI.PANTALLA.agregarCanción) {
             // Comprovar si clicam sobre botons del Calendari

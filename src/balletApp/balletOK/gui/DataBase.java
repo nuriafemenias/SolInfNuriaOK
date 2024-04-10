@@ -139,16 +139,39 @@ public class DataBase {
 
     public String[][] getInfoTaulaFavoritos(String nomUsuario){
         int numFiles = getNumRowsTaula("canción");
-        int numCols  = 4;
+        int numCols  = 3;
         String[][] info = new String[numFiles][numCols];
         try {
-            ResultSet rs = query.executeQuery( "SELECT c.título AS TITULO, c.Lista_título AS LISTA, c.orden AS ORDEN FROM canción c ORDER BY ORDEN ASC");
+            Statement query = c.createStatement();
+            ResultSet rs = query.executeQuery( "SELECT c.título AS TITULO, c.Lista_título AS LISTA, c.orden AS ORDEN FROM canción c");
             int nr = 0;
             while (rs.next()) {
-                info[nr][0] = String.valueOf(nr+1);
-                info[nr][1] = rs.getString("ORDEN");
-                info[nr][2] = rs.getString("LISTA");
-                info[nr][3] = rs.getString("TITULO");
+                info[nr][0] = rs.getString("ORDEN");
+                info[nr][1] = rs.getString("LISTA");
+                info[nr][2] = rs.getString("TITULO");
+                nr++;
+            }
+            return info;
+        }
+        catch(Exception e) {
+            System.out.println(e);
+            return null;
+        }
+    }
+    //WHERE c.favorito = '1'
+
+    public String [][] getInfoTaulaTusCanciones (String nomUsuario){
+        int numFiles = getNumRowsTaula("canción");
+        int numCols  = 3;
+        String[][] info = new String[numFiles][numCols];
+        try {
+            Statement query = c.createStatement();
+            ResultSet rs = query.executeQuery( "SELECT c.título AS TITULO, c.Lista_título AS LISTA, c.orden AS ORDEN FROM canción c ");
+            int nr = 0;
+            while (rs.next()) {
+                info[nr][0] = rs.getString("ORDEN");
+                info[nr][1] = rs.getString("LISTA");
+                info[nr][2] = rs.getString("TITULO");
                 nr++;
             }
             return info;
@@ -234,9 +257,21 @@ public class DataBase {
 
     // Inserta les dades a la taula Llista
 
-    public void insertInfoTaulaLista(String titulo, String subtitulo, String categoria){
+    public void insertLista(String titulo, String subtitulo, String categoria){
         try {
             String q = "INSERT INTO lista (título, subtítulo, numCanciones, Usuario, Categoría, orden) VALUES ('" + titulo + "', '" + subtitulo + "', '0', 'nuriafemeniass', '" + categoria + "', '36')";
+            System.out.println(q);
+            query.execute(q);
+        }
+        catch(Exception e) {
+            System.out.println(e);
+        }
+    }
+
+    public void insertCancion(String titulo, String dia, String categoria, String favorito){
+        try {
+            ////////    INSERT INTO `canción` (`título`, `día`, `Lista_título`, `favorito`, `orden`) VALUES ('olaaaa', '2024-03-13', 'Allegro 3', '1', '3');
+            String q = "INSERT INTO canción (título, día, Lista_título, favorito, orden) VALUES ('" + titulo + "', '" + dia + "','"+categoria+"','"+favorito+"', '50')";
             System.out.println(q);
             query.execute(q);
         }

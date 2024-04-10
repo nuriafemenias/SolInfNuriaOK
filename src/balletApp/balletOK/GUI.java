@@ -72,16 +72,19 @@ public class GUI {
     float buttonW = 60, buttonH = 30;
 
     // Taula Paginada
-    public PagedTable t1;
+    public PagedTable t1, t2;
 
     // Dimensions de la taula
     float tableW = rect2Width, tableH = rect2Height-60;
 
     // Número de files (capçalera inclosa) i columnes de la taula
     int files = 7, columnes = 3;
+    int filess = 7, columness = 2;
+
 
     // Títols de les columnes
-    String[] headers = {"Categoría", "Subcategoría","Título"};
+    String[] headers = {"Categoría", "Subcategoría","Título canción"};
+    String[] headerss = {"Numero de canciones","Título canción"};
 
     // Amplades de les columnes
     float[] colWidths = {20, 30, 50};
@@ -165,8 +168,7 @@ public class GUI {
         int numCardsPage2 = 4;
 
         // Dades de la taula
-        String[][] inf;
-        String[][] inf2;
+        String[][] inf, inf2, inff;
 
         // Icones dels botons
         PImage imgFave, imgNoFave, imgPlay, iconoP;
@@ -207,19 +209,19 @@ public class GUI {
         b1.setColors(colores.getColorAt(5), 0, colores.getColorAt(2), colores.getColorAt(3));
         //b1.setFont(fonts.getSecondFont());
         b3 = new Button(p5, "Tu cuenta", 50, margeV+usuariRadi+10+75, 250, 70);
-        b3.setColors(colores.getColorAt(0), 0, colores.getColorAt(2), colores.getColorAt(3));
+        b3.setColors(colores.getColorAt(4), 0, colores.getColorAt(3), colores.getColorAt(3));
         //b3.setFont(fonts.getSecondFont());
         b4 = new Button(p5, "Canciones", 50, margeV+usuariRadi+10+80+30+70, 250, 70);
-        b4.setColors(colores.getColorAt(0), 0, colores.getColorAt(2), colores.getColorAt(3));
+        b4.setColors(colores.getColorAt(4), 0, colores.getColorAt(3), colores.getColorAt(3));
         //b4.setFont(fonts.getSecondFont());
         //dibuijaPantallaRegistro
         b5 = new Button(p5, "Agregar canción", 390+(rect2Width-300), 100+rect2Height-40, 300, 40);
         b6 = new Button(p5, "Agregar lista", 390+(rect2Width-300), 100+rect2Height-40, 300, 40);
         b7 = new Button(p5, "Calentamiento", 390, margeV, rect34Width, rect34Height);
-        b7.setColors(p5.color(177, 71, 84), 0, colores.getColorAt(2), colores.getColorAt(3));
+        b7.setColors(colores.getColorAt(2), colores.getColorAt(6), colores.getColorAt(1), colores.getColorAt(3));
         b7.setFont(fonts.getSecondFont());
         b8 = new Button(p5, "Coreografía", 390+rect34Width+50, margeV, rect34Width, rect34Height);
-        b8.setColors(p5.color(177, 71, 84), 0, colores.getColorAt(2), colores.getColorAt(3));
+        b8.setColors(colores.getColorAt(2), colores.getColorAt(6), colores.getColorAt(1), colores.getColorAt(3));
         b8.setFont(fonts.getSecondFont());
         b9 = new Button(p5, "Volver", 400, 600-botonVolverHeight, botonVolverWidth, botonVolverHeight);
         b9.setColors(colores.getColorAt(4), 0, colores.getColorAt(3), colores.getColorAt(2));
@@ -279,20 +281,20 @@ public class GUI {
 
 
         tf1 = new TextField(p5, 440, 250, 790, 30);
-        tf1.setColors(colores.getColorAt(2), 0, 0, colores.getColorAt(5));
+        tf1.setColors(colores.getColorAt(2), colores.getColorAt(6), colores.getColorAt(6), colores.getColorAt(5));
         //tf1.setColors(150, 0, 0, 240);
         tf1.setFont(fonts.getThirdFont());
         tf2 = new TextField(p5, 440, 250+40+20+10, 790, 30);
-        tf2.setColors(colores.getColorAt(2), 0, 0, colores.getColorAt(5));
+        tf2.setColors(colores.getColorAt(2), colores.getColorAt(6), colores.getColorAt(6), colores.getColorAt(5));
         tf2.setFont(fonts.getThirdFont());
         tf3 = new TextField(p5, 440, 250+2*40+2*20+20, 790, 30);
-        tf3.setColors(colores.getColorAt(2), 0, 0, colores.getColorAt(5));
+        tf3.setColors(colores.getColorAt(2), colores.getColorAt(6), colores.getColorAt(6), colores.getColorAt(5));
         tf3.setFont(fonts.getThirdFont());
-        tf4 = new TextField(p5, 440, 250+3*40+3*20+30, 530, 30);
-        tf4.setColors(colores.getColorAt(2), 0, 0, colores.getColorAt(5));
+        tf4 = new TextField(p5, 440+135, 250+3*40+3*20+30-45, 530, 30);
+        tf4.setColors(colores.getColorAt(2), colores.getColorAt(6), colores.getColorAt(6), colores.getColorAt(5));
         tf4.setFont(fonts.getThirdFont());
-        tf5 = new TextField(p5, 440, 250+4*40+4*20+40, 530, 30);
-        tf5.setColors(colores.getColorAt(2), 0, 0, colores.getColorAt(5));
+        tf5 = new TextField(p5, 440+135, 250+4*40+4*20+40-35, 530, 30);
+        tf5.setColors(colores.getColorAt(2), colores.getColorAt(6), colores.getColorAt(6), colores.getColorAt(5));
         tf5.setFont(fonts.getThirdFont());
         // dibuijaPantallaAgregarCancion
         tf6 = new TextField(p5, 400, 140, 830, 30);
@@ -317,6 +319,11 @@ public class GUI {
         inf = db.getInfoTaulaFavoritos("nuriafemeniass");
         t1.setData(inf);
         t1.setColumnWidths(colWidths);
+        t2 = new PagedTable(filess, columness);
+        t2.setHeaders(headerss);
+        inff = db.getInfoTaulaTusCanciones("nuriafemeniass");
+        t2.setData(inff);
+        t2.setColumnWidths(colWidths);
         // Creació dels botons 1
         t1b1 = new Button(p5, ">", 390 + tableW/2 + 10 + buttonW - buttonW/2, tableH + 130, buttonW, buttonH);
         t1b1.setColors(colores.getColorAt(3), 0, colores.getColorAt(2), colores.getColorAt(2));
@@ -329,20 +336,20 @@ public class GUI {
 
         // Creació dels Select
         s1 = new Select(selectValues, 400, 100+2*30+20+30+10, selectW, selectH);
-        s2 = new Select(selectValues, 400+selectW+75, 100+2*30+20+30+10, selectW, selectH);
+        s2 = new Select(selectValues, 400, 210+selectH+60+10, selectW, selectH);
         s3 = new Select(selectValues, 400+selectW+75, 100+2*30+20+30+10+70, selectW, selectH);
 
 
         // Creació dels Switch Button
-        sb1 = new SwitchButton(p5, 400, 210+selectH+60+10, 340, 40);
+        sb1 = new SwitchButton(p5, 400, 210+selectH+60+30+50+10+25, 340, 40);
         sb2 = new SwitchButton(p5, 400, 210+selectH+60+30+50+10+10, 340, 40);
         sb3 = new SwitchButton(p5, 400, 210+selectH+50+70, 340, 40);
 
         // Creació dels CheckBox
-        cb1 = new CheckBox(p5, 440+530+30-5, 250+3*40+3*20+30-5,35);
+        //cb1 = new CheckBox(p5, 440+530+30-5, 250+3*40+3*20+30-5,35);
 
         //Calendari
-        c = new Calendari(390+350+60,210+(int)selectH+30,380,290);
+        c = new Calendari(390+350+60+10,210+(int)selectH+30-28,380,290);
 
         // Paged songs
             // Carregar de les imatges (icones);
@@ -434,7 +441,7 @@ public class GUI {
     }
 
     public void dibujaPantallaRegistro(PApplet p5){
-        p5.background(161, 141, 103);
+        p5.background(196, 183, 161);
         rbb.display(p5);
         dibujaRectRegistro(p5);
         rb11.display(p5);
@@ -445,18 +452,20 @@ public class GUI {
             p5.fill(31, 27, 31); p5.textSize(20);
             p5.text("Nombre de usuario", 440, 240+40+20+10);
         tf2.display(p5);
-            p5.fill(31, 27, 31); p5.textSize(20);
+       /*   p5.fill(31, 27, 31); p5.textSize(20);
             p5.text("Correo electrónico", 440, 240+(2*40)+(2*20)+(10*2));
         tf3.display(p5);
+        */
             p5.fill(31, 27, 31); p5.textSize(20);
-            p5.text("Contraseña", 440, 240+3*40+3*20+10*3);
+            p5.text("Contraseña", 440+135, 240+3*40+3*20+10*3-45);
         tf4.display(p5);
             p5.fill(31, 27, 31); p5.textSize(20);
-            p5.text("Confirmar contraseña", 440, 240+4*40+4*20+10*4);
+            p5.text("Confirmar contraseña", 440+135, 240+4*40+4*20+10*4-35);
         tf5.display(p5);
-            p5.fill(31, 27, 31); p5.textSize(20);
+        /*    p5.fill(31, 27, 31); p5.textSize(20);
             p5.text("Visualizar contraseña", 440+530+30+(35+10)-5, 250+3*40+3*20+30-5+25);
         cb1.display(p5);
+         */
     }
 
     public void dibujaPantallaFavoritos(PApplet p5){
@@ -480,7 +489,7 @@ public class GUI {
             p5.text("Lista de Tus Canciones", 400, 75);
         dibujaBotonsTuCuentaRB(p5);
         b5.display(p5);
-        t1.display(p5, 390, 100, tableW, tableH-50);
+        t2.display(p5, 390, 100, tableW, tableH-50);
         t2b1.display(p5);
         t2b2.display(p5);
     }
@@ -495,19 +504,23 @@ public class GUI {
             p5.text("Título de la canción", 400, 130);
         tf6.display(p5);
             p5.fill(31, 27, 31); p5.textSize(20);
-            p5.text("Deseas agregar la canción en Favoritos?", 400, 210+selectH+60);
+            p5.text("Deseas agregar la canción en Favoritos?", 400, 210+selectH+60+30+50+20);
         sb1.display(p5);
-            p5.fill(31, 27, 31); p5.textSize(20);
-            p5.text("Deseas agregar la canción en una lista?", 400, 210+selectH+60+30+50+10);
+            /*p5.fill(31, 27, 31); p5.textSize(20);
+            p5.text("Deseas agregar la canción en una lista?"
         sb2.display(p5);
+             */
             p5.fill(31, 27, 31); p5.textSize(20);
             p5.text("Seleccionar categoría", 400, 100+2*30+20+30);
         s1.display(p5);
-            p5.fill(31, 27, 31); p5.textSize(20);
-            p5.text("Seleccionar subcategoría", 400+selectW+75, 100+2*30+20+30);
         b9.display(p5);
+        p5.fill(31, 27, 31); p5.textSize(20);
+        p5.text("Seleccionar fecha actual", 400+selectW+65+8, 100+2*30+85-23);
         c.display(p5);
+            p5.fill(31, 27, 31); p5.textSize(20);
+            p5.text("Seleccionar lista", 400, 210+selectH+60);
         s2.display(p5);
+        b29.display(p5);
     }
 
     public void dibujaPantallaTusListas(PApplet p5){

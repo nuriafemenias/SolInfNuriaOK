@@ -44,8 +44,8 @@ public class DayButton {
         p5.stroke(0); p5.strokeWeight(1);
         p5.rect(x, y, w, h, 5);
         if(selected){
-            p5.fill(200, 100, 100); p5.noStroke();
-            p5.ellipse(x + w/2, y+h/2, 80, 80);
+            p5.fill(195, 172, 194); p5.noStroke();
+            p5.ellipse(x + w/2, y+h/2, 50, 50);
         }
         p5.fill(0); p5.textSize(24); p5.textAlign(p5.CENTER);
         p5.text(dia, x + w/2, y + h/2 + 10);
