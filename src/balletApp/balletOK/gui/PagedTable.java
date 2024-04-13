@@ -65,7 +65,7 @@ public class PagedTable {
         p5.rect(x, y, w, h);
 
         float rowHeight = h / numRows;
-        p5.fill(200, 100, 100); p5.stroke(0); p5.strokeWeight(3);
+        p5.fill(161, 141, 103); p5.stroke(0); p5.strokeWeight(3);
         p5.rect(x, y, w, rowHeight);
 
         p5.stroke(0);

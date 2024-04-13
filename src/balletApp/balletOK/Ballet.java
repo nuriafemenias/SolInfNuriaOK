@@ -1,6 +1,8 @@
 package balletApp.balletOK;
 
 import balletApp.balletOK.gui.DataBase;
+import balletApp.balletOK.gui.PagedTable;
+import balletApp.balletOK.gui.TusListasCard;
 import processing.core.PApplet;
 
 public class Ballet extends PApplet {
@@ -84,6 +86,30 @@ public class Ballet extends PApplet {
             case Reproductor:
                 gui.dibujaPantallaReproductor(this);
                 break;
+
+            case Listas:
+                gui.dibujaPantallaListas(this);
+                break;
+
+            case Coreografia:
+                gui.dibujaPantallaCoreografia(this);
+                break;
+
+            case Centro:
+                gui.dibujaPantallaCentro(this);
+                break;
+
+            case Diagonal:
+                gui.dibujaPantallaDiagonal(this);
+                break;
+
+            case Ballets:
+                gui.dibujaPantallaBallets(this);
+                break;
+
+            case Otras:
+                gui.dibujaPantallaOtras(this);
+                break;
         }
 
     }
@@ -131,8 +157,16 @@ public class Ballet extends PApplet {
     }
 
     public void mousePressed() {
-
         if (gui.pantallaActual == GUI.PANTALLA.agregarLista) {
+            if(gui.rb3.mouseOverButton(this)){
+                gui.pantallaActual = GUI.PANTALLA.TusCanciones;
+            }else if(gui.rb4.mouseOverButton(this)){
+                gui.pantallaActual = GUI.PANTALLA.TusListas;
+            } else if(gui.b.mouseOverButton(this) && gui.b.isEnabled()){
+                gui.selectedText = gui.tList.getSelectedValue();
+            }
+            gui.tf6.isPressed(this);
+            gui.tf66.isPressed(this);
             if(gui.b29.mouseOverButton(this)) {
                 String titulo = gui.tf6.text;
                 String subtitulo = gui.tf66.text;
@@ -140,21 +174,160 @@ public class Ballet extends PApplet {
                 String numCateg = db.getClaveFromTabla("categoría", "idCategoría","nombre", categoria);
                 db.insertLista(titulo, subtitulo, numCateg);
             }
-        }
-
-        if (gui.pantallaActual == GUI.PANTALLA.agregarCanción) {
-            if(gui.b29.mouseOverButton(this)) {
+        } else if (gui.pantallaActual == GUI.PANTALLA.agregarCanción) {
+            gui.ps1.checkButtons(this);
+            gui.cs = gui.ps1.checkCardClick(this);
+            gui.c.checkButtons(this);
+            gui.tf6.isPressed(this);
+            gui.tf66.isPressed(this);
+            if(gui.rb3.mouseOverButton(this)){
+                gui.pantallaActual = GUI.PANTALLA.TusCanciones;
+            }else if(gui.rb4.mouseOverButton(this)){
+                gui.pantallaActual = GUI.PANTALLA.TusListas;
+            } else if(gui.b29.mouseOverButton(this)) {
                 String titulo = gui.tf6.text;
                 String dia = gui.c.getSelectedDate();
                 String categoria = gui.s1.getSelectedValue();
                 String favoritos = gui.sb1.toString();
                 db.insertCancion(titulo, dia, categoria, favoritos);
             }
+        } else if (gui.pantallaActual == GUI.PANTALLA.Canciones) {
+            if(gui.b7.mouseOverButton(this)){
+                gui.pantallaActual = GUI.PANTALLA.Calentamiento;
+            }
+            if(gui.b8.mouseOverButton(this)){
+                gui.pantallaActual = GUI.PANTALLA.Coreografia;
+            }
+        } else if (gui.pantallaActual == GUI.PANTALLA.registro) {
+            if(gui.b1.mouseOverButton(this)){
+                gui.pantallaActual = GUI.PANTALLA.Canciones;
+            }
+            gui.tf1.isPressed(this);
+            gui.tf2.isPressed(this);
+            gui.tf3.isPressed(this);
+            gui.tf4.isPressed(this);
+            gui.tf5.isPressed(this);
+        } else if (gui.pantallaActual == GUI.PANTALLA.Calentamiento) {
+            if(gui.b21.mouseOverButton(this)){
+                gui.pantallaActual = GUI.PANTALLA.Barra;
+            }else if(gui.b22.mouseOverButton(this)){
+                gui.pantallaActual = GUI.PANTALLA.Centro;
+            }else if(gui.b23.mouseOverButton(this)){
+                gui.pantallaActual = GUI.PANTALLA.Diagonal;
+            }
+        } else if (gui.pantallaActual == GUI.PANTALLA.Coreografia) {
+            if(gui.b21a.mouseOverButton(this)){
+                gui.pantallaActual = GUI.PANTALLA.Barra;
+            }else if(gui.b22a.mouseOverButton(this)){
+                gui.pantallaActual = GUI.PANTALLA.Centro;
+            }else if(gui.b23a.mouseOverButton(this)){
+                gui.pantallaActual = GUI.PANTALLA.Diagonal;
+            }
+        } else if (gui.pantallaActual == GUI.PANTALLA.Favoritos) {
+            if(gui.rb3.mouseOverButton(this)){
+                gui.pantallaActual = GUI.PANTALLA.TusCanciones;
+            }else if(gui.rb4.mouseOverButton(this)){
+                gui.pantallaActual = GUI.PANTALLA.TusListas;
+            }else if (gui.t1b1.mouseOverButton(this) && gui.t1b1.isEnabled()) {
+                gui.t1.nextPage();
+            } else if (gui.t1b2.mouseOverButton(this) && gui.t1b2.isEnabled()) {
+                gui.t1.prevPage();
+            }
+        } else if (gui.pantallaActual == GUI.PANTALLA.TusCanciones) {
+            if(gui.b5.mouseOverButton(this)){
+                gui.pantallaActual = GUI.PANTALLA.agregarCanción;
+            } else if(gui.rb3.mouseOverButton(this)){
+                gui.pantallaActual = GUI.PANTALLA.TusCanciones;
+            }else if(gui.rb4.mouseOverButton(this)){
+                gui.pantallaActual = GUI.PANTALLA.TusListas;
+            } else if (gui.t2b1.mouseOverButton(this) && gui.t2b1.isEnabled()) {
+                gui.t2.nextPage();
+            } else if (gui.t2b2.mouseOverButton(this) && gui.t2b2.isEnabled()) {
+                gui.t2.prevPage();
+            }
+        } else if (gui.pantallaActual == GUI.PANTALLA.ListaCanciones) {
+            gui.ps1.checkButtons(this);
+            gui.cs = gui.ps1.checkCardClick(this);
+            if(gui.b27.mouseOverButton(this)){
+                gui.pantallaActual = GUI.PANTALLA.agregarLista;
+            }
+        } else if (gui.pantallaActual == GUI.PANTALLA.Barra) {
+            gui.pl1.checkButtons(this);
+            if(gui.b27.mouseOverButton(this)){
+                gui.pantallaActual = GUI.PANTALLA.agregarLista;
+            }
+        } else if (gui.pantallaActual == GUI.PANTALLA.TusListas) {
+            if(gui.rb3.mouseOverButton(this)){
+                gui.pantallaActual = GUI.PANTALLA.TusCanciones;
+            }else if(gui.rb4.mouseOverButton(this)){
+                gui.pantallaActual = GUI.PANTALLA.TusListas;
+            } else if (gui.b1.isPressed(this)) {
+                gui.ptl1.nextPage();
+            } else if (gui.b2.isPressed(this)) {
+                gui.ptl1.prevPage();
+            }
+            gui.cardSeleccionada = gui.ptl1.checkCardClick(this);
+            if(gui.confirml.isVisible()  && gui.confirml.bAceptar.mouseOverButton(this)){
+                String titulo = gui.cardSeleccionada.getTitle();
+                db.deleteInfoTaulaLista(titulo);
+                gui.confirml.setVisible(false);
+            } else if (gui.confirml.bCancelar.mouseOverButton(this)){
+                gui.confirml.setVisible(false);
+            } else if(gui.cardSeleccionada!=null && gui.cardSeleccionada.mouseOnPapeleraButton(this)){
+                gui.confirml.setVisible(true);
+            } else if(gui.b6.mouseOverButton(this)){
+                gui.pantallaActual = GUI.PANTALLA.agregarLista;
+            } else if(gui.ptl1.numCardOver(this)!= -1){
+                TusListasCard tlcSelecccionada = gui.ptl1.checkCardClick(this);
+                String tituloLista = tlcSelecccionada.getTitle();
+                System.out.println("LISTA SELECCIONADA: "+ tituloLista);
+                String[][] infoCanciones = gui.db.getInfoCancionesLista(tituloLista);
+                System.out.println("NUM CANCIONES LISTA: "+infoCanciones.length);
+                gui.pantallaActual = GUI.PANTALLA.cancionesTusListas;
+
+                gui.ptSongsList = new PagedTable(6, 3);
+                String[] headers = {"NUM", "TITULO", "FECHA"};
+                gui.ptSongsList.setHeaders(headers);
+                float[] colWidths = {20, 40, 40};
+                gui.ptSongsList.setColumnWidths(colWidths);
+                gui.ptSongsList.setData(infoCanciones);
+
+                tlcSelecccionada = null;
+            }
+        } else if (gui.pantallaActual == GUI.PANTALLA.Centro) {
+            gui.pl2.checkButtons(this);
+            if(gui.b27.mouseOverButton(this)){
+                gui.pantallaActual = GUI.PANTALLA.agregarLista;
+            }
+        } else if (gui.pantallaActual == GUI.PANTALLA.Diagonal) {
+            gui.pl3.checkButtons(this);
+            if(gui.b27.mouseOverButton(this)){
+                gui.pantallaActual = GUI.PANTALLA.agregarLista;
+            }
+        } else if (gui.pantallaActual == GUI.PANTALLA.Ballets) {
+            gui.pl4.checkButtons(this);
+            if(gui.b27.mouseOverButton(this)){
+                gui.pantallaActual = GUI.PANTALLA.agregarLista;
+            }
+        } else if (gui.pantallaActual == GUI.PANTALLA.Otras) {
+            gui.pl5.checkButtons(this);
+            if(gui.b27.mouseOverButton(this)){
+                gui.pantallaActual = GUI.PANTALLA.agregarLista;
+            }
+        } else if (gui.pantallaActual == GUI.PANTALLA.cancionesTusListas) {
+            if(gui.rb3.mouseOverButton(this)){
+                gui.pantallaActual = GUI.PANTALLA.TusCanciones;
+            } else if(gui.rb4.mouseOverButton(this)){
+                gui.pantallaActual = GUI.PANTALLA.TusListas;
+            } else if(gui.b5.mouseOverButton(this)){
+                gui.pantallaActual = GUI.PANTALLA.agregarCanción;
+            }
         }
 
 
 
-        if (gui.pantallaActual == GUI.PANTALLA.Favoritos || gui.pantallaActual == GUI.PANTALLA.TusCanciones || gui.pantallaActual == GUI.PANTALLA.agregarCanción || gui.pantallaActual == GUI.PANTALLA.TusListas || gui.pantallaActual == GUI.PANTALLA.cancionesTusListas || gui.pantallaActual == GUI.PANTALLA.agregarLista) {
+
+        /*if (gui.pantallaActual == GUI.PANTALLA.Favoritos || gui.pantallaActual == GUI.PANTALLA.TusCanciones || gui.pantallaActual == GUI.PANTALLA.agregarCanción || gui.pantallaActual == GUI.PANTALLA.TusListas || gui.pantallaActual == GUI.PANTALLA.cancionesTusListas || gui.pantallaActual == GUI.PANTALLA.agregarLista) {
             if(gui.rb3.mouseOverButton(this)){
                 gui.pantallaActual = GUI.PANTALLA.TusCanciones;
             }else if(gui.rb4.mouseOverButton(this)){
@@ -166,14 +339,12 @@ public class Ballet extends PApplet {
                 gui.pantallaActual = GUI.PANTALLA.agregarCanción;
             }
         }
-
-        if (gui.pantallaActual == GUI.PANTALLA.Canciones) {
-            if(gui.b8.mouseOverButton(this)){
-                gui.pantallaActual = GUI.PANTALLA.Reproductor;
+        if (gui.pantallaActual == GUI.PANTALLA.Barra || gui.pantallaActual == GUI.PANTALLA.ListaCanciones) {
+            if(gui.b27.mouseOverButton(this)){
+                gui.pantallaActual = GUI.PANTALLA.agregarLista;
             }
         }
-
-
+         */
         if (gui.pantallaActual != GUI.PANTALLA.Reproductor && gui.pantallaActual != GUI.PANTALLA.registro) {
             if(gui.b3.mouseOverButton(this)){
                 gui.pantallaActual = GUI.PANTALLA.Favoritos;
@@ -190,95 +361,30 @@ public class Ballet extends PApplet {
             }
         }
 
-        if (gui.pantallaActual == GUI.PANTALLA.Barra || gui.pantallaActual == GUI.PANTALLA.ListaCanciones) {
-            if(gui.b27.mouseOverButton(this)){
-                gui.pantallaActual = GUI.PANTALLA.agregarLista;
-            }
-        }
 
-
-        if (gui.pantallaActual == GUI.PANTALLA.registro) {
-            if(gui.b1.mouseOverButton(this)){
-                gui.pantallaActual = GUI.PANTALLA.Canciones;
-            }
-            gui.tf1.isPressed(this);
-            gui.tf2.isPressed(this);
-            gui.tf3.isPressed(this);
-            gui.tf4.isPressed(this);
-            gui.tf5.isPressed(this);
-        }
-
-        if (gui.pantallaActual == GUI.PANTALLA.agregarCanción) {
-            gui.tf6.isPressed(this);
-            gui.tf66.isPressed(this);
-        }
-
-        if (gui.pantallaActual == GUI.PANTALLA.agregarLista) {
-            gui.tf6.isPressed(this);
-            gui.tf66.isPressed(this);
-        }
-
-        if (gui.pantallaActual == GUI.PANTALLA.Calentamiento) {
-            // Comprova si pitjam sobre els botons del MusicPlayer
-            if(gui.b21.mouseOverButton(this)){
-                gui.pantallaActual = GUI.PANTALLA.TusListas;
-            }else if(gui.b22.mouseOverButton(this)){
-                gui.pantallaActual = GUI.PANTALLA.TusListas;
-            }else if(gui.b23.mouseOverButton(this)){
-                gui.pantallaActual = GUI.PANTALLA.TusListas;
-            }
-        }
-
-
-        if (gui.rb2.mouseOverButton(this)) {
-            println("HAS FET CLIC SOBRE EL BOTÓ RB1");
-        }
-        if (gui.rb3.mouseOverButton(this)) {
-            println("HAS FET CLIC SOBRE EL BOTÓ RB2");
-        }
-        if (gui.rb4.mouseOverButton(this)) {
-            println("HAS FET CLIC SOBRE EL BOTÓ RB3");
-        }
-
-
-        if (gui.pantallaActual == GUI.PANTALLA.Favoritos) {
-            if (gui.t1b1.mouseOverButton(this) && gui.t1b1.isEnabled()) {
-                gui.t1.nextPage();
-            } else if (gui.t1b2.mouseOverButton(this) && gui.t1b2.isEnabled()) {
-                gui.t1.prevPage();
-            }
-        }
-        if (gui.pantallaActual == GUI.PANTALLA.TusCanciones) {
-            if (gui.t2b1.mouseOverButton(this) && gui.t2b1.isEnabled()) {
-                gui.t2.nextPage();
-            } else if (gui.t2b2.mouseOverButton(this) && gui.t2b2.isEnabled()) {
-                gui.t2.prevPage();
-            }
-        }
 
         if(gui.s1.mouseOverSelect(this) && gui.s1.isEnabled()){
             if(!gui.s1.isCollapsed()){
-                gui.s1.update(this);      // Actualitzar valor
-                updateColor();                  // Fer acció amb valor
+                gui.s1.update(this);
+                updateColor();
             }
-            gui.s1.toggle();        // Plegar o desplegar
+            gui.s1.toggle();
         }
         if(gui.s2.mouseOverSelect(this) && gui.s2.isEnabled()){
             if(!gui.s2.isCollapsed()){
-                gui.s2.update(this);      // Actualitzar valor
-                updateColor();    // Fer acció amb valor
+                gui.s2.update(this);
+                updateColor();
             }
-            gui.s2.toggle();        // Plegar o desplegar
+            gui.s2.toggle();
         }
         if(gui.s3.mouseOverSelect(this) && gui.s3.isEnabled()){
             if(!gui.s3.isCollapsed()){
-                gui.s3.update(this);      // Actualitzar valor
-                updateColor();                // Fer acció amb valor
+                gui.s3.update(this);
+                updateColor();
             }
-            gui.s3.toggle();        // Plegar o desplegar
+            gui.s3.toggle();
         }
 
-        // Comprova si pitjam amb el mouse sobre el SwitchButton
         if(gui.sb1.mouseOverButton(this)){
             gui.sb1.toggle();
             if(gui.sb1.isEnabled()){
@@ -307,82 +413,7 @@ public class Ballet extends PApplet {
             }
         }
 
-        // Si pitjam sobre el checboxes
-        /*if(gui.cb1.onMouseOver(this)){
-            gui.cb1.toggle();
-        }
 
-         */
-
-        if (gui.pantallaActual == GUI.PANTALLA.agregarCanción) {
-            // Comprovar si clicam sobre botons del Calendari
-            gui.c.checkButtons(this);
-        }
-
-        // Paged songs
-        if (gui.pantallaActual == GUI.PANTALLA.ListaCanciones) {
-            gui.ps1.checkButtons(this);
-            gui.cs = gui.ps1.checkCardClick(this);
-        }
-        // Paged songs
-        if (gui.pantallaActual == GUI.PANTALLA.agregarCanción) {
-            gui.ps1.checkButtons(this);
-            gui.cs = gui.ps1.checkCardClick(this);
-        }
-
-        // Paged lista
-        if (gui.pantallaActual == GUI.PANTALLA.Barra) {
-            gui.pl1.checkButtons(this);
-            //gui.cs = gui.pl1.checkCardClick(this);
-        }
-        // Paged tus listas
-        if (gui.pantallaActual == GUI.PANTALLA.TusListas) {
-
-            //boolean botonSeleccionat =  gui.confirml.mouseOnCancelarButton(this);
-
-            if(gui.confirml.isVisible()  && gui.confirml.bAceptar.mouseOverButton(this)){
-                String titulo = gui.cardSeleccionada.getTitle();
-                db.deleteInfoTaulaLista(titulo);
-                gui.confirml.setVisible(false);
-            }
-            else if (gui.confirml.bCancelar.mouseOverButton(this)){
-                gui.confirml.setVisible(false);
-            }
-            else if(gui.cardSeleccionada!=null && gui.cardSeleccionada.mouseOnPapeleraButton(this)){
-               gui.confirml.setVisible(true);
-            }
-            //gui.cs = gui.ptl1.checkCardClick(this);
-            /*if (gui.bAceptar.mouseOverButton(this) //&& gui.b.isEnabled()){
-
-            }
-
-            if(gui.b29.mouseOverButton(this)) {
-                String titulo = gui.tf6.text;
-                String categoria = gui.s3.getSelectedValue();
-                String numCateg = db.getClaveFromTabla("categoría", "idCategoría","nombre", categoria);
-                db.deleteInfoTaulaLista(titulo);
-        }
-
-        */
-
-            gui.cardSeleccionada = gui.ptl1.checkCardClick(this);
-            if(gui.b6.mouseOverButton(this)){
-                gui.pantallaActual = GUI.PANTALLA.agregarLista;
-            }
-
-
-        }
-        if (gui.pantallaActual == GUI.PANTALLA.Canciones) {
-            if(gui.b7.mouseOverButton(this)){
-                gui.pantallaActual = GUI.PANTALLA.Calentamiento;
-            }
-        }
-
-        // TextList
-        // Pitjam sobre el botó de TRIA
-        if(gui.b.mouseOverButton(this) && gui.b.isEnabled()){
-            gui.selectedText = gui.tList.getSelectedValue();
-        }
 
         // Mirarm si pitjam damunt el textList (camp de text o botó)
         gui.tList.getTextField().isPressed(this);

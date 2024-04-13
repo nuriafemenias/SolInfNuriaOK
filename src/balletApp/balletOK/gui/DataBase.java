@@ -143,7 +143,7 @@ public class DataBase {
         String[][] info = new String[numFiles][numCols];
         try {
             Statement query = c.createStatement();
-            ResultSet rs = query.executeQuery( "SELECT c.título AS TITULO, c.Lista_título AS LISTA, c.orden AS ORDEN FROM canción c");
+            ResultSet rs = query.executeQuery( "SELECT c.título AS TITULO, c.Lista_título AS LISTA, c.orden AS ORDEN FROM canción c WHERE c.favorito = '1'");
             int nr = 0;
             while (rs.next()) {
                 info[nr][0] = rs.getString("ORDEN");
@@ -158,7 +158,6 @@ public class DataBase {
             return null;
         }
     }
-    //WHERE c.favorito = '1'
 
     public String [][] getInfoTaulaTusCanciones (String nomUsuario){
         int numFiles = getNumRowsTaula("canción");
@@ -166,12 +165,37 @@ public class DataBase {
         String[][] info = new String[numFiles][numCols];
         try {
             Statement query = c.createStatement();
-            ResultSet rs = query.executeQuery( "SELECT c.título AS TITULO, c.Lista_título AS LISTA, c.orden AS ORDEN FROM canción c ");
+            ResultSet rs = query.executeQuery("SELECT c.título AS TITULO, c.Lista_título AS LISTA, c.orden AS ORDEN FROM canción c, lista l WHERE c.Lista_título = l.título AND c.Lista_título = 'Tus Canciones");
             int nr = 0;
             while (rs.next()) {
-                info[nr][0] = rs.getString("ORDEN");
-                info[nr][1] = rs.getString("LISTA");
+                info[nr][0] = rs.getString("ORDEN");                info[nr][1] = rs.getString("LISTA");
                 info[nr][2] = rs.getString("TITULO");
+                nr++;
+            }
+            return info;
+        }
+        catch(Exception e) {
+            System.out.println(e);
+            return null;
+        }
+    }
+
+
+
+    public String[][] getInfoCancionesLista(String idLista){
+        String qn ="SELECT COUNT(*) As n FROM canción c, lista l WHERE c.Lista_título = l.título AND l.título = '"+idLista+"' ORDER BY c.orden ASC";
+        int numFiles = getNumRowsQuery(qn);
+        int numCols  = 3;
+        String[][] info = new String[numFiles][numCols];
+        try {
+            String q ="SELECT c.orden AS ORDEN, c.título AS TITULO, c.día AS DIA FROM canción c, lista l " +
+                    "WHERE c.Lista_título = l.título AND l.título = '"+idLista+"' ORDER BY c.orden ASC";
+            ResultSet rs = query.executeQuery(q);
+            int nr = 0;
+            while (rs.next()) {
+                info[nr][0] = String.valueOf(rs.getInt("ORDEN"));
+                info[nr][1] = rs.getString("TITULO");
+                info[nr][2] = rs.getString("DIA");
                 nr++;
             }
             return info;
@@ -204,6 +228,120 @@ public class DataBase {
             return null;
         }
     }
+
+
+    public String [][] getListasBarra(String nomUsuario){
+        String qn ="SELECT COUNT(*) As n FROM lista l, usuario u, categoría c WHERE l.Usuario = u.nombre AND l.Usuario = '"+nomUsuario+"' AND l.Categoría = c.idCategoría AND l.Categoría = '6'";
+        int numFiles = getNumRowsQuery(qn);
+        int numCols  = 3;
+        String[][] info = new String[numFiles][numCols];
+        try {
+            String q ="SELECT l.numCanciones AS NUM, l.título AS TITULO, c.nombre AS CATEGORIA FROM lista l, usuario u, categoría c WHERE l.Usuario = u.nombre AND l.Usuario = '"+nomUsuario+"' AND l.Categoría = c.idCategoría AND l.Categoría = '6' ORDER BY l.orden ASC";
+            ResultSet rs = query.executeQuery(q);
+            int nr = 0;
+            while (rs.next()) {
+                info[nr][0] = String.valueOf(rs.getString("NUM"));
+                info[nr][1] = rs.getString("TITULO");
+                info[nr][2] = rs.getString("CATEGORIA");
+                nr++;
+            }
+            return info;
+        }
+        catch(Exception e) {
+            System.out.println(e);
+            return null;
+        }
+    }
+    public String [][] getListasCentro(String nomUsuario){
+        String qn ="SELECT COUNT(*) As n FROM lista l, usuario u, categoría c WHERE l.Usuario = u.nombre AND l.Usuario = '"+nomUsuario+"' AND l.Categoría = c.idCategoría AND l.Categoría = '7'";
+        int numFiles = getNumRowsQuery(qn);
+        int numCols  = 3;
+        String[][] info = new String[numFiles][numCols];
+        try {
+            String q ="SELECT l.numCanciones AS NUM, l.título AS TITULO, c.nombre AS CATEGORIA FROM lista l, usuario u, categoría c WHERE l.Usuario = u.nombre AND l.Usuario = '"+nomUsuario+"' AND l.Categoría = c.idCategoría AND l.Categoría = '7' ORDER BY l.orden ASC";
+            ResultSet rs = query.executeQuery(q);
+            int nr = 0;
+            while (rs.next()) {
+                info[nr][0] = String.valueOf(rs.getString("NUM"));
+                info[nr][1] = rs.getString("TITULO");
+                info[nr][2] = rs.getString("CATEGORIA");
+                nr++;
+            }
+            return info;
+        }
+        catch(Exception e) {
+            System.out.println(e);
+            return null;
+        }
+    }
+    public String [][] getListasDiagonal(String nomUsuario){
+        String qn ="SELECT COUNT(*) As n FROM lista l, usuario u, categoría c WHERE l.Usuario = u.nombre AND l.Usuario = '"+nomUsuario+"' AND l.Categoría = c.idCategoría AND l.Categoría = '8'";
+        int numFiles = getNumRowsQuery(qn);
+        int numCols  = 3;
+        String[][] info = new String[numFiles][numCols];
+        try {
+            String q ="SELECT l.numCanciones AS NUM, l.título AS TITULO, c.nombre AS CATEGORIA FROM lista l, usuario u, categoría c WHERE l.Usuario = u.nombre AND l.Usuario = '"+nomUsuario+"' AND l.Categoría = c.idCategoría AND l.Categoría = '8' ORDER BY l.orden ASC";
+            ResultSet rs = query.executeQuery(q);
+            int nr = 0;
+            while (rs.next()) {
+                info[nr][0] = String.valueOf(rs.getString("NUM"));
+                info[nr][1] = rs.getString("TITULO");
+                info[nr][2] = rs.getString("CATEGORIA");
+                nr++;
+            }
+            return info;
+        }
+        catch(Exception e) {
+            System.out.println(e);
+            return null;
+        }
+    }
+    public String [][] getListasBallets(String nomUsuario){
+        String qn ="SELECT COUNT(*) As n FROM lista l, usuario u, categoría c WHERE l.Usuario = u.nombre AND l.Usuario = '"+nomUsuario+"' AND l.Categoría = c.idCategoría AND l.Categoría = '9'";
+        int numFiles = getNumRowsQuery(qn);
+        int numCols  = 3;
+        String[][] info = new String[numFiles][numCols];
+        try {
+            String q ="SELECT l.numCanciones AS NUM, l.título AS TITULO, c.nombre AS CATEGORIA FROM lista l, usuario u, categoría c WHERE l.Usuario = u.nombre AND l.Usuario = '"+nomUsuario+"' AND l.Categoría = c.idCategoría AND l.Categoría = '9' ORDER BY l.orden ASC";
+            ResultSet rs = query.executeQuery(q);
+            int nr = 0;
+            while (rs.next()) {
+                info[nr][0] = String.valueOf(rs.getString("NUM"));
+                info[nr][1] = rs.getString("TITULO");
+                info[nr][2] = rs.getString("CATEGORIA");
+                nr++;
+            }
+            return info;
+        }
+        catch(Exception e) {
+            System.out.println(e);
+            return null;
+        }
+    }
+    public String [][] getListasOtras(String nomUsuario){
+        String qn ="SELECT COUNT(*) As n FROM lista l, usuario u, categoría c WHERE l.Usuario = u.nombre AND l.Usuario = '"+nomUsuario+"' AND l.Categoría = c.idCategoría AND l.Categoría = '11'";
+        int numFiles = getNumRowsQuery(qn);
+        int numCols  = 3;
+        String[][] info = new String[numFiles][numCols];
+        try {
+            String q ="SELECT l.numCanciones AS NUM, l.título AS TITULO, c.nombre AS CATEGORIA FROM lista l, usuario u, categoría c WHERE l.Usuario = u.nombre AND l.Usuario = '"+nomUsuario+"' AND l.Categoría = c.idCategoría AND l.Categoría = '11' ORDER BY l.orden ASC";
+            ResultSet rs = query.executeQuery(q);
+            int nr = 0;
+            while (rs.next()) {
+                info[nr][0] = String.valueOf(rs.getString("NUM"));
+                info[nr][1] = rs.getString("TITULO");
+                info[nr][2] = rs.getString("CATEGORIA");
+                nr++;
+            }
+            return info;
+        }
+        catch(Exception e) {
+            System.out.println(e);
+            return null;
+        }
+    }
+
+
 
 
     // Retorna les dades de la columna NOM de la taula UNITAT
@@ -302,15 +440,16 @@ public class DataBase {
     // UPDATES
 
     // Actualitza les dades a la taula Unitat
-
-    void updateInfoTaulaUnitat(String id, String num, String nom){
+    public void updateFavoritoCancion(String idCancion, boolean favorito){
+        String valorFavorito = favorito ? "1" : "0";
+        String q = "UPDATE canción SET favorito = '" + valorFavorito + "' WHERE título = '" + idCancion + "' ";
+        System.out.println(q);
         try {
-            String q = "UPDATE unitat SET numero='"+num+"', nom='"+nom+"' WHERE numero='"+id+"'";
-            System.out.println(q);
             query.execute(q);
         }
         catch(Exception e) {
             System.out.println(e);
         }
     }
+
 }
