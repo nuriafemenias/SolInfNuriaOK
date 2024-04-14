@@ -17,8 +17,11 @@ public class GUI {
 
     public PANTALLA pantallaActual;
 
+    String tituloLista;
+
     Colors colores;
     Fonts fonts;
+    String nombreCalentamiento;
 
     // Declaració dels components de la GUI
     Button  b1, b2, b3, b4, b5, b6, b7, b8, b9, b11, b12, b13, b21, b21a, b22, b22a, b23, b23a, b24, b25, b26, b27, b28, b29;
@@ -309,11 +312,14 @@ public class GUI {
         inf = db.getInfoTaulaFavoritos("nuriafemeniass");
         t1.setData(inf);
         t1.setColumnWidths(colWidths);
-        t2 = new PagedTable(filess, columness);
-        t2.setHeaders(headerss);
+
+        t2 = new PagedTable(filess, 3);
+        String[] headersTusCanciones = {"Orden", "Lista", "Título"};
+        t2.setHeaders(headersTusCanciones);
         inff = db.getInfoTaulaTusCanciones("nuriafemeniass");
         t2.setData(inff);
-        t2.setColumnWidths(colWidthss);
+        t2.setColumnWidths(colWidths);
+
         // Creació dels botons 1
         t1b1 = new Button(p5, ">", 390 + tableW/2 + 10 + buttonW - buttonW/2, tableH + 130, buttonW, buttonH);
         t1b1.setColors(colores.getColorAt(3), 0, colores.getColorAt(2), colores.getColorAt(2));
@@ -326,7 +332,8 @@ public class GUI {
 
         // Creació dels Select
         s1 = new Select(selectValues, 400, 100+2*30+20+30+10, selectW, selectH);
-        s2 = new Select(selectValues, 400, 210+selectH+60+10, selectW, selectH);
+        String[] nombresListas = db.getNombresListas("nuriafemeniass");
+        s2 = new Select(nombresListas, 400, 210+selectH+60+10, selectW, selectH);
         s3 = new Select(selectValues, 400+selectW+75, 100+2*30+20+30+10+70, selectW, selectH);
 
 
@@ -355,13 +362,13 @@ public class GUI {
         inf3 = db.getInfoTaulaTusListas("nuriafemeniass");
 
         pl2 = new PagedLists(p5, numCardsPage3, -10+menuWidth+margeH, margeV+60, cardsW, cardsH);
-        inf4 = db.getListasCentro("nuriafemeniass");
+        inf4 = db.getInfoListasCategoria("nuriafemeniass", "Centro");
         pl3 = new PagedLists(p5, numCardsPage3, -10+menuWidth+margeH, margeV+60, cardsW, cardsH);
-        inf5 = db.getListasDiagonal("nuriafemeniass");
+        inf5 = db.getInfoListasCategoria("nuriafemeniass", "Diagonal");
         pl4 = new PagedLists(p5, numCardsPage3, -10+menuWidth+margeH, margeV+60, cardsW, cardsH);
-        inf6 = db.getListasBallets("nuriafemeniass");
+        inf6 = db.getInfoListasCategoria("nuriafemeniass", "Ballets");
         pl5 = new PagedLists(p5, numCardsPage3, -10+menuWidth+margeH, margeV+60, cardsW, cardsH);
-        inf7 = db.getListasOtras("nuriafemeniass");
+        inf7 = db.getInfoListasCategoria("nuriafemeniass", "Otras");
 
         System.out.println("\nCONTINGUT INF3: ");
         for(int i=0; i<inf3.length; i++){
@@ -381,10 +388,14 @@ public class GUI {
 
 
         // Creació de la taula
+        /*
             ps1 = new PagedSongs(p5, numCardsPage, -10+menuWidth+margeH, margeV+60, cardsW, cardsH);
             inf = db.getInfoTaulaCanciones("nuriafemeniass");
             ps1.setData(inf);
             ps1.setCards(p5, imgFave, imgNoFave, imgPlay);
+
+         */
+
 
 
         // Paged List
@@ -490,8 +501,8 @@ public class GUI {
     public void dibujaPantallaTusCanciones(PApplet p5){
         p5.background(231, 224, 218);
         dibujaFullMenu(p5);
-            p5.fill(31, 27, 31); p5.textSize(20);
-            p5.text("Tus Canciones", 400, 75);
+        p5.fill(31, 27, 31); p5.textSize(20);
+        p5.text("Lista de Tus Canciones", 400, 75);
         dibujaBotonsTuCuentaRB(p5);
         b5.display(p5);
         t2.display(p5, 390, 100, tableW, tableH-50);
@@ -510,21 +521,17 @@ public class GUI {
         tf6.display(p5);
             p5.fill(31, 27, 31); p5.textSize(20);
             p5.text("Deseas agregar la canción en Favoritos?", 400, 210+selectH+60+30+50+20);
-        sb1.display(p5);
-            /*p5.fill(31, 27, 31); p5.textSize(20);
-            p5.text("Deseas agregar la canción en una lista?"
-        sb2.display(p5);
-             */
             p5.fill(31, 27, 31); p5.textSize(20);
             p5.text("Seleccionar categoría", 400, 100+2*30+20+30);
-        s1.display(p5);
         b9.display(p5);
         p5.fill(31, 27, 31); p5.textSize(20);
         p5.text("Seleccionar fecha actual", 400+selectW+65+8, 100+2*30+85-23);
         c.display(p5);
             p5.fill(31, 27, 31); p5.textSize(20);
             p5.text("Seleccionar lista", 400, 210+selectH+60);
+        sb1.display(p5);
         s2.display(p5);
+        s1.display(p5);
         b29.display(p5);
     }
 
@@ -540,14 +547,15 @@ public class GUI {
     }
 
     public void dibujaPantallaCancionesTusListas(PApplet p5){
-        p5.background(231, 224, 218);
-        dibujaFullMenu(p5);
+            p5.background(231, 224, 218);
+            dibujaFullMenu(p5);
             p5.fill(31, 27, 31); p5.textSize(20);
-            p5.text("Título de la lista", 400, 75);
-        dibujaBotonsTuCuentaRB(p5);
-        b5.display(p5);
-        b9.display(p5);
-    }
+            p5.text(tituloLista, 400, 75);
+            dibujaBotonsTuCuentaRB(p5);
+            b5.display(p5);
+            b11.display(p5);
+            ptSongsList.display(p5, 400, 100, 600, 400);
+        }
 
     public void dibujaPantallaAgregarLista(PApplet p5){
         p5.background(231, 224, 218);
@@ -613,66 +621,24 @@ public class GUI {
     }
 
     public void dibujaPantallaBarra(PApplet p5){
-        p5.background(231, 224, 218);
-        dibujaFullMenu(p5);
+            p5.background(231, 224, 218);
+            dibujaFullMenu(p5);
             p5.fill(31, 27, 31); p5.textSize(20);
-            p5.text("Barra", 400, 75);
-        b11.display(p5);
-        b27.display(p5);
-        pl1.display(p5);
+            p5.text(this.nombreCalentamiento, 400, 75);
+            b11.display(p5);
+            b27.display(p5);
+            pl1.display(p5);
     }
-
-
-    public void dibujaPantallaCentro(PApplet p5){
-        p5.background(231, 224, 218);
-        dibujaFullMenu(p5);
-        p5.fill(31, 27, 31); p5.textSize(20);
-        p5.text("Centro", 400, 75);
-        b11.display(p5);
-        b27.display(p5);
-        pl2.display(p5);
-    }
-
-
-    public void dibujaPantallaDiagonal(PApplet p5){
-        p5.background(231, 224, 218);
-        dibujaFullMenu(p5);
-        p5.fill(31, 27, 31); p5.textSize(20);
-        p5.text("Diagonal", 400, 75);
-        b11.display(p5);
-        b27.display(p5);
-        pl3.display(p5);
-    }
-
-    public void dibujaPantallaBallets(PApplet p5){
-        p5.background(231, 224, 218);
-        dibujaFullMenu(p5);
-        p5.fill(31, 27, 31); p5.textSize(20);
-        p5.text("Ballets", 400, 75);
-        b11.display(p5);
-        b27.display(p5);
-        pl4.display(p5);
-    }
-
-    public void dibujaPantallaOtras(PApplet p5){
-        p5.background(231, 224, 218);
-        dibujaFullMenu(p5);
-        p5.fill(31, 27, 31); p5.textSize(20);
-        p5.text("Otras", 400, 75);
-        b11.display(p5);
-        b27.display(p5);
-        pl5.display(p5);
-    }
-
 
 
     public void dibujaPantallaVariacionesListaCanciones(PApplet p5){
         p5.background(231, 224, 218);
         dibujaFullMenu(p5);
             p5.fill(31, 27, 31); p5.textSize(20);
-            p5.text("Variaciones", 400, 65);
+            p5.text(this.nombreCalentamiento, 400, 65);
         b11.display(p5);
         b27.display(p5);
+        pl1.display(p5);
     }
 
     public void dibujaPantallaListaCanciones(PApplet p5){
