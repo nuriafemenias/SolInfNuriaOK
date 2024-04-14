@@ -103,6 +103,10 @@ public class Ballet extends PApplet {
                 gui.dibujaPantallaListaCanciones(this);
                 break;
 
+            case Listas:
+                 gui.dibujaPantallaListas(this);
+                 break;
+
             case Reproductor:
                 gui.dibujaPantallaReproductor(this);
                 break;
@@ -504,6 +508,10 @@ public class Ballet extends PApplet {
             if (gui.b3.mouseOverButton(this)) {
                 gui.pantallaActual = GUI.PANTALLA.Favoritos;
             }
+            // Boton Agregar Lista
+            else if (gui.b27.mouseOverButton(this)) {
+                gui.pantallaActual = GUI.PANTALLA.agregarLista;
+            }
             // Boton Canciones
             else if (gui.b4.mouseOverButton(this)) {
                 gui.pantallaActual = GUI.PANTALLA.Canciones;
@@ -516,13 +524,13 @@ public class Ballet extends PApplet {
                 String tituloLista = lcSelecccionada.getTitle();
                 gui.tituloLista = tituloLista;
 
-                gui.pantallaActual = GUI.PANTALLA.ListaCanciones;
+                gui.pantallaActual = GUI.PANTALLA.Listas;
                 int numCardsPage = 7;
                 float cardsW = 850, cardsH = rect2Height - 60 - 50;
                 gui.ps1 = new PagedSongs(this, numCardsPage, -10 + menuWidth + margeH, margeV + 60, cardsW, cardsH);
 
-                inf = db.getInfoTaulaCanciones("nuriafemeniass", tituloLista);
-                gui.ps1.setData(inf);
+                String[][] infoCanciones = db.getInfoCancionesCategoria("nuriafemeniass", "Barra");
+                gui.ps1.setData(infoCanciones);
                 PImage imgFave, imgNoFave, imgPlay;
                 imgFave = this.loadImage("imgFave.png");
                 imgNoFave = this.loadImage("imgNoFave.png");
@@ -531,6 +539,29 @@ public class Ballet extends PApplet {
             }
         }
 
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        else if (gui.pantallaActual == GUI.PANTALLA.Listas) {
+            gui.ps1.checkButtons(this);
+            gui.cs = gui.ps1.checkCardClick(this);
+            // Boton TuCuenta
+            if (gui.b3.mouseOverButton(this)) {
+                gui.pantallaActual = GUI.PANTALLA.Favoritos;
+            }
+            // Boton Canciones
+            else if (gui.b4.mouseOverButton(this)) {
+                gui.pantallaActual = GUI.PANTALLA.Canciones;
+            }
+            // Boton Agregar Lista
+            else if (gui.b27.mouseOverButton(this)) {
+                gui.pantallaActual = GUI.PANTALLA.agregarLista;
+            }
+            // Play
+            else if (gui.ps1.checkCardClick(this) != null){
+                if(gui.ps1.imgPlay){
+                    gui.pantallaActual = GUI.PANTALLA.Reproductor;
+                }
+            }
+        }
 
         // Clicks sobre Pantalla LISTA CANCIONES /////////////////////////////////////////////////////////////
 

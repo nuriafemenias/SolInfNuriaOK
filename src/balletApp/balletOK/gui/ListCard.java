@@ -46,9 +46,9 @@ public class ListCard {
 
         // Rectangle inferior
         p5.stroke(0);
-        p5.fill(220);
+        p5.fill(161, 141, 103);
         if (mouseOver) {
-            p5.fill(220, 100, 100);
+            p5.fill(196, 183, 161);
         }
         p5.rect(x, y, w, h, b/2);
 

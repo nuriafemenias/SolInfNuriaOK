@@ -55,9 +55,9 @@ public class SongCard {
 
         // Rectangle inferior
         p5.stroke(0);
-        p5.fill(220);
+        p5.fill(195, 172, 194);
         if (mouseOver) {
-            p5.fill(220, 100, 100);
+            p5.fill(152, 113, 150);
         }
         p5.rect(x, y, w, h, b/2);
 

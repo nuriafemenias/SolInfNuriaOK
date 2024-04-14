@@ -137,27 +137,37 @@ public class DataBase {
         }
     }
 
-    public String[][] getInfoTaulaCanciones(String nomUsuario, String nomcat){
-        int numFiles = getNumRowsTaula("canción");
-        int numCols  = 4;
-        String[][] info = new String[numFiles][numCols];
-        try {
-            ResultSet rs = query.executeQuery( "SELECT c.título AS TITULO, c.Lista_título AS LISTA, c.favorito AS FAVORITO FROM canción c WHERE c.categoria = '"+nomcat+"' ORDER BY TITULO ASC");
-            int nr = 0;
-            while (rs.next()) {
-                info[nr][0] = String.valueOf(nr+1);
-                info[nr][1] = rs.getString("TITULO");
-                info[nr][2] = rs.getString("LISTA");
-                info[nr][3] = rs.getString("FAVORITO");
-                nr++;
+    public String[][] getInfoCancionesCategoria(String nomUsuario, String nomCategoria){
+            String qn = "SELECT COUNT(*) AS n " +
+                    " FROM canción c, lista l, categoría cat, usuario u " +
+                    " WHERE l.Categoría = cat.idCategoría AND c.Lista_título=l.título AND l.Usuario= u.nombre " +
+                    "  AND u.nombre='"+nomUsuario+"' AND cat.nombre='"+nomCategoria+"' ";
+            int numFiles = getNumRowsQuery(qn);
+            int numCols  = 4;
+            String[][] info = new String[numFiles][numCols];
+            try {
+                String q = "SELECT c.título AS TITULO, c.día AS DIA, c.Lista_título AS LISTA, c.orden AS ORDEN, c.favorito AS FAVORITO " +
+                        " FROM canción c, lista l, categoría cat, usuario u " +
+                        " WHERE l.Categoría = cat.idCategoría AND c.Lista_título=l.título AND l.Usuario= u.nombre " +
+                        "  AND u.nombre='nuriafemeniass' AND cat.nombre='Barra' " +
+                        " ORDER BY c.título ASC";
+                ResultSet rs = query.executeQuery( q);
+                int nr = 0;
+                while (rs.next()) {
+                    info[nr][0] = String.valueOf(nr+1);
+                    info[nr][1] = rs.getString("TITULO");
+                    info[nr][2] = rs.getString("LISTA");
+                    info[nr][3] = rs.getString("FAVORITO");
+                    nr++;
+                }
+                return info;
             }
-            return info;
+            catch(Exception e) {
+                System.out.println(e);
+                return null;
+            }
         }
-        catch(Exception e) {
-            System.out.println(e);
-            return null;
-        }
-    }
+
 
 
     public String[][] getInfoTaulaFavoritos(){
