@@ -20,8 +20,8 @@ public class RoundButton {
         this.y = y;
         this.r = r;
         this.enabled = true;
-        this.fillColor = p5.color(155, 55, 155);
-        this.fillColorOver = p5.color(255, 55, 155);
+        this.fillColor = p5.color(75, 112, 72);
+        this.fillColorOver = p5.color(161, 141, 103);
         this.fillColorDisabled = p5.color(150);
         this.strokeColor = p5.color(0);
     }

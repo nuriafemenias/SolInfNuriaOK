@@ -3,11 +3,11 @@ package balletApp.balletOK;
 
 import processing.core.PApplet;
 
-public class Colors {
+public class Colores {
 
             int[] colors;
 
-            public Colors(PApplet p5){
+            public Colores(PApplet p5){
                 this.setColors(p5);
             }
 

@@ -2,7 +2,7 @@ package balletApp.balletOK.gui;
 
 import processing.core.PApplet;
 
-public class Table {
+public class Tabla {
 
     String[] tableHeaders;   // Títols de les columnes
     String[][] tableData;    // Dades de la taula
@@ -11,7 +11,7 @@ public class Table {
     int numCols, numRows;  // Número de files i columnes
 
     // Constructor
-    public Table(int nr, int nc){
+    public Tabla(int nr, int nc){
         this.numRows = nr;
         this.numCols = nc;
     }

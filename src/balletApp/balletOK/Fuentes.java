@@ -3,12 +3,12 @@ package balletApp.balletOK;
 import processing.core.PApplet;
 import processing.core.PFont;
 
-import static balletApp.balletOK.Mides.*;
+import static balletApp.balletOK.Midas.*;
 
-public class Fonts {
+public class Fuentes {
     PFont[] fonts;
 
-    public Fonts(PApplet p5){
+    public Fuentes(PApplet p5){
         this.setFonts(p5);
     }
 

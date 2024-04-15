@@ -37,9 +37,9 @@ public class MusicPlayer {
     public void display(PApplet p5){
 
         p5.pushStyle();
-        p5.stroke(200, 100, 100); p5.strokeWeight(8);
-        p5.fill(100); p5.rectMode(p5.CORNER);
-        p5.rect(this.x -50, this.y-200, 650, 300, 5);
+        p5.stroke(161, 141, 103); p5.strokeWeight(8);
+        p5.fill(196, 183, 161); p5.rectMode(p5.CORNER);
+        p5.rect(this.x -50, this.y-200, 650, 350, 5);
 
         p5.stroke(0); p5.strokeWeight(5);
         p5.line(this.x, this.y - 50, this.x + 550, this.y - 50);

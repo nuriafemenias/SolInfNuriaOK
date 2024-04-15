@@ -4,7 +4,7 @@ import balletApp.balletOK.gui.*;
 import processing.core.PApplet;
 import processing.core.PImage;
 
-import static balletApp.balletOK.Mides.*;
+import static balletApp.balletOK.Midas.*;
 
 public class Ballet extends PApplet {
 
@@ -23,37 +23,13 @@ public class Ballet extends PApplet {
 
     public void setup() {
         background(255);
-
-        // Configura els paràmetres de connexió a la BBDD
         db = new DataBase("admin", "12345", "musica");
-        // Connecta amb la BBDD
         db.connect();
-
         gui = new GUI(this, db);
-
-        /*
-        println("-----------");
-        String[][] infoFavs = db.getInfoTaulaFavoritos();
-        db.printArray2d(infoFavs);
-        println("-----------");
-        infoFavs = db.getInfoTaulaFavoritos("nuriafemeniass");
-        db.printArray2d(infoFavs);
-        println("-----------");
-        infoFavs = db.getInfoListasCategoria("nuriafemeniass", "Calentamiento");
-        db.printArray2d(infoFavs);
-
-        String[] infoFavs = db.getNombresListas("nuriafemeniass");
-        db.printArray1d(infoFavs);
-
-         */
-
-
     }
 
     public void draw() {
         background(255);
-        // Dibuixa la pantalla corresponent
-
         switch (gui.pantallaActual) {
             case registro:
                 gui.dibujaPantallaRegistro(this);
@@ -89,6 +65,10 @@ public class Ballet extends PApplet {
 
             case Calentamiento:
                 gui.dibujaPantallaCalentamiento(this);
+                break;
+
+            case Coreografia:
+                gui.dibujaPantallaCoreografia(this);
                 break;
 
             case Barra:
@@ -140,22 +120,14 @@ public class Ballet extends PApplet {
         gui.tf9.keyPressed(key, keyCode);
 
         if (gui.pantallaActual == GUI.PANTALLA.agregarCanción) {
-            // Anar un mes enrere
             if (keyCode == LEFT) {
                 gui.c.prevMonth();
                 println("PREV MONTH");
             }
-            // Anar un mes endavant
             else if (keyCode == RIGHT) {
                 gui.c.nextMonth();
                 println("PREV MONTH");
             }
-        }
-
-        // TextList
-        if(gui.tList.getTextField().mouseOverTextField(this)){
-            gui.tList.getTextField().keyPressed(key, (int)keyCode);
-            gui.tList.update(this);
         }
     }
 
@@ -193,7 +165,7 @@ public class Ballet extends PApplet {
             }
             //Boton Coreografia
             else if (gui.b8.mouseOverButton(this)) {
-                gui.pantallaActual = GUI.PANTALLA.Reproductor;  // A quina pantalla???
+                gui.pantallaActual = GUI.PANTALLA.Coreografia;
             }
         }
 
@@ -275,6 +247,7 @@ public class Ballet extends PApplet {
             if (!gui.confirml.isVisible()) {
                 gui.cardSeleccionada = gui.ptl1.checkCardClick(this);
             }
+
 
             // Boton TuCuenta
             if (gui.b3.mouseOverButton(this)) {
@@ -367,14 +340,12 @@ public class Ballet extends PApplet {
             else if (gui.sb3.mouseOverButton(this)) {
                 gui.sb3.toggle();
             }
-            // Botón TRIA
-            else if (gui.b.mouseOverButton(this)) {
-                gui.selectedText = gui.tList.getSelectedValue();
+            else if (gui.s3.mouseOverSelect(this)) {
+                if (!gui.s3.isCollapsed()) {
+                    gui.s3.update(this);
+                }
+                gui.s3.toggle();
             }
-
-            // TextList
-            gui.tList.getTextField().isPressed(this);
-            gui.tList.buttonPressed(this);
 
             // Textfields Título y Subtítulo
             gui.tf6.isPressed(this);
@@ -502,6 +473,51 @@ public class Ballet extends PApplet {
 
         }
 
+
+        // Clicks sobre Pantalla COREOGRAFIA /////////////////////////////////////////////////////////////
+
+        else if (gui.pantallaActual == GUI.PANTALLA.Coreografia) {
+            // Boton TuCuenta
+            if (gui.b3.mouseOverButton(this)) {
+                gui.pantallaActual = GUI.PANTALLA.Favoritos;
+            }
+            else if (gui.b4.mouseOverButton(this)) {
+                gui.pantallaActual = GUI.PANTALLA.Canciones;
+            }
+            else if (gui.b21a.mouseOverButton(this)) {
+                gui.pantallaActual = GUI.PANTALLA.Barra;
+                gui.nombreCalentamiento = "BALLETS";
+                gui.pl1 = new PagedLists(this, gui.numCardsPage2, -10 + menuWidth + margeH, margeV + 60, gui.cardsW, gui.cardsH);
+                String[][] infoBarra = db.getInfoListasCategoria("nuriafemeniass", "Ballets");
+                gui.pl1.setData(infoBarra);
+                gui.pl1.setCards(this);
+            }
+            else if (gui.b22a.mouseOverButton(this)) {
+                gui.pantallaActual = GUI.PANTALLA.Barra;
+                gui.nombreCalentamiento = "VARIACIONES";
+                gui.pl1 = new PagedLists(this, gui.numCardsPage2, -10 + menuWidth + margeH, margeV + 60, gui.cardsW, gui.cardsH);
+                String[][] infoCentro = db.getInfoListasCategoria("nuriafemeniass", "Variaciones");
+                gui.pl1.setData(infoCentro);
+                gui.pl1.setCards(this);
+
+            }
+            else if (gui.b23a.mouseOverButton(this)) {
+                gui.pantallaActual = GUI.PANTALLA.Barra;
+                gui.nombreCalentamiento = "OTRAS";
+                gui.pl1 = new PagedLists(this, gui.numCardsPage2, -10 + menuWidth + margeH, margeV + 60, gui.cardsW, gui.cardsH);
+                String[][] infoDiagonal = db.getInfoListasCategoria("nuriafemeniass", "Otras");
+                gui.pl1.setData(infoDiagonal);
+                gui.pl1.setCards(this);
+
+            }
+            // Botón Agregar Lista
+            else if (gui.b27.mouseOverButton(this)) {
+                gui.pantallaActual = GUI.PANTALLA.agregarLista;
+            }
+
+        }
+
+
         // Clicks sobre Pantalla BARRA, CENTRO, DIAGONAL /////////////////////////////////////////////////////////////
         else if (gui.pantallaActual == GUI.PANTALLA.Barra) {
             // Boton TuCuenta
@@ -555,12 +571,9 @@ public class Ballet extends PApplet {
             else if (gui.b27.mouseOverButton(this)) {
                 gui.pantallaActual = GUI.PANTALLA.agregarLista;
             }
-            // Play
-            else if (gui.ps1.checkCardClick(this) != null){
-                if(gui.ps1.imgPlay){
-                    gui.pantallaActual = GUI.PANTALLA.Reproductor;
-                }
-            }
+            gui.db.updateFavoritoCancion("Nom Canço", true);
+            gui.db.updateFavoritoCancion("Nom Canço", false);
+
         }
 
         // Clicks sobre Pantalla LISTA CANCIONES /////////////////////////////////////////////////////////////
@@ -598,98 +611,9 @@ public class Ballet extends PApplet {
                 gui.db.updateFavoritoCancion("Nom Canço", true);
                 gui.db.updateFavoritoCancion("Nom Canço", false);
             }
-        }
-
-
-        /*
-        else if (gui.pantallaActual == GUI.PANTALLA.cancionesTusListas || gui.pantallaActual == GUI.PANTALLA.TusCanciones) {
-            if(gui.b5.mouseOverButton(this)){
-                gui.pantallaActual = GUI.PANTALLA.agregarCanción;
-            }
-        }
-
-
-        else if (gui.pantallaActual != GUI.PANTALLA.Reproductor && gui.pantallaActual != GUI.PANTALLA.registro) {
-            if(gui.b3.mouseOverButton(this)){
-                gui.pantallaActual = GUI.PANTALLA.Favoritos;
-            }else if(gui.rb2.mouseOverButton(this)){
-                gui.pantallaActual = GUI.PANTALLA.Favoritos;
-            }else if(gui.rb3.mouseOverButton(this)){
-                gui.pantallaActual = GUI.PANTALLA.TusCanciones;
-            }else if(gui.rb4.mouseOverButton(this)){
+            else if (gui.b9.mouseOverButton(this)) {
                 gui.pantallaActual = GUI.PANTALLA.TusListas;
-            }else if(gui.b4.mouseOverButton(this)){
-
-            }else if(gui.rb1.mouseOverButton(this)){
-                gui.pantallaActual = GUI.PANTALLA.registro;
             }
-        }
-
-        else if (gui.pantallaActual == GUI.PANTALLA.Barra || gui.pantallaActual == GUI.PANTALLA.ListaCanciones) {
-            if(gui.b27.mouseOverButton(this)){
-                gui.pantallaActual = GUI.PANTALLA.agregarLista;
-            }
-        }
-
-        else if (gui.pantallaActual == GUI.PANTALLA.TusCanciones) {
-            if (gui.t2b1.mouseOverButton(this) && gui.t2b1.isEnabled()) {
-                gui.t2.nextPage();
-            } else if (gui.t2b2.mouseOverButton(this) && gui.t2b2.isEnabled()) {
-                gui.t2.prevPage();
-            }
-        }
-
-        if (gui.rb2.mouseOverButton(this)) {
-            println("HAS FET CLIC SOBRE EL BOTÓ RB1");
-        }
-        if (gui.rb3.mouseOverButton(this)) {
-            println("HAS FET CLIC SOBRE EL BOTÓ RB2");
-        }
-        if (gui.rb4.mouseOverButton(this)) {
-            println("HAS FET CLIC SOBRE EL BOTÓ RB3");
-        }
-
-
-
-        if(gui.s3.mouseOverSelect(this) && gui.s3.isEnabled()){
-            if(!gui.s3.isCollapsed()){
-                gui.s3.update(this);      // Actualitzar valor
-                updateColor();                // Fer acció amb valor
-            }
-            gui.s3.toggle();        // Plegar o desplegar
-        }
-
-        // Comprova si pitjam amb el mouse sobre el SwitchButton
-        if(gui.sb1.mouseOverButton(this)){
-            gui.sb1.toggle();
-            if(gui.sb1.isEnabled()){
-                gui.bgColor = color(255);
-            }
-            else {
-                gui.bgColor = color(0);
-            }
-        }
-        if(gui.sb2.mouseOverButton(this)){
-            gui.sb2.toggle();
-            if(gui.sb2.isEnabled()){
-                gui.bgColor = color(255);
-            }
-            else {
-                gui.bgColor = color(0);
-            }
-        }
-
-         */
-
-
-    }
-
-
-    static void updateCursor(PApplet p5) {
-        if (gui.b.mouseOverButton(p5) || gui.tList.mouseOverButtons(p5)) {
-            p5.cursor(HAND);
-        } else {
-            p5.cursor(ARROW);
         }
     }
 

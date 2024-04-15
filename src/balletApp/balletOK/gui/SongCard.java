@@ -69,7 +69,7 @@ public class SongCard {
 
 
         // Categoria
-        p5. fill(100, 100, 200);
+        p5. fill(161, 141, 103);
         p5.noStroke();
         p5.rect(x + w - 100, y + 8, 100, 25);
         p5.fill(0);

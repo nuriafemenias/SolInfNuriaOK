@@ -60,7 +60,7 @@ public class ListCard {
 
 
         // Categoria
-        p5. fill(100, 100, 200);
+        p5. fill(195, 172, 194);
         p5.noStroke();
         p5.rect(x + w - 100, y + 8, 100, 25);
         p5.fill(0);

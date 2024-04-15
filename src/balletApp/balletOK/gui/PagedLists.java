@@ -29,8 +29,8 @@ public class PagedLists {
             this.h = h;
 
             // Creació dels botons
-            b1 = new Button(p5, ">", 100 + w, 80, buttonW, buttonH);
-            b2 = new Button(p5, "<", 100 + w, 100 + buttonH, buttonW, buttonH);
+            b1 = new Button(p5, ">", 390 + 850/2 + 10 + buttonW - buttonW/2, 500+buttonH/2+20, buttonW, buttonH);
+            b2 = new Button(p5, "<", 390 + 850/2 - 10 - buttonW - buttonW/2, 500+buttonH/2+20, buttonW, buttonH);
         }
 
         // Setters

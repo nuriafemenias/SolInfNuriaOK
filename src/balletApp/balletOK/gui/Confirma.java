@@ -1,8 +1,7 @@
 package balletApp.balletOK.gui;
 import processing.core.PApplet;
-import processing.core.PImage;
 
-    public class Confirm {
+public class Confirma {
 
         // Dimensions
         float x, y, w, h;
@@ -18,7 +17,7 @@ import processing.core.PImage;
 
         // Constructor
 
-        public Confirm(PApplet p5, String title, String message, float x, float y, float w, float h){
+        public Confirma(PApplet p5, String title, String message, float x, float y, float w, float h){
             this.title = title;
             this.message = message;
             this.x = x; this.y = y;
@@ -67,7 +66,7 @@ import processing.core.PImage;
                 p5.pushStyle();
 
                 // Rectangle
-                p5.stroke(0); p5.strokeWeight(10); p5.fill(200, 200, 100);
+                p5.stroke(0); p5.strokeWeight(10); p5.fill(190);
                 p5.rect(x, y, w, h, b/2);
 
                 p5.line(x, y + 2*b , x+w, y + 2*b);

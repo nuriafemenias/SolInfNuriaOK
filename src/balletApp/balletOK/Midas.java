@@ -1,6 +1,6 @@
 package balletApp.balletOK;
 
-public class Mides {
+public class Midas {
 
     // Fonts (tipografies)
     public static float midaTitol = 55;

@@ -4,7 +4,7 @@ import processing.core.PApplet;
 
 import java.util.Calendar;
 
-public class Calendari {
+public class Calendario {
 
     // Textos representatius dels mesos
     String[] months = {"Jan","Feb","Mar","Apr","May","Jun",
@@ -30,7 +30,7 @@ public class Calendari {
 
 
     // Constructor
-    public Calendari(int x, int y, int w, int h){
+    public Calendario(int x, int y, int w, int h){
 
         this.buttons = new DayButton[37];
 
