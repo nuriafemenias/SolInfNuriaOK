@@ -13,8 +13,8 @@ public class SongCard {
 
     float x, y, w, h, b;
 
-    FaveButton bFavorite;
-    RoundButton bPlay;
+    public FaveButton bFavorite;
+    public RoundButton bPlay;
 
     // Constructor
 
@@ -22,7 +22,7 @@ public class SongCard {
         this.id = data[0];
         this.title = data[1];
         this.category = data[2];
-        this.favorite = data[3].equals("S")? true : false;
+        this.favorite = data[3].equals("1")? true : false;
 
         this.x = x; this.y = y; this.w = w; this.h = h; this.b = b;
     }

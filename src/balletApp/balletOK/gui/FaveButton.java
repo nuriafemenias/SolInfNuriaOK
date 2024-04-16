@@ -20,6 +20,12 @@ public class FaveButton {
         this.favorite = fave;
     }
 
+    // Getters
+
+    public boolean isFavorite(){
+        return this.favorite;
+    }
+
     // Setters
 
     public void setFavorite(boolean b) {

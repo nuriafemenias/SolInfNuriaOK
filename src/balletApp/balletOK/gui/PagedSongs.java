@@ -123,6 +123,20 @@ public class PagedSongs {
         return null;
     }
 
+    public SongCard checkCardButtonsClick(PApplet p5) {
+
+        int firstCardPage = numSongsPage*numPage;
+        int lastCardPage  = numSongsPage*(numPage+1) - 1;
+
+        for (int i = firstCardPage; i <= lastCardPage & i<songs.length; i++) {
+            SongCard sc = songs[i];
+            if (sc.bFavorite.mouseOverButton(p5) || sc.bPlay.mouseOverButton(p5)) {
+                return sc;
+            }
+        }
+        return null;
+    }
+
     public void checkButtons(PApplet p5) {
         if (b1.mouseOverButton(p5)) {
             nextPage();

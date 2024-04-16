@@ -26,6 +26,10 @@ public class RoundButton {
         this.strokeColor = p5.color(0);
     }
 
+    public boolean getEnabled(){
+        return  this.enabled;
+    }
+
     // Setters
 
     public void setEnabled(boolean b){
