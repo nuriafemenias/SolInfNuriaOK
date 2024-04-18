@@ -10,7 +10,12 @@ public class MusicPlayer {
     String sTitle;
     float porcentaje;
 
-    // Constructor
+    /**
+     * Constructor del reproductor de música
+     * @param p5 objeto de la clase PApplet para dibujar
+     * @param x Posición x del reproductor
+     * @param y Posición y del reproductor
+     */
     public MusicPlayer(PApplet p5, float x, float y){
         this.x = x; this.y = y;
         bPlay = new Button(p5, "PLAY", this.x, this.y, 100, 50);
@@ -20,7 +25,6 @@ public class MusicPlayer {
         this.porcentaje = 0;
     }
 
-    // Setter del sonido del reproductor
     public void setSound(PApplet p5, String s){
         sTitle = s;
         so = new SoundFile(p5, s);
@@ -57,17 +61,4 @@ public class MusicPlayer {
             so.loop();
         }
     }
-
-
-
-    // Comprova si el cursor està sobre els botons
-   /* public boolean mouseOverButtons(PApplet p5){
-        return bPlay.mouseOverButton(p5) ||
-                bStop.mouseOverButton(p5) ||
-                bPause.mouseOverButton(p5) ||
-                bLoop.mouseOverButton(p5);
-    }
-
-    */
-
 }

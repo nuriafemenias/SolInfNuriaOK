@@ -4,21 +4,16 @@ import processing.core.PApplet;
 import processing.core.PImage;
 
 public class PagedSongs {
-    String[][] resultsData;     // Dades de les Cards
-    SongCard[] songs;           // Cançons
-    int numSongs;               // Número total de Cançons
-    int numSongsPage;           // Número de Cançons en 1 Pàgina
+    String[][] resultsData;
+    SongCard[] songs;
+    int numSongs;
+    int numSongsPage;
     int numPage;
     int numTotalPages;
     float x, y, w, h;
-
-    // Botons
     public Button b1, b2;
-
-    // Dimensions dels botons
     float buttonW = 60, buttonH = 30;
 
-    // Constructor
     public PagedSongs(PApplet p5, int ncp, float x, float y, float w, float h) {
 
         this.numSongsPage = ncp;
@@ -29,12 +24,10 @@ public class PagedSongs {
         this.w = w;
         this.h = h;
 
-        // Creació dels botons
         b1 = new Button(p5, ">", 390+315+buttonW+70, 500+30+39, buttonW, buttonH);
         b2 = new Button(p5, "<", 390+315, 500+30+39, buttonW, buttonH);
     }
 
-    // Setters
     public void setData(String[][] d) {
         this.resultsData = d;
         this.numTotalPages = d.length / this.numSongsPage;
@@ -65,12 +58,9 @@ public class PagedSongs {
         }
     }
 
-    // Dibuixa taula
     public void display(PApplet p5) {
 
         p5.pushStyle();
-
-        // Dibuixa Cards
         int firstCardPage = numSongsPage*numPage;
         int lastCardPage  = numSongsPage*(numPage+1) - 1;
 
@@ -80,8 +70,6 @@ public class PagedSongs {
                 songs[i].display(p5, mouseOver);
             }
         }
-
-        // Informació de la Pàgina
         p5.fill(0);
         p5.text("Pag: "+(this.numPage+1)+" / "+(this.numTotalPages+1), x + w + 50, y+10);
 

@@ -2,20 +2,13 @@ package balletApp.balletOK.gui;
 import processing.core.PApplet;
 
 public class Confirma {
+     float x, y, w, h;
+     String title;
+     String message;
 
-        // Dimensions
-        float x, y, w, h;
-
-        // Propietats
-        String title;
-        String message;
-
-        public Button bAceptar, bCancelar;
-        float buttonW = 200, buttonH = 80;
-
-        boolean visible = true;
-
-        // Constructor
+     public Button bAceptar, bCancelar;
+     float buttonW = 200, buttonH = 80;
+     boolean visible = true;
 
         public Confirma(PApplet p5, String title, String message, float x, float y, float w, float h){
             this.title = title;
@@ -25,8 +18,6 @@ public class Confirma {
             this.bAceptar = new Button(p5, "Acceptar", x + w/4 - buttonW/2, y + h - buttonH*1.5f, buttonW, buttonH);
             this.bCancelar = new Button(p5,"Cancelar", x + 3*w/4 - buttonW/2, y + h - buttonH*1.5f, buttonW, buttonH);
         }
-
-        //Setters
 
         public void setTextButtons(String txt1, String txt2){
             this.bAceptar.textBoto = txt1;
@@ -50,13 +41,9 @@ public class Confirma {
             }
         }
 
-        // Getter
-
         public boolean isVisible(){
             return  this.visible;
         }
-
-        // Dibuixa el Confirm
 
         public void display(PApplet p5){
 
@@ -65,21 +52,17 @@ public class Confirma {
 
                 p5.pushStyle();
 
-                // Rectangle
                 p5.stroke(0); p5.strokeWeight(10); p5.fill(190);
                 p5.rect(x, y, w, h, b/2);
 
                 p5.line(x, y + 2*b , x+w, y + 2*b);
 
-                // Títol
                 p5.fill(0); p5.textSize(38); p5.textAlign(p5.LEFT);
                 p5.text(title, x + b, y + 1.4f*b);
 
-                // Missatge
                 p5.fill(0); p5.textSize(24); p5.textAlign(p5.CENTER);
                 p5.text(message, x + w/2, y + 4*b);
 
-                // Botons d'Acceptar i Cancelar
                 bAceptar.display(p5);
                 bCancelar.display(p5);
                 p5.popStyle();

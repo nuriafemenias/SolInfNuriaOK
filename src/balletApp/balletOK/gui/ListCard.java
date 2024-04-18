@@ -3,15 +3,11 @@ package balletApp.balletOK.gui;
 import processing.core.PApplet;
 
 public class ListCard {
-
-    // Propietats
     String id;
     String title;
     String category;
 
     float x, y, w, h, b;
-
-    // Constructor
 
     public ListCard(float x, float y, float w, float h, float b, String[] data) {
         this.id = data[0];
@@ -28,8 +24,6 @@ public class ListCard {
         float rB = 30;
     }
 
-    // Getters
-
     public String getTitle(){
         return this.title;
     }
@@ -38,28 +32,19 @@ public class ListCard {
         return this.category;
     }
 
-
-    // Dibuixa la Card
     public void display(PApplet p5, boolean mouseOver) {
 
         p5.pushStyle();
-
-        // Rectangle inferior
         p5.stroke(0);
         p5.fill(161, 141, 103);
         if (mouseOver) {
             p5.fill(196, 183, 161);
         }
         p5.rect(x, y, w, h, b/2);
-
-        // Títol
         p5.fill(0);
         p5.textSize(24);
         p5.textAlign(p5.LEFT);
         p5.text(title, x + 10, y + h/2 + 10);
-
-
-        // Categoria
         p5. fill(195, 172, 194);
         p5.noStroke();
         p5.rect(x + w - 100, y + 8, 100, 25);

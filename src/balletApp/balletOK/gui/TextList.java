@@ -6,16 +6,16 @@ import java.util.ArrayList;
 
 public class TextList {
 
-    float x, y, w, h;          // Posició i dimensions
-    String[] texts;          // Valors possibles
+    float x, y, w, h;
+    String[] texts;
 
-    TextField textField;       // Camp de text
+    TextField textField;
 
-    int selectedIndex;         // Fila seleccionada
-    String selectedId;         // Id Seleccionat
-    String selectedValue;      // Valor Seleccionat
+    int selectedIndex;
+    String selectedId;
+    String selectedValue;
 
-    boolean enabled;           // Abilitat / desabilitat
+    boolean enabled;
 
     int numMatchs = 0;
     ArrayList<Button> buttons;

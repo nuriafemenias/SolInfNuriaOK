@@ -4,13 +4,10 @@ import processing.core.PApplet;
 import processing.core.PImage;
 
 public class FaveButton {
+    float x, y, r;
+    PImage iconaFave, iconaNoFave;
+    boolean favorite;
 
-    // Propietats d'un botó:
-    float x, y, r;  // Posició i dimensions
-    PImage iconaFave, iconaNoFave;       // Icones del botó
-    boolean favorite;                  // Favorit / No Favorit
-
-    // Mètode Constructor
     public FaveButton(PImage icona1, PImage icona2, float x, float y, float r, boolean fave) {
         this.iconaFave = icona1;
         this.iconaNoFave = icona2;
@@ -20,13 +17,9 @@ public class FaveButton {
         this.favorite = fave;
     }
 
-    // Getters
-
     public boolean isFavorite(){
         return this.favorite;
     }
-
-    // Setters
 
     public void setFavorite(boolean b) {
         this.favorite = b;
@@ -36,7 +29,6 @@ public class FaveButton {
         this.favorite = !this.favorite;
     }
 
-    // Dibuixa el botó
     public void display(PApplet p5) {
 
         p5.pushStyle();
@@ -49,12 +41,10 @@ public class FaveButton {
         p5.popStyle();
     }
 
-    // Indica si el cursor està sobre el botó
     public boolean mouseOverButton(PApplet p5) {
         return p5.dist(p5.mouseX, p5.mouseY, this.x, this.y)<= this.r;
     }
 
-    // Canvia l'estat de favorit en fer click a sobre
     public void checkMouseClick(PApplet p5){
         if(mouseOverButton(p5)){
             toggleFavorite();

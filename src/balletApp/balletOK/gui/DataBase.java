@@ -468,7 +468,7 @@ public class DataBase {
     /**
      * Conversión de las fechas del formato español al inglés
      * @param fechaEntrada Fecha recibida en idioma
-     * @return
+     * @return String de la fecha convertida al formato inglés
      */
     public String formataFechaEng(String fechaEntrada){
 

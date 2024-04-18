@@ -4,14 +4,14 @@ import processing.core.PApplet;
 
 public class Select {
 
-    float x, y, w, h;          // Posició i dimensions
-    String[] texts;            // Valors possibles
-    String selectedValue;      // Valor Seleccionat
+    float x, y, w, h;
+    String[] texts;
+    String selectedValue;
 
-    boolean collapsed = true;  // Plegat / Desplegat
-    boolean enabled;           // Abilitat / desabilitat
+    boolean collapsed = true;
+    boolean enabled;
 
-    float lineSpace = 15;      // Espai entre línies
+    float lineSpace = 15;
 
     public Select(String[] texts, float x, float y, float w, float h){
 
@@ -85,7 +85,6 @@ public class Select {
         selectedValue = texts[option];
     }
 
-    // Indica si el cursor està sobre el select
     public boolean mouseOverSelect(PApplet p5){
         if(this.collapsed){
             return (p5.mouseX >= x) &&

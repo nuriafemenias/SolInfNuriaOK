@@ -3,14 +3,10 @@ package balletApp.balletOK.gui;
 import processing.core.PApplet;
 
 public class SwitchButton {
-
-    // Propietats d'un botó:
-    float x, y, w, h;  // Posició i dimensions
-    // Colors de contorn, farciment, actiu i desactiu
+    float x, y, w, h;
     int fillColor, strokeColor, fillColorOver, fillColorDisabled;
-    boolean enabled;  // Abilitat / desabilitat
+    boolean enabled;
 
-    // Mètode Constructor
     public SwitchButton(PApplet p5, float x, float y, float w, float h){
         this.x = x;
         this.y = y;
@@ -23,8 +19,6 @@ public class SwitchButton {
         strokeColor = p5.color(0);
     }
 
-    // Setters
-
     void setEnabled(boolean b){
         this.enabled = b;
     }
@@ -33,27 +27,25 @@ public class SwitchButton {
         this.enabled = !this.enabled;
     }
 
-    // Getters
     public boolean isEnabled(){
         return  this.enabled;
     }
 
-    // Dibuixa el botó
     public void display(PApplet p5){
 
         p5.pushStyle();
 
         if(!enabled){
-            p5.fill(fillColorDisabled);  // Color desabilitat
+            p5.fill(fillColorDisabled);
         }
         else if(mouseOverButton(p5)){
-            p5.fill(fillColorOver);      // Color quan ratolí a sobre
+            p5.fill(fillColorOver);
         }
         else{
-            p5.fill(fillColor);          // Color actiu però ratolí fora
+            p5.fill(fillColor);
         }
-        p5.stroke(strokeColor); p5.strokeWeight(2);        //Color i gruixa del contorn
-        p5.rect(this.x, this.y, this.w, this.h, 10);    // Rectangle del botó
+        p5.stroke(strokeColor); p5.strokeWeight(2);
+        p5.rect(this.x, this.y, this.w, this.h, 10);
 
         p5.rectMode(p5.CENTER); p5.textAlign(p5.CENTER); p5.textSize(24);
         if(this.enabled){
@@ -71,7 +63,6 @@ public class SwitchButton {
 
     }
 
-    // Indica si el cursor està sobre el botó
     public boolean mouseOverButton(PApplet p5){
         return (p5.mouseX >= this.x) &&
                 (p5.mouseX<=this.x + this.w) &&

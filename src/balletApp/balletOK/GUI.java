@@ -55,7 +55,7 @@ public class GUI {
 
     /**
      * Creación de los componentes de la GUI (inicialización).
-     * @param p5
+     * @param p5 objeto de la clase PApplet para dibujar
      * @param db Parámetro conexión de la base de datos, de la clase DataBase.
      */
     public GUI(PApplet p5, DataBase db){
@@ -211,7 +211,7 @@ public class GUI {
 
     /**
      * Carga los elementos multimedia que utilizan los componentes de la GUI
-     * @param p5
+     * @param p5 objeto de la clase PApplet para dibujar
      */
     public void setMedia(PApplet p5){
         icono1 = p5.loadImage("RoundButton\\usuario.png");
@@ -226,7 +226,7 @@ public class GUI {
 
     /**
      * Dibuja el conjunto de botones redondos principales de la aplicación
-     * @param p5
+     * @param p5 objeto de la clase PApplet para dibujar
      */
     public void dibujaBotonsTuCuentaRB(PApplet p5){
         rb2.display(p5);
@@ -236,7 +236,7 @@ public class GUI {
 
     /**
      * Dibuja el menú de la aplicación con todos sus elementos
-     * @param p5
+     * @param p5 objeto de la clase PApplet para dibujar
      */
     public void dibujaFullMenu(PApplet p5){
         p5.pushStyle();
@@ -250,7 +250,7 @@ public class GUI {
 
     /**
      * Dibuja la pantalla Registro con todos sus elementos
-     * @param p5
+     * @param p5 objeto de la clase PApplet para dibujar
      */
     public void dibujaPantallaRegistro(PApplet p5){
         p5.background(196, 183, 161);
@@ -274,7 +274,7 @@ public class GUI {
 
     /**
      * Dibuja la pantalla Favoritos con todos sus elementos
-     * @param p5
+     * @param p5 objeto de la clase PApplet para dibujar
      */
     public void dibujaPantallaFavoritos(PApplet p5){
         p5.background(231, 224, 218);
@@ -291,7 +291,7 @@ public class GUI {
 
     /**
      * Dibuja la pantalla TusCanciones con todos sus elementos
-     * @param p5
+     * @param p5 objeto de la clase PApplet para dibujar
      */
     public void dibujaPantallaTusCanciones(PApplet p5){
         p5.background(231, 224, 218);
@@ -307,7 +307,7 @@ public class GUI {
 
     /**
      * Dibuja la pantalla AgregarCancion con todos sus elementos
-     * @param p5
+     * @param p5 objeto de la clase PApplet para dibujar
      */
     public void dibujaPantallaAgregarCancion(PApplet p5){
         p5.background(231, 224, 218);
@@ -336,7 +336,7 @@ public class GUI {
 
     /**
      * Dibuja la pantalla TusListas con todos sus elementos
-     * @param p5
+     * @param p5 objeto de la clase PApplet para dibujar
      */
     public void dibujaPantallaTusListas(PApplet p5){
         p5.background(231, 224, 218);
@@ -351,7 +351,7 @@ public class GUI {
 
     /**
      * Dibuja la pantalla CancionesTusListas con todos sus elementos
-     * @param p5
+     * @param p5 objeto de la clase PApplet para dibujar
      */
     public void dibujaPantallaCancionesTusListas(PApplet p5){
         p5.background(231, 224, 218);
@@ -366,7 +366,7 @@ public class GUI {
 
     /**
      * Dibuja la pantalla AgregarLista con todos sus elementos
-     * @param p5
+     * @param p5 objeto de la clase PApplet para dibujar
      */
     public void dibujaPantallaAgregarLista(PApplet p5){
             p5.background(231, 224, 218);
@@ -389,7 +389,7 @@ public class GUI {
 
     /**
      * Dibuja la pantalla Canciones con todos sus elementos
-     * @param p5
+     * @param p5 objeto de la clase PApplet para dibujar
      */
     public void dibujaPantallaCanciones(PApplet p5){
         p5.background(231, 224, 218);
@@ -402,7 +402,7 @@ public class GUI {
 
     /**
      * Dibuja la pantalla Calentamiento con todos sus elementos
-     * @param p5
+     * @param p5 objeto de la clase PApplet para dibujar
      */
     public void dibujaPantallaCalentamiento(PApplet p5){
         p5.background(231, 224, 218);
@@ -417,7 +417,7 @@ public class GUI {
 
     /**
      * Dibuja la pantalla Coreografía con todos sus elementos
-     * @param p5
+     * @param p5 objeto de la clase PApplet para dibujar
      */
     public void dibujaPantallaCoreografia(PApplet p5){
         p5.background(231, 224, 218);
@@ -432,7 +432,7 @@ public class GUI {
 
     /**
      * Dibuja la pantalla Barra con todos sus elementos
-     * @param p5
+     * @param p5 objeto de la clase PApplet para dibujar
      */
     public void dibujaPantallaBarra(PApplet p5){
         p5.background(231, 224, 218);
@@ -446,7 +446,7 @@ public class GUI {
 
     /**
      * Dibuja la pantalla VariacionesListaCanciones con todos sus elementos
-     * @param p5
+     * @param p5 objeto de la clase PApplet para dibujar
      */
     public void dibujaPantallaVariacionesListaCanciones(PApplet p5){
         p5.background(231, 224, 218);
@@ -459,13 +459,11 @@ public class GUI {
 
     /**
      * Dibuja la pantalla ListaCanciones con todos sus elementos
-     * @param p5
+     * @param p5 objeto de la clase PApplet para dibujar
      */
     public void dibujaPantallaListaCanciones(PApplet p5){
         p5.background(231, 224, 218);
         dibujaFullMenu(p5);
-        p5.fill(31, 27, 31); p5.textSize(20);
-        p5.text("Título de la lista", 400, 75);
         b11.display(p5);
         b27.display(p5);
         ps1.display(p5);
@@ -473,7 +471,7 @@ public class GUI {
 
     /**
      * Dibuja la pantalla Reproductor con todos sus elementos
-     * @param p5
+     * @param p5 objeto de la clase PApplet para dibujar
      */
     public void dibujaPantallaReproductor(PApplet p5){
         p5.background(231, 224, 218);
@@ -485,7 +483,7 @@ public class GUI {
 
     /**
      * Dibuja elemento de las zonas GUI, concretamente el rectángulo de la pantalla registro.
-     * @param p5
+     * @param p5 objeto de la clase PApplet para dibujar
      */
     public void dibujaRectRegistro(PApplet p5){
         p5.fill(231, 224, 218);
@@ -494,7 +492,7 @@ public class GUI {
 
     /**
      * Dibuja elemento de las zonas GUI, concretamente el rectángulo del menú.
-     * @param p5
+     * @param p5 objeto de la clase PApplet para dibujar
      */
     public void dibujaMenu(PApplet p5){
         p5.fill(231, 224, 218);

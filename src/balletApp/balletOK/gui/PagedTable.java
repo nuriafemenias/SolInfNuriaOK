@@ -4,23 +4,19 @@ import processing.core.PApplet;
 
 public class PagedTable {
 
-    String[] tableHeaders;   // Títols de les columnes
-    String[][] tableData;    // Dades de la taula
-    float[] columnWidths;    // Amplades de les columnes
-
-    int numCols, numRows;  // Número de files i columnes
+    String[] tableHeaders;
+    String[][] tableData;
+    float[] columnWidths;
+    int numCols, numRows;
 
     int numPage;
     int numTotalPages;
 
-    // Constructor
     public PagedTable(int nr, int nc){
         this.numRows = nr;
         this.numCols = nc;
         this.numPage = 0;
     }
-
-    // Setters
 
     public void setHeaders(String[] h){
         this.tableHeaders = h;
@@ -56,7 +52,6 @@ public class PagedTable {
         }
     }
 
-    // Dibuixa taula
     public void display(PApplet p5, float x, float y, float w, float h){
 
         p5.pushStyle();

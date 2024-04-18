@@ -4,19 +4,13 @@ import processing.core.PApplet;
 import processing.core.PImage;
 
 public class SongCard {
-
-    // Propietats
     String id;
     String title;
     String category;
     boolean favorite;
-
     float x, y, w, h, b;
-
     public FaveButton bFavorite;
     public RoundButton bPlay;
-
-    // Constructor
 
     public SongCard(float x, float y, float w, float h, float b, String[] data) {
         this.id = data[0];
@@ -36,7 +30,6 @@ public class SongCard {
         this.bPlay = new RoundButton(p5, imgPlay, xB2, yB, rB);
     }
 
-    // Getters
 
     public String getTitle(){
         return this.title;
@@ -47,28 +40,20 @@ public class SongCard {
     }
 
 
-    // Dibuixa la Card
 
     public void display(PApplet p5, boolean mouseOver) {
 
         p5.pushStyle();
-
-        // Rectangle inferior
         p5.stroke(0);
         p5.fill(195, 172, 194);
         if (mouseOver) {
             p5.fill(152, 113, 150);
         }
         p5.rect(x, y, w, h, b/2);
-
-        // Títol
         p5.fill(0);
         p5.textSize(24);
         p5.textAlign(p5.LEFT);
         p5.text(title, x + 10, y + h/2 + 10);
-
-
-        // Categoria
         p5. fill(161, 141, 103);
         p5.noStroke();
         p5.rect(x + w - 100, y + 8, 100, 25);
@@ -76,10 +61,8 @@ public class SongCard {
         p5.textAlign(p5.RIGHT);
         p5.textSize(14);
         p5.text(category, x + w - 10, y + 25);
-
         this.bFavorite.display(p5);
         this.bPlay.display(p5);
-
         p5.popStyle();
     }
 
